@@ -2,8 +2,7 @@
 
 http://www.WCVendors.com/
 
-This is WC Vendors, a fork of Matt Gates Product Vendor plugin.
->>>>>>> FETCH_HEAD
+This is WC Vendors, a fork of Matt Gates WordPress Product Vendor plugin.
 
 This has been forked due to the original author abandoning support for the plugin. We aim to implement bug fixes, maintain backwards compatibility and introduce new features. 
 
