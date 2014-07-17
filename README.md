@@ -1,14 +1,11 @@
 ## WC Vendors 
 
-<<<<<<< HEAD
 http://www.WCVendors.com/
 
 This is WC Vendors, a fork of Matt Gates Product Vendor plugin.
 >>>>>>> FETCH_HEAD
 
 This has been forked due to the original author abandoning support for the plugin. We aim to implement bug fixes, maintain backwards compatibility and introduce new features. 
-
-<<<<<<< HEAD
 
 ## WC Vendors Features
 
@@ -34,4 +31,3 @@ Features to be added include:
 ## Contact us
 
 Drop by and say hello!  http://www.WCVendors.com/
->>>>>>> FETCH_HEAD
