@@ -5,11 +5,11 @@
 
 <?php if ( PV_Vendors::is_pending( get_current_user_id() ) ) { ?>
 
-	<p><?php _e( 'Your account has not yet been approved to become a vendor.', 'wc_product_vendor' ); ?></p>
+	<p><?php _e( 'Your account has not yet been approved to become a vendor.  When it is, you will receive an email telling you that your account is approved!', 'wc_product_vendor' ); ?></p>
 
 <?php } else { ?>
 
-	<p><?php _e( 'Your account is not vendor capable.', 'wc_product_vendor' ); ?></p>
+	<p><?php _e( 'Your account is not setup as a vendor yet.  If you would like to register, please complete this page!', 'wc_product_vendor' ); ?></p>
 
 	<?php if ( Product_Vendor::$pv_options->get_option( 'show_vendor_registration' ) ) { ?>
 		<form method="POST" action="">
