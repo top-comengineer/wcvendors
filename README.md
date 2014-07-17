@@ -20,6 +20,8 @@ Vendors also have their own personalized dashboard they access from the frontend
 
 The checkout experience is just the same as you currently have it. This means that your customers still only have to pay once for however many products they purchase, regardless of which vendor is selling it.
 
+Support is currently available for PayPal Adpative - parallel payments with chained payments planned. 
+
 ## Future Development
 
 Features to be added include:
@@ -28,6 +30,8 @@ Features to be added include:
 - Tracking Numbers for shipments
 - Front-end vendor posting
 - Better reporting
+- Better shipping support
+- Chained payment support
 
 ## Contact us
 
