@@ -6,6 +6,8 @@ This is WC Vendors, a fork of Matt Gates WordPress Product Vendor plugin.
 
 This has been forked due to the original author abandoning support for the plugin. We aim to implement bug fixes, maintain backwards compatibility and introduce new features. 
 
+Using the ever popular WooCommerce as the basis create your own market place to mimic the likes of envato, eBay, Amazon and more. Allow users to become vendors and create their own stores on your WooCommerce store.  
+
 ## WC Vendors Features
 
 Allow vendors to sell just like etsy, Envato, or Amazon type sites! This allows other users to sell tangible products, virtual products, or downloads on your site. With this plugin, your vendors can receive commission of products they own from your store.
