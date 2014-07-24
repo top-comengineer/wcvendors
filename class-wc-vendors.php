@@ -2,22 +2,22 @@
 
 /**
  * Plugin Name:         WooCommerce - Product Vendor
- * Plugin URI:          http://shop.mgates.me/?p=410
+ * Plugin URI:          http://wcvendors.com
  * Description:         Assign products to your vendors, and receive a commission for each sale.
- * Author:              Matt Gates, Jamie Madden, Ben Martin 
+ * Author:              WC Vendors
  * Author URI:          http://mgates.me
  *
- * Version:             1.5.0.2
+ * Version:             1.0.0
  * Requires at least:   3.2.1
  * Tested up to:        3.9.1
  *
- * Text Domain:         wc_product_vendor
- * Domain Path:         /ProductVendor/languages/
+ * Text Domain:         wc_vendors
+ * Domain Path:         /WCVendors/languages/
  *
  * @category            Plugin
- * @copyright           Copyright © 2012 Matt Gates
- * @author              Matt Gates
- * @package             ProductVendor
+ * @copyright           Copyright © 2014 WC Vendors
+ * @author              WC Vendors
+ * @package             WCVendors
  */
 
 

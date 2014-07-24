@@ -1,19 +1,17 @@
 /**
- * Plugin Name:         WooCommerce - Product to Vendor
- * Plugin URI:          http://woocommerce.com/extend/woocommerce-product-vendor/
+ * Plugin Name:         WCVendors
+ * Plugin URI:          http://wcvendors.com
  * Description:         Assign products to your vendors, and receive a commission for each sale.
- * Author:              Matt Gates
- * Author URI:          http://mgates.me
- *
+ * Author:              WCVendors
+ * Author URI:          http://wvcendors.com 
+
  * @category            Plugin
- * @copyright           Copyright © 2012 WooCommerce Ltd.
- * @author              Matt Gates
- * @package             ProductVendor
+ * @copyright           Copyright © 2014 WooCommerce Ltd.
+ * @author              WCVendors
+ * @package             WCVendors
  */
 
-Mimick eBay, Envato, or Amazon type sites with this plugin and Jigoshop combined!
-
-Want to allow other users to sell products on your site? Now you can! With this extension, users can receive commission of products they own from your store.
+Create your own maketplace and allow vendors to sell just like etsy, Envato, or Amazon type sites! This allows other users to sell tangible products, virtual products, or downloads on your site. With this plugin, your vendors can receive commission of products they own from your store.
 
 Features:
  * Instantly pay users their commission as soon as an order is placed
@@ -24,4 +22,4 @@ Features:
  * Users can export their orders to a CSV file
 
 Documentation:
-http://docs.mgates.me/woocommerce/wc-product-vendor/
+http://www.wcvendors.com/knowledgebase/
