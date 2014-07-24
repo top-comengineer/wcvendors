@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name:         WooCommerce - Product Vendor
+ * Plugin Name:         WC Vendors
  * Plugin URI:          http://wcvendors.com
  * Description:         Assign products to your vendors, and receive a commission for each sale.
  * Author:              WC Vendors
