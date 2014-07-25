@@ -5,7 +5,7 @@
  * Plugin URI:          http://wcvendors.com
  * Description:         Assign products to your vendors, and receive a commission for each sale.
  * Author:              WC Vendors
- * Author URI:          http://mgates.me
+ * Author URI:          http://wcvendors.com
  *
  * Version:             1.0.0
  * Requires at least:   3.2.1
