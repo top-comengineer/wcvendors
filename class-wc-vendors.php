@@ -102,7 +102,7 @@ if ( is_woocommerce_activated() ) {
 				return false;
 			}
 
-			require_once pv_plugin_dir . 'classes/class-install.php';
+			require_once wcv_plugin_dir . 'classes/class-install.php';
 
 			$this->load_settings();
 			$install = new PV_Install;
@@ -116,9 +116,9 @@ if ( is_woocommerce_activated() ) {
 		public function load_settings()
 		{
 			if ( empty( self::$pv_options ) ) {
-				require_once pv_plugin_dir . 'classes/admin/settings/classes/sf-class-settings.php';
+				require_once wcv_plugin_dir . 'classes/admin/settings/classes/sf-class-settings.php';
 				self::$pv_options = new SF_Settings_API( self::$id, $this->title, 'woocommerce', __FILE__ );
-				self::$pv_options->load_options( pv_plugin_dir . 'classes/admin/settings/sf-options.php' );
+				self::$pv_options->load_options( wcv_plugin_dir . 'classes/admin/settings/sf-options.php' );
 			}
 		}
 
@@ -169,8 +169,8 @@ if ( is_woocommerce_activated() ) {
 		 */
 		public function include_gateways()
 		{
-			require_once pv_plugin_dir . 'classes/gateways/PayPal_AdvPayments/paypal_ap.php';
-			require_once pv_plugin_dir . 'classes/gateways/PayPal_Masspay/class-paypal-masspay.php';
+			require_once wcv_plugin_dir . 'classes/gateways/PayPal_AdvPayments/paypal_ap.php';
+			require_once wcv_plugin_dir . 'classes/gateways/PayPal_Masspay/class-paypal-masspay.php';
 		}
 
 
