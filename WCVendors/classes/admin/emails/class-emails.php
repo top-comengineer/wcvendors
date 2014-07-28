@@ -5,7 +5,7 @@ if ( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 /**
  *
  *
- * @author Matt Gates <http://mgates.me>
+ * @author WC Vendors <http://wcvendors.com>
  * @package
  */
 

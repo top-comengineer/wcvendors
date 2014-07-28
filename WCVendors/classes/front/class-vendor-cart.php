@@ -3,7 +3,7 @@
 /**
  *
  *
- * @author Matt Gates <http://mgates.me>
+ * @author WC Vendors <http://wcvendors.com>
  * @package
  */
 

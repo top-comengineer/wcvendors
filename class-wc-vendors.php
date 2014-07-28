@@ -3,7 +3,7 @@
 /**
  * Plugin Name:         WC Vendors
  * Plugin URI:          http://wcvendors.com
- * Description:         Allow vendors to sell their own products and receive a commission for each sale.
+ * Description:         Allow vendors to sell their own products and receive a commission for each sale, this is a fork of Matt Gates Product Vendor after it was abandoned. 
  * Author:              WC Vendors
  * Author URI:          http://wcvendors.com
  *
@@ -15,8 +15,9 @@
  * Domain Path:         /WCVendors/languages/
  *
  * @category            Plugin
+ * @copyright           Copyright © 2012 Matt Gates
  * @copyright           Copyright © 2014 WC Vendors
- * @author              WC Vendors
+ * @author              Matt Gates, WC Vendors
  * @package             WCVendors
  */
 
@@ -56,7 +57,7 @@ if ( is_woocommerce_activated() ) {
 		 */
 		public function __construct()
 		{
-			$this->title = __( 'Product Vendor', 'wcvendors' );
+			$this->title = __( 'WC Vendors', 'wcvendors' );
 
 			// Install & upgrade
 			add_action( 'admin_init', array( $this, 'check_install' ) );

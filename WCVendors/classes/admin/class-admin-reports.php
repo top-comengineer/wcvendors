@@ -4,7 +4,7 @@
  *
  * Shows reports related to software in the woocommerce backend
  *
- * @author Matt Gates <http://mgates.me>
+ * @author WC Vendors <http://wcvendors.com>
  * @package
  */
 
