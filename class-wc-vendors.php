@@ -3,7 +3,7 @@
 /**
  * Plugin Name:         WC Vendors
  * Plugin URI:          http://wcvendors.com
- * Description:         Assign products to your vendors, and receive a commission for each sale.
+ * Description:         Allow vendors to sell their own products and receive a commission for each sale.
  * Author:              WC Vendors
  * Author URI:          http://wcvendors.com
  *
@@ -11,7 +11,7 @@
  * Requires at least:   3.2.1
  * Tested up to:        3.9.1
  *
- * Text Domain:         wc_vendors
+ * Text Domain:         wcvendors
  * Domain Path:         /WCVendors/languages/
  *
  * @category            Plugin
@@ -24,8 +24,7 @@
 /**
  * Required functions
  */
-if ( !class_exists( 'MGates_Plugin_Updater' ) ) require_once trailingslashit( dirname( __FILE__ ) ) . 'ProductVendor/classes/mg-includes/mg-functions.php';
-if ( is_admin() ) new MGates_Plugin_Updater( __FILE__, '4a082ca1726c34b0678fa1577059144f' );
+require_once trailingslashit( dirname( __FILE__ ) ) . 'WCVendors/classes/includes/class-functions.php';
 
 /**
  * Check if WooCommerce is active
@@ -33,15 +32,15 @@ if ( is_admin() ) new MGates_Plugin_Updater( __FILE__, '4a082ca1726c34b0678fa157
 if ( is_woocommerce_activated() ) {
 
 	/* Define an absolute path to our plugin directory. */
-	if ( !defined( 'pv_plugin_dir' ) ) define( 'pv_plugin_dir', trailingslashit( dirname( __FILE__ ) ) . 'ProductVendor/' );
-	if ( !defined( 'pv_assets_url' ) ) define( 'pv_assets_url', trailingslashit( plugins_url( 'ProductVendor/assets', __FILE__ ) ) );
-	load_plugin_textdomain( 'wc_product_vendor', false, dirname( plugin_basename( __FILE__ ) ) . '/ProductVendor/languages/' );
+	if ( !defined( 'pv_plugin_dir' ) ) define( 'pv_plugin_dir', trailingslashit( dirname( __FILE__ ) ) . 'WCVendors/' );
+	if ( !defined( 'pv_assets_url' ) ) define( 'pv_assets_url', trailingslashit( plugins_url( 'WCVendors/assets', __FILE__ ) ) );
+	load_plugin_textdomain( 'wc_product_vendor', false, dirname( plugin_basename( __FILE__ ) ) . '/WCVendors/languages/' );
 
 
 	/**
 	 * Main Product Vendor class
 	 *
-	 * @package ProductVendor
+	 * @package WCVendors
 	 */
 	class Product_Vendor
 	{
@@ -57,7 +56,7 @@ if ( is_woocommerce_activated() ) {
 		 */
 		public function __construct()
 		{
-			$this->title = __( 'Product Vendor', 'wc_product_vendor' );
+			$this->title = __( 'Product Vendor', 'wcvendors' );
 
 			// Install & upgrade
 			add_action( 'admin_init', array( $this, 'check_install' ) );
@@ -79,7 +78,7 @@ if ( is_woocommerce_activated() ) {
 		 */
 		public function invalid_wc_version()
 		{
-			echo '<div class="error"><p>' . __( '<b>Product Vendor is disabled</b>. Product Vendor requires WooCommerce v2.0.1.', 'wc_product_vendor' ) . '</p></div>';
+			echo '<div class="error"><p>' . __( '<b>WC Vendors is disabled</b>. WC Vendors requires WooCommerce v2.0.1.', 'wcvendors' ) . '</p></div>';
 		}
 
 
@@ -183,7 +182,7 @@ if ( is_woocommerce_activated() ) {
 		public function option_updates( $options, $tabname )
 		{
 			// Change the vendor role capabilities
-			if ( $tabname == sanitize_title(__( 'Capabilities', 'wc_product_vendor' )) ) {
+			if ( $tabname == sanitize_title(__( 'Capabilities', 'wcvendors' )) ) {
 				$can_add          = $options[ 'can_submit_products' ];
 				$can_edit         = $options[ 'can_edit_published_products' ];
 				$can_submit_live  = $options[ 'can_submit_live_products' ];
@@ -207,7 +206,7 @@ if ( is_woocommerce_activated() ) {
 				remove_role( 'vendor' );
 				add_role( 'vendor', 'Vendor', $args );
 			} // Update permalinks
-			else if ( $tabname == sanitize_title(__( 'General', 'wc_product_vendor' ) )) {
+			else if ( $tabname == sanitize_title(__( 'General', 'wcvendors' ) )) {
 				$old_permalink = Product_Vendor::$pv_options->get_option( 'vendor_shop_permalink' );
 				$new_permalink = $options[ 'vendor_shop_permalink' ];
 
