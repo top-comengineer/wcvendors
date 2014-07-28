@@ -146,7 +146,7 @@ if ( is_woocommerce_activated() ) {
 			require_once wcv_plugin_dir . 'classes/admin/class-admin-users.php';
 			require_once wcv_plugin_dir . 'classes/admin/class-admin-page.php';
 
-			new PV_Vendor_Shop;
+			new WCV_Vendor_Shop;
 			new PV_Vendor_Cart;
 			new PV_Commission;
 			new PV_Shipping;

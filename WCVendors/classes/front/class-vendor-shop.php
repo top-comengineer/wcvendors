@@ -8,7 +8,7 @@
  */
 
 
-class PV_Vendor_Shop
+class WCV_Vendor_Shop
 {
 
 	public static $seller_info;
@@ -19,14 +19,14 @@ class PV_Vendor_Shop
 	 */
 	function __construct()
 	{
-		add_filter( 'product_enquiry_send_to', array( 'PV_Vendor_Shop', 'product_enquiry_compatibility' ), 10, 2 );
+		add_filter( 'product_enquiry_send_to', array( 'WCV_Vendor_Shop', 'product_enquiry_compatibility' ), 10, 2 );
 
 		add_action( 'woocommerce_product_query', array( $this, 'vendor_shop_query' ), 10, 2 );
 		add_filter( 'init', array( $this, 'add_rewrite_rules' ), 0 );
 
 		add_action( 'woocommerce_before_main_content', array( $this, 'shop_description' ), 20 );
-		add_filter( 'woocommerce_product_tabs', array( 'PV_Vendor_Shop', 'seller_info_tab' ) );
-		add_filter( 'post_type_archive_link', array( 'PV_Vendor_Shop', 'change_archive_link' ) );
+		add_filter( 'woocommerce_product_tabs', array( 'WCV_Vendor_Shop', 'seller_info_tab' ) );
+		add_filter( 'post_type_archive_link', array( 'WCV_Vendor_Shop', 'change_archive_link' ) );
 	}
 
 	public function change_archive_link( $link )
@@ -43,7 +43,7 @@ class PV_Vendor_Shop
 		$vendor_id   = PV_Vendors::get_vendor_id( $vendor_shop );
 
 		if ( !$vendor_id ) return;
-		add_filter( 'woocommerce_page_title', array( 'PV_Vendor_Shop', 'page_title' ) );
+		add_filter( 'woocommerce_page_title', array( 'WCV_Vendor_Shop', 'page_title' ) );
 
 		$q->set( 'author', $vendor_id );
 	}
@@ -86,7 +86,7 @@ class PV_Vendor_Shop
 				$tabs[ 'seller_info' ] = array(
 					'title'    => apply_filters( 'wcvendors_seller_info_label', __( 'Seller info', 'wcvendors' ) ),
 					'priority' => 50,
-					'callback' => array( 'PV_Vendor_Shop', 'seller_info_tab_panel' ),
+					'callback' => array( 'WCV_Vendor_Shop', 'seller_info_tab_panel' ),
 				);
 			}
 		}
