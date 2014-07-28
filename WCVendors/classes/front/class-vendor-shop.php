@@ -74,7 +74,7 @@ class PV_Vendor_Shop
 
 			$seller_info = get_user_meta( $post->post_author, 'pv_seller_info', true );
 			$has_html    = get_user_meta( $post->post_author, 'pv_shop_html_enabled', true );
-			$global_html = Product_Vendor::$pv_options->get_option( 'shop_html_enabled' );
+			$global_html = WC_Vendors::$pv_options->get_option( 'shop_html_enabled' );
 
 			if ( !empty( $seller_info ) ) {
 
@@ -114,7 +114,7 @@ class PV_Vendor_Shop
 
 		if ( $vendor_id ) {
 			$has_html    = get_user_meta( $vendor_id, 'pv_shop_html_enabled', true );
-			$global_html = Product_Vendor::$pv_options->get_option( 'shop_html_enabled' );
+			$global_html = WC_Vendors::$pv_options->get_option( 'shop_html_enabled' );
 			$description = do_shortcode( get_user_meta( $vendor_id, 'pv_shop_description', true ) );
 
 			echo '<div class="pv_shop_description">';
@@ -128,7 +128,7 @@ class PV_Vendor_Shop
 	 */
 	public function add_rewrite_rules()
 	{
-		$permalink = untrailingslashit( Product_Vendor::$pv_options->get_option( 'vendor_shop_permalink' ) );
+		$permalink = untrailingslashit( WC_Vendors::$pv_options->get_option( 'vendor_shop_permalink' ) );
 
 		// Remove beginning slash
 		if ( substr( $permalink, 0, 1 ) == '/' ) {

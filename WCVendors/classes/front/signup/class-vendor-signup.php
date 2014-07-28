@@ -17,9 +17,9 @@ class PV_Vendor_Signup
 	 */
 	function __construct()
 	{
-		if ( !Product_Vendor::$pv_options->get_option( 'show_vendor_registration' ) ) return;
+		if ( !WC_Vendors::$pv_options->get_option( 'show_vendor_registration' ) ) return;
 
-		$this->terms_page = Product_Vendor::$pv_options->get_option( 'terms_to_apply_page' );
+		$this->terms_page = WC_Vendors::$pv_options->get_option( 'terms_to_apply_page' );
 
 		add_action( 'register_form', array( $this, 'vendor_option' ) );
 		add_action( 'woocommerce_created_customer', array( $this, 'save_pending' ), 10, 2 );
@@ -90,7 +90,7 @@ class PV_Vendor_Signup
 			} else {
 				if ( function_exists( 'wc_add_message' ) ) wc_add_message( __( 'Your application has been submitted.', 'wcvendors' ) ); else $woocommerce->add_message( __( 'Your application has been submitted.', 'wcvendors' ) );
 
-				$manual = Product_Vendor::$pv_options->get_option( 'manual_vendor_registration' );
+				$manual = WC_Vendors::$pv_options->get_option( 'manual_vendor_registration' );
 				$role   = apply_filters( 'wcvendors_pending_role', ( $manual ? 'pending_vendor' : 'vendor' ) );
 
 				$wp_user_object = new WP_User( $user_id );
@@ -105,7 +105,7 @@ class PV_Vendor_Signup
 
 	public function redirect_to_vendor_dash( $redirect )
 	{
-		$vendor_dashboard_page = Product_Vendor::$pv_options->get_option( 'vendor_dashboard_page' );
+		$vendor_dashboard_page = WC_Vendors::$pv_options->get_option( 'vendor_dashboard_page' );
 
 		return apply_filters( 'wcvendors_signup_redirect', get_permalink( $vendor_dashboard_page ) );
 	}

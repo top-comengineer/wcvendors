@@ -17,9 +17,9 @@ class PV_Orders
 	 */
 	function __construct()
 	{
-		$this->can_view_orders = Product_Vendor::$pv_options->get_option( 'can_show_orders' );
-		$this->can_export_csv  = Product_Vendor::$pv_options->get_option( 'can_export_csv' );
-		$this->can_view_emails = Product_Vendor::$pv_options->get_option( 'can_view_order_emails' );
+		$this->can_view_orders = WC_Vendors::$pv_options->get_option( 'can_show_orders' );
+		$this->can_export_csv  = WC_Vendors::$pv_options->get_option( 'can_export_csv' );
+		$this->can_view_emails = WC_Vendors::$pv_options->get_option( 'can_view_order_emails' );
 
 		add_action( 'template_redirect', array( $this, 'check_access' ) );
 		add_action( 'wp', array( $this, 'display_shortcodes' ) );
@@ -31,7 +31,7 @@ class PV_Orders
 	 */
 	public function check_access()
 	{
-		if ( is_page( Product_Vendor::$pv_options->get_option( 'orders_page' ) ) && !is_user_logged_in() ) {
+		if ( is_page( WC_Vendors::$pv_options->get_option( 'orders_page' ) ) && !is_user_logged_in() ) {
 			wp_redirect( get_permalink( woocommerce_get_page_id( 'myaccount' ) ) );
 			exit;
 		}
@@ -43,7 +43,7 @@ class PV_Orders
 	 */
 	public function display_shortcodes()
 	{
-		if ( is_page( Product_Vendor::$pv_options->get_option( 'orders_page' ) ) && $this->can_view_orders ) {
+		if ( is_page( WC_Vendors::$pv_options->get_option( 'orders_page' ) ) && $this->can_view_orders ) {
 
 			wp_enqueue_script( 'jquery' );
 

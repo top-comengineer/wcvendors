@@ -67,8 +67,8 @@ global $woocommerce; ?>
 			<td colspan="100%">
 
 				<?php
-				$can_view_comments = Product_Vendor::$pv_options->get_option( 'can_view_order_comments' );
-				$can_add_comments = Product_Vendor::$pv_options->get_option( 'can_submit_order_comments' );
+				$can_view_comments = WC_Vendors::$pv_options->get_option( 'can_view_order_comments' );
+				$can_add_comments = WC_Vendors::$pv_options->get_option( 'can_submit_order_comments' );
 
 				if ($can_view_comments || $can_add_comments) :
 

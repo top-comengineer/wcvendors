@@ -78,7 +78,7 @@ class PV_Vendors
 	{
 		global $woocommerce;
 
-		$give_tax       = Product_Vendor::$pv_options->get_option( 'give_tax' );
+		$give_tax       = WC_Vendors::$pv_options->get_option( 'give_tax' );
 		$receiver       = array();
 		$shipping_given = 0;
 		$tax_given      = 0;
@@ -334,7 +334,7 @@ class PV_Vendors
 		$vendor = !$slug ? get_userdata( $vendor_id )->user_login : $slug;
 
 		if ( get_option( 'permalink_structure' ) ) {
-			$permalink = trailingslashit( Product_Vendor::$pv_options->get_option( 'vendor_shop_permalink' ) );
+			$permalink = trailingslashit( WC_Vendors::$pv_options->get_option( 'vendor_shop_permalink' ) );
 
 			return trailingslashit( home_url( sprintf( '/%s%s', $permalink, $vendor ) ) );
 		} else {

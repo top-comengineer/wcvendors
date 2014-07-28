@@ -19,7 +19,7 @@ class PV_Vendor_Dashboard
 	{
 		add_shortcode( 'pv_shop_settings', array( $this, 'display_vendor_settings' ) );
 
-		if ( $can_view_sales = Product_Vendor::$pv_options->get_option( 'can_view_frontend_reports' ) ) {
+		if ( $can_view_sales = WC_Vendors::$pv_options->get_option( 'can_view_frontend_reports' ) ) {
 			add_shortcode( 'pv_vendor_dashboard', array( $this, 'display_vendor_products' ) );
 		}
 
@@ -106,8 +106,8 @@ class PV_Vendor_Dashboard
 	 */
 	public function check_access()
 	{
-		$vendor_dashboard_page = Product_Vendor::$pv_options->get_option( 'vendor_dashboard_page' );
-		$shop_settings_page    = Product_Vendor::$pv_options->get_option( 'shop_settings_page' );
+		$vendor_dashboard_page = WC_Vendors::$pv_options->get_option( 'vendor_dashboard_page' );
+		$shop_settings_page    = WC_Vendors::$pv_options->get_option( 'shop_settings_page' );
 
 		if ( ( is_page( $vendor_dashboard_page ) || is_page( $shop_settings_page ) ) && !is_user_logged_in() ) {
 			wp_redirect( get_permalink( woocommerce_get_page_id( 'myaccount' ) ) );
@@ -130,9 +130,9 @@ class PV_Vendor_Dashboard
 		$start_date = !empty( $_SESSION[ 'PV_Session' ][ 'start_date' ] ) ? $_SESSION[ 'PV_Session' ][ 'start_date' ] : strtotime( date( 'Ymd', strtotime( date( 'Ym', current_time( 'timestamp' ) ) . '01' ) ) );
 		$end_date   = !empty( $_SESSION[ 'PV_Session' ][ 'end_date' ] ) ? $_SESSION[ 'PV_Session' ][ 'end_date' ] : strtotime( date( 'Ymd', current_time( 'timestamp' ) ) );
 
-		$can_view_orders = Product_Vendor::$pv_options->get_option( 'can_show_orders' );
-		$settings_page   = get_permalink( Product_Vendor::$pv_options->get_option( 'shop_settings_page' ) );
-		$can_submit      = Product_Vendor::$pv_options->get_option( 'can_submit_products' );
+		$can_view_orders = WC_Vendors::$pv_options->get_option( 'can_show_orders' );
+		$settings_page   = get_permalink( WC_Vendors::$pv_options->get_option( 'shop_settings_page' ) );
+		$can_submit      = WC_Vendors::$pv_options->get_option( 'can_submit_products' );
 		if ( $can_submit ) $submit_link = admin_url( 'post-new.php?post_type=product' );
 
 		if ( !$this->can_view_vendor_page() ) {
@@ -215,7 +215,7 @@ class PV_Vendor_Dashboard
 		$seller_info = get_user_meta( $user_id, 'pv_seller_info', true );
 		$has_html    = get_user_meta( $user_id, 'pv_shop_html_enabled', true );
 		$shop_page   = PV_Vendors::get_vendor_shop_page( wp_get_current_user()->user_login );
-		$global_html = Product_Vendor::$pv_options->get_option( 'shop_html_enabled' );
+		$global_html = WC_Vendors::$pv_options->get_option( 'shop_html_enabled' );
 
 		ob_start();
 		woocommerce_get_template( 'settings.php', array(
@@ -267,8 +267,8 @@ class PV_Vendor_Dashboard
 	{
 		if ( empty( $products ) ) return false;
 
-		$orders_page        = get_permalink( Product_Vendor::$pv_options->get_option( 'orders_page' ) );
-		$default_commission = Product_Vendor::$pv_options->get_option( 'default_commission' );
+		$orders_page        = get_permalink( WC_Vendors::$pv_options->get_option( 'orders_page' ) );
+		$default_commission = WC_Vendors::$pv_options->get_option( 'default_commission' );
 		$total_qty          = $total_cost = 0;
 		$data               = array(
 			'products'   => array(),

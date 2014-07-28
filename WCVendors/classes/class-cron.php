@@ -16,8 +16,8 @@ class PV_Cron
 	function __construct()
 	{
 		add_filter( 'cron_schedules', array( 'PV_Cron', 'custom_cron_intervals' ) );
-		add_action( Product_Vendor::$id . '_options_updated', array( 'PV_Cron', 'check_schedule' ) );
-		add_filter( Product_Vendor::$id . '_options_on_update', array( 'PV_Cron', 'check_schedule_now' ) );
+		add_action( WC_Vendors::$id . '_options_updated', array( 'PV_Cron', 'check_schedule' ) );
+		add_filter( WC_Vendors::$id . '_options_on_update', array( 'PV_Cron', 'check_schedule_now' ) );
 	}
 
 
@@ -59,14 +59,14 @@ class PV_Cron
 	 */
 	public function check_schedule_now( $options )
 	{
-		$old_schedule = Product_Vendor::$pv_options->get_option( 'schedule' );
+		$old_schedule = WC_Vendors::$pv_options->get_option( 'schedule' );
 		$new_schedule = $options[ 'schedule' ];
 
 		if ( $new_schedule == 'now' ) {
 			$return                = PV_Cron::pay_now();
 			$options[ 'schedule' ] = $old_schedule;
 			PV_Cron::schedule_cron( $old_schedule );
-			add_settings_error( Product_Vendor::$pv_options->id, 'save_options', $return[ 'message' ], $return[ 'status' ] );
+			add_settings_error( WC_Vendors::$pv_options->id, 'save_options', $return[ 'message' ], $return[ 'status' ] );
 		}
 
 		return $options;

@@ -59,7 +59,7 @@ class PV_Admin_Users
 			return;
 		}
 
-		$can_submit = Product_Vendor::$pv_options->get_option( 'can_submit_products' );
+		$can_submit = WC_Vendors::$pv_options->get_option( 'can_submit_products' );
 		if ( !$can_submit ) {
 			wp_die( 'You are not allowed to submit products.' );
 		}
@@ -140,10 +140,10 @@ class PV_Admin_Users
 	 */
 	function filter_product_types( $types, $product_type )
 	{
-		$product_panel = (array) Product_Vendor::$pv_options->get_option( 'hide_product_panel' );
-		$product_misc  = (array) Product_Vendor::$pv_options->get_option( 'hide_product_misc' );
-		$product_types = (array) Product_Vendor::$pv_options->get_option( 'hide_product_types' );
-		$css           = Product_Vendor::$pv_options->get_option( 'product_page_css' );
+		$product_panel = (array) WC_Vendors::$pv_options->get_option( 'hide_product_panel' );
+		$product_misc  = (array) WC_Vendors::$pv_options->get_option( 'hide_product_misc' );
+		$product_types = (array) WC_Vendors::$pv_options->get_option( 'hide_product_types' );
+		$css           = WC_Vendors::$pv_options->get_option( 'product_page_css' );
 		$count         = 0;
 
 		foreach ( $product_panel as $key => $value ) {
@@ -191,7 +191,7 @@ class PV_Admin_Users
 	 */
 	function filter_product_type_options( $types )
 	{
-		$product_options = Product_Vendor::$pv_options->get_option( 'hide_product_type_options' );
+		$product_options = WC_Vendors::$pv_options->get_option( 'hide_product_type_options' );
 
 		if ( !$product_options ) return $types;
 

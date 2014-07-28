@@ -193,7 +193,7 @@ class PV_Mass_Pay
 	{
 		global $woocommerce;
 
-		$send_results = Product_Vendor::$pv_options->get_option( 'mail_mass_pay_results' );
+		$send_results = WC_Vendors::$pv_options->get_option( 'mail_mass_pay_results' );
 
 		if ( !$send_results ) return false;
 

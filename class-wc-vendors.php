@@ -35,7 +35,7 @@ if ( is_woocommerce_activated() ) {
 	/* Define an absolute path to our plugin directory. */
 	if ( !defined( 'pv_plugin_dir' ) ) define( 'pv_plugin_dir', trailingslashit( dirname( __FILE__ ) ) . 'WCVendors/' );
 	if ( !defined( 'pv_assets_url' ) ) define( 'pv_assets_url', trailingslashit( plugins_url( 'WCVendors/assets', __FILE__ ) ) );
-	load_plugin_textdomain( 'wc_product_vendor', false, dirname( plugin_basename( __FILE__ ) ) . '/WCVendors/languages/' );
+	load_plugin_textdomain( 'wc_WC_Vendors', false, dirname( plugin_basename( __FILE__ ) ) . '/WCVendors/languages/' );
 
 
 	/**
@@ -43,7 +43,7 @@ if ( is_woocommerce_activated() ) {
 	 *
 	 * @package WCVendors
 	 */
-	class Product_Vendor
+	class WC_Vendors
 	{
 
 		/**
@@ -208,11 +208,11 @@ if ( is_woocommerce_activated() ) {
 				add_role( 'vendor', 'Vendor', $args );
 			} // Update permalinks
 			else if ( $tabname == sanitize_title(__( 'General', 'wcvendors' ) )) {
-				$old_permalink = Product_Vendor::$pv_options->get_option( 'vendor_shop_permalink' );
+				$old_permalink = WC_Vendors::$pv_options->get_option( 'vendor_shop_permalink' );
 				$new_permalink = $options[ 'vendor_shop_permalink' ];
 
 				if ( $old_permalink != $new_permalink ) {
-					update_option( Product_Vendor::$id . '_flush_rules', true );
+					update_option( WC_Vendors::$id . '_flush_rules', true );
 				}
 			}
 		}
@@ -223,9 +223,9 @@ if ( is_woocommerce_activated() ) {
 		 */
 		public function maybe_flush_permalinks()
 		{
-			if ( get_option( Product_Vendor::$id . '_flush_rules' ) ) {
+			if ( get_option( WC_Vendors::$id . '_flush_rules' ) ) {
 				flush_rewrite_rules();
-				update_option( Product_Vendor::$id . '_flush_rules', false );
+				update_option( WC_Vendors::$id . '_flush_rules', false );
 			}
 		}
 
@@ -233,6 +233,6 @@ if ( is_woocommerce_activated() ) {
 	}
 
 
-	new Product_Vendor;
+	new WC_Vendors;
 
 }

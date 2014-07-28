@@ -17,52 +17,52 @@ class PV_Install
 	 */
 	public function init()
 	{
-		$db_version = Product_Vendor::$pv_options->get_option( 'db_version' );
+		$db_version = WC_Vendors::$pv_options->get_option( 'db_version' );
 
 		// 1.0 install
 		if ( version_compare( $db_version, '1.0', '<' ) ) {
 			$this->install_prdtvendor();
-			Product_Vendor::$pv_options->update_option( 'db_version', '1.4.2' );
+			WC_Vendors::$pv_options->update_option( 'db_version', '1.4.2' );
 		}
 
 		// 1.0.1 allows vendors to upload roles
 		if ( version_compare( $db_version, '1.0.1', '<' ) ) {
 			$this->add_new_roles();
-			Product_Vendor::$pv_options->update_option( 'db_version', '1.0.1' );
+			WC_Vendors::$pv_options->update_option( 'db_version', '1.0.1' );
 		}
 
 		// 1.3.0 add a 'vendor dashboard' page
 		if ( version_compare( $db_version, '1.3.0', '<' ) ) {
 			$this->create_new_pages();
-			Product_Vendor::$pv_options->update_option( 'db_version', '1.3.0' );
+			WC_Vendors::$pv_options->update_option( 'db_version', '1.3.0' );
 		}
 
 		// 1.3.2 adds 'qty' to the pv_commission table
 		if ( version_compare( $db_version, '1.3.2', '<' ) ) {
 			$this->update_to( '1.3.2' );
-			Product_Vendor::$pv_options->update_option( 'db_version', '1.3.2' );
+			WC_Vendors::$pv_options->update_option( 'db_version', '1.3.2' );
 		}
 
 		// 1.4.0 adds 'pending_vendor' role
 		if ( version_compare( $db_version, '1.4.0', '<' ) ) {
 			$this->update_to( '1.4.0' );
-			Product_Vendor::$pv_options->update_option( 'db_version', '1.4.0' );
+			WC_Vendors::$pv_options->update_option( 'db_version', '1.4.0' );
 			flush_rewrite_rules();
 		}
 
 		if ( version_compare( $db_version, '1.4.2', '<' ) ) {
 			$this->update_to( '1.4.2' );
-			Product_Vendor::$pv_options->update_option( 'db_version', '1.4.2' );
+			WC_Vendors::$pv_options->update_option( 'db_version', '1.4.2' );
 		}
 
 		if ( version_compare( $db_version, '1.4.3', '<' ) ) {
 			$this->update_to( '1.4.3' );
-			Product_Vendor::$pv_options->update_option( 'db_version', '1.4.3' );
+			WC_Vendors::$pv_options->update_option( 'db_version', '1.4.3' );
 		}
 
 		if ( version_compare( $db_version, '1.4.5', '<' ) ) {
 			$this->update_to( '1.4.5' );
-			Product_Vendor::$pv_options->update_option( 'db_version', '1.4.5' );
+			WC_Vendors::$pv_options->update_option( 'db_version', '1.4.5' );
 		}
 
 	}
@@ -83,7 +83,7 @@ class PV_Install
 		$this->create_new_tables();
 
 		// Create the Orders page if it doesn't exist
-		$orders_page = Product_Vendor::$pv_options->get_option( 'orders_page' );
+		$orders_page = WC_Vendors::$pv_options->get_option( 'orders_page' );
 		if ( empty( $orders_page ) ) $this->create_new_pages();
 	}
 
@@ -159,7 +159,7 @@ class PV_Install
 	{
 		global $wpdb;
 
-		$page_id = Product_Vendor::$pv_options->get_option( $slug . '_page' );
+		$page_id = WC_Vendors::$pv_options->get_option( $slug . '_page' );
 
 		if ( $page_id > 0 && get_post( $page_id ) ) {
 			return $page_id;
@@ -168,7 +168,7 @@ class PV_Install
 		$page_found = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM " . $wpdb->posts . " WHERE post_name = %s LIMIT 1;", $slug ) );
 		if ( $page_found ) {
 			if ( !$page_id ) {
-				Product_Vendor::$pv_options->update_option( $slug . '_page', $page_found );
+				WC_Vendors::$pv_options->update_option( $slug . '_page', $page_found );
 
 				return $page_found;
 			}
@@ -188,7 +188,7 @@ class PV_Install
 		);
 
 		$page_id = wp_insert_post( $page_data );
-		Product_Vendor::$pv_options->update_option( $slug . '_page', $page_id );
+		WC_Vendors::$pv_options->update_option( $slug . '_page', $page_id );
 
 		return $page_id;
 	}
@@ -273,7 +273,7 @@ class PV_Install
 			case '1.4.5':
 
 				// Flush rules to fix the /page/2/ issue on vendor shop pages
-				update_option( Product_Vendor::$id . '_flush_rules', true );
+				update_option( WC_Vendors::$id . '_flush_rules', true );
 
 			default:
 				// code...
