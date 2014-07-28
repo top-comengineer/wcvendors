@@ -25,11 +25,11 @@ class WC_Email_Notify_Admin extends WC_Email
 	function __construct()
 	{
 		$this->id          = 'admin_new_vendor_product';
-		$this->title       = __( 'New Vendor Product', 'wc_product_vendor' );
-		$this->description = __( 'New order emails are sent when a new product is submitted by a vendor', 'wc_product_vendor' );
+		$this->title       = __( 'New Vendor Product', 'wcvendors' );
+		$this->description = __( 'New order emails are sent when a new product is submitted by a vendor', 'wcvendors' );
 
-		$this->heading = __( 'New product submitted: {product_name}', 'wc_product_vendor' );
-		$this->subject = __( '[{blogname}] New product submitted by {vendor_name} - {product_name}', 'wc_product_vendor' );
+		$this->heading = __( 'New product submitted: {product_name}', 'wcvendors' );
+		$this->subject = __( '[{blogname}] New product submitted by {vendor_name} - {product_name}', 'wcvendors' );
 
 		$this->template_base  = dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/views/emails/';
 		$this->template_html  = 'new-product.php';
@@ -126,9 +126,9 @@ class WC_Email_Notify_Admin extends WC_Email
 	{
 		$this->form_fields = array(
 			'enabled'    => array(
-				'title'   => __( 'Enable/Disable', 'wc_product_vendor' ),
+				'title'   => __( 'Enable/Disable', 'wcvendors' ),
 				'type'    => 'checkbox',
-				'label'   => __( 'Enable this email notification', 'wc_product_vendor' ),
+				'label'   => __( 'Enable this email notification', 'wcvendors' ),
 				'default' => 'yes'
 			),
 			'recipient'  => array(
@@ -139,29 +139,29 @@ class WC_Email_Notify_Admin extends WC_Email
 				'default'     => ''
 			),
 			'subject'    => array(
-				'title'       => __( 'Subject', 'wc_product_vendor' ),
+				'title'       => __( 'Subject', 'wcvendors' ),
 				'type'        => 'text',
-				'description' => sprintf( __( 'This controls the email subject line. Leave blank to use the default subject: <code>%s</code>.', 'wc_product_vendor' ), $this->subject ),
+				'description' => sprintf( __( 'This controls the email subject line. Leave blank to use the default subject: <code>%s</code>.', 'wcvendors' ), $this->subject ),
 				'placeholder' => '',
 				'default'     => ''
 			),
 			'heading'    => array(
-				'title'       => __( 'Email Heading', 'wc_product_vendor' ),
+				'title'       => __( 'Email Heading', 'wcvendors' ),
 				'type'        => 'text',
-				'description' => sprintf( __( 'This controls the main heading contained within the email notification. Leave blank to use the default heading: <code>%s</code>.', 'wc_product_vendor' ), $this->heading ),
+				'description' => sprintf( __( 'This controls the main heading contained within the email notification. Leave blank to use the default heading: <code>%s</code>.', 'wcvendors' ), $this->heading ),
 				'placeholder' => '',
 				'default'     => ''
 			),
 			'email_type' => array(
-				'title'       => __( 'Email type', 'wc_product_vendor' ),
+				'title'       => __( 'Email type', 'wcvendors' ),
 				'type'        => 'select',
-				'description' => __( 'Choose which format of email to send.', 'wc_product_vendor' ),
+				'description' => __( 'Choose which format of email to send.', 'wcvendors' ),
 				'default'     => 'html',
 				'class'       => 'email_type',
 				'options'     => array(
-					'plain'     => __( 'Plain text', 'wc_product_vendor' ),
-					'html'      => __( 'HTML', 'wc_product_vendor' ),
-					'multipart' => __( 'Multipart', 'wc_product_vendor' ),
+					'plain'     => __( 'Plain text', 'wcvendors' ),
+					'html'      => __( 'HTML', 'wcvendors' ),
+					'multipart' => __( 'Multipart', 'wcvendors' ),
 				)
 			)
 		);
