@@ -13,14 +13,14 @@
 	if ( $paypal_address !== 'false' ) {
 		woocommerce_get_template( 'paypal-email-form.php', array(
 																'user_id' => $user_id,
-														   ), 'wc-product-vendor/dashboard/settings/', pv_plugin_dir . 'views/dashboard/settings/' );
+														   ), 'wc-product-vendor/dashboard/settings/', wcv_plugin_dir . 'views/dashboard/settings/' );
 	}
 
 	do_action( 'wcvendors_settings_after_paypal' );
 
 	woocommerce_get_template( 'shop-name.php', array(
 													'user_id' => $user_id,
-											   ), 'wc-product-vendor/dashboard/settings/', pv_plugin_dir . 'views/dashboard/settings/' );
+											   ), 'wc-product-vendor/dashboard/settings/', wcv_plugin_dir . 'views/dashboard/settings/' );
 
 	do_action( 'wcvendors_settings_after_shop_name' );
 
@@ -28,7 +28,7 @@
 													  'global_html' => $global_html,
 													  'has_html'    => $has_html,
 													  'seller_info' => $seller_info,
-												 ), 'wc-product-vendor/dashboard/settings/', pv_plugin_dir . 'views/dashboard/settings/' );
+												 ), 'wc-product-vendor/dashboard/settings/', wcv_plugin_dir . 'views/dashboard/settings/' );
 
 	do_action( 'wcvendors_settings_after_seller_info' );
 
@@ -39,7 +39,7 @@
 															   'has_html'    => $has_html,
 															   'shop_page'   => $shop_page,
 															   'user_id'     => $user_id,
-														  ), 'wc-product-vendor/dashboard/settings/', pv_plugin_dir . 'views/dashboard/settings/' );
+														  ), 'wc-product-vendor/dashboard/settings/', wcv_plugin_dir . 'views/dashboard/settings/' );
 
 		do_action( 'wcvendors_settings_after_shop_description' );
 	}

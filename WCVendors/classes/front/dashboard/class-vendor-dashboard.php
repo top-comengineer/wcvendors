@@ -165,7 +165,7 @@ class PV_Vendor_Dashboard
 													'settings_page' => $settings_page,
 													'can_submit'    => $can_submit,
 													'submit_link'   => $submit_link,
-											   ), 'wc-product-vendor/dashboard/', pv_plugin_dir . 'views/dashboard/' );
+											   ), 'wc-product-vendor/dashboard/', wcv_plugin_dir . 'views/dashboard/' );
 
 		woocommerce_get_template( 'reports.php', array(
 													  'start_date'      => $start_date,
@@ -174,7 +174,7 @@ class PV_Vendor_Dashboard
 													  'vendor_summary'  => $vendor_summary,
 													  'datepicker'      => $datepicker,
 													  'can_view_orders' => $can_view_orders,
-												 ), 'wc-product-vendor/dashboard/', pv_plugin_dir . 'views/dashboard/' );
+												 ), 'wc-product-vendor/dashboard/', wcv_plugin_dir . 'views/dashboard/' );
 
 		woocommerce_get_template( 'orders.php', array(
 													  'start_date'      => $start_date,
@@ -183,7 +183,7 @@ class PV_Vendor_Dashboard
 													  'order_summary'   => $order_summary,
 													  'datepicker'      => $datepicker,
 													  'can_view_orders' => $can_view_orders,
-												 ), 'wc-product-vendor/dashboard/', pv_plugin_dir . 'views/dashboard/' );
+												 ), 'wc-product-vendor/dashboard/', wcv_plugin_dir . 'views/dashboard/' );
 		do_action( 'wcvendors_after_dashboard' );
 
 		return ob_get_clean();
@@ -227,7 +227,7 @@ class PV_Vendor_Dashboard
 													   'shop_description' => $shop_description,
 													   'shop_page'        => $shop_page,
 													   'user_id'          => $user_id,
-												  ), 'wc-product-vendor/dashboard/settings/', pv_plugin_dir . 'views/dashboard/settings/' );
+												  ), 'wc-product-vendor/dashboard/settings/', wcv_plugin_dir . 'views/dashboard/settings/' );
 
 		return ob_get_clean();
 	}
@@ -246,7 +246,7 @@ class PV_Vendor_Dashboard
 
 		} else if ( !PV_Vendors::is_vendor( get_current_user_id() ) ) {
 
-			woocommerce_get_template( 'denied.php', array(), 'wc-product-vendor/dashboard/', pv_plugin_dir . 'views/dashboard/' );
+			woocommerce_get_template( 'denied.php', array(), 'wc-product-vendor/dashboard/', wcv_plugin_dir . 'views/dashboard/' );
 
 			return false;
 

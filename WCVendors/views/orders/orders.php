@@ -50,7 +50,7 @@ global $woocommerce; ?>
 																 'item'     => $item,
 																 'count'    => $count,
 																 'order_id' => $order_id,
-															), 'wc-product-vendor/orders/', pv_plugin_dir . 'views/orders/' );
+															), 'wc-product-vendor/orders/', wcv_plugin_dir . 'views/orders/' );
 
 			}
 
@@ -58,7 +58,7 @@ global $woocommerce; ?>
 				$customer_note = $order[ 'comments' ];
 				woocommerce_get_template( 'customer-note.php', array(
 																	'customer_note' => $customer_note,
-															   ), 'wc-product-vendor/orders/customer-note/', pv_plugin_dir . 'views/orders/customer-note/' );
+															   ), 'wc-product-vendor/orders/customer-note/', wcv_plugin_dir . 'views/orders/customer-note/' );
 			}
 
 			?>
@@ -93,14 +93,14 @@ global $woocommerce; ?>
 					if ( $can_view_comments && !empty( $comments ) ) {
 						woocommerce_get_template( 'existing-comments.php', array(
 																				'comments' => $comments,
-																		   ), 'wc-product-vendor/orders/comments/', pv_plugin_dir . 'views/orders/comments/' );
+																		   ), 'wc-product-vendor/orders/comments/', wcv_plugin_dir . 'views/orders/comments/' );
 					}
 
 					if ( $can_add_comments ) {
 						woocommerce_get_template( 'add-new-comment.php', array(
 																			  'order_id'   => $order_id,
 																			  'product_id' => $product_id,
-																		 ), 'wc-product-vendor/orders/comments/', pv_plugin_dir . 'views/orders/comments/' );
+																		 ), 'wc-product-vendor/orders/comments/', wcv_plugin_dir . 'views/orders/comments/' );
 					}
 
 					?>
@@ -121,7 +121,7 @@ global $woocommerce; ?>
 																			'product_id'     => $product_id,
 																			'providers'      => $providers,
 																			'provider_array' => $provider_array,
-																	   ), 'wc-product-vendor/orders/shipping/', pv_plugin_dir . 'views/orders/shipping/' );
+																	   ), 'wc-product-vendor/orders/shipping/', wcv_plugin_dir . 'views/orders/shipping/' );
 						?>
 					</div>
 

@@ -84,7 +84,7 @@ class PV_Orders
 		$headers = PV_Orders::get_headers();
 
 		// Export the CSV
-		require_once pv_plugin_dir . 'classes/front/orders/class-export-csv.php';
+		require_once wcv_plugin_dir . 'classes/front/orders/class-export-csv.php';
 		PV_Export_CSV::output_csv( $this->product_id, $headers, $body, $items );
 	}
 
@@ -98,7 +98,7 @@ class PV_Orders
 	{
 		if ( !PV_Vendors::is_vendor( get_current_user_id() ) ) {
 			ob_start();
-			woocommerce_get_template( 'denied.php', array(), 'wc-product-vendor/dashboard/', pv_plugin_dir . 'views/dashboard/' );
+			woocommerce_get_template( 'denied.php', array(), 'wc-product-vendor/dashboard/', wcv_plugin_dir . 'views/dashboard/' );
 
 			return ob_get_clean();
 		}
@@ -112,7 +112,7 @@ class PV_Orders
 		}
 
 		if ( !empty( $_POST[ 'submit_comment' ] ) ) {
-			require_once pv_plugin_dir . 'classes/front/orders/class-submit-comment.php';
+			require_once wcv_plugin_dir . 'classes/front/orders/class-submit-comment.php';
 			PV_Submit_Comment::new_comment( $this->orders );
 		}
 
@@ -181,7 +181,7 @@ class PV_Orders
 		ob_start();
 		// Show the Export CSV button
 		if ( $this->can_export_csv ) {
-			woocommerce_get_template( 'csv-export.php', array(), 'wc-product-vendor/orders/', pv_plugin_dir . 'views/orders/' );
+			woocommerce_get_template( 'csv-export.php', array(), 'wc-product-vendor/orders/', wcv_plugin_dir . 'views/orders/' );
 		}
 
 		woocommerce_get_template( 'orders.php', array(
@@ -191,7 +191,7 @@ class PV_Orders
 													 'product_id'     => $all[ 'product_id' ],
 													 'providers'      => $providers,
 													 'provider_array' => $provider_array,
-												), 'wc-product-vendor/orders/', pv_plugin_dir . 'views/orders/' );
+												), 'wc-product-vendor/orders/', wcv_plugin_dir . 'views/orders/' );
 
 		return ob_get_clean();
 	}

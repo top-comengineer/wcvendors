@@ -114,10 +114,10 @@ class PV_Emails
 	 */
 	public function check_items( $emails )
 	{
-		require_once pv_plugin_dir . 'classes/admin/emails/class-wc-notify-admin.php';
-		require_once pv_plugin_dir . 'classes/admin/emails/class-wc-notify-vendor.php';
-		require_once pv_plugin_dir . 'classes/admin/emails/class-wc-approve-vendor.php';
-		require_once pv_plugin_dir . 'classes/admin/emails/class-wc-notify-shipped.php';
+		require_once wcv_plugin_dir . 'classes/admin/emails/class-wc-notify-admin.php';
+		require_once wcv_plugin_dir . 'classes/admin/emails/class-wc-notify-vendor.php';
+		require_once wcv_plugin_dir . 'classes/admin/emails/class-wc-approve-vendor.php';
+		require_once wcv_plugin_dir . 'classes/admin/emails/class-wc-notify-shipped.php';
 
 		$emails[ 'WC_Email_Notify_Vendor' ]  = new WC_Email_Notify_Vendor();
 		$emails[ 'WC_Email_Approve_Vendor' ] = new WC_Email_Approve_Vendor();
