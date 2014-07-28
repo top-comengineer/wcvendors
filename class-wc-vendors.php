@@ -33,9 +33,9 @@ require_once trailingslashit( dirname( __FILE__ ) ) . 'WCVendors/classes/include
 if ( is_woocommerce_activated() ) {
 
 	/* Define an absolute path to our plugin directory. */
-	if ( !defined( 'pv_plugin_dir' ) ) define( 'pv_plugin_dir', trailingslashit( dirname( __FILE__ ) ) . 'WCVendors/' );
-	if ( !defined( 'pv_assets_url' ) ) define( 'pv_assets_url', trailingslashit( plugins_url( 'WCVendors/assets', __FILE__ ) ) );
-	load_plugin_textdomain( 'wc_WC_Vendors', false, dirname( plugin_basename( __FILE__ ) ) . '/WCVendors/languages/' );
+	if ( !defined( 'pv_plugin_dir' ) ) define( 'wcv_plugin_dir', trailingslashit( dirname( __FILE__ ) ) . 'WCVendors/' );
+	if ( !defined( 'pv_assets_url' ) ) define( 'wcv_assets_url', trailingslashit( plugins_url( 'WCVendors/assets', __FILE__ ) ) );
+	load_plugin_textdomain( 'wcvendors', false, dirname( plugin_basename( __FILE__ ) ) . '/WCVendors/languages/' );
 
 
 	/**
@@ -128,23 +128,23 @@ if ( is_woocommerce_activated() ) {
 		 */
 		public function include_core()
 		{
-			require_once pv_plugin_dir . 'classes/class-queries.php';
-			require_once pv_plugin_dir . 'classes/class-vendors.php';
-			require_once pv_plugin_dir . 'classes/class-cron.php';
-			require_once pv_plugin_dir . 'classes/class-commission.php';
-			require_once pv_plugin_dir . 'classes/class-shipping.php';
-			require_once pv_plugin_dir . 'classes/front/class-vendor-cart.php';
-			require_once pv_plugin_dir . 'classes/front/dashboard/class-vendor-dashboard.php';
-			require_once pv_plugin_dir . 'classes/front/class-vendor-shop.php';
-			require_once pv_plugin_dir . 'classes/front/signup/class-vendor-signup.php';
-			require_once pv_plugin_dir . 'classes/front/orders/class-orders.php';
-			require_once pv_plugin_dir . 'classes/admin/emails/class-emails.php';
-			require_once pv_plugin_dir . 'classes/admin/class-product-meta.php';
-			require_once pv_plugin_dir . 'classes/admin/class-vendor-applicants.php';
-			require_once pv_plugin_dir . 'classes/admin/class-vendor-reports.php';
-			require_once pv_plugin_dir . 'classes/admin/class-admin-reports.php';
-			require_once pv_plugin_dir . 'classes/admin/class-admin-users.php';
-			require_once pv_plugin_dir . 'classes/admin/class-admin-page.php';
+			require_once wcv_plugin_dir . 'classes/class-queries.php';
+			require_once wcv_plugin_dir . 'classes/class-vendors.php';
+			require_once wcv_plugin_dir . 'classes/class-cron.php';
+			require_once wcv_plugin_dir . 'classes/class-commission.php';
+			require_once wcv_plugin_dir . 'classes/class-shipping.php';
+			require_once wcv_plugin_dir . 'classes/front/class-vendor-cart.php';
+			require_once wcv_plugin_dir . 'classes/front/dashboard/class-vendor-dashboard.php';
+			require_once wcv_plugin_dir . 'classes/front/class-vendor-shop.php';
+			require_once wcv_plugin_dir . 'classes/front/signup/class-vendor-signup.php';
+			require_once wcv_plugin_dir . 'classes/front/orders/class-orders.php';
+			require_once wcv_plugin_dir . 'classes/admin/emails/class-emails.php';
+			require_once wcv_plugin_dir . 'classes/admin/class-product-meta.php';
+			require_once wcv_plugin_dir . 'classes/admin/class-vendor-applicants.php';
+			require_once wcv_plugin_dir . 'classes/admin/class-vendor-reports.php';
+			require_once wcv_plugin_dir . 'classes/admin/class-admin-reports.php';
+			require_once wcv_plugin_dir . 'classes/admin/class-admin-users.php';
+			require_once wcv_plugin_dir . 'classes/admin/class-admin-page.php';
 
 			new PV_Vendor_Shop;
 			new PV_Vendor_Cart;
