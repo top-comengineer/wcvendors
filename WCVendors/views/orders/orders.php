@@ -81,7 +81,7 @@ global $woocommerce; ?>
 				?>
 				<a href="#" class="order-comments-link">
 					<p>
-						<?php printf( __( 'Comments (%s)', 'wc_product_vendor' ), count( $comments ) ); ?>
+						<?php printf( __( 'Comments (%s)', 'wcvendors' ), count( $comments ) ); ?>
 					</p>
 				</a>
 
@@ -110,7 +110,7 @@ global $woocommerce; ?>
 
 					<a href="#" class="order-tracking-link">
 						<p>
-							<?php _e( 'Shipping', 'wc_product_vendor' ); ?>
+							<?php _e( 'Shipping', 'wcvendors' ); ?>
 						</p>
 					</a>
 

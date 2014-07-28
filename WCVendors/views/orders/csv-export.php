@@ -3,6 +3,6 @@
 		   class="btn btn-primary btn-small"
 		   style="float:right;margin-bottom:10px;"
 		   name="export_orders"
-		   value="<?php _e( 'Export orders', 'wc_product_vendor' ); ?>"
+		   value="<?php _e( 'Export orders', 'wcvendors' ); ?>"
 		>
 </form>

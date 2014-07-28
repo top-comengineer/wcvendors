@@ -3,7 +3,7 @@
 /**
  * WP-Admin users page
  *
- * @author  Matt Gates <http://mgates.me>
+ * @author  WC Vendors <http://wcvendors.com>
  * @package ProductVendor
  */
 
@@ -327,7 +327,7 @@ class PV_Admin_Users
 		update_user_meta( $vendor_id, 'pv_shop_description', $_POST[ 'pv_shop_description' ] );
 		update_user_meta( $vendor_id, 'pv_seller_info', $_POST[ 'pv_seller_info' ] );
 
-		do_action( 'wc_product_vendor_update_admin_user', $vendor_id );
+		do_action( 'wcvendors_update_admin_user', $vendor_id );
 	}
 
 
@@ -339,54 +339,54 @@ class PV_Admin_Users
 	public function show_extra_profile_fields( $user )
 	{
 		?>
-		<h3><?php _e( 'Product Vendor', 'wc_product_vendor' ); ?></h3>
+		<h3><?php _e( 'Product Vendor', 'wcvendors' ); ?></h3>
 		<table class="form-table">
 			<tbody>
-			<?php do_action( 'wc_product_vendor_admin_before_shop_html', $user ); ?>
+			<?php do_action( 'wcvendors_admin_before_shop_html', $user ); ?>
 			<tr>
 				<th scope="row">Shop HTML</th>
 				<td>
 					<label for="pv_shop_html_enabled">
 						<input name="pv_shop_html_enabled" type="checkbox"
 							   id="pv_shop_html_enabled" <?php checked( true, get_user_meta( $user->ID, 'pv_shop_html_enabled', true ), $echo = true ) ?>/>
-						<?php _e( 'Enable HTML for the shop description', 'wc_product_vendor' ); ?>
+						<?php _e( 'Enable HTML for the shop description', 'wcvendors' ); ?>
 					</label>
 				</td>
 			</tr>
-			<?php do_action( 'wc_product_vendor_admin_after_shop_html', $user ); ?>
+			<?php do_action( 'wcvendors_admin_after_shop_html', $user ); ?>
 			<tr>
-				<th><label for="pv_shop_name"><?php _e( 'Shop name', 'wc_product_vendor' ); ?></label></th>
+				<th><label for="pv_shop_name"><?php _e( 'Shop name', 'wcvendors' ); ?></label></th>
 				<td><input type="text" name="pv_shop_name" id="pv_shop_name"
 						   value="<?php echo get_user_meta( $user->ID, 'pv_shop_name', true ); ?>" class="regular-text">
 				</td>
 			</tr>
-			<?php do_action( 'wc_product_vendor_admin_after_shop_name', $user ); ?>
+			<?php do_action( 'wcvendors_admin_after_shop_name', $user ); ?>
 			<tr>
-				<th><label for="pv_paypal"><?php _e( 'PayPal E-mail', 'wc_product_vendor' ); ?> <span
-							class="description">(<?php _e( 'required', 'wc_product_vendor' ); ?>)</span></label></th>
+				<th><label for="pv_paypal"><?php _e( 'PayPal E-mail', 'wcvendors' ); ?> <span
+							class="description">(<?php _e( 'required', 'wcvendors' ); ?>)</span></label></th>
 				<td><input type="email" name="pv_paypal" id="pv_paypal"
 						   value="<?php echo get_user_meta( $user->ID, 'pv_paypal', true ); ?>" class="regular-text">
 				</td>
 			</tr>
-			<?php do_action( 'wc_product_vendor_admin_after_paypal', $user ); ?>
+			<?php do_action( 'wcvendors_admin_after_paypal', $user ); ?>
 			<tr>
-				<th><label for="pv_custom_commission_rate"><?php _e( 'Commission rate', 'wc_product_vendor' ); ?> (%)</label></th>
-				<td><input type="number" step="0.01" max="100" min="0" name="pv_custom_commission_rate" placeholder="<?php _e( 'Leave blank for default', 'wc_product_vendor' ); ?>" id="pv_custom_commission_rate"
+				<th><label for="pv_custom_commission_rate"><?php _e( 'Commission rate', 'wcvendors' ); ?> (%)</label></th>
+				<td><input type="number" step="0.01" max="100" min="0" name="pv_custom_commission_rate" placeholder="<?php _e( 'Leave blank for default', 'wcvendors' ); ?>" id="pv_custom_commission_rate"
 						   value="<?php echo get_user_meta( $user->ID, 'pv_custom_commission_rate', true ); ?>" class="regular-text">
 				</td>
 			</tr>
-			<?php do_action( 'wc_product_vendor_admin_after_commission_due', $user ); ?>
+			<?php do_action( 'wcvendors_admin_after_commission_due', $user ); ?>
 			<tr>
-				<th><label for="pv_seller_info"><?php _e( 'Seller info', 'wc_product_vendor' ); ?></label></th>
+				<th><label for="pv_seller_info"><?php _e( 'Seller info', 'wcvendors' ); ?></label></th>
 				<td><?php wp_editor( get_user_meta( $user->ID, 'pv_seller_info', true ), 'pv_seller_info' ); ?></td>
 			</tr>
-			<?php do_action( 'wc_product_vendor_admin_after_seller_info', $user ); ?>
+			<?php do_action( 'wcvendors_admin_after_seller_info', $user ); ?>
 			<tr>
-				<th><label for="pv_shop_description"><?php _e( 'Shop description', 'wc_product_vendor' ); ?></label>
+				<th><label for="pv_shop_description"><?php _e( 'Shop description', 'wcvendors' ); ?></label>
 				</th>
 				<td><?php wp_editor( get_user_meta( $user->ID, 'pv_shop_description', true ), 'pv_shop_description' ); ?></td>
 			</tr>
-			<?php do_action( 'wc_product_vendor_admin_after_shop_description', $user ); ?>
+			<?php do_action( 'wcvendors_admin_after_shop_description', $user ); ?>
 			</tbody>
 		</table>
 	<?php

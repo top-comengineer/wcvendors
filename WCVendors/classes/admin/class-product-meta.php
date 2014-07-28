@@ -35,7 +35,7 @@ class PV_Product_Meta
 	public function change_author_meta_box_title()
 	{
 		global $wp_meta_boxes;
-		$wp_meta_boxes[ 'product' ][ 'normal' ][ 'core' ][ 'authordiv' ][ 'title' ] = __( 'Vendor', 'wc_product_vendor' );;
+		$wp_meta_boxes[ 'product' ][ 'normal' ][ 'core' ][ 'authordiv' ][ 'title' ] = __( 'Vendor', 'wcvendors' );;
 	}
 
 
@@ -139,7 +139,7 @@ class PV_Product_Meta
 	{
 		?>
 		<li class="commission_tab">
-			<a href="#commission"><?php _e( 'Commission', 'wc_product_vendor' ) ?></a>
+			<a href="#commission"><?php _e( 'Commission', 'wcvendors' ) ?></a>
 		</li> <?php
 	}
 
@@ -155,14 +155,14 @@ class PV_Product_Meta
 			<fieldset>
 
 				<p class='form-field commission_rate_field'>
-					<label for='pv_commission_rate'><?php _e( 'Commission', 'wc_product_vendor' ); ?> (%)</label>
+					<label for='pv_commission_rate'><?php _e( 'Commission', 'wcvendors' ); ?> (%)</label>
 					<input type='number' id='pv_commission_rate'
 						   name='pv_commission_rate'
 						   class='short'
 						   max="100"
 						   min="0"
 						   step='any'
-						   placeholder='<?php _e( 'Leave blank for default', 'wc_product_vendor' ); ?>'
+						   placeholder='<?php _e( 'Leave blank for default', 'wcvendors' ); ?>'
 						   value="<?php echo get_post_meta( $post->ID, 'pv_commission_rate', true ); ?>"/>
 				</p>
 

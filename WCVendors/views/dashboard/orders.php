@@ -4,10 +4,10 @@ jQuery(function () {
         e.preventDefault();
         var id = jQuery(this).attr('id');
 
-        if ( jQuery(this).text() == "<?php _e('Hide items', 'wc_product_vendor'); ?>" ) {
-        	jQuery(this).text("<?php _e('View items', 'wc_product_vendor'); ?>");
+        if ( jQuery(this).text() == "<?php _e('Hide items', 'wcvendors'); ?>" ) {
+        	jQuery(this).text("<?php _e('View items', 'wcvendors'); ?>");
     	} else {
-        	jQuery(this).text("<?php _e('Hide items', 'wc_product_vendor'); ?>");
+        	jQuery(this).text("<?php _e('Hide items', 'wcvendors'); ?>");
     	}
 
         jQuery("#view-items-" + id).fadeToggle();
@@ -15,16 +15,16 @@ jQuery(function () {
 });
 </script>
 
-<h2><?php _e( 'Orders', 'wc_product_vendor' ); ?></h2>
+<h2><?php _e( 'Orders', 'wcvendors' ); ?></h2>
 
 <table class="table table-condensed table-vendor-sales-report">
 	<thead>
 	<tr>
-	<th class="product-header"><?php _e( 'Order', 'wc_product_vendor' ); ?></th>
-	<th class="quantity-header"><?php _e( 'Shipping', 'wc_product_vendor' ) ?></th>
-	<th class="commission-header"><?php _e( 'Total', 'wc_product_vendor' ) ?></th>
-	<th class="rate-header"><?php _e( 'Date', 'wc_product_vendor' ) ?></th>
-	<th class="rate-header"><?php _e( 'Links', 'wc_product_vendor' ) ?></th>
+	<th class="product-header"><?php _e( 'Order', 'wcvendors' ); ?></th>
+	<th class="quantity-header"><?php _e( 'Shipping', 'wcvendors' ) ?></th>
+	<th class="commission-header"><?php _e( 'Total', 'wcvendors' ) ?></th>
+	<th class="rate-header"><?php _e( 'Date', 'wcvendors' ) ?></th>
+	<th class="rate-header"><?php _e( 'Links', 'wcvendors' ) ?></th>
 	<th></th>
 	</thead>
 	<tbody>
@@ -55,7 +55,7 @@ jQuery(function () {
 				<td><?php echo $order->get_formatted_shipping_address(); ?></td>
 				<td><?php $sum = PV_Queries::sum_for_orders( array( $order->id ), array('vendor_id'=>get_current_user_id()) ); $total = $sum[0]->line_total; $totals += $total; echo woocommerce_price( $total ); ?></td>
 				<td><?php echo $order->order_date; ?></td>
-				<td><a href="#" class="view-items" id="<?php echo $order->id; ?>"><?php _e('View items', 'wc_product_vendor'); ?></a> | <a href="?wc_pv_mark_shipped=<?php echo $order->id; ?>" class="mark-shipped"><?php echo $shipped ? __('Unmark shipped', 'wc_product_vendor') : __('Mark shipped', 'wc_product_vendor'); ?></a></td>
+				<td><a href="#" class="view-items" id="<?php echo $order->id; ?>"><?php _e('View items', 'wcvendors'); ?></a> | <a href="?wc_pv_mark_shipped=<?php echo $order->id; ?>" class="mark-shipped"><?php echo $shipped ? __('Unmark shipped', 'wcvendors') : __('Mark shipped', 'wcvendors'); ?></a></td>
 			</tr>
 
 			<tr id="view-items-<?php echo $order->id; ?>" style="display:none;">
@@ -87,7 +87,7 @@ jQuery(function () {
 
 		<tr>
 			<td colspan="4"
-				style="text-align:center;"><?php _e( 'You have no orders during this period.', 'wc_product_vendor' ); ?></td>
+				style="text-align:center;"><?php _e( 'You have no orders during this period.', 'wcvendors' ); ?></td>
 		</tr>
 
 	<?php endif; ?>

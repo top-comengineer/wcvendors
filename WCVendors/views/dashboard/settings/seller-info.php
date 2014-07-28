@@ -1,7 +1,7 @@
 <div id="pv_seller_info_container">
 	<p>
-		<b><?php echo apply_filters( 'wc_product_vendor_seller_info_label', __( 'Seller info', 'wc_product_vendor' ) ); ?></b><br/>
-		<?php _e( 'This is displayed on each of your products.', 'wc_product_vendor' ); ?></p>
+		<b><?php echo apply_filters( 'wcvendors_seller_info_label', __( 'Seller info', 'wcvendors' ) ); ?></b><br/>
+		<?php _e( 'This is displayed on each of your products.', 'wcvendors' ); ?></p>
 
 	<p>
 		<?php

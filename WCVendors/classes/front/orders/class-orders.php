@@ -3,7 +3,7 @@
 /**
  * My account views
  *
- * @author  Matt Gates <http://mgates.me>
+ * @author  WC Vendors <http://wcvendors>
  * @package ProductVendor
  */
 
@@ -104,11 +104,11 @@ class PV_Orders
 		}
 
 		if ( empty( $_GET[ 'orders_for_product' ] ) ) {
-			return __( 'You haven\'t selected a product\'s orders to view! Please go back to the Vendor Dashboard and click Show Orders on the product you\'d like to view.', 'wc_product_vendor' );
+			return __( 'You haven\'t selected a product\'s orders to view! Please go back to the Vendor Dashboard and click Show Orders on the product you\'d like to view.', 'wcvendors' );
 		}
 
 		if ( !$this->orders ) {
-			return __( 'No orders.', 'wc_product_vendor' );;
+			return __( 'No orders.', 'wcvendors' );;
 		}
 
 		if ( !empty( $_POST[ 'submit_comment' ] ) ) {
@@ -141,10 +141,10 @@ class PV_Orders
 				}
 			}
 			if ( $order_item_id ) {
-				woocommerce_delete_order_item_meta( 2048, __( 'Tracking number', 'wc_product_vendor' ) );
-				woocommerce_add_order_item_meta( 2048, __( 'Tracking number', 'wc_product_vendor' ), $tracking_number );
+				woocommerce_delete_order_item_meta( 2048, __( 'Tracking number', 'wcvendors' ) );
+				woocommerce_add_order_item_meta( 2048, __( 'Tracking number', 'wcvendors' ), $tracking_number );
 
-				$message = __( 'Success. Your tracking number has been updated.', 'wc_product_vendor' );
+				$message = __( 'Success. Your tracking number has been updated.', 'wcvendors' );
 				if ( function_exists( 'wc_add_message' ) ) wc_add_message( $message ); else $woocommerce->add_message( $message );
 
 				// Update order data
@@ -205,15 +205,15 @@ class PV_Orders
 	public function get_headers()
 	{
 		$headers = array(
-			'order'   => __( 'Order', 'wc_product_vendor' ),
-			'product' => __( 'Product Title', 'wc_product_vendor' ),
-			'name'    => __( 'Full name', 'wc_product_vendor' ),
-			'address' => __( 'Address', 'wc_product_vendor' ),
-			'city'    => __( 'City', 'wc_product_vendor' ),
-			'state'   => __( 'State', 'wc_product_vendor' ),
-			'zip'     => __( 'Zip', 'wc_product_vendor' ),
-			'email'   => __( 'Email address', 'wc_product_vendor' ),
-			'date'    => __( 'Date', 'wc_product_vendor' ),
+			'order'   => __( 'Order', 'wcvendors' ),
+			'product' => __( 'Product Title', 'wcvendors' ),
+			'name'    => __( 'Full name', 'wcvendors' ),
+			'address' => __( 'Address', 'wcvendors' ),
+			'city'    => __( 'City', 'wcvendors' ),
+			'state'   => __( 'State', 'wcvendors' ),
+			'zip'     => __( 'Zip', 'wcvendors' ),
+			'email'   => __( 'Email address', 'wcvendors' ),
+			'date'    => __( 'Date', 'wcvendors' ),
 		);
 
 		if ( !$this->can_view_emails ) {

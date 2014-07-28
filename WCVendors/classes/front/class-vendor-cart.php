@@ -38,7 +38,7 @@ class PV_Vendor_Cart
 			: get_bloginfo( 'name' );
 
 		$values[ ] = array(
-			'name'    => __( 'Sold by', 'wc_product_vendor' ),
+			'name'    => __( 'Sold by', 'wcvendors' ),
 			'display' => $sold_by,
 		);
 
@@ -57,7 +57,7 @@ class PV_Vendor_Cart
 			? sprintf( '<a href="%s" target="_TOP">%s</a>', PV_Vendors::get_vendor_shop_page( $author_id ), PV_Vendors::get_vendor_shop_name( $author_id ) )
 			: get_bloginfo( 'name' );
 
-		echo __( 'Sold by', 'wc_product_vendor' ) . ': ' . $sold_by . '<br/>';
+		echo __( 'Sold by', 'wcvendors' ) . ': ' . $sold_by . '<br/>';
 	}
 
 }

@@ -68,7 +68,7 @@ class PV_Vendor_Applicants
 	public function denied()
 	{
 		echo '<div class="updated">';
-		echo '<p>' . __( 'Vendor has been <b>denied</b>.', 'wc_product_vendor' ) . '</p>';
+		echo '<p>' . __( 'Vendor has been <b>denied</b>.', 'wcvendors' ) . '</p>';
 		echo '</div>';
 	}
 
@@ -79,7 +79,7 @@ class PV_Vendor_Applicants
 	public function approved()
 	{
 		echo '<div class="updated">';
-		echo '<p>' . __( 'Vendor has been <b>approved</b>.', 'wc_product_vendor' ) . '</p>';
+		echo '<p>' . __( 'Vendor has been <b>approved</b>.', 'wcvendors' ) . '</p>';
 		echo '</div>';
 	}
 
@@ -93,7 +93,7 @@ class PV_Vendor_Applicants
 	 */
 	public function show_pending_vendors_link( $values )
 	{
-		$values[ 'pending_vendors' ] = '<a href="?role=asd">' . __( 'Pending Vendors', 'wc_product_vendor' ) . ' <span class="count">(3)</span></a>';
+		$values[ 'pending_vendors' ] = '<a href="?role=asd">' . __( 'Pending Vendors', 'wcvendors' ) . ' <span class="count">(3)</span></a>';
 
 		return $values;
 	}

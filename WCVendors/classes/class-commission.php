@@ -3,7 +3,7 @@
 /**
  * Commission functions
  *
- * @author  Matt Gates <http://mgates.me>
+ * @author  WC Vendors <http://wcvendors.com>
  * @package ProductVendor
  */
 
@@ -17,12 +17,12 @@ class PV_Commission
 	 */
 	function __construct()
 	{
-		$this->completed_statuses = apply_filters( 'wc_product_vendor_completed_statuses', array(
+		$this->completed_statuses = apply_filters( 'wcvendors_completed_statuses', array(
 																								'completed',
 																								'processing',
 																						   ) );
 
-		$this->reverse_statuses = apply_filters( 'wc_product_vendor_reversed_statuses', array(
+		$this->reverse_statuses = apply_filters( 'wcvendors_reversed_statuses', array(
 																							 'pending',
 																							 'refunded',
 																							 'cancelled',

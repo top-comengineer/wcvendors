@@ -84,7 +84,7 @@ class PV_Cron
 		$mass_pay = $mass_pay->do_payments();
 
 		$message = !empty( $mass_pay[ 'total' ] )
-			? $mass_pay[ 'msg' ] . '<br/>' . sprintf( __( 'Payment total: %s', 'wc_product_vendor' ), woocommerce_price( $mass_pay[ 'total' ] ) )
+			? $mass_pay[ 'msg' ] . '<br/>' . sprintf( __( 'Payment total: %s', 'wcvendors' ), woocommerce_price( $mass_pay[ 'total' ] ) )
 			: $mass_pay[ 'msg' ];
 
 		return array(

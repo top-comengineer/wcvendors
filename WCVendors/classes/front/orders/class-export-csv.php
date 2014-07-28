@@ -34,11 +34,11 @@ class PV_Export_CSV
 			}
 		}
 
-		if ( $meta ) $headers[ 'meta' ] = __( 'Extra data', 'wc_product_vendor' );
-		else $headers[ 'quantity' ] = __( 'Quantity', 'wc_product_vendor' );
+		if ( $meta ) $headers[ 'meta' ] = __( 'Extra data', 'wcvendors' );
+		else $headers[ 'quantity' ] = __( 'Quantity', 'wcvendors' );
 
-		$headers = apply_filters( 'wc_product_vendor_csv_headers', $headers, $product_id, $items );
-		$body    = apply_filters( 'wc_product_vendor_csv_body', $body, $product_id, $items );
+		$headers = apply_filters( 'wcvendors_csv_headers', $headers, $product_id, $items );
+		$body    = apply_filters( 'wcvendors_csv_body', $body, $product_id, $items );
 
 		PV_Export_CSV::download( $headers, $body, $product_id );
 	}

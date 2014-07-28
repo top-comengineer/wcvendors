@@ -107,9 +107,9 @@
 	<input type="hidden" name="order_id" value="<?php echo $order_id; ?>">
 
 	<input class="btn btn-large" type="submit" name="update_tracking"
-		   value="<?php _e( 'Update tracking number', 'wc_product_vendor' ); ?>">
+		   value="<?php _e( 'Update tracking number', 'wcvendors' ); ?>">
 	<input class="btn btn-large" type="submit" name="mark_shipped"
-		   value="<?php _e( 'Mark as shipped', 'wc_product_vendor' ); ?>">
+		   value="<?php _e( 'Mark as shipped', 'wcvendors' ); ?>">
 
 </form>
 

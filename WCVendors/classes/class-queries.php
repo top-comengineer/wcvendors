@@ -94,7 +94,7 @@ class PV_Queries
 		$dates = PV_Queries::orders_within_range();
 
 		$defaults = array(
-			'status' => apply_filters( 'wc_product_vendor_completed_statuses', array( 'completed', 'processing' ) ),
+			'status' => apply_filters( 'wcvendors_completed_statuses', array( 'completed', 'processing' ) ),
 			'dates'  => array( 'before' => $dates[ 'before' ], 'after' => $dates[ 'after' ] ),
 		);
 
@@ -142,7 +142,7 @@ class PV_Queries
 		$dates = PV_Queries::orders_within_range();
 
 		$defaults = array(
-			'status' => apply_filters( 'wc_product_vendor_completed_statuses', array( 'completed', 'processing' ) ),
+			'status' => apply_filters( 'wcvendors_completed_statuses', array( 'completed', 'processing' ) ),
 			'dates'  => array( 'before' => $dates[ 'before' ], 'after' => $dates[ 'after' ] ),
 		);
 
@@ -209,7 +209,7 @@ class PV_Queries
 		$dates = PV_Queries::orders_within_range();
 
 		$defaults = array(
-			'status' => apply_filters( 'wc_product_vendor_completed_statuses', array( 'completed', 'processing' ) ),
+			'status' => apply_filters( 'wcvendors_completed_statuses', array( 'completed', 'processing' ) ),
 			'dates'  => array( 'before' => $dates[ 'before' ], 'after' => $dates[ 'after' ] ),
 		);
 

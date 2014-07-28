@@ -25,7 +25,7 @@ class PV_Admin_Setup
 			return;
 		}
 
-		echo '<h4>' . __('Vendors shipped', 'wc_product_vendor') . '</h4><br/>';
+		echo '<h4>' . __('Vendors shipped', 'wcvendors') . '</h4><br/>';
 		echo $actions['wc_pv_shipped']['name'];
 	}
 
@@ -48,7 +48,7 @@ class PV_Admin_Setup
 
 		$response = array(
 			'url'       => '#',
-			'name'      => __('Vendors Shipped', 'wc_product_vendor') . $string,
+			'name'      => __('Vendors Shipped', 'wcvendors') . $string,
 			'action'    => 'wc_pv_shipped',
 			'image_url' => pv_assets_url . '/images/icons/fa-truck.png',
 		);
@@ -70,7 +70,7 @@ class PV_Admin_Setup
 	{
 		$hook = add_submenu_page(
 			'woocommerce',
-			__( 'Commission', 'wc_product_vendor' ), __( 'Commission', 'wc_product_vendor' ),
+			__( 'Commission', 'wcvendors' ), __( 'Commission', 'wcvendors' ),
 			'manage_woocommerce',
 			'pv_admin_commissions',
 			array( 'PV_Admin_Setup', 'commissions_page' )
@@ -130,7 +130,7 @@ class PV_Admin_Setup
 		<div class="wrap">
 
 			<div id="icon-woocommerce" class="icon32 icon32-woocommerce-reports"><br/></div>
-			<h2><?php _e( 'Commission', 'wc_product_vendor' ); ?></h2>
+			<h2><?php _e( 'Commission', 'wcvendors' ); ?></h2>
 
 			<form id="posts-filter" method="POST">
 
@@ -249,12 +249,12 @@ class PV_Admin_Page extends WP_List_Table
 	{
 		$columns = array(
 			'cb'         => '<input type="checkbox" />',
-			'product_id' => __( 'Product', 'wc_product_vendor' ),
-			'order_id'   => __( 'Order ID', 'wc_product_vendor' ),
-			'vendor_id'  => __( 'Vendor', 'wc_product_vendor' ),
-			'total_due'  => __( 'Total', 'wc_product_vendor' ),
-			'status'     => __( 'Status', 'wc_product_vendor' ),
-			'time'       => __( 'Date', 'wc_product_vendor' ),
+			'product_id' => __( 'Product', 'wcvendors' ),
+			'order_id'   => __( 'Order ID', 'wcvendors' ),
+			'vendor_id'  => __( 'Vendor', 'wcvendors' ),
+			'total_due'  => __( 'Total', 'wcvendors' ),
+			'status'     => __( 'Status', 'wcvendors' ),
+			'time'       => __( 'Date', 'wcvendors' ),
 		);
 
 		return $columns;
@@ -291,10 +291,10 @@ class PV_Admin_Page extends WP_List_Table
 	function get_bulk_actions()
 	{
 		$actions = array(
-			'mark_paid'     => __( 'Mark paid', 'wc_product_vendor' ),
-			'mark_due'      => __( 'Mark due', 'wc_product_vendor' ),
-			'mark_reversed' => __( 'Mark reversed', 'wc_product_vendor' ),
-			// 'delete' => __('Delete', 'wc_product_vendor'),
+			'mark_paid'     => __( 'Mark paid', 'wcvendors' ),
+			'mark_due'      => __( 'Mark due', 'wcvendors' ),
+			'mark_reversed' => __( 'Mark reversed', 'wcvendors' ),
+			// 'delete' => __('Delete', 'wcvendors'),
 		);
 
 		return $actions;
@@ -383,21 +383,21 @@ class PV_Admin_Page extends WP_List_Table
 				$result = $this->mark_paid( $ids );
 
 				if ( $result )
-					echo '<div class="updated"><p>' . __( 'Commission marked paid.', 'wc_product_vendor' ) . '</p></div>';
+					echo '<div class="updated"><p>' . __( 'Commission marked paid.', 'wcvendors' ) . '</p></div>';
 				break;
 
 			case 'mark_due':
 				$result = $this->mark_due( $ids );
 
 				if ( $result )
-					echo '<div class="updated"><p>' . __( 'Commission marked due.', 'wc_product_vendor' ) . '</p></div>';
+					echo '<div class="updated"><p>' . __( 'Commission marked due.', 'wcvendors' ) . '</p></div>';
 				break;
 
 			case 'mark_reversed':
 				$result = $this->mark_reversed( $ids );
 
 				if ( $result )
-					echo '<div class="updated"><p>' . __( 'Commission marked reversed.', 'wc_product_vendor' ) . '</p></div>';
+					echo '<div class="updated"><p>' . __( 'Commission marked reversed.', 'wcvendors' ) . '</p></div>';
 				break;
 
 			default:

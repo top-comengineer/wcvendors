@@ -3,7 +3,7 @@
 /**
  * Shop functions for each vendor.
  *
- * @author  Matt Gates <http://mgates.me>
+ * @author  WC Vendors <http://wcvendors.com>
  * @package ProductVendor
  */
 
@@ -84,7 +84,7 @@ class PV_Vendor_Shop
 				self::$seller_info .= '</div>';
 
 				$tabs[ 'seller_info' ] = array(
-					'title'    => apply_filters( 'wc_product_vendor_seller_info_label', __( 'Seller info', 'wc_product_vendor' ) ),
+					'title'    => apply_filters( 'wcvendors_seller_info_label', __( 'Seller info', 'wcvendors' ) ),
 					'priority' => 50,
 					'callback' => array( 'PV_Vendor_Shop', 'seller_info_tab_panel' ),
 				);

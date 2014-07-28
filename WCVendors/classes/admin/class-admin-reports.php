@@ -38,22 +38,22 @@ class PV_Admin_Reports
 	function reports_tab( $reports )
 	{
 		$reports[ 'vendors' ] = array(
-			'title'  => __( 'Product Vendors', 'wc_product_vendor' ),
+			'title'  => __( 'Product Vendors', 'wcvendors' ),
 			'charts' => array(
 				array(
-					'title'       => __( 'Overview', 'wc_product_vendor' ),
+					'title'       => __( 'Overview', 'wcvendors' ),
 					'description' => '',
 					'hide_title'  => true,
 					'function'    => array( $this, 'sales' ),
 				),
 				array(
-					'title'       => __( 'Commission by vendor', 'wc_product_vendor' ),
+					'title'       => __( 'Commission by vendor', 'wcvendors' ),
 					'description' => '',
 					'hide_title'  => true,
 					'function'    => array( $this, 'commission' ),
 				),
 				array(
-					'title'       => __( 'Commission by product', 'wc_product_vendor' ),
+					'title'       => __( 'Commission by product', 'wcvendors' ),
 					'description' => '',
 					'hide_title'  => true,
 					'function'    => array( $this, 'commission' ),
@@ -112,14 +112,14 @@ class PV_Admin_Reports
 		?>
 
 		<form method="post" action="">
-			<p><label for="from"><?php _e( 'From:', 'wc_product_vendor' ); ?></label> <input type="text"
+			<p><label for="from"><?php _e( 'From:', 'wcvendors' ); ?></label> <input type="text"
 																							 name="start_date" id="from"
 																							 readonly="readonly"
 																							 value="<?php echo esc_attr( date( 'Y-m-d', $start_date ) ); ?>"/>
-				<label for="to"><?php _e( 'To:', 'wc_product_vendor' ); ?></label> <input type="text" name="end_date"
+				<label for="to"><?php _e( 'To:', 'wcvendors' ); ?></label> <input type="text" name="end_date"
 																						  id="to" readonly="readonly"
 																						  value="<?php echo esc_attr( date( 'Y-m-d', $end_date ) ); ?>"/>
-				<input type="submit" class="button" value="<?php _e( 'Show', 'wc_product_vendor' ); ?>"/></p>
+				<input type="submit" class="button" value="<?php _e( 'Show', 'wcvendors' ); ?>"/></p>
 		</form>
 		<script type="text/javascript">
 			jQuery(function () {
@@ -130,31 +130,31 @@ class PV_Admin_Reports
 		<div id="poststuff" class="woocommerce-reports-wrap">
 			<div class="woocommerce-reports-sidebar">
 				<div class="postbox">
-					<h3><span><?php _e( 'Total paid in range', 'wc_product_vendor' ); ?></span></h3>
+					<h3><span><?php _e( 'Total paid in range', 'wcvendors' ); ?></span></h3>
 
 					<div class="inside">
-						<p class="stat"><?php if ( $paid > 0 ) echo woocommerce_price( $paid ); else _e( 'n/a', 'wc_product_vendor' ); ?></p>
+						<p class="stat"><?php if ( $paid > 0 ) echo woocommerce_price( $paid ); else _e( 'n/a', 'wcvendors' ); ?></p>
 					</div>
 				</div>
 				<div class="postbox">
-					<h3><span><?php _e( 'Total due in range', 'wc_product_vendor' ); ?></span></h3>
+					<h3><span><?php _e( 'Total due in range', 'wcvendors' ); ?></span></h3>
 
 					<div class="inside">
-						<p class="stat"><?php if ( $commission_due > 0 ) echo woocommerce_price( $commission_due ); else _e( 'n/a', 'wc_product_vendor' ); ?></p>
+						<p class="stat"><?php if ( $commission_due > 0 ) echo woocommerce_price( $commission_due ); else _e( 'n/a', 'wcvendors' ); ?></p>
 					</div>
 				</div>
 				<div class="postbox">
-					<h3><span><?php _e( 'Total reversed in range', 'wc_product_vendor' ); ?></span></h3>
+					<h3><span><?php _e( 'Total reversed in range', 'wcvendors' ); ?></span></h3>
 
 					<div class="inside">
-						<p class="stat"><?php if ( $reversed > 0 ) echo woocommerce_price( $reversed ); else _e( 'n/a', 'wc_product_vendor' ); ?></p>
+						<p class="stat"><?php if ( $reversed > 0 ) echo woocommerce_price( $reversed ); else _e( 'n/a', 'wcvendors' ); ?></p>
 					</div>
 				</div>
 			</div>
 
 			<div class="woocommerce-reports-main">
 				<div class="postbox">
-					<h3><span><?php _e( 'Recent Commission', 'wc_product_vendor' ); ?></span></h3>
+					<h3><span><?php _e( 'Recent Commission', 'wcvendors' ); ?></span></h3>
 
 					<div>
 						<?php
@@ -171,12 +171,12 @@ class PV_Admin_Reports
 								<table id="commission-table" class="woocommerce_order_items" cellspacing="0">
 									<thead>
 									<tr>
-										<th><?php _e( 'Order', 'wc_product_vendor' ) ?></th>
-										<th><?php _e( 'Product', 'wc_product_vendor' ) ?></th>
-										<th><?php _e( 'Vendor', 'wc_product_vendor' ) ?></th>
-										<th><?php _e( 'Total', 'wc_product_vendor' ) ?></th>
-										<th><?php _e( 'Date &amp; Time', 'wc_product_vendor' ) ?></th>
-										<th><?php _e( 'Status', 'wc_product_vendor' ) ?></th>
+										<th><?php _e( 'Order', 'wcvendors' ) ?></th>
+										<th><?php _e( 'Product', 'wcvendors' ) ?></th>
+										<th><?php _e( 'Vendor', 'wcvendors' ) ?></th>
+										<th><?php _e( 'Total', 'wcvendors' ) ?></th>
+										<th><?php _e( 'Date &amp; Time', 'wcvendors' ) ?></th>
+										<th><?php _e( 'Status', 'wcvendors' ) ?></th>
 									</tr>
 									</thead>
 									<tbody>
@@ -184,12 +184,12 @@ class PV_Admin_Reports
 									foreach ( $commission as $row ) : $i++ ?>
 										<tr<?php if ( $i % 2 == 1 ) echo ' class="alternate"' ?>>
 											<td><?php if ( $row->order_id ) : ?><a
-													href="<?php echo admin_url( 'post.php?post=' . $row->order_id . '&action=edit' ); ?>"><?php echo $row->order_id; ?></a><?php else : _e( 'N/A', 'wc_product_vendor' ); endif; ?>
+													href="<?php echo admin_url( 'post.php?post=' . $row->order_id . '&action=edit' ); ?>"><?php echo $row->order_id; ?></a><?php else : _e( 'N/A', 'wcvendors' ); endif; ?>
 											</td>
 											<td><?php echo get_the_title( $row->product_id ); ?></td>
 											<td><?php echo PV_Vendors::get_vendor_shop_name( $row->vendor_id ); ?></td>
 											<td><?php echo woocommerce_price( $row->total_due + $row->total_shipping + $row->tax ) ?></td>
-											<td><?php echo date( __( 'D j M Y \a\t h:ia', 'wc_product_vendor' ), strtotime( $row->time ) ) ?></td>
+											<td><?php echo date( __( 'D j M Y \a\t h:ia', 'wcvendors' ), strtotime( $row->time ) ) ?></td>
 											<td><?php echo $row->status ?></td>
 										</tr>
 									<?php endforeach; ?>
@@ -198,7 +198,7 @@ class PV_Admin_Reports
 							</div>
 						<?php
 						} else {
-							?><p><?php _e( 'No commission yet', 'wc_product_vendor' ) ?></p><?php
+							?><p><?php _e( 'No commission yet', 'wcvendors' ) ?></p><?php
 						}
 						?>
 					</div>
@@ -229,7 +229,7 @@ class PV_Admin_Reports
 	?>
 
 		<form method="post" action="" class="report_filters">
-			<label for="show_year"><?php _e( 'Show:', 'wc_product_vendor' ); ?></label>
+			<label for="show_year"><?php _e( 'Show:', 'wcvendors' ); ?></label>
 			<select name="show_year" id="show_year">
 				<?php
 				for ( $i = $first_year; $i <= date( 'Y' ); $i++ )
@@ -273,14 +273,14 @@ class PV_Admin_Reports
 				?>
 
 				<select class="chosen_select" id="show_vendor" name="show_vendor" style="width: 300px;"
-						data-placeholder="<?php _e( 'Select a vendor&hellip;', 'wc_product_vendor' ); ?>">
+						data-placeholder="<?php _e( 'Select a vendor&hellip;', 'wcvendors' ); ?>">
 					<option></option>
 					<?php foreach ( $vendors as $key => $vendor ) printf( '<option value="%s" %s>%s</option>', $vendor->ID, selected( $selected_vendor, $vendor->ID, false ), $vendor->display_name ); ?>
 				</select>
 
 			<?php } ?>
 
-			<input type="submit" class="button" value="<?php _e( 'Show', 'wc_product_vendor' ); ?>"/></p>
+			<input type="submit" class="button" value="<?php _e( 'Show', 'wcvendors' ); ?>"/></p>
 		</form>
 
 		<?php
@@ -341,13 +341,13 @@ class PV_Admin_Reports
 				<table class="widefat">
 					<thead>
 					<tr>
-						<th><?php _e( 'Month', 'wc_product_vendor' ); ?></th>
-						<th class="total_row"><?php _e( 'Commission', 'wc_product_vendor' ); ?></th>
-						<th class="total_row"><?php _e( 'Tax', 'wc_product_vendor' ); ?></th>
-						<th class="total_row"><?php _e( 'Shipping', 'wc_product_vendor' ); ?></th>
-						<th class="total_row"><?php _e( 'Reversed', 'wc_product_vendor' ); ?></th>
-						<th class="total_row"><?php _e( 'Paid', 'wc_product_vendor' ); ?></th>
-						<th class="total_row"><b><?php _e( 'Total', 'wc_product_vendor' ); ?></th>
+						<th><?php _e( 'Month', 'wcvendors' ); ?></th>
+						<th class="total_row"><?php _e( 'Commission', 'wcvendors' ); ?></th>
+						<th class="total_row"><?php _e( 'Tax', 'wcvendors' ); ?></th>
+						<th class="total_row"><?php _e( 'Shipping', 'wcvendors' ); ?></th>
+						<th class="total_row"><?php _e( 'Reversed', 'wcvendors' ); ?></th>
+						<th class="total_row"><?php _e( 'Paid', 'wcvendors' ); ?></th>
+						<th class="total_row"><b><?php _e( 'Total', 'wcvendors' ); ?></th>
 					</tr>
 					</thead>
 					<tfoot>
@@ -371,7 +371,7 @@ class PV_Admin_Reports
 							$total[ 'total' ] += $commission[ 'total' ];
 						}
 
-						echo '<td>' . __( 'Total', 'wc_product_vendor' ) . '</td>';
+						echo '<td>' . __( 'Total', 'wcvendors' ) . '</td>';
 
 						foreach ( $total as $value ) {
 							echo '<td class="total_row">' . woocommerce_price( $value ) . '</td>';

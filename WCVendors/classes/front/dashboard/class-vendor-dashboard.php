@@ -3,7 +3,7 @@
 /**
  * My account views
  *
- * @author  Matt Gates <http://mgates.me>
+ * @author  WC Vendors <http://wcvendors.com>
  * @package ProductVendor
  */
 
@@ -41,7 +41,7 @@ class PV_Vendor_Dashboard
 				foreach ($shippers as $key => $value) {
 					if ( $value == $user_id ) {
 						unset($shippers[$key]);
-						if ( function_exists( 'wc_add_error' ) ) wc_add_error( __( 'Order unmarked shipped.', 'wc_product_vendor' ) ); else $woocommerce->add_error( __( 'Order unmarked shipped.', 'wc_product_vendor' ) );
+						if ( function_exists( 'wc_add_error' ) ) wc_add_error( __( 'Order unmarked shipped.', 'wcvendors' ) ); else $woocommerce->add_error( __( 'Order unmarked shipped.', 'wcvendors' ) );
 						break;
 					}
 				}
@@ -51,7 +51,7 @@ class PV_Vendor_Dashboard
 				if ( !empty( $mails ) ) {
 					$mails[ 'WC_Email_Notify_Shipped' ]->trigger( $order_id, $user_id );
 				}
-				if ( function_exists( 'wc_add_message' ) ) wc_add_message( __( 'Order marked shipped.', 'wc_product_vendor' ) ); else $woocommerce->add_message( __( 'Order marked shipped.', 'wc_product_vendor' ) );
+				if ( function_exists( 'wc_add_message' ) ) wc_add_message( __( 'Order marked shipped.', 'wcvendors' ) ); else $woocommerce->add_message( __( 'Order marked shipped.', 'wcvendors' ) );
 			}
 
 			update_post_meta( $order_id, 'wc_pv_shipped', $shippers );
@@ -69,7 +69,7 @@ class PV_Vendor_Dashboard
 
 		if ( isset( $_POST[ 'pv_paypal' ] ) ) {
 			if ( !is_email( $_POST[ 'pv_paypal' ] ) ) {
-				if ( function_exists( 'wc_add_error' ) ) wc_add_error( __( 'Your PayPal address is not a valid email address.', 'wc_product_vendor' ) ); else $woocommerce->add_error( __( 'Your PayPal address is not a valid email address.', 'wc_product_vendor' ) );
+				if ( function_exists( 'wc_add_error' ) ) wc_add_error( __( 'Your PayPal address is not a valid email address.', 'wcvendors' ) ); else $woocommerce->add_error( __( 'Your PayPal address is not a valid email address.', 'wcvendors' ) );
 			} else {
 				update_user_meta( $user_id, 'pv_paypal', $_POST[ 'pv_paypal' ] );
 			}
@@ -78,7 +78,7 @@ class PV_Vendor_Dashboard
 		if ( !empty( $_POST[ 'pv_shop_name' ] ) ) {
 			$users = get_users( array( 'meta_key' => 'pv_shop_slug', 'meta_value' => sanitize_title( $_POST[ 'pv_shop_name' ] ) ) );
 			if ( !empty( $users ) && $users[ 0 ]->ID != $user_id ) {
-				if ( function_exists( 'wc_add_error' ) ) wc_add_error( __( 'That shop name is already taken. Your shop name must be unique.', 'wc_product_vendor' ) ); else $woocommerce->add_error( __( 'That shop name is already taken. Your shop name must be unique.', 'wc_product_vendor' ) );
+				if ( function_exists( 'wc_add_error' ) ) wc_add_error( __( 'That shop name is already taken. Your shop name must be unique.', 'wcvendors' ) ); else $woocommerce->add_error( __( 'That shop name is already taken. Your shop name must be unique.', 'wcvendors' ) );
 			} else {
 				update_user_meta( $user_id, 'pv_shop_name', $_POST[ 'pv_shop_name' ] );
 				update_user_meta( $user_id, 'pv_shop_slug', sanitize_title( $_POST[ 'pv_shop_name' ] ) );
@@ -93,10 +93,10 @@ class PV_Vendor_Dashboard
 			update_user_meta( $user_id, 'pv_seller_info', $_POST[ 'pv_seller_info' ] );
 		}
 
-		do_action( 'wc_product_vendor_shop_settings_saved', $user_id );
+		do_action( 'wcvendors_shop_settings_saved', $user_id );
 
 		if ( !$woocommerce->error_count() ) {
-			if ( function_exists( 'wc_add_message' ) ) wc_add_message( __( 'Settings saved.', 'wc_product_vendor' ) ); else $woocommerce->add_message( __( 'Settings saved.', 'wc_product_vendor' ) );
+			if ( function_exists( 'wc_add_message' ) ) wc_add_message( __( 'Settings saved.', 'wcvendors' ) ); else $woocommerce->add_message( __( 'Settings saved.', 'wcvendors' ) );
 		}
 	}
 
@@ -157,7 +157,7 @@ class PV_Vendor_Dashboard
 		wp_enqueue_style( 'pv_frontend_style', pv_assets_url . 'css/pv-frontend.css' );
 
 		ob_start();
-		do_action( 'wc_product_vendor_before_dashboard' );
+		do_action( 'wcvendors_before_dashboard' );
 
 		woocommerce_show_messages();
 		woocommerce_get_template( 'links.php', array(
@@ -184,7 +184,7 @@ class PV_Vendor_Dashboard
 													  'datepicker'      => $datepicker,
 													  'can_view_orders' => $can_view_orders,
 												 ), 'wc-product-vendor/dashboard/', pv_plugin_dir . 'views/dashboard/' );
-		do_action( 'wc_product_vendor_after_dashboard' );
+		do_action( 'wcvendors_after_dashboard' );
 
 		return ob_get_clean();
 	}

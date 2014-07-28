@@ -52,11 +52,11 @@ class PV_Emails
 		if ( !empty( $_POST[ 'apply_for_vendor' ] ) || ( !empty( $_GET[ 'action' ] ) && ( $_GET[ 'action' ] == 'approve_vendor' || $_GET[ 'action' ] == 'deny_vendor' ) ) ) {
 
 			if ( $role == 'pending_vendor' ) {
-				$status = __( 'pending', 'wc_product_vendor' );
+				$status = __( 'pending', 'wcvendors' );
 			} else if ( $role == 'vendor' ) {
-				$status = __( 'approved', 'wc_product_vendor' );
+				$status = __( 'approved', 'wcvendors' );
 			} else if ( !empty( $_GET[ 'action' ] ) && $_GET[ 'action' ] == 'deny_vendor' ) {
-				$status = __( 'denied', 'wc_product_vendor' );
+				$status = __( 'denied', 'wcvendors' );
 			}
 
 			$mails = $woocommerce->mailer()->get_emails();
@@ -84,7 +84,7 @@ class PV_Emails
 			? sprintf( '<a href="%s" target="_TOP">%s</a>', PV_Vendors::get_vendor_shop_page( $product->post_author ), PV_Vendors::get_vendor_shop_name( $product->post_author ) )
 			: get_bloginfo( 'name' );
 
-		$name .= '<small><br />' . __( 'Sold by', 'wc_product_vendor' ) . ': ' . $sold_by . '</small><br />';
+		$name .= '<small><br />' . __( 'Sold by', 'wcvendors' ) . ': ' . $sold_by . '</small><br />';
 
 		return $name;
 	}

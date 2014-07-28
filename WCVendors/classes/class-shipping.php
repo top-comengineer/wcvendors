@@ -3,7 +3,7 @@
 /**
  * Commission functions
  *
- * @author  Matt Gates <http://mgates.me>
+ * @author  WC Vendors <http://wcvendors.com>
  * @package ProductVendor
  */
 
@@ -92,7 +92,7 @@ class PV_Shipping
 			}
 		}
 
-		$shipping_due = apply_filters( 'wc_product_vendor_shipping_due', $shipping_due, $order_id, $product );
+		$shipping_due = apply_filters( 'wcvendors_shipping_due', $shipping_due, $order_id, $product );
 
 		return $shipping_due;
 	}
@@ -195,8 +195,8 @@ class PV_Shipping
 
 		if ( !empty( PV_Shipping::$trs2_shipping_rates ) ) return;
 
-		PV_Shipping::$trs2_shipping_rates     = array_filter( (array) get_post_meta( $order_id, '_wc_product_vendor_trs2_shipping_rates', true ) );
-		PV_Shipping::$trs2_shipping_calc_type = get_post_meta( $order_id, '_wc_product_vendor_trs2_shipping_calc_type', true );
+		PV_Shipping::$trs2_shipping_rates     = array_filter( (array) get_post_meta( $order_id, '_wcvendors_trs2_shipping_rates', true ) );
+		PV_Shipping::$trs2_shipping_calc_type = get_post_meta( $order_id, '_wcvendors_trs2_shipping_calc_type', true );
 	}
 
 
@@ -243,8 +243,8 @@ class PV_Shipping
 
 			if ( is_array( $shipping_rates ) && array_sum( $shipping_rates ) == $order->order_shipping ) {
 				$shipping_calc_type = $woocommerce->session->trs2_shipping_class_type[ $key ];
-				update_post_meta( $order_id, '_wc_product_vendor_trs2_shipping_rates', $shipping_rates );
-				update_post_meta( $order_id, '_wc_product_vendor_trs2_shipping_calc_type', $shipping_calc_type );
+				update_post_meta( $order_id, '_wcvendors_trs2_shipping_rates', $shipping_rates );
+				update_post_meta( $order_id, '_wcvendors_trs2_shipping_calc_type', $shipping_calc_type );
 
 				break;
 			}

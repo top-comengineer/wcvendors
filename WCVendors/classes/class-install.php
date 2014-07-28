@@ -2,7 +2,7 @@
 /**
  * Install class on activation.
  *
- * @author  Matt Gates <http://mgates.me>
+ * @author  WC Vendors <http://wcvendors.com>
  * @package ProductVendor
  */
 
@@ -96,7 +96,7 @@ class PV_Install
 	private function add_new_roles()
 	{
 		remove_role( 'pending_vendor' );
-		add_role( 'pending_vendor', __( 'Pending Vendor', 'wc_product_vendor' ), array(
+		add_role( 'pending_vendor', __( 'Pending Vendor', 'wcvendors' ), array(
 																					  'read'         => true,
 																					  'edit_posts'   => false,
 																					  'delete_posts' => false
@@ -201,9 +201,9 @@ class PV_Install
 	{
 		global $wpdb;
 
-		$vendor_page_id = $this->create_page( 'vendor_dashboard', __( 'Vendor Dashboard', 'wc_product_vendor' ), '[pv_vendor_dashboard]' );
-		$this->create_page( 'orders', __( 'Orders', 'wc_product_vendor' ), '[pv_orders]', $vendor_page_id );
-		$this->create_page( 'shop_settings', __( 'Shop Settings', 'wc_product_vendor' ), '[pv_shop_settings]', $vendor_page_id );
+		$vendor_page_id = $this->create_page( 'vendor_dashboard', __( 'Vendor Dashboard', 'wcvendors' ), '[pv_vendor_dashboard]' );
+		$this->create_page( 'orders', __( 'Orders', 'wcvendors' ), '[pv_orders]', $vendor_page_id );
+		$this->create_page( 'shop_settings', __( 'Shop Settings', 'wcvendors' ), '[pv_shop_settings]', $vendor_page_id );
 	}
 
 
@@ -250,7 +250,7 @@ class PV_Install
 
 			case '1.4.0':
 
-				add_role( 'pending_vendor', __( 'Pending Vendor', 'wc_product_vendor' ), array(
+				add_role( 'pending_vendor', __( 'Pending Vendor', 'wcvendors' ), array(
 																							  'read'         => true,
 																							  'edit_posts'   => false,
 																							  'delete_posts' => false

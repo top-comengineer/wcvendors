@@ -38,7 +38,7 @@ class PV_Submit_Comment
 
 		// Don't submit empty comments
 		if ( empty( $_POST[ 'comment_text' ] ) ) {
-			if ( function_exists( 'wc_add_error' ) ) wc_add_error( __( 'You\'ve left the comment field empty!', 'wc_product_vendor' ) ); else $woocommerce->add_error( __( 'You\'ve left the comment field empty!', 'wc_product_vendor' ) );
+			if ( function_exists( 'wc_add_error' ) ) wc_add_error( __( 'You\'ve left the comment field empty!', 'wcvendors' ) ); else $woocommerce->add_error( __( 'You\'ve left the comment field empty!', 'wcvendors' ) );
 
 			return false;
 		}
@@ -60,7 +60,7 @@ class PV_Submit_Comment
 			$found_order->add_order_note( $comment, 1 );
 			remove_filter( 'woocommerce_new_order_note_data', array( __CLASS__, 'filter_comment' ), 10, 2 );
 
-			if ( function_exists( 'wc_add_message' ) ) wc_add_message( __( 'Success. The customer has been notified of your comment.', 'wc_product_vendor' ) ); else $woocommerce->add_message( __( 'Success. The customer has been notified of your comment.', 'wc_product_vendor' ) );
+			if ( function_exists( 'wc_add_message' ) ) wc_add_message( __( 'Success. The customer has been notified of your comment.', 'wcvendors' ) ); else $woocommerce->add_message( __( 'Success. The customer has been notified of your comment.', 'wcvendors' ) );
 		}
 
 	}
