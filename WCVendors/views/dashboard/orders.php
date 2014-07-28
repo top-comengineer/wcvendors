@@ -36,7 +36,7 @@ jQuery(function () {
 		<?php foreach ( $order_summary as $order ) :
 
 			$order = new WC_Order( $order->order_id );
-			$valid_items = PV_Queries::get_products_for_order( $order->id );
+			$valid_items = WCV_Queries::get_products_for_order( $order->id );
 			$valid = array();
 
 			$items = $order->get_items();
@@ -53,7 +53,7 @@ jQuery(function () {
 			<tr>
 				<td><?php echo $order->get_order_number(); ?></td>
 				<td><?php echo $order->get_formatted_shipping_address(); ?></td>
-				<td><?php $sum = PV_Queries::sum_for_orders( array( $order->id ), array('vendor_id'=>get_current_user_id()) ); $total = $sum[0]->line_total; $totals += $total; echo woocommerce_price( $total ); ?></td>
+				<td><?php $sum = WCV_Queries::sum_for_orders( array( $order->id ), array('vendor_id'=>get_current_user_id()) ); $total = $sum[0]->line_total; $totals += $total; echo woocommerce_price( $total ); ?></td>
 				<td><?php echo $order->order_date; ?></td>
 				<td><a href="#" class="view-items" id="<?php echo $order->id; ?>"><?php _e('View items', 'wcvendors'); ?></a> | <a href="?wc_pv_mark_shipped=<?php echo $order->id; ?>" class="mark-shipped"><?php echo $shipped ? __('Unmark shipped', 'wcvendors') : __('Mark shipped', 'wcvendors'); ?></a></td>
 			</tr>

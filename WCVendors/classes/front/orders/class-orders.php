@@ -57,7 +57,7 @@ class PV_Orders
 				$products = array_unique($products);
 			}
 
-			$this->orders = PV_Queries::get_orders_for_products( $products, array( 'vendor_id' => get_current_user_id() ) );
+			$this->orders = WCV_Queries::get_orders_for_products( $products, array( 'vendor_id' => get_current_user_id() ) );
 
 			add_action( 'init', array( $this, 'verify_order_access' ) );
 			add_shortcode( 'pv_orders', array( $this, 'display_product_orders' ) );

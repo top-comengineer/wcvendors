@@ -1,6 +1,6 @@
 <?php
 
-class PV_Queries
+class WCV_Queries
 {
 
 	/**
@@ -16,7 +16,7 @@ class PV_Queries
 	{
 		global $wpdb;
 
-		$dates           = PV_Queries::orders_within_range();
+		$dates           = WCV_Queries::orders_within_range();
 		$vendor_products = array();
 
 		$results = $wpdb->get_results( "
@@ -91,7 +91,7 @@ class PV_Queries
 
 		if ( empty( $product_ids ) ) return false;
 
-		$dates = PV_Queries::orders_within_range();
+		$dates = WCV_Queries::orders_within_range();
 
 		$defaults = array(
 			'status' => apply_filters( 'wcvendors_completed_statuses', array( 'completed', 'processing' ) ),
@@ -139,7 +139,7 @@ class PV_Queries
 	{
 		global $wpdb;
 
-		$dates = PV_Queries::orders_within_range();
+		$dates = WCV_Queries::orders_within_range();
 
 		$defaults = array(
 			'status' => apply_filters( 'wcvendors_completed_statuses', array( 'completed', 'processing' ) ),
@@ -206,7 +206,7 @@ class PV_Queries
 	{
 		global $wpdb;
 
-		$dates = PV_Queries::orders_within_range();
+		$dates = WCV_Queries::orders_within_range();
 
 		$defaults = array(
 			'status' => apply_filters( 'wcvendors_completed_statuses', array( 'completed', 'processing' ) ),

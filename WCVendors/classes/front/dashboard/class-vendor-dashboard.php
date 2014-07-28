@@ -144,14 +144,14 @@ class PV_Vendor_Dashboard
 									  'datepicker' => true,
 								 ), $atts ) );
 
-		$vendor_products = PV_Queries::get_commission_products( $user_id );
+		$vendor_products = WCV_Queries::get_commission_products( $user_id );
 		$products = array();
 		foreach ($vendor_products as $_product) {
 			$products[] = $_product->ID;
 		}
 
 		$vendor_summary  = $this->format_product_details( $vendor_products );
-		$order_summary   = PV_Queries::get_orders_for_products( $products );
+		$order_summary   = WCV_Queries::get_orders_for_products( $products );
 		$shop_page       = PV_Vendors::get_vendor_shop_page( wp_get_current_user()->user_login );
 
 		wp_enqueue_style( 'pv_frontend_style', pv_assets_url . 'css/pv-frontend.css' );
@@ -279,7 +279,7 @@ class PV_Vendor_Dashboard
 		foreach ( $products as $product )
 			$ids[ ] = $product->ID;
 
-		$orders = PV_Queries::sum_orders_for_products( $ids, array( 'vendor_id' => get_current_user_id() ) );
+		$orders = WCV_Queries::sum_orders_for_products( $ids, array( 'vendor_id' => get_current_user_id() ) );
 
 		if ( $orders )
 			foreach ( $orders as $order_item ) {
