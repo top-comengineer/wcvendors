@@ -167,7 +167,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 				unset( $items[ $key ] );
 				continue;
 			} else {
-				$commission_due = PV_Commission::calculate_commission( $product[ 'line_subtotal' ], $product[ 'product_id' ], $order );
+				$commission_due = WCV_Commission::calculate_commission( $product[ 'line_subtotal' ], $product[ 'product_id' ], $order );
 
 				$items[ $key ][ 'line_subtotal' ] = $commission_due;
 				$items[ $key ][ 'line_total' ]    = $commission_due;

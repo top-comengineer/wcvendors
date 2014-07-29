@@ -285,7 +285,7 @@ class PV_Vendor_Dashboard
 			foreach ( $orders as $order_item ) {
 				if ( $order_item->qty < 1 ) continue;
 
-				$commission_rate = PV_Commission::get_commission_rate( $order_item->product_id );
+				$commission_rate = WCV_Commission::get_commission_rate( $order_item->product_id );
 				$_product        = get_product( $order_item->product_id );
 				$id              = !empty($_product->parent->id) ? $_product->parent->id : $order_item->product_id;
 

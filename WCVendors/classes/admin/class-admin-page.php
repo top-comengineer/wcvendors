@@ -328,7 +328,7 @@ class PV_Admin_Page extends WP_List_Table
 	{
 		global $wpdb, $wp_locale;
 
-		$table_name = $wpdb->prefix . "pv_commission";
+		$table_name = $wpdb->prefix . "WCV_Commission";
 
 		$months = $wpdb->get_results( "
 			SELECT DISTINCT YEAR( time ) AS year, MONTH( time ) AS month
@@ -419,7 +419,7 @@ class PV_Admin_Page extends WP_List_Table
 	{
 		global $wpdb;
 
-		$table_name = $wpdb->prefix . "pv_commission";
+		$table_name = $wpdb->prefix . "WCV_Commission";
 
 		$query  = "UPDATE `{$table_name}` SET `status` = 'paid' WHERE id IN ($ids) AND `status` = 'due'";
 		$result = $wpdb->query( $query );
@@ -439,7 +439,7 @@ class PV_Admin_Page extends WP_List_Table
 	{
 		global $wpdb;
 
-		$table_name = $wpdb->prefix . "pv_commission";
+		$table_name = $wpdb->prefix . "WCV_Commission";
 
 		$query  = "UPDATE `{$table_name}` SET `status` = 'reversed' WHERE id IN ($ids) AND `status` = 'due'";
 		$result = $wpdb->query( $query );
@@ -459,7 +459,7 @@ class PV_Admin_Page extends WP_List_Table
 	{
 		global $wpdb;
 
-		$table_name = $wpdb->prefix . "pv_commission";
+		$table_name = $wpdb->prefix . "WCV_Commission";
 
 		$query  = "UPDATE `{$table_name}` SET `status` = 'due' WHERE id IN ($ids)";
 		$result = $wpdb->query( $query );
@@ -497,7 +497,7 @@ class PV_Admin_Page extends WP_List_Table
 		/**
 		 * Get items
 		 */
-		$sql = "SELECT COUNT(id) FROM {$wpdb->prefix}pv_commission";
+		$sql = "SELECT COUNT(id) FROM {$wpdb->prefix}WCV_Commission";
 
 		if ( !empty( $_POST[ 'm' ] ) ) {
 			$year  = substr( $_POST[ 'm' ], 0, 4 );
@@ -514,7 +514,7 @@ class PV_Admin_Page extends WP_List_Table
 		$max = $wpdb->get_var( $sql );
 
 		$sql = "
-			SELECT * FROM {$wpdb->prefix}pv_commission
+			SELECT * FROM {$wpdb->prefix}WCV_Commission
 		";
 
 		if ( !empty( $_POST[ 'm' ] ) ) {

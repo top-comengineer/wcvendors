@@ -124,7 +124,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 		$order->add_order_note( __( 'IPN payment completed', 'wcvendors' ) );
 
 		if ( $this->instapay ) {
-			PV_Commission::set_order_commission_paid( $order_id );
+			WCV_Commission::set_order_commission_paid( $order_id );
 		}
 		exit;
 	}

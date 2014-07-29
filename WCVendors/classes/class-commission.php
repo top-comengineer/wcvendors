@@ -8,7 +8,7 @@
  */
 
 
-class PV_Commission
+class WCV_Commission
 {
 
 
@@ -41,7 +41,7 @@ class PV_Commission
 	{
 		foreach ( $this->completed_statuses as $completed ) {
 			foreach ( $this->reverse_statuses as $reversed ) {
-				add_action( "woocommerce_order_status_{$completed}_to_{$reversed}", array( 'PV_Commission', 'reverse_due_commission' ) );
+				add_action( "woocommerce_order_status_{$completed}_to_{$reversed}", array( 'WCV_Commission', 'reverse_due_commission' ) );
 			}
 		}
 	}
@@ -53,7 +53,7 @@ class PV_Commission
 	public function check_order_complete()
 	{
 		foreach ( $this->completed_statuses as $completed ) {
-			add_action( 'woocommerce_order_status_' . $completed, array( 'PV_Commission', 'log_commission_due' ) );
+			add_action( 'woocommerce_order_status_' . $completed, array( 'WCV_Commission', 'log_commission_due' ) );
 		}
 	}
 
@@ -72,11 +72,11 @@ class PV_Commission
 		global $wpdb;
 
 		// Check if this order exists
-		$count = PV_Commission::count_commission_by_order( $order_id );
+		$count = WCV_Commission::count_commission_by_order( $order_id );
 		if ( !$count ) return false;
 
 		// Deduct this amount from the vendor's total due
-		$results = PV_Commission::sum_total_due_for_order( $order_id );
+		$results = WCV_Commission::sum_total_due_for_order( $order_id );
 		$ids        = implode( ',', $results[ 'ids' ] );
 		$table_name = $wpdb->prefix . "pv_commission";
 
@@ -129,7 +129,7 @@ class PV_Commission
 			}
 
 			if ( !empty( $insert_due ) ) {
-				PV_Commission::insert_new_commission( array_values( $insert_due ) );
+				WCV_Commission::insert_new_commission( array_values( $insert_due ) );
 			}
 		}
 

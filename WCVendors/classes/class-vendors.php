@@ -90,7 +90,7 @@ class PV_Vendors
 			$product_id = !empty( $product[ 'variation_id' ] ) ? $product[ 'variation_id' ] : $product[ 'product_id' ];
 			$author     = PV_Vendors::get_vendor_from_product( $product_id );
 			$is_vendor  = PV_Vendors::is_vendor( $author );
-			$commission = $is_vendor ? PV_Commission::calculate_commission( $product[ 'line_subtotal' ], $product_id, $order ) : 0;
+			$commission = $is_vendor ? WCV_Commission::calculate_commission( $product[ 'line_subtotal' ], $product_id, $order ) : 0;
 			$tax        = !empty( $product[ 'line_tax' ] ) ? (float) $product[ 'line_tax' ] : 0;
 			$shipping   = PV_Shipping::get_shipping_due( $order->id, $product, $author );
 
@@ -210,7 +210,7 @@ class PV_Vendors
 	{
 		global $wpdb;
 
-		$table_name = $wpdb->prefix . "pv_commission";
+		$table_name = $wpdb->prefix . "WCV_Commission";
 
 		$query = "SELECT COUNT(*)
 					FROM {$table_name}
@@ -234,7 +234,7 @@ class PV_Vendors
 	{
 		global $wpdb;
 
-		$table_name = $wpdb->prefix . "pv_commission";
+		$table_name = $wpdb->prefix . "WCV_Commission";
 
 		$query   = "SELECT *
 					FROM {$table_name}

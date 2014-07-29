@@ -148,7 +148,7 @@ if ( is_woocommerce_activated() ) {
 
 			new WCV_Vendor_Shop;
 			new WCV_Vendor_Cart;
-			new PV_Commission;
+			new WCV_Commission;
 			new PV_Shipping;
 			new PV_Cron;
 			new PV_Orders;

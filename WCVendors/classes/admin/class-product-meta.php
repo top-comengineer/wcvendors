@@ -125,8 +125,8 @@ class PV_Product_Meta
 	 */
 	public function save_panel( $post_id )
 	{
-		if ( isset( $_POST[ 'pv_commission_rate' ] ) ) {
-			update_post_meta( $post_id, 'pv_commission_rate', is_numeric( $_POST[ 'pv_commission_rate' ] ) ? (float) $_POST[ 'pv_commission_rate' ] : false );
+		if ( isset( $_POST[ 'WCV_Commission_rate' ] ) ) {
+			update_post_meta( $post_id, 'WCV_Commission_rate', is_numeric( $_POST[ 'WCV_Commission_rate' ] ) ? (float) $_POST[ 'WCV_Commission_rate' ] : false );
 		}
 
 	}
@@ -155,15 +155,15 @@ class PV_Product_Meta
 			<fieldset>
 
 				<p class='form-field commission_rate_field'>
-					<label for='pv_commission_rate'><?php _e( 'Commission', 'wcvendors' ); ?> (%)</label>
-					<input type='number' id='pv_commission_rate'
-						   name='pv_commission_rate'
+					<label for='WCV_Commission_rate'><?php _e( 'Commission', 'wcvendors' ); ?> (%)</label>
+					<input type='number' id='WCV_Commission_rate'
+						   name='WCV_Commission_rate'
 						   class='short'
 						   max="100"
 						   min="0"
 						   step='any'
 						   placeholder='<?php _e( 'Leave blank for default', 'wcvendors' ); ?>'
-						   value="<?php echo get_post_meta( $post->ID, 'pv_commission_rate', true ); ?>"/>
+						   value="<?php echo get_post_meta( $post->ID, 'WCV_Commission_rate', true ); ?>"/>
 				</p>
 
 			</fieldset>

@@ -47,7 +47,7 @@ class PV_Mass_Pay
 	 */
 	private function get_users()
 	{
-		$orders = PV_Commission::get_all_due();
+		$orders = WCV_Commission::get_all_due();
 		if ( empty( $orders ) ) return false;
 
 		$due_amounts = array();
@@ -94,7 +94,7 @@ class PV_Mass_Pay
 	{
 		global $wpdb;
 
-		return PV_Commission::set_order_commission_paid( $this->orders_paid, true );
+		return WCV_Commission::set_order_commission_paid( $this->orders_paid, true );
 	}
 
 
