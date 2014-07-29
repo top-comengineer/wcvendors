@@ -3,7 +3,7 @@
 /**
  *
  */
-class PV_Vendor_Applicants
+class WCV_Vendor_Applicants
 {
 
 	function __construct()

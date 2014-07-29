@@ -10,7 +10,7 @@ if ( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 
 
-class PV_Emails
+class WCV_Emails
 {
 
 
@@ -21,7 +21,7 @@ class PV_Emails
 	{
 		add_action( 'woocommerce_email_classes', array( $this, 'check_items' ) );
 		add_filter( 'woocommerce_resend_order_emails_available', array( $this, 'order_action' ) );
-		add_filter( 'woocommerce_order_product_title', array( 'PV_Emails', 'show_vendor_in_email' ), 10, 2 );
+		add_filter( 'woocommerce_order_product_title', array( 'WCV_Emails', 'show_vendor_in_email' ), 10, 2 );
 		add_action( 'set_user_role', array( $this, 'application_status_email' ), 10, 2 );
 		add_action( 'transition_post_status', array( $this, 'trigger_new_product' ), 10, 3 );
 	}

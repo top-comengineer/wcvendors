@@ -3,12 +3,12 @@
 /**
  * My account views
  *
- * @author  WC Vendors <http://wcvendors>
+ * @author  Matt Gates <http://mgates.me>
  * @package ProductVendor
  */
 
 
-class PV_Orders
+class WCV_Orders
 {
 
 
@@ -60,7 +60,7 @@ class PV_Orders
 			$this->orders = WCV_Queries::get_orders_for_products( $products, array( 'vendor_id' => get_current_user_id() ) );
 
 			add_action( 'init', array( $this, 'verify_order_access' ) );
-			add_shortcode( 'pv_orders', array( $this, 'display_product_orders' ) );
+			add_shortcode( 'WCV_Orders', array( $this, 'display_product_orders' ) );
 
 			if ( $this->can_export_csv && !empty( $_POST[ 'export_orders' ] ) ) {
 				$this->download_csv();
@@ -80,8 +80,8 @@ class PV_Orders
 	{
 		if ( !$this->orders ) return false;
 
-		extract( PV_Orders::format_order_details( $this->orders, $this->product_id ) );
-		$headers = PV_Orders::get_headers();
+		extract( WCV_Orders::format_order_details( $this->orders, $this->product_id ) );
+		$headers = WCV_Orders::get_headers();
 
 		// Export the CSV
 		require_once wcv_plugin_dir . 'classes/front/orders/class-export-csv.php';
@@ -157,8 +157,8 @@ class PV_Orders
 
 		}
 
-		$headers = PV_Orders::get_headers();
-		$all     = PV_Orders::format_order_details( $this->orders, $this->product_id );
+		$headers = WCV_Orders::get_headers();
+		$all     = WCV_Orders::format_order_details( $this->orders, $this->product_id );
 
 		wp_enqueue_style( 'pv_frontend_style', pv_assets_url . 'css/pv-frontend.css' );
 		wp_enqueue_script( 'pv_frontend_script', pv_assets_url . 'js/front-orders.js' );

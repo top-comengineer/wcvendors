@@ -83,7 +83,7 @@ class PV_Vendors
 		$shipping_given = 0;
 		$tax_given      = 0;
 
-		PV_Shipping::$pps_shipping_costs = array();
+		WCV_Shipping::$pps_shipping_costs = array();
 
 		foreach ( $order->get_items() as $key => $product ) {
 
@@ -92,7 +92,7 @@ class PV_Vendors
 			$is_vendor  = PV_Vendors::is_vendor( $author );
 			$commission = $is_vendor ? WCV_Commission::calculate_commission( $product[ 'line_subtotal' ], $product_id, $order ) : 0;
 			$tax        = !empty( $product[ 'line_tax' ] ) ? (float) $product[ 'line_tax' ] : 0;
-			$shipping   = PV_Shipping::get_shipping_due( $order->id, $product, $author );
+			$shipping   = WCV_Shipping::get_shipping_due( $order->id, $product, $author );
 
 			if ( $is_vendor ) {
 

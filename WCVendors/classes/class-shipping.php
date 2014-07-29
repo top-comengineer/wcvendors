@@ -8,7 +8,7 @@
  */
 
 
-class PV_Shipping
+class WCV_Shipping
 {
 	public static $trs2_shipping_rates;
 	public static $trs2_shipping_calc_type;
@@ -23,8 +23,8 @@ class PV_Shipping
 		// Table Rate Shipping 2 by WooThemes
 		if ( function_exists( 'woocommerce_get_shipping_method_table_rate' ) ) {
 			add_action( 'wp', array( $this, 'trs2_clear_transients' ) );
-			add_action( 'woocommerce_checkout_update_order_meta', array( 'PV_Shipping', 'trs2_add_shipping_data' ), 1, 2 );
-			add_action( 'wc_trs2_matched_rates', array( 'PV_Shipping', 'trs2_store_shipping_data' ), 10, 3 );
+			add_action( 'woocommerce_checkout_update_order_meta', array( 'WCV_Shipping', 'trs2_add_shipping_data' ), 1, 2 );
+			add_action( 'wc_trs2_matched_rates', array( 'WCV_Shipping', 'trs2_store_shipping_data' ), 10, 3 );
 		}
 	}
 
@@ -65,11 +65,11 @@ class PV_Shipping
 			}
 			// Table Rate Shipping 2
 			if ( strstr( $method, 'table_rate' ) !== false ) {
-				// $shipping_due = PV_Shipping::trs2_get_due( $order_id, $product[ 'product_id' ] );
+				// $shipping_due = WCV_Shipping::trs2_get_due( $order_id, $product[ 'product_id' ] );
 
 				// Per Product Shipping 2
 			} else if ( function_exists( 'woocommerce_per_product_shipping' ) && $method == 'per_product' ) {
-				$shipping_due = PV_Shipping::pps_get_due( $order_id, $product );
+				$shipping_due = WCV_Shipping::pps_get_due( $order_id, $product );
 
 				// Local Delivery
 			} else if ( $method == 'local_delivery' ) {
@@ -169,14 +169,14 @@ class PV_Shipping
 
 		$shipping_due = 0;
 
-		PV_Shipping::trs2_retrieve_shipping_data( $order_id );
-		if ( !empty( PV_Shipping::$trs2_shipping_calc_type ) ) {
+		WCV_Shipping::trs2_retrieve_shipping_data( $order_id );
+		if ( !empty( WCV_Shipping::$trs2_shipping_calc_type ) ) {
 
-			$ship_id = ( PV_Shipping::$trs2_shipping_calc_type == 'class' ) ? get_product( $product_id )->get_shipping_class_id() : $product_id;
+			$ship_id = ( WCV_Shipping::$trs2_shipping_calc_type == 'class' ) ? get_product( $product_id )->get_shipping_class_id() : $product_id;
 
-			if ( !empty( PV_Shipping::$trs2_shipping_rates[ $ship_id ] ) ) {
-				$shipping_due = PV_Shipping::$trs2_shipping_rates[ $ship_id ];
-				unset( PV_Shipping::$trs2_shipping_rates[ $ship_id ] );
+			if ( !empty( WCV_Shipping::$trs2_shipping_rates[ $ship_id ] ) ) {
+				$shipping_due = WCV_Shipping::$trs2_shipping_rates[ $ship_id ];
+				unset( WCV_Shipping::$trs2_shipping_rates[ $ship_id ] );
 			}
 		}
 
@@ -193,10 +193,10 @@ class PV_Shipping
 	{
 		global $woocommerce;
 
-		if ( !empty( PV_Shipping::$trs2_shipping_rates ) ) return;
+		if ( !empty( WCV_Shipping::$trs2_shipping_rates ) ) return;
 
-		PV_Shipping::$trs2_shipping_rates     = array_filter( (array) get_post_meta( $order_id, '_wcvendors_trs2_shipping_rates', true ) );
-		PV_Shipping::$trs2_shipping_calc_type = get_post_meta( $order_id, '_wcvendors_trs2_shipping_calc_type', true );
+		WCV_Shipping::$trs2_shipping_rates     = array_filter( (array) get_post_meta( $order_id, '_wcvendors_trs2_shipping_rates', true ) );
+		WCV_Shipping::$trs2_shipping_calc_type = get_post_meta( $order_id, '_wcvendors_trs2_shipping_calc_type', true );
 	}
 
 

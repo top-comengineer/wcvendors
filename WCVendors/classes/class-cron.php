@@ -6,7 +6,7 @@
  */
 
 
-class PV_Cron
+class WCV_Cron
 {
 
 
@@ -15,9 +15,9 @@ class PV_Cron
 	 */
 	function __construct()
 	{
-		add_filter( 'cron_schedules', array( 'PV_Cron', 'custom_cron_intervals' ) );
-		add_action( WC_Vendors::$id . '_options_updated', array( 'PV_Cron', 'check_schedule' ) );
-		add_filter( WC_Vendors::$id . '_options_on_update', array( 'PV_Cron', 'check_schedule_now' ) );
+		add_filter( 'cron_schedules', array( 'WCV_Cron', 'custom_cron_intervals' ) );
+		add_action( WC_Vendors::$id . '_options_updated', array( 'WCV_Cron', 'check_schedule' ) );
+		add_filter( WC_Vendors::$id . '_options_on_update', array( 'WCV_Cron', 'check_schedule_now' ) );
 	}
 
 
@@ -39,12 +39,12 @@ class PV_Cron
 		 * 3. Manual was not selected
 		 */
 		if ( ( $old_interval != $new_interval ) && !$instapay && $new_interval != 'manual' ) {
-			PV_Cron::remove_cron_schedule( $options );
-			PV_Cron::schedule_cron( $new_interval );
+			WCV_Cron::remove_cron_schedule( $options );
+			WCV_Cron::schedule_cron( $new_interval );
 		}
 
 		if ( $new_interval == 'manual' || $instapay ) {
-			PV_Cron::remove_cron_schedule( $options );
+			WCV_Cron::remove_cron_schedule( $options );
 		}
 
 	}
@@ -63,9 +63,9 @@ class PV_Cron
 		$new_schedule = $options[ 'schedule' ];
 
 		if ( $new_schedule == 'now' ) {
-			$return                = PV_Cron::pay_now();
+			$return                = WCV_Cron::pay_now();
 			$options[ 'schedule' ] = $old_schedule;
-			PV_Cron::schedule_cron( $old_schedule );
+			WCV_Cron::schedule_cron( $old_schedule );
 			add_settings_error( WC_Vendors::$pv_options->id, 'save_options', $return[ 'message' ], $return[ 'status' ] );
 		}
 
@@ -117,7 +117,7 @@ class PV_Cron
 	public function schedule_cron( $interval )
 	{
 		// Scheduled event
-		add_action( 'pv_schedule_mass_payments', array( 'PV_Cron', 'pay_now' ) );
+		add_action( 'pv_schedule_mass_payments', array( 'WCV_Cron', 'pay_now' ) );
 
 		// Schedule the event
 		if ( !wp_next_scheduled( 'pv_schedule_mass_payments' ) ) {

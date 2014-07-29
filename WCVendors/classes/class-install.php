@@ -2,7 +2,7 @@
 /**
  * Install class on activation.
  *
- * @author  WC Vendors <http://wcvendors.com>
+ * @author  Matt Gates <http://mgates.me>
  * @package ProductVendor
  */
 
@@ -201,8 +201,8 @@ class PV_Install
 	{
 		global $wpdb;
 
-		$vendor_page_id = $this->create_page( 'vendor_dashboard', __( 'Vendor Dashboard', 'wcvendors' ), '[pv_vendor_dashboard]' );
-		$this->create_page( 'orders', __( 'Orders', 'wcvendors' ), '[pv_orders]', $vendor_page_id );
+		$vendor_page_id = $this->create_page( 'vendor_dashboard', __( 'Vendor Dashboard', 'wcvendors' ), '[WCV_Vendor_Dashboard]' );
+		$this->create_page( 'orders', __( 'Orders', 'wcvendors' ), '[WCV_Orders]', $vendor_page_id );
 		$this->create_page( 'shop_settings', __( 'Shop Settings', 'wcvendors' ), '[pv_shop_settings]', $vendor_page_id );
 	}
 

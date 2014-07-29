@@ -1,15 +1,15 @@
 <?php
 /**
- * PV_Admin_Reports class.
+ * WCV_Admin_Reports class.
  *
  * Shows reports related to software in the woocommerce backend
  *
- * @author WC Vendors <http://wcvendors.com>
+ * @author Matt Gates <http://mgates.me>
  * @package
  */
 
 
-class PV_Admin_Reports
+class WCV_Admin_Reports
 {
 
 

@@ -3,12 +3,12 @@
 /**
  * WP-Admin users page
  *
- * @author  WC Vendors <http://wcvendors.com>
+ * @author  Matt Gates <http://mgates.me>
  * @package ProductVendor
  */
 
 
-class PV_Admin_Users
+class WCV_Admin_Users
 {
 
 

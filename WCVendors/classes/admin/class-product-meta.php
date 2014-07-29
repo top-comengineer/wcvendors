@@ -7,7 +7,7 @@
  */
 
 
-class PV_Product_Meta
+class WCV_Product_Meta
 {
 
 

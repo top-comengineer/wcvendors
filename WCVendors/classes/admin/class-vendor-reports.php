@@ -8,7 +8,7 @@
  */
 
 
-class PV_Vendor_Reports
+class WCV_Vendor_Reports
 {
 
 

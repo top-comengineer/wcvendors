@@ -3,12 +3,12 @@
 /**
  * Signup form for applying as a vendor
  *
- * @author  WC Vendors <http://wcvendors>
+ * @author  Matt Gates <http://mgates.me>
  * @package ProductVendor
  */
 
 
-class PV_Vendor_Signup
+class WCV_Vendor_Signup
 {
 
 
@@ -98,7 +98,7 @@ class PV_Vendor_Signup
 
 				do_action( 'wcvendors_application_submited', $user_id );
 
-				add_filter( 'woocommerce_registration_redirect', array( 'PV_Vendor_Signup', 'redirect_to_vendor_dash' ) );
+				add_filter( 'woocommerce_registration_redirect', array( 'WCV_Vendor_Signup', 'redirect_to_vendor_dash' ) );
 			}
 		}
 	}

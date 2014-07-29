@@ -149,18 +149,18 @@ if ( is_woocommerce_activated() ) {
 			new WCV_Vendor_Shop;
 			new WCV_Vendor_Cart;
 			new WCV_Commission;
-			new PV_Shipping;
-			new PV_Cron;
-			new PV_Orders;
-			new PV_Vendor_Dashboard;
-			new PV_Product_Meta;
-			new PV_Vendor_Reports;
-			new PV_Admin_Setup;
-			new PV_Admin_Reports;
-			new PV_Vendor_Applicants;
-			new PV_Admin_Users;
-			new PV_Emails;
-			new PV_Vendor_Signup;
+			new WCV_Shipping;
+			new WCV_Cron;
+			new WCV_Orders;
+			new WCV_Vendor_Dashboard;
+			new WCV_Product_Meta;
+			new WCV_Vendor_Reports;
+			new WCV_Admin_Setup;
+			new WCV_Admin_Reports;
+			new WCV_Vendor_Applicants;
+			new WCV_Admin_Users;
+			new WCV_Emails;
+			new WCV_Vendor_Signup;
 		}
 
 

@@ -3,12 +3,12 @@
 /**
  * My account views
  *
- * @author  WC Vendors <http://wcvendors.com>
+ * @author  Matt Gates <http://mgates.me>
  * @package ProductVendor
  */
 
 
-class PV_Vendor_Dashboard
+class WCV_Vendor_Dashboard
 {
 
 
@@ -20,7 +20,7 @@ class PV_Vendor_Dashboard
 		add_shortcode( 'pv_shop_settings', array( $this, 'display_vendor_settings' ) );
 
 		if ( $can_view_sales = WC_Vendors::$pv_options->get_option( 'can_view_frontend_reports' ) ) {
-			add_shortcode( 'pv_vendor_dashboard', array( $this, 'display_vendor_products' ) );
+			add_shortcode( 'WCV_Vendor_Dashboard', array( $this, 'display_vendor_products' ) );
 		}
 
 		add_action( 'template_redirect', array( $this, 'check_access' ) );

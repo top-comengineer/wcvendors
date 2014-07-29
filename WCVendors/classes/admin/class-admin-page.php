@@ -1,6 +1,6 @@
 <?php
 
-class PV_Admin_Setup
+class WCV_Admin_Setup
 {
 	/**
 	 * WC > Referrals menu
@@ -9,8 +9,8 @@ class PV_Admin_Setup
 
 	public function __construct()
 	{
-		add_filter( 'set-screen-option', array( 'PV_Admin_Setup', 'set_table_option' ), 10, 3 );
-		add_action( 'admin_menu', array( 'PV_Admin_Setup', 'menu' ) );
+		add_filter( 'set-screen-option', array( 'WCV_Admin_Setup', 'set_table_option' ), 10, 3 );
+		add_action( 'admin_menu', array( 'WCV_Admin_Setup', 'menu' ) );
 
 		add_action( 'woocommerce_admin_order_data_after_shipping_address', array( $this, 'add_vendor_details' ), 10, 2 );
 		add_action( 'woocommerce_admin_order_actions_end', array( $this, 'append_actions' ), 10, 1 );
@@ -73,10 +73,10 @@ class PV_Admin_Setup
 			__( 'Commission', 'wcvendors' ), __( 'Commission', 'wcvendors' ),
 			'manage_woocommerce',
 			'pv_admin_commissions',
-			array( 'PV_Admin_Setup', 'commissions_page' )
+			array( 'WCV_Admin_Setup', 'commissions_page' )
 		);
 
-		add_action( "load-$hook", array( 'PV_Admin_Setup', 'add_options' ) );
+		add_action( "load-$hook", array( 'WCV_Admin_Setup', 'add_options' ) );
 	}
 
 

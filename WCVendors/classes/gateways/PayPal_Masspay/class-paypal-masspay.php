@@ -3,7 +3,7 @@
 /**
  * Mass pay users
  *
- * @author WC Vendors <http://wcvendors.com>
+ * @author Matt Gates <http://mgates.me>
  * @package
  */
 
