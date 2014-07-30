@@ -17,10 +17,10 @@ class WCV_Vendor_Dashboard
 	 */
 	function __construct()
 	{
-		add_shortcode( 'pv_shop_settings', array( $this, 'display_vendor_settings' ) );
+		add_shortcode( 'wcv_shop_settings', array( $this, 'display_vendor_settings' ) );
 
 		if ( $can_view_sales = WC_Vendors::$pv_options->get_option( 'can_view_frontend_reports' ) ) {
-			add_shortcode( 'WCV_Vendor_Dashboard', array( $this, 'display_vendor_products' ) );
+			add_shortcode( 'wcv_vendor_dashboard', array( $this, 'display_vendor_products' ) );
 		}
 
 		add_action( 'template_redirect', array( $this, 'check_access' ) );

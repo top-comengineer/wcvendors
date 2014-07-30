@@ -60,7 +60,7 @@ class WCV_Orders
 			$this->orders = WCV_Queries::get_orders_for_products( $products, array( 'vendor_id' => get_current_user_id() ) );
 
 			add_action( 'init', array( $this, 'verify_order_access' ) );
-			add_shortcode( 'WCV_Orders', array( $this, 'display_product_orders' ) );
+			add_shortcode( 'wcv_orders', array( $this, 'display_product_orders' ) );
 
 			if ( $this->can_export_csv && !empty( $_POST[ 'export_orders' ] ) ) {
 				$this->download_csv();
