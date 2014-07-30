@@ -214,7 +214,7 @@ $options[ ] = array( 'name' => __( 'Page configuration', 'wcvendors' ), 'type' =
 
 $options[ ] = array(
 	'name'    => __( 'Vendor dashboard', 'wcvendors' ),
-	'desc'    => __( 'Choose the page that has the shortcode <code>[WCV_Vendor_Dashboard]</code><br/>By default, My Account > Vendor Dashboard should have the shortcode.', 'wcvendors' ),
+	'desc'    => __( 'Choose the page that has the shortcode <code>[wcv_vendor_dashboard]</code><br/>By default, My Account > Vendor Dashboard should have the shortcode.', 'wcvendors' ),
 	'id'      => 'vendor_dashboard_page',
 	'type'    => 'single_select_page',
 	'select2' => true,
@@ -222,7 +222,7 @@ $options[ ] = array(
 
 $options[ ] = array(
 	'name'    => __( 'Shop settings', 'wcvendors' ),
-	'desc'    => __( 'Choose the page that has the shortcode <code>[pv_shop_settings]</code><br/>These are the shop settings a vendor can configure.', 'wcvendors' ),
+	'desc'    => __( 'Choose the page that has the shortcode <code>[wcv_shop_settings]</code><br/>These are the shop settings a vendor can configure.', 'wcvendors' ),
 	'id'      => 'shop_settings_page',
 	'type'    => 'single_select_page',
 	'select2' => true,
@@ -230,7 +230,7 @@ $options[ ] = array(
 
 $options[ ] = array(
 	'name'    => __( 'Orders page', 'wcvendors' ),
-	'desc'    => __( 'Choose the page that has the shortcode <code>[WCV_Orders]</code><br/>By default, My Account > Orders should have the shortcode.', 'wcvendors' ),
+	'desc'    => __( 'Choose the page that has the shortcode <code>[wcv_orders]</code><br/>By default, My Account > Orders should have the shortcode.', 'wcvendors' ),
 	'id'      => 'orders_page',
 	'type'    => 'single_select_page',
 	'select2' => true,
