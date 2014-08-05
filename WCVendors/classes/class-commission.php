@@ -262,7 +262,7 @@ class WCV_Commission
 	 */
 	public function calculate_commission( $product_price, $product_id, $order )
 	{
-		$commission_rate = PV_Commission::get_commission_rate( $product_id );
+		$commission_rate = WCV_Commission::get_commission_rate( $product_id );
 		$commission      = $product_price * ( $commission_rate / 100 );
 		$commission      = round( $commission, 2 );
 
