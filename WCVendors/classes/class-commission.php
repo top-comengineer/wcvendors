@@ -99,15 +99,15 @@ class WCV_Commission
 		global $woocommerce;
 
 		$order = new WC_Order( $order_id );
-		$dues  = PV_Vendors::get_vendor_dues_from_order( $order, false );
+		$dues  = WC_Vendors::get_vendor_dues_from_order( $order, false );
 
 		foreach ( $dues as $vendor_id => $details ) {
 
 			// Only process vendor commission
-			if ( !PV_Vendors::is_vendor( $vendor_id ) ) continue;
+			if ( !WC_Vendors::is_vendor( $vendor_id ) ) continue;
 
 			// See if they currently have an amount due
-			$due = PV_Vendors::count_due_by_vendor( $vendor_id, $order_id );
+			$due = WCV_Vendors::count_due_by_vendor( $vendor_id, $order_id );
 			if ( $due > 0 ) continue;
 
 			// Get the dues in an easy format for inserting to our table
@@ -233,7 +233,7 @@ class WCV_Commission
 		$vendor_id = PV_Vendors::get_vendor_from_product( $product_id );
 
 		$product_commission = get_post_meta( $product_id, 'pv_commission_rate', true );
-		$vendor_commission  = PV_Vendors::get_default_commission( $vendor_id );
+		$vendor_commission  = WC_Vendors::get_default_commission( $vendor_id );
 		$default_commission = WC_Vendors::$pv_options->get_option( 'default_commission' );
 
 		if ( $product_commission != '' && $product_commission !== false ) {
