@@ -141,7 +141,7 @@ class WCV_Cron
 	 *
 	 * @return array
 	 */
-	public function custom_cron_intervals( $schedules )
+	public static function custom_cron_intervals( $schedules )
 	{
 		$schedules[ 'weekly' ] = array(
 			'interval' => 604800,
