@@ -248,7 +248,7 @@ class WCV_Commission
 			$commission = $default_commission;
 		}
 
-		return apply_filters( 'pv_commission_rate_percent', $commission, $product_id );
+		return apply_filters( 'wcv_commission_rate_percent', $commission, $product_id );
 	}
 
 
@@ -266,7 +266,7 @@ class WCV_Commission
 		$commission      = $product_price * ( $commission_rate / 100 );
 		$commission      = round( $commission, 2 );
 
-		return apply_filters( 'pv_commission_rate', $commission, $product_id, $product_price, $order );
+		return apply_filters( 'wcv_commission_rate', $commission, $product_id, $product_price, $order );
 	}
 
 
@@ -304,7 +304,7 @@ class WCV_Commission
 			if ( !$update ) $insert = $wpdb->insert( $table, $order );
 		}
 
-		do_action( 'pv_commissions_inserted', $orders );
+		do_action( 'wcv_commissions_inserted', $orders );
 	}
 
 
