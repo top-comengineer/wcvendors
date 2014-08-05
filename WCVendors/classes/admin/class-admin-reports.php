@@ -38,7 +38,7 @@ class WCV_Admin_Reports
 	function reports_tab( $reports )
 	{
 		$reports[ 'vendors' ] = array(
-			'title'  => __( 'Product Vendors', 'wcvendors' ),
+			'title'  => __( 'WC Vendors', 'wcvendors' ),
 			'charts' => array(
 				array(
 					'title'       => __( 'Overview', 'wcvendors' ),
@@ -187,7 +187,7 @@ class WCV_Admin_Reports
 													href="<?php echo admin_url( 'post.php?post=' . $row->order_id . '&action=edit' ); ?>"><?php echo $row->order_id; ?></a><?php else : _e( 'N/A', 'wcvendors' ); endif; ?>
 											</td>
 											<td><?php echo get_the_title( $row->product_id ); ?></td>
-											<td><?php echo PV_Vendors::get_vendor_shop_name( $row->vendor_id ); ?></td>
+											<td><?php echo WC_Vendors::get_vendor_shop_name( $row->vendor_id ); ?></td>
 											<td><?php echo woocommerce_price( $row->total_due + $row->total_shipping + $row->tax ) ?></td>
 											<td><?php echo date( __( 'D j M Y \a\t h:ia', 'wcvendors' ), strtotime( $row->time ) ) ?></td>
 											<td><?php echo $row->status ?></td>
