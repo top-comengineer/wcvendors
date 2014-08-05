@@ -50,7 +50,7 @@ class WCV_Admin_Setup
 			'url'       => '#',
 			'name'      => __('Vendors Shipped', 'wcvendors') . $string,
 			'action'    => 'wc_pv_shipped',
-			'image_url' => pv_assets_url . '/images/icons/fa-truck.png',
+			'image_url' => wcv_assets_url . '/images/icons/fa-truck.png',
 		);
 
 		if ( ! $order_page ) {
