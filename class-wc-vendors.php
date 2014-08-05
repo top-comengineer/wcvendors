@@ -65,8 +65,8 @@ if ( is_woocommerce_activated() ) {
 
 			add_action( 'plugins_loaded', array( $this, 'load_settings' ) );
 			add_action( 'plugins_loaded', array( $this, 'include_gateways' ) );
-			add_action( 'plugins_loaded', array( $this, 'include_core' ) );
-
+			add_action( 'plugins_loaded', array( $this, 'include_core' ) ); 
+			
 			add_action( self::$id . '_options_updated', array( $this, 'option_updates' ), 10, 2 );
 
 			// Start a PHP session, if not yet started
@@ -145,6 +145,7 @@ if ( is_woocommerce_activated() ) {
 			require_once wcv_plugin_dir . 'classes/admin/class-admin-reports.php';
 			require_once wcv_plugin_dir . 'classes/admin/class-admin-users.php';
 			require_once wcv_plugin_dir . 'classes/admin/class-admin-page.php';
+			require_once wcv_plugin_dir . 'classes/includes/class-wcv-shortcodes.php';
 
 			new WCV_Vendor_Shop;
 			new WCV_Vendor_Cart;
@@ -161,6 +162,7 @@ if ( is_woocommerce_activated() ) {
 			new WCV_Admin_Users;
 			new WCV_Emails;
 			new WCV_Vendor_Signup;
+			new WCV_Shortcodes; 
 		}
 
 
