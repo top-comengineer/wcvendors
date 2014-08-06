@@ -22,7 +22,7 @@ class PV_Submit_Comment
 
 		// Check if this product belongs to the vendor submitting the comment
 		$product_id = (int) $_POST[ 'product_id' ];
-		$author     = PV_Vendors::get_vendor_from_product( $product_id );
+		$author     = WCV_Vendors::get_vendor_from_product( $product_id );
 		if ( $author != $user ) return false;
 
 		// Find the order belonging to this comment
@@ -70,8 +70,8 @@ class PV_Submit_Comment
 		$user_id = get_current_user_id();
 
 		$commentdata[ 'user_id' ]              = $user_id;
-		$commentdata[ 'comment_author' ]       = PV_Vendors::get_vendor_shop_name( $user_id );
-		$commentdata[ 'comment_author_url' ]   = PV_Vendors::get_vendor_shop_page( $user_id );
+		$commentdata[ 'comment_author' ]       = WCV_Vendors::get_vendor_shop_name( $user_id );
+		$commentdata[ 'comment_author_url' ]   = WCV_Vendors::get_vendor_shop_page( $user_id );
 		$commentdata[ 'comment_author_email' ] = wp_get_current_user()->user_email;
 
 		return $commentdata;

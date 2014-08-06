@@ -30,7 +30,7 @@ class WCV_Emails
 	{
 		global $woocommerce;
 
-		if ( $from != $to && $post->post_status == 'pending' && PV_Vendors::is_vendor( $post->post_author ) ) {
+		if ( $from != $to && $post->post_status == 'pending' && WCV_Vendors::is_vendor( $post->post_author ) ) {
 			$mails = $woocommerce->mailer()->get_emails();
 			if ( !empty( $mails ) ) {
 				$mails[ 'WC_Email_Notify_Admin' ]->trigger( $post->post_id, $post );
@@ -80,8 +80,8 @@ class WCV_Emails
 	{
 		$product = get_post( $_product->id );
 
-		$sold_by = PV_Vendors::is_vendor( $product->post_author )
-			? sprintf( '<a href="%s" target="_TOP">%s</a>', PV_Vendors::get_vendor_shop_page( $product->post_author ), PV_Vendors::get_vendor_shop_name( $product->post_author ) )
+		$sold_by = WCV_Vendors::is_vendor( $product->post_author )
+			? sprintf( '<a href="%s" target="_TOP">%s</a>', WCV_Vendors::get_vendor_shop_page( $product->post_author ), WCV_Vendors::get_vendor_shop_name( $product->post_author ) )
 			: get_bloginfo( 'name' );
 
 		$name .= '<small><br />' . __( 'Sold by', 'wcvendors' ) . ': ' . $sold_by . '</small><br />';

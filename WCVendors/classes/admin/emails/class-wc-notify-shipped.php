@@ -86,7 +86,7 @@ class WC_Email_Notify_Shipped extends WC_Email
 				continue;
 			}
 
-			$author = PV_Vendors::get_vendor_from_product( $product[ 'product_id' ] );
+			$author = WCV_Vendors::get_vendor_from_product( $product[ 'product_id' ] );
 
 			if ( $this->current_vendor != $author ) {
 				unset( $items[ $key ] );

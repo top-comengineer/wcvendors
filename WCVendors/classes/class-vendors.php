@@ -3,8 +3,8 @@
 /**
  * Vendor functions
  *
- * @author  Matt Gates <http://mgates.me>
- * @package ProductVendor
+ * @author  Matt Gates <http://mgates.me>, WC Vendors <http://wcvendors.com>
+ * @package WCVendors
  */
 
 
@@ -88,8 +88,8 @@ class WCV_Vendors
 		foreach ( $order->get_items() as $key => $product ) {
 
 			$product_id = !empty( $product[ 'variation_id' ] ) ? $product[ 'variation_id' ] : $product[ 'product_id' ];
-			$author     = PV_Vendors::get_vendor_from_product( $product_id );
-			$is_vendor  = PV_Vendors::is_vendor( $author );
+			$author     = WCV_Vendors::get_vendor_from_product( $product_id );
+			$is_vendor  = WCV_Vendors::is_vendor( $author );
 			$commission = $is_vendor ? WCV_Commission::calculate_commission( $product[ 'line_subtotal' ], $product_id, $order ) : 0;
 			$tax        = !empty( $product[ 'line_tax' ] ) ? (float) $product[ 'line_tax' ] : 0;
 			$shipping   = WCV_Shipping::get_shipping_due( $order->id, $product, $author );

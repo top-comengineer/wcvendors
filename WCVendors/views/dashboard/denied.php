@@ -3,7 +3,7 @@
 	$woocommerce->show_messages();
 } ?>
 
-<?php if ( PV_Vendors::is_pending( get_current_user_id() ) ) { ?>
+<?php if ( WCV_Vendors::is_pending( get_current_user_id() ) ) { ?>
 
 	<p><?php _e( 'Your account has not yet been approved to become a vendor.  When it is, you will receive an email telling you that your account is approved!', 'wcvendors' ); ?></p>
 

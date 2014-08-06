@@ -33,7 +33,7 @@ class WCV_Admin_Setup
 	{
 		global $woocommerce;
 
-		$authors = PV_Vendors::get_vendors_from_order( $order );
+		$authors = WCV_Vendors::get_vendors_from_order( $order );
 		$authors = $authors ? array_keys( $authors ) : array();
 		if ( empty( $authors ) ) return false;
 
@@ -42,7 +42,7 @@ class WCV_Admin_Setup
 
 		foreach ($authors as $author ) {
 			 $string .= in_array( $author, $shipped ) ? '&#10004; ' : '&#10005; ';
-			 $string .= PV_Vendors::get_vendor_shop_name( $author );
+			 $string .= WCV_Vendors::get_vendor_shop_name( $author );
 			 $string .= '</br>';
 		}
 
@@ -201,7 +201,7 @@ class PV_Admin_Page extends WP_List_Table
 			case 'vendor_id' :
 				$user = get_userdata( $item->vendor_id );
 
-				return '<a href="' . admin_url( 'user-edit.php?user_id=' . $item->vendor_id ) . '">' . PV_Vendors::get_vendor_shop_name( $item->vendor_id ) . '</a>';
+				return '<a href="' . admin_url( 'user-edit.php?user_id=' . $item->vendor_id ) . '">' . WCV_Vendors::get_vendor_shop_name( $item->vendor_id ) . '</a>';
 			case 'total_due' :
 				return woocommerce_price( $item->total_due + $item->total_shipping + $item->tax );
 			case 'product_id' :

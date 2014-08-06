@@ -33,8 +33,8 @@ class WCV_Vendor_Cart
 	public function sold_by( $values, $cart_item )
 	{
 		$author_id = $cart_item[ 'data' ]->post->post_author;
-		$sold_by   = PV_Vendors::is_vendor( $author_id )
-			? sprintf( '<a href="%s" target="_TOP">%s</a>', PV_Vendors::get_vendor_shop_page( $author_id ), PV_Vendors::get_vendor_shop_name( $author_id ) )
+		$sold_by   = WCV_Vendors::is_vendor( $author_id )
+			? sprintf( '<a href="%s" target="_TOP">%s</a>', WCV_Vendors::get_vendor_shop_page( $author_id ), WCV_Vendors::get_vendor_shop_name( $author_id ) )
 			: get_bloginfo( 'name' );
 
 		$values[ ] = array(
@@ -53,8 +53,8 @@ class WCV_Vendor_Cart
 	{
 		$author_id = get_the_author_meta( 'ID' );
 
-		$sold_by = PV_Vendors::is_vendor( $author_id )
-			? sprintf( '<a href="%s" target="_TOP">%s</a>', PV_Vendors::get_vendor_shop_page( $author_id ), PV_Vendors::get_vendor_shop_name( $author_id ) )
+		$sold_by = WCV_Vendors::is_vendor( $author_id )
+			? sprintf( '<a href="%s" target="_TOP">%s</a>', WCV_Vendors::get_vendor_shop_page( $author_id ), WCV_Vendors::get_vendor_shop_name( $author_id ) )
 			: get_bloginfo( 'name' );
 
 		echo __( 'Sold by', 'wcvendors' ) . ': ' . $sold_by . '<br/>';

@@ -93,7 +93,7 @@ class WCV_Vendor_Reports
 	 */
 	public function filter_products( $orders )
 	{
-		$products = PV_Vendors::get_vendor_products( $this->vendor_id );
+		$products = WCV_Vendors::get_vendor_products( $this->vendor_id );
 
 		$ids = array();
 		foreach ( $products as $product ) {
@@ -126,7 +126,7 @@ class WCV_Vendor_Reports
 	 */
 	public function filter_products_json( $products )
 	{
-		$vendor_products = PV_Vendors::get_vendor_products( $this->vendor_id );
+		$vendor_products = WCV_Vendors::get_vendor_products( $this->vendor_id );
 
 		$ids = array();
 		foreach ( $vendor_products as $vendor_product ) {

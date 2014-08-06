@@ -230,7 +230,7 @@ class WCV_Commission
 		$parent = get_post_ancestors( $product_id );
 		if ( $parent ) $product_id = $parent[ 0 ];
 
-		$vendor_id = PV_Vendors::get_vendor_from_product( $product_id );
+		$vendor_id = WCV_Vendors::get_vendor_from_product( $product_id );
 
 		$product_commission = get_post_meta( $product_id, 'pv_commission_rate', true );
 		$vendor_commission  = WCV_Vendors::get_default_commission( $vendor_id );

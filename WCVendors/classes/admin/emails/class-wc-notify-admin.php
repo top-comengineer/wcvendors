@@ -59,7 +59,7 @@ class WC_Email_Notify_Admin extends WC_Email
 	 */
 	function trigger( $post_id, $post )
 	{
-		if ( !PV_Vendors::is_vendor( $post->post_author ) ) {
+		if ( !WCV_Vendors::is_vendor( $post->post_author ) ) {
 			return;
 		}
 
@@ -68,7 +68,7 @@ class WC_Email_Notify_Admin extends WC_Email
 		$this->replace[ ]   = $this->product_name;
 
 		$this->find[ ]     = '{vendor_name}';
-		$this->vendor_name = PV_Vendors::get_vendor_shop_name( $post->post_author );
+		$this->vendor_name = WCV_Vendors::get_vendor_shop_name( $post->post_author );
 		$this->replace[ ]  = $this->vendor_name;
 
 		$this->post_id = $post->ID;

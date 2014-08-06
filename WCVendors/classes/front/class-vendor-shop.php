@@ -32,15 +32,15 @@ class WCV_Vendor_Shop
 	public function change_archive_link( $link )
 	{
 		$vendor_shop = urldecode( get_query_var( 'vendor_shop' ) );
-		$vendor_id   = PV_Vendors::get_vendor_id( $vendor_shop );
+		$vendor_id   = WCV_Vendors::get_vendor_id( $vendor_shop );
 
-		return !$vendor_id ? $link : PV_Vendors::get_vendor_shop_page( $vendor_id );
+		return !$vendor_id ? $link : WCV_Vendors::get_vendor_shop_page( $vendor_id );
 	}
 
 	public function vendor_shop_query( $q, $that )
 	{
 		$vendor_shop = urldecode( get_query_var( 'vendor_shop' ) );
-		$vendor_id   = PV_Vendors::get_vendor_id( $vendor_shop );
+		$vendor_id   = WCV_Vendors::get_vendor_id( $vendor_shop );
 
 		if ( !$vendor_id ) return;
 		add_filter( 'woocommerce_page_title', array( 'WCV_Vendor_Shop', 'page_title' ) );
@@ -51,7 +51,7 @@ class WCV_Vendor_Shop
 	public function product_enquiry_compatibility( $send_to, $product_id )
 	{
 		$author_id = get_post( $product_id )->post_author;
-		if ( PV_Vendors::is_vendor( $author_id ) ) {
+		if ( WCV_Vendors::is_vendor( $author_id ) ) {
 			$send_to = get_userdata( $author_id )->user_email;
 		}
 
@@ -70,7 +70,7 @@ class WCV_Vendor_Shop
 	{
 		global $post;
 
-		if ( PV_Vendors::is_vendor( $post->post_author ) ) {
+		if ( WCV_Vendors::is_vendor( $post->post_author ) ) {
 
 			$seller_info = get_user_meta( $post->post_author, 'pv_seller_info', true );
 			$has_html    = get_user_meta( $post->post_author, 'pv_shop_html_enabled', true );
@@ -110,7 +110,7 @@ class WCV_Vendor_Shop
 	public function shop_description()
 	{
 		$vendor_shop = urldecode( get_query_var( 'vendor_shop' ) );
-		$vendor_id   = PV_Vendors::get_vendor_id( $vendor_shop );
+		$vendor_id   = WCV_Vendors::get_vendor_id( $vendor_shop );
 
 		if ( $vendor_id ) {
 			$has_html    = get_user_meta( $vendor_id, 'pv_shop_html_enabled', true );
@@ -145,9 +145,9 @@ class WCV_Vendor_Shop
 	public function page_title( $page_title = "" )
 	{
 		$vendor_shop = urldecode( get_query_var( 'vendor_shop' ) );
-		$vendor_id   = PV_Vendors::get_vendor_id( $vendor_shop );
+		$vendor_id   = WCV_Vendors::get_vendor_id( $vendor_shop );
 
-		return $vendor_id ? PV_Vendors::get_vendor_shop_name( $vendor_id ) : $page_title;
+		return $vendor_id ? WCV_Vendors::get_vendor_shop_name( $vendor_id ) : $page_title;
 	}
 
 

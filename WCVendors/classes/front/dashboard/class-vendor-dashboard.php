@@ -152,7 +152,7 @@ class WCV_Vendor_Dashboard
 
 		$vendor_summary  = $this->format_product_details( $vendor_products );
 		$order_summary   = WCV_Queries::get_orders_for_products( $products );
-		$shop_page       = PV_Vendors::get_vendor_shop_page( wp_get_current_user()->user_login );
+		$shop_page       = WCV_Vendors::get_vendor_shop_page( wp_get_current_user()->user_login );
 
 		wp_enqueue_style( 'pv_frontend_style', pv_assets_url . 'css/pv-frontend.css' );
 
@@ -214,7 +214,7 @@ class WCV_Vendor_Dashboard
 		$description = get_user_meta( $user_id, 'pv_shop_description', true );
 		$seller_info = get_user_meta( $user_id, 'pv_seller_info', true );
 		$has_html    = get_user_meta( $user_id, 'pv_shop_html_enabled', true );
-		$shop_page   = PV_Vendors::get_vendor_shop_page( wp_get_current_user()->user_login );
+		$shop_page   = WCV_Vendors::get_vendor_shop_page( wp_get_current_user()->user_login );
 		$global_html = WC_Vendors::$pv_options->get_option( 'shop_html_enabled' );
 
 		ob_start();
@@ -244,7 +244,7 @@ class WCV_Vendor_Dashboard
 
 			return false;
 
-		} else if ( !PV_Vendors::is_vendor( get_current_user_id() ) ) {
+		} else if ( !WCV_Vendors::is_vendor( get_current_user_id() ) ) {
 
 			woocommerce_get_template( 'denied.php', array(), 'wc-product-vendor/dashboard/', wcv_plugin_dir . 'views/dashboard/' );
 

@@ -102,7 +102,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 		$return[ 'cart_subtotal' ]            = $total_rows[ 'cart_subtotal' ];
 		$return[ 'cart_subtotal' ][ 'label' ] = __( 'Commission Subtotal:', 'wcvendors' );
 
-		$dues = PV_Vendors::get_vendor_dues_from_order( $order );
+		$dues = WCV_Vendors::get_vendor_dues_from_order( $order );
 		foreach ( $dues as $due ) {
 			if ( $this->current_vendor == $due['vendor_id'] ) {
 				$return[ 'shipping' ]            = $total_rows[ 'shipping' ];
@@ -129,10 +129,10 @@ class WC_Email_Notify_Vendor extends WC_Email
 		foreach ( $items as $key => $product ) {
 
 			if ( empty( $product[ 'product_id' ] ) ) continue;
-			$author = PV_Vendors::get_vendor_from_product( $product[ 'product_id' ] );
+			$author = WCV_Vendors::get_vendor_from_product( $product[ 'product_id' ] );
 
 			// Only store the vendor authors
-			if ( !PV_Vendors::is_vendor( $author ) ) {
+			if ( !WCV_Vendors::is_vendor( $author ) ) {
 				unset( $items[ $key ] );
 				continue;
 			}
@@ -161,7 +161,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 				continue;
 			}
 
-			$author = PV_Vendors::get_vendor_from_product( $product[ 'product_id' ] );
+			$author = WCV_Vendors::get_vendor_from_product( $product[ 'product_id' ] );
 
 			if ( $this->current_vendor != $author ) {
 				unset( $items[ $key ] );

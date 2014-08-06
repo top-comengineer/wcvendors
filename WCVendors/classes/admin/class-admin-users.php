@@ -71,7 +71,7 @@ class WCV_Admin_Users
 	// 		return $terms;
 	// 	}
 
-	// 	$products = PV_Vendors::get_vendor_products( get_current_user_id() );
+	// 	$products = WCV_Vendors::get_vendor_products( get_current_user_id() );
 	// 	$ids = array();
 	// 	foreach ( $products as $product ) {
 	// 		$ids[ ] = ( $product->ID );

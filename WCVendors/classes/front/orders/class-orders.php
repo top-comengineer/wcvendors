@@ -96,7 +96,7 @@ class WCV_Orders
 	 */
 	public function display_product_orders()
 	{
-		if ( !PV_Vendors::is_vendor( get_current_user_id() ) ) {
+		if ( !WCV_Vendors::is_vendor( get_current_user_id() ) ) {
 			ob_start();
 			woocommerce_get_template( 'denied.php', array(), 'wc-product-vendor/dashboard/', wcv_plugin_dir . 'views/dashboard/' );
 

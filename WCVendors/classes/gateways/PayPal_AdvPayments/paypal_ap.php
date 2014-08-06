@@ -296,7 +296,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 	 */
 	private function get_receivers( $order )
 	{
-		$receivers = PV_Vendors::get_vendor_dues_from_order( $order );
+		$receivers = WCV_Vendors::get_vendor_dues_from_order( $order );
 
 		$i        = 0;
 		$response = array();
@@ -304,7 +304,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 			if ( empty( $values[ 'total' ] ) ) continue;
 
 			$response[ $i ]            = new Receiver();
-			$response[ $i ]->email     = $values[ 'vendor_id' ] == 1 ? $this->main_paypal : PV_Vendors::get_vendor_paypal( $values[ 'vendor_id' ] );
+			$response[ $i ]->email     = $values[ 'vendor_id' ] == 1 ? $this->main_paypal : WCV_Vendors::get_vendor_paypal( $values[ 'vendor_id' ] );
 			$response[ $i ]->amount    = $values[ 'total' ];
 			$response[ $i ]->primary   = false;
 			$response[ $i ]->invoiceId = $order->id;
@@ -397,8 +397,8 @@ class WC_PaypalAP extends WC_Payment_Gateway
 	 */
 	public function set_vendor_items( $order, $setPaymentOptionsRequest )
 	{
-		$receivers = PV_Vendors::get_vendor_dues_from_order( $order, false );
-		$receivers_two = PV_Vendors::get_vendor_dues_from_order( $order );
+		$receivers = WCV_Vendors::get_vendor_dues_from_order( $order, false );
+		$receivers_two = WCV_Vendors::get_vendor_dues_from_order( $order );
 
 		foreach ( $receivers as $products ) {
 			$invoice_items  = array();
@@ -430,7 +430,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 
 			// Set the current vendor
 			$receiverId = new ReceiverIdentifier();
-			$receiverId->email = $product[ 'vendor_id' ] == 1 ? $this->main_paypal : PV_Vendors::get_vendor_paypal( $product[ 'vendor_id' ] );
+			$receiverId->email = $product[ 'vendor_id' ] == 1 ? $this->main_paypal : WCV_Vendors::get_vendor_paypal( $product[ 'vendor_id' ] );
 
 			$receiverOptions->receiver                   = $receiverId;
 			$receiverOptions->invoiceData                = new InvoiceData();
