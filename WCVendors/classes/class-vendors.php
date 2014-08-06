@@ -8,7 +8,7 @@
  */
 
 
-class PV_Vendors
+class WCV_Vendors
 {
 
 	/**
@@ -54,10 +54,10 @@ class PV_Vendors
 		$vendors = array();
 		foreach ( $items as $key => $product ) {
 
-			$author = PV_Vendors::get_vendor_from_product( $product[ 'product_id' ] );
+			$author = WCV_Vendors::get_vendor_from_product( $product[ 'product_id' ] );
 
 			// Only store the vendor authors
-			if ( !PV_Vendors::is_vendor( $author ) ) continue;
+			if ( !WCV_Vendors::is_vendor( $author ) ) continue;
 
 			$vendors[ $author ] = the_author_meta( 'author_paypal', $author );
 		}
