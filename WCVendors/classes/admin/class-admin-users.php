@@ -26,7 +26,7 @@ class WCV_Admin_Users
 		// add_filter( 'get_terms', array( $this, 'get_terms_filter' ), 10, 3 );
 
 		// Disabling non-vendor related items on the admin screens
-		if ( PV_Vendors::is_vendor( get_current_user_id() ) ) {
+		if ( WCV_Vendors::is_vendor( get_current_user_id() ) ) {
 			add_filter( 'woocommerce_csv_product_role', array( $this, 'csv_import_suite_compatibility' ) );
 			add_filter( 'woocommerce_csv_product_export_args', array( $this, 'csv_import_suite_compatibility_export' ) );
 
