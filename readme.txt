@@ -1,9 +1,9 @@
 /**
  * Plugin Name:         WCVendors
- * Plugin URI:          http://wcvendors.com
- * Description:         Assign products to your vendors, and receive a commission for each sale.
- * Author:              WCVendors
- * Author URI:          http://wvcendors.com 
+ * Plugin URI:          http://www.wcvendors.com
+ * Description:         Create a market place on top of your WooCommerce store receive a commission for each sale.
+ * Author:              WC Vendors, Matt Gates
+ * Author URI:          http://www.wvcendors.com 
 
  * @category            Plugin
  * @copyright           Copyright © 2014 WooCommerce Ltd.
