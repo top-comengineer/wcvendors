@@ -92,19 +92,19 @@ class WCV_Admin_Reports
 		$before = date( 'Y-m-d', strtotime( '+1 day', $end_date ) );
 
 		$commission_due = $wpdb->get_var( "
-			SELECT SUM(total_due + total_shipping + tax) FROM {$wpdb->prefix}PV_Commission WHERE status = 'due'
+			SELECT SUM(total_due + total_shipping + tax) FROM {$wpdb->prefix}pv_commission WHERE status = 'due'
 			AND     time >= '" . $after . "'
 			AND     time <= '" . $before . "'
 		" );
 
 		$reversed = $wpdb->get_var( "
-			SELECT SUM(total_due + total_shipping + tax) FROM {$wpdb->prefix}PV_Commission WHERE status = 'reversed'
+			SELECT SUM(total_due + total_shipping + tax) FROM {$wpdb->prefix}pv_commission WHERE status = 'reversed'
 			AND     time >= '" . $after . "'
 			AND     time <= '" . $before . "'
 		" );
 
 		$paid = $wpdb->get_var( "
-			SELECT SUM(total_due + total_shipping + tax) FROM {$wpdb->prefix}PV_Commission WHERE status = 'paid'
+			SELECT SUM(total_due + total_shipping + tax) FROM {$wpdb->prefix}pv_commission WHERE status = 'paid'
 			AND     time >= '" . $after . "'
 			AND     time <= '" . $before . "'
 		" );
@@ -159,7 +159,7 @@ class WCV_Admin_Reports
 					<div>
 						<?php
 						$commission = $wpdb->get_results( "
-								SELECT * FROM {$wpdb->prefix}PV_Commission
+								SELECT * FROM {$wpdb->prefix}pv_commission
 								ORDER BY time DESC
 								LIMIT 20
 							" );
@@ -187,7 +187,7 @@ class WCV_Admin_Reports
 													href="<?php echo admin_url( 'post.php?post=' . $row->order_id . '&action=edit' ); ?>"><?php echo $row->order_id; ?></a><?php else : _e( 'N/A', 'wcvendors' ); endif; ?>
 											</td>
 											<td><?php echo get_the_title( $row->product_id ); ?></td>
-											<td><?php echo WC_Vendors::get_vendor_shop_name( $row->vendor_id ); ?></td>
+											<td><?php echo WCV_Vendors::get_vendor_shop_name( $row->vendor_id ); ?></td>
 											<td><?php echo woocommerce_price( $row->total_due + $row->total_shipping + $row->tax ) ?></td>
 											<td><?php echo date( __( 'D j M Y \a\t h:ia', 'wcvendors' ), strtotime( $row->time ) ) ?></td>
 											<td><?php echo $row->status ?></td>
@@ -217,13 +217,13 @@ class WCV_Admin_Reports
 	{
 		global $start_date, $end_date, $woocommerce, $wpdb;
 
-		$first_year   = $wpdb->get_var( "SELECT time FROM {$wpdb->prefix}PV_Commission ORDER BY time ASC LIMIT 1;" );
+		$first_year   = $wpdb->get_var( "SELECT time FROM {$wpdb->prefix}pv_commission ORDER BY time ASC LIMIT 1;" );
 		$first_year   = $first_year ? date( 'Y', strtotime( $first_year ) ) : date( 'Y' );
 		$current_year = isset( $_POST[ 'show_year' ] ) ? $_POST[ 'show_year' ] : date( 'Y', current_time( 'timestamp' ) );
 		$start_date   = strtotime( $current_year . '0101' );
 
 		$vendors         = get_users( array( 'role' => 'vendor' ) );
-		$vendors         = apply_filters( 'PV_Commission_vendors_list', $vendors );
+		$vendors         = apply_filters( 'pv_commission_vendors_list', $vendors );
 		$selected_vendor = !empty( $_POST[ 'show_vendor' ] ) ? (int) $_POST[ 'show_vendor' ] : false;
 		$products        = !empty( $_POST[ 'product_ids' ] ) ? (array) $_POST[ 'product_ids' ] : array();
 	?>
@@ -301,11 +301,11 @@ class WCV_Admin_Reports
 				SUM(total_due) as commission,
 				SUM(total_shipping) as shipping,
 				SUM(tax) as tax
-				FROM {$wpdb->prefix}PV_Commission
+				FROM {$wpdb->prefix}pv_commission
 			";
 
-			$paid_sql = "SELECT SUM(total_due + total_shipping + tax) FROM {$wpdb->prefix}PV_Commission " . $filter . " AND status = 'paid'";
-			$reversed_sql = "SELECT SUM(total_due + total_shipping + tax) FROM {$wpdb->prefix}PV_Commission" . $filter . " AND status = 'reversed'";
+			$paid_sql = "SELECT SUM(total_due + total_shipping + tax) FROM {$wpdb->prefix}pv_commission " . $filter . " AND status = 'paid'";
+			$reversed_sql = "SELECT SUM(total_due + total_shipping + tax) FROM {$wpdb->prefix}pv_commission" . $filter . " AND status = 'reversed'";
 			$date_sql = " AND date_format(`time`,'%%Y%%m') = %d";
 
 			for ( $count = 0; $count < 12; $count++ ) {

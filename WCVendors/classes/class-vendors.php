@@ -210,7 +210,7 @@ class WCV_Vendors
 	{
 		global $wpdb;
 
-		$table_name = $wpdb->prefix . "WCV_Commission";
+		$table_name = $wpdb->prefix . "pv_commission";
 
 		$query = "SELECT COUNT(*)
 					FROM {$table_name}
@@ -234,7 +234,7 @@ class WCV_Vendors
 	{
 		global $wpdb;
 
-		$table_name = $wpdb->prefix . "WCV_Commission";
+		$table_name = $wpdb->prefix . "pv_commission";
 
 		$query   = "SELECT *
 					FROM {$table_name}
