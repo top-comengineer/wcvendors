@@ -23,3 +23,29 @@ Features:
 
 Documentation:
 http://www.wcvendors.com/knowledgebase/
+
+History:
+August 09, 2014 - version 1.1.3
+  - NUMEROUS bug fixes
+
+  - New Shortcodes:  These new shortcodes are based on the WooCommerce included shortcodes.  They have been modified to show output based on the vendor you specify.  All other arguments to the shortcodes from WooCommerce will also work on these shortcodes.
+	    Recent Products Shortcode
+	    [wcv_recent_products vendor="VENDOR-LOGIN-NAME" per_page=3]
+
+	    Products Shortcode
+	    [wcv_products vendor="VENDOR-LOGIN-NAME"]
+
+	    Featured Products Shortcode
+	    [wcv_featured_products vendor="VENDOR-LOGIN-NAME"]
+
+	    Sale Products
+      [wcv_sale_products vendor="VENDOR-LOGIN-NAME"]
+
+	    Top Rated Products on sale
+	    [wcv_top_rated_products vendor="VENDOR-LOGIN-NAME"]
+
+	    Best Selling Products on sale
+	    [wcv_best_selling_products vendor="VENDOR-LOGIN-NAME"]
+	    
+--- end ---
+
