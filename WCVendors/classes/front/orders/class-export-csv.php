@@ -1,6 +1,6 @@
 <?php
 
-class PV_Export_CSV
+class WCV_Export_CSV
 {
 
 	/**
@@ -40,7 +40,7 @@ class PV_Export_CSV
 		$headers = apply_filters( 'wcvendors_csv_headers', $headers, $product_id, $items );
 		$body    = apply_filters( 'wcvendors_csv_body', $body, $product_id, $items );
 
-		PV_Export_CSV::download( $headers, $body, $product_id );
+		WCV_Export_CSV::download( $headers, $body, $product_id );
 	}
 
 

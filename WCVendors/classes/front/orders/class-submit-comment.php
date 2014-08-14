@@ -1,6 +1,6 @@
 <?php
 
-class PV_Submit_Comment
+class WCV_Submit_Comment
 {
 
 	/**

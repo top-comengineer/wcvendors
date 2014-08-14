@@ -85,7 +85,7 @@ class WCV_Orders
 
 		// Export the CSV
 		require_once wcv_plugin_dir . 'classes/front/orders/class-export-csv.php';
-		PV_Export_CSV::output_csv( $this->product_id, $headers, $body, $items );
+		WCV_Export_CSV::output_csv( $this->product_id, $headers, $body, $items );
 	}
 
 
@@ -113,7 +113,7 @@ class WCV_Orders
 
 		if ( !empty( $_POST[ 'submit_comment' ] ) ) {
 			require_once wcv_plugin_dir . 'classes/front/orders/class-submit-comment.php';
-			PV_Submit_Comment::new_comment( $this->orders );
+			WCV_Submit_Comment::new_comment( $this->orders );
 		}
 
 		if ( isset( $_POST[ 'mark_shipped' ] ) ) {
