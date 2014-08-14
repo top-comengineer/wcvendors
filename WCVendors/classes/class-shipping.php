@@ -3,7 +3,7 @@
 /**
  * Commission functions
  *
- * @author  WC Vendors <http://wcvendors.com>
+ * @author  Matt Gates <http://mgates.me>, WC Vendors <http://wcvendors.com>
  * @package ProductVendor
  */
 
@@ -63,6 +63,8 @@ class WCV_Shipping
 					break;
 				}
 			}
+
+			
 			// Table Rate Shipping 2
 			if ( strstr( $method, 'table_rate' ) !== false ) {
 				// $shipping_due = WCV_Shipping::trs2_get_due( $order_id, $product[ 'product_id' ] );
