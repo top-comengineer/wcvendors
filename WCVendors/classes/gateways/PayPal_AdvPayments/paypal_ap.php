@@ -172,7 +172,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 			'title'       => __( 'Live Credentials', 'wcvendors' ),
 			'type'        => 'title',
 			'description' => sprintf( __( 'You must have an <a href="%s">Application ID</a> to process live transactions. You do not need one for testing in Sandbox mode.', 'wcvendors' )
-				, 'http://docs.mgates.me/woocommerce/wc-product-vendor/#PayPal_Instant_Pay' )
+				, 'https://developer.paypal.com/webapps/developer/docs/classic/lifecycle/goingLive/' )
 		);
 
 		$this->form_fields[ 'main_paypal_live' ] = array(
