@@ -79,7 +79,7 @@ if ( is_woocommerce_activated() ) {
 		 */
 		public function invalid_wc_version()
 		{
-			echo '<div class="error"><p>' . __( '<b>WC Vendors is disabled</b>. WC Vendors requires WooCommerce v2.0.1.', 'wcvendors' ) . '</p></div>';
+			echo '<div class="error"><p>' . __( '<b>WC Vendors is disabled</b>. WC Vendors requires a minimum of WooCommerce v2.1.0.', 'wcvendors' ) . '</p></div>';
 		}
 
 
@@ -95,7 +95,7 @@ if ( is_woocommerce_activated() ) {
 			global $woocommerce;
 
 			// WC 2.0.1 is required
-			if ( version_compare( $woocommerce->version, '2.0.1', '<' ) ) {
+			if ( version_compare( $woocommerce->version, '2.1', '<' ) ) {
 				add_action( 'admin_notices', array( $this, 'invalid_wc_version' ) );
 				deactivate_plugins( plugin_basename( __FILE__ ) );
 
