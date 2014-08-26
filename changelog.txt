@@ -1,0 +1,79 @@
+Changelog for WC Vendors
+
+Version 1.1.3
+
+*  Fixing table names for compatibility
+*  Rename class
+*  Fixing Fatal error #18
+*  Fatal error fixed, version bump
+*  Fixing Class call
+*  Fixing all references to incorrect class name
+*  Commission and report fixes
+*  Fixing spelling
+*  Update readme.txt
+*  Fixing author
+*  Version bump
+*  Check if shipping is enabled
+*  Comment for future reference
+
+Version 1.1.1 
+
+*  Start of adding woocomerce short codes enhanced
+*  Shortcodes class
+*  Removing temp file
+*  Adding short code support
+*  Version Bump
+*  PHP Strict Issue #5
+*  Fatal Error: Class 'PV_Commission' #14
+*  Fixing references to PV_Vendors
+*  Renamed filters and actions
+*  Rename Reports Submenu #15
+*  "Mark Shipped" Icon #16
+*  Version increased after bug fixes
+
+Version 1.0.2
+
+*  Fix up admin settings notices
+*  Renamed shortcodes
+*  Version bump for short code rename
+
+
+Version 1.0.1 
+
+*  Initial Commit
+*  First commit - no modifications to existing plugin
+*  Updating README
+*  Update README.md
+*  Features added
+*  Updated Details of plugin
+*  Fixing up formatting
+*  More fixes.
+*  Updating readme
+*  Updating more details
+*  Update denied.php
+*  Added mac file ignore
+*  updated read me
+*  Plugin Rename
+*  Plugin rename
+*  Rename plugin
+*  Rename plugin
+*  more updates
+*  Plugin Updater removed
+*  Updating text domain
+*  Basic rename complete
+*  Replacement includes classes
+*  text domain updates
+*  text domain updates
+*  new change log for new fork
+*  Rename main class
+*  renaming constants
+*  updated constants
+*  plugin constant
+*  Renaming queries class
+*  constants updated
+*  rename vendor shop class
+*  rename vendor cart class
+*  Renaming classes
+*  Author updates
+*  Class renaming
+*  Version bump
