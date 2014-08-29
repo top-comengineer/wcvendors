@@ -46,7 +46,7 @@ class WCV_Vendors
 	 *
 	 * @return array
 	 */
-	public function get_vendors_from_order( $order, $items = false )
+	public static function get_vendors_from_order( $order, $items = false )
 	{
 		if ( !$order ) return;
 		if ( !$items ) $items = $order->get_items();
