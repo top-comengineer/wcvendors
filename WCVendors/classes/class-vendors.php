@@ -32,7 +32,7 @@ class WCV_Vendors
 		return get_posts( $args );
 	}
 
-	public function get_default_commission( $vendor_id )
+	public static function get_default_commission( $vendor_id )
 	{
 		return get_user_meta( $vendor_id, 'pv_custom_commission_rate', true );
 	}
@@ -74,7 +74,7 @@ class WCV_Vendors
 	 *
 	 * @return unknown
 	 */
-	public function get_vendor_dues_from_order( $order, $group = true )
+	public static function get_vendor_dues_from_order( $order, $group = true )
 	{
 		global $woocommerce;
 
