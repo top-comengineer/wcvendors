@@ -225,7 +225,7 @@ class WCV_Commission
 	 *
 	 * @return float
 	 */
-	public function get_commission_rate( $product_id )
+	public static function get_commission_rate( $product_id )
 	{
 		$parent = get_post_ancestors( $product_id );
 		if ( $parent ) $product_id = $parent[ 0 ];
@@ -260,7 +260,7 @@ class WCV_Commission
 	 *
 	 * @return float
 	 */
-	public function calculate_commission( $product_price, $product_id, $order )
+	public static function calculate_commission( $product_price, $product_id, $order )
 	{
 		$commission_rate = WCV_Commission::get_commission_rate( $product_id );
 		$commission      = $product_price * ( $commission_rate / 100 );
