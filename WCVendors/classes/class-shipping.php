@@ -45,17 +45,16 @@ class WCV_Shipping
 		$shipping_due = 0;
 		$_product     = get_product( $product[ 'product_id' ] );
 
-		if ( $_product && $_product->needs_shipping() ) {
+		if ( $_product && $_product->needs_shipping() && !$_product->is_downloadable() ) {
 
 			$order = new WC_Order( $order_id );
 			
 			// Get Shipping methods. 
-			$method = $order->get_shipping_methods();
+			$shipping_methods = $order->get_shipping_methods();
 
 			// TODO: Currently this only allows one shipping method per order, this definitely needs changing
-			foreach ($method as $key => $value) {
-					$method = $value['method_id'];
-					echo $value['method_id']; 
+			foreach ($shipping_methods as $methods) {
+					$method = $methods['method_id'];
 					break;
 			}
 						
