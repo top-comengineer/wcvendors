@@ -38,7 +38,7 @@ class WCV_Shipping
 	 *
 	 * @return unknown
 	 */
-	public function get_shipping_due( $order_id, $product, $author )
+	public static function get_shipping_due( $order_id, $product, $author )
 	{
 		global $woocommerce;
 
@@ -46,25 +46,19 @@ class WCV_Shipping
 		$_product     = get_product( $product[ 'product_id' ] );
 
 		if ( $_product && $_product->needs_shipping() ) {
+
 			$order = new WC_Order( $order_id );
-
-			if ( version_compare( $woocommerce->version, '2.1', '<' ) ) {
-				$method = $order->shipping_method;
-			} else {
-				$method = $order->get_shipping_methods();
-			}
-
-			// WC 2.1 stuff, ignore if you're on WC 2.0
-			if ( is_array( $method ) ) {
-
-				// TODO: Currently this only allows one shipping method per order, this definitely needs changing
-				foreach ($method as $key => $value) {
-					$method = $value['method_id'];
-					break;
-				}
-			}
-
 			
+			// Get Shipping methods. 
+			$method = $order->get_shipping_methods();
+
+			// TODO: Currently this only allows one shipping method per order, this definitely needs changing
+			foreach ($method as $key => $value) {
+					$method = $value['method_id'];
+					echo $value['method_id']; 
+					break;
+			}
+						
 			// Table Rate Shipping 2
 			if ( strstr( $method, 'table_rate' ) !== false ) {
 				// $shipping_due = WCV_Shipping::trs2_get_due( $order_id, $product[ 'product_id' ] );
