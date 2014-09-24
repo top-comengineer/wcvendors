@@ -248,7 +248,7 @@ $total_due = 0;
 if ( !empty( $_GET[ 'tab' ] ) && $_GET[ 'tab' ] == 'payments' ) {
 	global $wpdb;
 
-	$table_name = $wpdb->prefix . "WCV_Commission";
+	$table_name = $wpdb->prefix . "pv_commission";
 	$query      = "SELECT sum(total_due + total_shipping + tax) as total
 				FROM `{$table_name}`
 				WHERE status = %s";
