@@ -106,6 +106,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 		foreach ( $dues as $due ) {
 			if ( $this->current_vendor == $due['vendor_id'] ) {
 				$return[ 'shipping' ]            = $total_rows[ 'shipping' ];
+				$return[ 'shipping' ]['label']   = __( 'Shipping Subtotal:', 'wcvendors' );
 				$return[ 'shipping' ][ 'value' ] = woocommerce_price( $due['shipping'] );
 				break;
 			}
