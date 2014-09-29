@@ -79,7 +79,7 @@ if ( is_woocommerce_activated() ) {
 		 */
 		public function invalid_wc_version()
 		{
-			echo '<div class="error"><p>' . __( '<b>WC Vendors is disabled</b>. WC Vendors requires a minimum of WooCommerce v2.1.0.', 'wcvendors' ) . '</p></div>';
+			echo '<div class="error"><p>' . __( '<b>WC Vendors is disabled</b>. WC Vendors requires a minimum of WooCommerce v2.2.0.', 'wcvendors' ) . '</p></div>';
 		}
 
 
@@ -95,7 +95,7 @@ if ( is_woocommerce_activated() ) {
 			global $woocommerce;
 
 			// WC 2.0.1 is required
-			if ( version_compare( $woocommerce->version, '2.1', '<' ) ) {
+			if ( version_compare( $woocommerce->version, '2.2', '<' ) ) {
 				add_action( 'admin_notices', array( $this, 'invalid_wc_version' ) );
 				deactivate_plugins( plugin_basename( __FILE__ ) );
 
@@ -105,7 +105,7 @@ if ( is_woocommerce_activated() ) {
 			require_once wcv_plugin_dir . 'classes/class-install.php';
 
 			$this->load_settings();
-			$install = new PV_Install;
+			$install = new WCV_Install;
 			$install->init();
 		}
 
