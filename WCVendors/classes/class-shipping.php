@@ -43,18 +43,18 @@ class WCV_Shipping
 		global $woocommerce;
 
 		$shipping_due = 0;
+		$method = '';
 		$_product     = get_product( $product[ 'product_id' ] );
+		$order = wc_get_order( $order_id ); 
 
 		if ( $_product && $_product->needs_shipping() && !$_product->is_downloadable() ) {
 
-			$order = new WC_Order( $order_id );
-			
 			// Get Shipping methods. 
 			$shipping_methods = $order->get_shipping_methods();
 
 			// TODO: Currently this only allows one shipping method per order, this definitely needs changing
-			foreach ($shipping_methods as $methods) {
-					$method = $methods['method_id'];
+			foreach ($shipping_methods as $shipping_method) {
+					$method = $shipping_method['method_id'];
 					break;
 			}
 						
@@ -247,6 +247,4 @@ class WCV_Shipping
 
 		unset( $woocommerce->session->trs2_shipping_rates, $woocommerce->session->trs2_shipping_class_type );
 	}
-
-
 }

@@ -74,7 +74,7 @@ class WCV_Vendors
 	 *
 	 * @return unknown
 	 */
-	public static function get_vendor_dues_from_order( $order, $group = true )
+	function get_vendor_dues_from_order( $order, $group = true )
 	{
 		global $woocommerce;
 
@@ -94,7 +94,7 @@ class WCV_Vendors
 			$tax        = !empty( $product[ 'line_tax' ] ) ? (float) $product[ 'line_tax' ] : 0;
 			// Check if shipping is enabled 
 			if ( get_option('woocommerce_calc_shipping') === 'no' ) { $shipping = 0; } else { 
-				$shipping   = WCV_Shipping::get_shipping_due( $order->id, $product, $author );
+					$shipping   = WCV_Shipping::get_shipping_due( $order->id, $product, $author );
 			}
 
 			if ( $is_vendor ) {
