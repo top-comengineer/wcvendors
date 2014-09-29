@@ -7,7 +7,7 @@
  */
 
 
-class PV_Install
+class WCV_Install
 {
 
 	/**
