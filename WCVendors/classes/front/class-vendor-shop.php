@@ -29,7 +29,7 @@ class WCV_Vendor_Shop
 		add_filter( 'post_type_archive_link', array( 'WCV_Vendor_Shop', 'change_archive_link' ) );
 	}
 
-	public function change_archive_link( $link )
+	public static function change_archive_link( $link )
 	{
 		$vendor_shop = urldecode( get_query_var( 'vendor_shop' ) );
 		$vendor_id   = WCV_Vendors::get_vendor_id( $vendor_shop );
@@ -37,7 +37,7 @@ class WCV_Vendor_Shop
 		return !$vendor_id ? $link : WCV_Vendors::get_vendor_shop_page( $vendor_id );
 	}
 
-	public function vendor_shop_query( $q, $that )
+	public static function vendor_shop_query( $q, $that )
 	{
 		$vendor_shop = urldecode( get_query_var( 'vendor_shop' ) );
 		$vendor_id   = WCV_Vendors::get_vendor_id( $vendor_shop );
@@ -48,7 +48,7 @@ class WCV_Vendor_Shop
 		$q->set( 'author', $vendor_id );
 	}
 
-	public function product_enquiry_compatibility( $send_to, $product_id )
+	public static function product_enquiry_compatibility( $send_to, $product_id )
 	{
 		$author_id = get_post( $product_id )->post_author;
 		if ( WCV_Vendors::is_vendor( $author_id ) ) {
@@ -66,7 +66,7 @@ class WCV_Vendor_Shop
 	 *
 	 * @return unknown
 	 */
-	public function seller_info_tab( $tabs )
+	public static function seller_info_tab( $tabs )
 	{
 		global $post;
 
@@ -98,7 +98,7 @@ class WCV_Vendor_Shop
 	/**
 	 *
 	 */
-	public function seller_info_tab_panel()
+	public static function seller_info_tab_panel()
 	{
 		echo self::$seller_info;
 	}
@@ -107,7 +107,7 @@ class WCV_Vendor_Shop
 	/**
 	 * Show the description a vendor sets when viewing products by that vendor
 	 */
-	public function shop_description()
+	public static function shop_description()
 	{
 		$vendor_shop = urldecode( get_query_var( 'vendor_shop' ) );
 		$vendor_id   = WCV_Vendors::get_vendor_id( $vendor_shop );
@@ -126,7 +126,7 @@ class WCV_Vendor_Shop
 	/**
 	 *
 	 */
-	public function add_rewrite_rules()
+	public static function add_rewrite_rules()
 	{
 		$permalink = untrailingslashit( WC_Vendors::$pv_options->get_option( 'vendor_shop_permalink' ) );
 
@@ -142,7 +142,7 @@ class WCV_Vendor_Shop
 	}
 
 
-	public function page_title( $page_title = "" )
+	public static function page_title( $page_title = "" )
 	{
 		$vendor_shop = urldecode( get_query_var( 'vendor_shop' ) );
 		$vendor_id   = WCV_Vendors::get_vendor_id( $vendor_shop );
