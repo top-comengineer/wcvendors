@@ -1,1427 +1,1448 @@
-# woocommerce translation strings
-# Copyright (C) 2011-2012
-# This file is distributed under the same license as the woocommerce package.
-# Last Updated: January 29, 2014.
-#: productvendor\classes\admin\settings\sf-options.php:5
-#: productvendor\classes\admin\settings\sf-options.php:45
-#: productvendor\classes\admin\settings\sf-options.php:213
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: woocommerce v1.0.1\n"
-"Report-Msgid-Bugs-To: woocommerce <info@woocommerce.com>\n"
-"POT-Creation-Date: 2014-01-29 23:16-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: woocommerce <info@woocommerce.com>\n"
-"Language-Team: woocommerce <info@woocommerce.com>\n"
+"Project-Id-Version: WC Vendors\n"
+"POT-Creation-Date: 2014-10-03 19:58+1000\n"
+"PO-Revision-Date: 2014-10-03 19:58+1000\n"
+"Last-Translator: \n"
+"Language-Team: WC Vendors <support@wcvendors.com>\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.9\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: /Users/jamie/Documents/Development/wcvendors\n"
 
-#: class-product-vendor.php:60
-#: productvendor\classes\admin\class-admin-users.php:342
-msgid "Product Vendor"
-msgstr ""
-
-#: class-product-vendor.php:82
-msgid "<b>Product Vendor is disabled</b>. Product Vendor requires WooCommerce v2.0.1."
-msgstr ""
-
-#: class-product-vendor.php:186
-#: productvendor\classes\admin\settings\sf-options.php:126
-msgid "Capabilities"
-msgstr ""
-
-#: class-product-vendor.php:210
-#: productvendor\classes\admin\settings\sf-options.php:4
-msgid "General"
-msgstr ""
-
-#: productvendor\classes\class-cron.php:87
-#, php-format
-msgid "Payment total: %s"
-msgstr ""
-
-#: productvendor\classes\class-cron.php:148
-msgid "Once Weekly"
-msgstr ""
-
-#: productvendor\classes\class-cron.php:153
-msgid "Once every two weeks"
-msgstr ""
-
-#: productvendor\classes\class-cron.php:158
-msgid "Once a month"
-msgstr ""
-
-#: productvendor\classes\class-install.php:99
-#: productvendor\classes\class-install.php:253
-msgid "Pending Vendor"
-msgstr ""
-
-#: productvendor\classes\class-install.php:204
-msgid "Vendor Dashboard"
-msgstr ""
-
-#: productvendor\classes\class-install.php:205
-#: productvendor\classes\admin\settings\sf-options.php:130
-#: productvendor\views\dashboard\orders.php:18
-msgid "Orders"
-msgstr ""
-
-#: productvendor\classes\class-install.php:206
-msgid "Shop Settings"
-msgstr ""
-
-#: productvendor\classes\admin\class-admin-page.php:28
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-page.php:28
 msgid "Vendors shipped"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-page.php:51
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-page.php:51
 msgid "Vendors Shipped"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-page.php:73
-#: productvendor\classes\admin\class-admin-page.php:133
-#: productvendor\classes\admin\class-admin-reports.php:345
-#: productvendor\classes\admin\class-product-meta.php:142
-#: productvendor\classes\admin\class-product-meta.php:158
-#: productvendor\views\dashboard\reports.php:19
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-page.php:73
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-page.php:133
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:345
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-product-meta.php:142
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-product-meta.php:158
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/reports.php:19
 msgid "Commission"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-page.php:252
-#: productvendor\classes\admin\class-admin-reports.php:175
-#: productvendor\views\dashboard\reports.php:17
-#: productvendor\views\emails\admin-new-order.php:22
-#: productvendor\views\emails\notify-vendor-shipped.php:22
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-page.php:252
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:175
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/reports.php:17
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/emails/admin-new-order.php:22
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/emails/notify-vendor-shipped.php:22
 msgid "Product"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-page.php:253
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-page.php:253
 msgid "Order ID"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-page.php:254
-#: productvendor\classes\admin\class-admin-reports.php:176
-#: productvendor\classes\admin\class-product-meta.php:38
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-page.php:254
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:176
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-product-meta.php:38
 msgid "Vendor"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-page.php:255
-#: productvendor\classes\admin\class-admin-reports.php:177
-#: productvendor\classes\admin\class-admin-reports.php:350
-#: productvendor\classes\admin\class-admin-reports.php:374
-#: productvendor\views\dashboard\orders.php:25
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-page.php:255
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:177
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:350
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:374
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/orders.php:25
 msgid "Total"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-page.php:256
-#: productvendor\classes\admin\class-admin-reports.php:179
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-page.php:256
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:179
 msgid "Status"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-page.php:257
-#: productvendor\classes\front\orders\class-orders.php:216
-#: productvendor\views\dashboard\orders.php:26
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-page.php:257
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/front/orders/class-orders.php:216
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/orders.php:26
 msgid "Date"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-page.php:294
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-page.php:294
 msgid "Mark paid"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-page.php:295
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-page.php:295
 msgid "Mark due"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-page.php:296
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-page.php:296
 msgid "Mark reversed"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-page.php:313
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-page.php:313
 msgid "Filter"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-page.php:347
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-page.php:347
 msgid "Show all dates"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-page.php:360
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-page.php:360
 #, php-format
 msgid "%1$s %2$d"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-page.php:386
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-page.php:386
 msgid "Commission marked paid."
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-page.php:393
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-page.php:393
 msgid "Commission marked due."
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-page.php:400
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-page.php:400
 msgid "Commission marked reversed."
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-reports.php:41
-msgid "Product Vendors"
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:41
+#: /Users/jamie/Documents/Development/wcvendors/class-wc-vendors.php:60
+msgid "WC Vendors"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-reports.php:44
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:44
 msgid "Overview"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-reports.php:50
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:50
 msgid "Commission by vendor"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-reports.php:56
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:56
 msgid "Commission by product"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-reports.php:115
-#: productvendor\views\dashboard\date-picker.php:3
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:115
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/date-picker.php:3
 msgid "From:"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-reports.php:119
-#: productvendor\views\dashboard\date-picker.php:7
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:119
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/date-picker.php:7
 msgid "To:"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-reports.php:122
-#: productvendor\classes\admin\class-admin-reports.php:283
-#: productvendor\views\dashboard\date-picker.php:12
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:122
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:283
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/date-picker.php:12
 msgid "Show"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-reports.php:133
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:133
 msgid "Total paid in range"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-reports.php:136
-#: productvendor\classes\admin\class-admin-reports.php:143
-#: productvendor\classes\admin\class-admin-reports.php:150
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:136
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:143
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:150
 msgid "n/a"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-reports.php:140
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:140
 msgid "Total due in range"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-reports.php:147
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:147
 msgid "Total reversed in range"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-reports.php:157
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:157
 msgid "Recent Commission"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-reports.php:174
-#: productvendor\classes\front\orders\class-orders.php:208
-#: productvendor\views\dashboard\orders.php:23
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:174
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/front/orders/class-orders.php:208
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/orders.php:23
 msgid "Order"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-reports.php:178
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:178
 msgid "Date &amp; Time"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-reports.php:187
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:187
 msgid "N/A"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-reports.php:192
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:192
 msgid "D j M Y \\a\\t h:ia"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-reports.php:201
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:201
 msgid "No commission yet"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-reports.php:232
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:232
 msgid "Show:"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-reports.php:243
-msgid "Search for a product&hellip;"
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:243
+msgid "Year"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-reports.php:276
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:276
 msgid "Select a vendor&hellip;"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-reports.php:344
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:344
 msgid "Month"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-reports.php:346
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:346
 msgid "Tax"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-reports.php:347
-#: productvendor\views\dashboard\orders.php:24
-#: productvendor\views\orders\orders.php:113
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:347
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/orders.php:24
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/orders/orders.php:113
 msgid "Shipping"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-reports.php:348
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:348
 msgid "Reversed"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-reports.php:349
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-reports.php:349
 msgid "Paid"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-users.php:352
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-users.php:342
+msgid "Product Vendor"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-users.php:352
 msgid "Enable HTML for the shop description"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-users.php:358
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-users.php:358
 msgid "Shop name"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-users.php:365
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-users.php:365
 msgid "PayPal E-mail"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-users.php:366
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-users.php:366
 msgid "required"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-users.php:373
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-users.php:373
 msgid "Commission rate"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-users.php:374
-#: productvendor\classes\admin\class-product-meta.php:165
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-users.php:374
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-product-meta.php:165
 msgid "Leave blank for default"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-users.php:380
-#: productvendor\classes\front\class-vendor-shop.php:87
-#: productvendor\views\dashboard\settings\seller-info.php:3
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-users.php:380
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/front/class-vendor-shop.php:87
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/settings/seller-info.php:3
 msgid "Seller info"
 msgstr ""
 
-#: productvendor\classes\admin\class-admin-users.php:385
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-admin-users.php:385
 msgid "Shop description"
 msgstr ""
 
-#: productvendor\classes\admin\class-vendor-applicants.php:26
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-vendor-applicants.php:26
 msgid "Approve"
 msgstr ""
 
-#: productvendor\classes\admin\class-vendor-applicants.php:27
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-vendor-applicants.php:27
 msgid "Deny"
 msgstr ""
 
-#: productvendor\classes\admin\class-vendor-applicants.php:71
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-vendor-applicants.php:71
 msgid "Vendor has been <b>denied</b>."
 msgstr ""
 
-#: productvendor\classes\admin\class-vendor-applicants.php:82
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-vendor-applicants.php:82
 msgid "Vendor has been <b>approved</b>."
 msgstr ""
 
-#: productvendor\classes\admin\class-vendor-applicants.php:96
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/class-vendor-applicants.php:96
 msgid "Pending Vendors"
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-emails.php:55
-#: productvendor\classes\admin\emails\class-wc-approve-vendor.php:70
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-emails.php:55
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-approve-vendor.php:70
 msgid "pending"
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-emails.php:57
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-emails.php:57
 msgid "approved"
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-emails.php:59
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-emails.php:59
 msgid "denied"
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-emails.php:87
-#: productvendor\classes\front\class-vendor-cart.php:41
-#: productvendor\classes\front\class-vendor-cart.php:60
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-emails.php:87
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/front/class-vendor-cart.php:41
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/front/class-vendor-cart.php:60
 msgid "Sold by"
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-wc-approve-vendor.php:28
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-approve-vendor.php:28
 msgid "Vendor Application"
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-wc-approve-vendor.php:29
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-approve-vendor.php:29
 msgid "Vendor application will either be approved, denied, or pending."
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-wc-approve-vendor.php:31
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-approve-vendor.php:31
 msgid "Application {status}"
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-wc-approve-vendor.php:32
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-approve-vendor.php:32
 msgid "[{blogname}] Your vendor application has been {status}"
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-wc-approve-vendor.php:123
-#: productvendor\classes\admin\emails\class-wc-notify-admin.php:129
-#: productvendor\classes\admin\emails\class-wc-notify-shipped.php:163
-#: productvendor\classes\admin\emails\class-wc-notify-vendor.php:229
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-approve-vendor.php:123
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-admin.php:129
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-shipped.php:163
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-vendor.php:230
 msgid "Enable/Disable"
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-wc-approve-vendor.php:125
-#: productvendor\classes\admin\emails\class-wc-notify-admin.php:131
-#: productvendor\classes\admin\emails\class-wc-notify-shipped.php:165
-#: productvendor\classes\admin\emails\class-wc-notify-vendor.php:231
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-approve-vendor.php:125
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-admin.php:131
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-shipped.php:165
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-vendor.php:232
 msgid "Enable this email notification"
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-wc-approve-vendor.php:129
-#: productvendor\classes\admin\emails\class-wc-notify-admin.php:135
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-approve-vendor.php:129
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-admin.php:135
 msgid "Recipient(s)"
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-wc-approve-vendor.php:131
-#: productvendor\classes\admin\emails\class-wc-notify-admin.php:137
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-approve-vendor.php:131
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-admin.php:137
 #, php-format
-msgid "Enter recipients (comma separated) for this email. Defaults to <code>%s</code>."
+msgid ""
+"Enter recipients (comma separated) for this email. Defaults to <code>%s</"
+"code>."
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-wc-approve-vendor.php:136
-#: productvendor\classes\admin\emails\class-wc-notify-admin.php:142
-#: productvendor\classes\admin\emails\class-wc-notify-shipped.php:169
-#: productvendor\classes\admin\emails\class-wc-notify-vendor.php:235
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-approve-vendor.php:136
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-admin.php:142
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-shipped.php:169
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-vendor.php:236
 msgid "Subject"
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-wc-approve-vendor.php:138
-#: productvendor\classes\admin\emails\class-wc-notify-admin.php:144
-#: productvendor\classes\admin\emails\class-wc-notify-shipped.php:171
-#: productvendor\classes\admin\emails\class-wc-notify-vendor.php:237
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-approve-vendor.php:138
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-admin.php:144
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-shipped.php:171
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-vendor.php:238
 #, php-format
-msgid "This controls the email subject line. Leave blank to use the default subject: <code>%s</code>."
+msgid ""
+"This controls the email subject line. Leave blank to use the default "
+"subject: <code>%s</code>."
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-wc-approve-vendor.php:143
-#: productvendor\classes\admin\emails\class-wc-notify-admin.php:149
-#: productvendor\classes\admin\emails\class-wc-notify-shipped.php:176
-#: productvendor\classes\admin\emails\class-wc-notify-vendor.php:242
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-approve-vendor.php:143
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-admin.php:149
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-shipped.php:176
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-vendor.php:243
 msgid "Email Heading"
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-wc-approve-vendor.php:145
-#: productvendor\classes\admin\emails\class-wc-notify-admin.php:151
-#: productvendor\classes\admin\emails\class-wc-notify-shipped.php:178
-#: productvendor\classes\admin\emails\class-wc-notify-vendor.php:244
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-approve-vendor.php:145
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-admin.php:151
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-shipped.php:178
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-vendor.php:245
 #, php-format
-msgid "This controls the main heading contained within the email notification. Leave blank to use the default heading: <code>%s</code>."
+msgid ""
+"This controls the main heading contained within the email notification. "
+"Leave blank to use the default heading: <code>%s</code>."
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-wc-approve-vendor.php:150
-#: productvendor\classes\admin\emails\class-wc-notify-admin.php:156
-#: productvendor\classes\admin\emails\class-wc-notify-shipped.php:183
-#: productvendor\classes\admin\emails\class-wc-notify-vendor.php:249
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-approve-vendor.php:150
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-admin.php:156
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-shipped.php:183
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-vendor.php:250
 msgid "Email type"
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-wc-approve-vendor.php:152
-#: productvendor\classes\admin\emails\class-wc-notify-admin.php:158
-#: productvendor\classes\admin\emails\class-wc-notify-shipped.php:185
-#: productvendor\classes\admin\emails\class-wc-notify-vendor.php:251
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-approve-vendor.php:152
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-admin.php:158
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-shipped.php:185
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-vendor.php:252
 msgid "Choose which format of email to send."
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-wc-approve-vendor.php:156
-#: productvendor\classes\admin\emails\class-wc-notify-admin.php:162
-#: productvendor\classes\admin\emails\class-wc-notify-shipped.php:189
-#: productvendor\classes\admin\emails\class-wc-notify-vendor.php:255
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-approve-vendor.php:156
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-admin.php:162
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-shipped.php:189
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-vendor.php:256
 msgid "Plain text"
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-wc-approve-vendor.php:157
-#: productvendor\classes\admin\emails\class-wc-notify-admin.php:163
-#: productvendor\classes\admin\emails\class-wc-notify-shipped.php:190
-#: productvendor\classes\admin\emails\class-wc-notify-vendor.php:256
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-approve-vendor.php:157
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-admin.php:163
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-shipped.php:190
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-vendor.php:257
 msgid "HTML"
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-wc-approve-vendor.php:158
-#: productvendor\classes\admin\emails\class-wc-notify-admin.php:164
-#: productvendor\classes\admin\emails\class-wc-notify-shipped.php:191
-#: productvendor\classes\admin\emails\class-wc-notify-vendor.php:257
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-approve-vendor.php:158
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-admin.php:164
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-shipped.php:191
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-vendor.php:258
 msgid "Multipart"
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-wc-notify-admin.php:28
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-admin.php:28
 msgid "New Vendor Product"
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-wc-notify-admin.php:29
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-admin.php:29
 msgid "New order emails are sent when a new product is submitted by a vendor"
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-wc-notify-admin.php:31
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-admin.php:31
 msgid "New product submitted: {product_name}"
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-wc-notify-admin.php:32
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-admin.php:32
 msgid "[{blogname}] New product submitted by {vendor_name} - {product_name}"
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-wc-notify-shipped.php:28
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-shipped.php:28
 msgid "Vendor has shipped"
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-wc-notify-shipped.php:29
-msgid "An email is sent when a vendor has marked one of their orders as shipped."
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-shipped.php:29
+msgid ""
+"An email is sent when a vendor has marked one of their orders as shipped."
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-wc-notify-shipped.php:31
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-shipped.php:31
 msgid "Your order has been shipped"
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-wc-notify-shipped.php:32
-msgid "[{blogname}] Your order has been shipped ({order_number}) - {order_date}"
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-shipped.php:32
+msgid ""
+"[{blogname}] Your order has been shipped ({order_number}) - {order_date}"
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-wc-notify-shipped.php:112
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-shipped.php:112
 msgid "Subtotal:"
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-wc-notify-vendor.php:28
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-vendor.php:27
 msgid "Notify vendors"
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-wc-notify-vendor.php:29
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-vendor.php:28
 msgid "New order emails are sent when an order is received/paid by a customer."
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-wc-notify-vendor.php:31
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-vendor.php:30
 msgid "New customer order"
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-wc-notify-vendor.php:32
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-vendor.php:31
 msgid "[{blogname}] New customer order ({order_number}) - {order_date}"
 msgstr ""
 
-#: productvendor\classes\admin\emails\class-wc-notify-vendor.php:103
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-vendor.php:103
 msgid "Commission Subtotal:"
 msgstr ""
 
-#: productvendor\classes\admin\settings\sf-options.php:5
-msgid "General options"
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/emails/class-wc-notify-vendor.php:110
+msgid "Shipping Subtotal:"
 msgstr ""
 
-#: productvendor\classes\admin\settings\sf-options.php:8
-msgid "Default commission (%)"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:9
-msgid "The default rate the vendor receives for each product. If a product has a commission rate already set, this value will be ignored for that product."
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:20
-msgid "Registration"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:21
-msgid "Allow users or guests to apply to become a vendor"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:22
-msgid "This will show a checkbox on the My Account page's registration form asking if the user would like to apply to be a vendor. Also, on the Vendor Dashboard, users can apply to become a vendor."
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:29
-msgid "Approve vendor applications manually"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:30
-msgid "With this unchecked, all vendor applications are automatically accepted. Otherwise, you must approve each manually."
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:37
-msgid "Taxes"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:38
-msgid "Give vendors any tax collected per-product"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:39
-msgid "The tax collected on a vendor's product will be given to him in its entirety"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:45
-msgid "Shop options"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:48
-msgid "Shop HTML"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:49
-msgid "Enable HTML for a vendor's shop description by default"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:56
-msgid "Vendor shop page"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:57
-msgid "Eg: <code>yoursite.com/[your_setting_here]/[vendor_name_here]</code>"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:63
-#: productvendor\classes\admin\settings\sf-options.php:188
-msgid "Products"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:64
-msgid "Product Add Page"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:64
-msgid "Configure what to hide from all vendors when adding a product"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:67
-msgid "Left side panel"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:68
-msgid "Hide these areas of the add product page for vendors"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:82
-msgid "Types"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:83
-msgid "Hide these product types from the vendor"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:96
-msgid "Type options"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:97
-msgid "Hide these product options from the vendor"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:108
-msgid "Miscellaneous"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:119
-msgid "Stylesheet"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:120
-msgid "You can add CSS in this textarea, which will be loaded on the product add/edit page for vendors."
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:127
-msgid "Permissions"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:127
-msgid "General permissions used around the shop"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:131
-msgid "View orders"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:132
-msgid "Show customer details such as email, address, name, etc, for each order"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:139
-msgid "View comments"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:140
-msgid "View all vendor comments for an order on the frontend"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:147
-msgid "Submit comments"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:148
-msgid "Submit comments for an order on the frontend. Eg, tracking ID for a product"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:155
-msgid "View email addresses"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:156
-msgid "While viewing order details on the frontend, you can disable or enable email addresses"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:163
-msgid "Export a CSV file of orders for a product"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:164
-msgid "Vendors could export orders for a product on the frontend"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:171
-msgid "Reports"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:172
-msgid "View backend sales reports"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:173
-msgid "Graphs and tables via the Reports page in backend. The reports will only display sales data that pertain to their products"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:180
-msgid "View Frontend sales reports"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:181
-msgid "Sales table on the frontend on the My Account page. The table will only display sales data that pertain to their products"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:189
-msgid "Submit products"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:190
-msgid "Vendors could submit a product through the backend, and an admin would approve or deny it"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:197
-msgid "Edit live products"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:198
-msgid "Vendors could edit an approved product after it has already gone live. There is no approval or review after editing a live product. This could be dangerous with malicious vendors, so take caution."
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:205
-msgid "Submit products live without requiring approval"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:206
-msgid "Vendors can submit products without review or approval from a shop admin. This could be dangerous with malicious vendors, so take caution."
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:212
-msgid "Pages"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:213
-msgid "Page configuration"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:216
-msgid "Vendor dashboard"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:217
-msgid "Choose the page that has the shortcode <code>[pv_vendor_dashboard]</code><br/>By default, My Account > Vendor Dashboard should have the shortcode."
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:224
-msgid "Shop settings"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:225
-msgid "Choose the page that has the shortcode <code>[pv_shop_settings]</code><br/>These are the shop settings a vendor can configure."
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:232
-msgid "Orders page"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:233
-msgid "Choose the page that has the shortcode <code>[pv_orders]</code><br/>By default, My Account > Orders should have the shortcode."
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:240
-msgid "Vendor terms"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:241
-msgid "These terms are shown to a user when submitting an application to become a vendor.<br/>If left blank, no terms will be shown to the applicant."
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:259
-msgid "Payments"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:261
-msgid "User payments"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:262
-#, php-format
-msgid "Total commission currently due: %s. <a href=\"%s\">View details</a>."
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:263
-#, php-format
-msgid "Make sure you update your PayPal Adaptive Payments settings <a href=\"%s\">here</a>."
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:267
-msgid "Instant pay"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:268
-msgid "Instantly pay vendors their commission when an order is made"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:269
-msgid "For this to work, customers must checkout with the PayPal Adaptive Payments gateway. Using other gateways will not pay vendors instantly"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:276
-msgid "Payment schedule"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:277
-msgid "Note: Schedule will only work if instant pay is unchecked"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:282
-msgid "Weekly"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:283
-msgid "Biweekly"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:284
-msgid "Monthly"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:285
-msgid "Manual"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:286
-msgid "Now"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:291
-msgid "Email notification"
-msgstr ""
-
-#: productvendor\classes\admin\settings\sf-options.php:292
-msgid "Send the WooCommerce admin an email each time a payment has been made via the payment schedule options above"
-msgstr ""
-
-#: productvendor\classes\admin\settings\classes\sf-class-format-options.php:210
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/classes/sf-class-format-options.php:210
 msgid "Select a page..."
 msgstr ""
 
-#: productvendor\classes\admin\settings\classes\sf-class-settings.php:153
-#: productvendor\views\dashboard\settings\settings.php:1
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/classes/sf-class-settings.php:153
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/settings/settings.php:1
 msgid "Settings"
 msgstr ""
 
-#: productvendor\classes\admin\settings\classes\sf-class-settings.php:297
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/classes/sf-class-settings.php:297
 msgid "Could not load settings at: "
 msgstr ""
 
-#: productvendor\classes\admin\settings\classes\sf-class-settings.php:297
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/classes/sf-class-settings.php:297
 msgid "Error - WP Settings Framework"
 msgstr ""
 
-#: productvendor\classes\admin\settings\classes\sf-class-settings.php:363
-#: productvendor\classes\front\dashboard\class-vendor-dashboard.php:99
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/classes/sf-class-settings.php:363
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/front/dashboard/class-vendor-dashboard.php:99
 msgid "Settings saved."
 msgstr ""
 
-#: productvendor\classes\admin\settings\classes\sf-class-settings.php:478
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/classes/sf-class-settings.php:478
 #, php-format
 msgid "Save %s changes"
 msgstr ""
 
-#: productvendor\classes\front\dashboard\class-vendor-dashboard.php:44
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:4
+#: /Users/jamie/Documents/Development/wcvendors/class-wc-vendors.php:212
+msgid "General"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:5
+msgid "General options"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:5
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:45
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:213
+msgid " "
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:8
+msgid "Default commission (%)"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:9
+msgid ""
+"The default rate the vendor receives for each product. If a product has a "
+"commission rate already set, this value will be ignored for that product."
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:20
+msgid "Registration"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:21
+msgid "Allow users or guests to apply to become a vendor"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:22
+msgid ""
+"This will show a checkbox on the My Account page's registration form asking "
+"if the user would like to apply to be a vendor. Also, on the Vendor "
+"Dashboard, users can apply to become a vendor."
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:29
+msgid "Approve vendor applications manually"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:30
+msgid ""
+"With this unchecked, all vendor applications are automatically accepted. "
+"Otherwise, you must approve each manually."
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:37
+msgid "Taxes"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:38
+msgid "Give vendors any tax collected per-product"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:39
+msgid ""
+"The tax collected on a vendor's product will be given to him in its entirety"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:45
+msgid "Shop options"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:48
+msgid "Shop HTML"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:49
+msgid "Enable HTML for a vendor's shop description by default"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:56
+msgid "Vendor shop page"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:57
+msgid "Eg: <code>yoursite.com/[your_setting_here]/[vendor_name_here]</code>"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:63
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:188
+msgid "Products"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:64
+msgid "Product Add Page"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:64
+msgid "Configure what to hide from all vendors when adding a product"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:67
+msgid "Left side panel"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:68
+msgid "Hide these areas of the add product page for vendors"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:82
+msgid "Types"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:83
+msgid "Hide these product types from the vendor"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:96
+msgid "Type options"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:97
+msgid "Hide these product options from the vendor"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:108
+msgid "Miscellaneous"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:119
+msgid "Stylesheet"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:120
+msgid ""
+"You can add CSS in this textarea, which will be loaded on the product add/"
+"edit page for vendors."
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:126
+#: /Users/jamie/Documents/Development/wcvendors/class-wc-vendors.php:188
+msgid "Capabilities"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:127
+msgid "Permissions"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:127
+msgid "General permissions used around the shop"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:130
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/class-install.php:205
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/orders.php:18
+msgid "Orders"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:131
+msgid "View orders"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:132
+msgid "Show customer details such as email, address, name, etc, for each order"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:139
+msgid "View comments"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:140
+msgid "View all vendor comments for an order on the frontend"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:147
+msgid "Submit comments"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:148
+msgid ""
+"Submit comments for an order on the frontend. Eg, tracking ID for a product"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:155
+msgid "View email addresses"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:156
+msgid ""
+"While viewing order details on the frontend, you can disable or enable email "
+"addresses"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:163
+msgid "Export a CSV file of orders for a product"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:164
+msgid "Vendors could export orders for a product on the frontend"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:171
+msgid "Reports"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:172
+msgid "View backend sales reports"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:173
+msgid ""
+"Graphs and tables via the Reports page in backend. The reports will only "
+"display sales data that pertain to their products"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:180
+msgid "View Frontend sales reports"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:181
+msgid ""
+"Sales table on the frontend on the My Account page. The table will only "
+"display sales data that pertain to their products"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:189
+msgid "Submit products"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:190
+msgid ""
+"Vendors could submit a product through the backend, and an admin would "
+"approve or deny it"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:197
+msgid "Edit live products"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:198
+msgid ""
+"Vendors could edit an approved product after it has already gone live. There "
+"is no approval or review after editing a live product. This could be "
+"dangerous with malicious vendors, so take caution."
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:205
+msgid "Submit products live without requiring approval"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:206
+msgid ""
+"Vendors can submit products without review or approval from a shop admin. "
+"This could be dangerous with malicious vendors, so take caution."
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:212
+msgid "Pages"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:213
+msgid "Page configuration"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:216
+msgid "Vendor dashboard"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:217
+msgid ""
+"Choose the page that has the shortcode <code>[wcv_vendor_dashboard]</"
+"code><br/>By default, My Account > Vendor Dashboard should have the "
+"shortcode."
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:224
+msgid "Shop settings"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:225
+msgid ""
+"Choose the page that has the shortcode <code>[wcv_shop_settings]</code><br/"
+">These are the shop settings a vendor can configure."
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:232
+msgid "Orders page"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:233
+msgid ""
+"Choose the page that has the shortcode <code>[wcv_orders]</code><br/>By "
+"default, My Account > Orders should have the shortcode."
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:240
+msgid "Vendor terms"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:241
+msgid ""
+"These terms are shown to a user when submitting an application to become a "
+"vendor.<br/>If left blank, no terms will be shown to the applicant."
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:259
+msgid "Payments"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:261
+msgid "User payments"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:262
+#, php-format
+msgid "Total commission currently due: %s. <a href=\"%s\">View details</a>."
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:263
+#, php-format
+msgid ""
+"Make sure you update your PayPal Adaptive Payments settings <a href=\"%s"
+"\">here</a>."
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:267
+msgid "Instant pay"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:268
+msgid "Instantly pay vendors their commission when an order is made"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:269
+msgid ""
+"For this to work, customers must checkout with the PayPal Adaptive Payments "
+"gateway. Using other gateways will not pay vendors instantly"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:276
+msgid "Payment schedule"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:277
+msgid "Note: Schedule will only work if instant pay is unchecked"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:282
+msgid "Weekly"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:283
+msgid "Biweekly"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:284
+msgid "Monthly"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:285
+msgid "Manual"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:286
+msgid "Now"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:291
+msgid "Email notification"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/admin/settings/sf-options.php:292
+msgid ""
+"Send the WooCommerce admin an email each time a payment has been made via "
+"the payment schedule options above"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/class-cron.php:87
+#, php-format
+msgid "Payment total: %s"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/class-cron.php:148
+msgid "Once Weekly"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/class-cron.php:153
+msgid "Once every two weeks"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/class-cron.php:158
+msgid "Once a month"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/class-install.php:99
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/class-install.php:253
+msgid "Pending Vendor"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/class-install.php:204
+msgid "Vendor Dashboard"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/class-install.php:206
+msgid "Shop Settings"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/front/dashboard/class-vendor-dashboard.php:44
 msgid "Order unmarked shipped."
 msgstr ""
 
-#: productvendor\classes\front\dashboard\class-vendor-dashboard.php:54
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/front/dashboard/class-vendor-dashboard.php:54
 msgid "Order marked shipped."
 msgstr ""
 
-#: productvendor\classes\front\dashboard\class-vendor-dashboard.php:72
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/front/dashboard/class-vendor-dashboard.php:72
 msgid "Your PayPal address is not a valid email address."
 msgstr ""
 
-#: productvendor\classes\front\dashboard\class-vendor-dashboard.php:81
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/front/dashboard/class-vendor-dashboard.php:81
 msgid "That shop name is already taken. Your shop name must be unique."
 msgstr ""
 
-#: productvendor\classes\front\orders\class-export-csv.php:37
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/front/orders/class-export-csv.php:37
 msgid "Extra data"
 msgstr ""
 
-#: productvendor\classes\front\orders\class-export-csv.php:38
-#: productvendor\views\dashboard\reports.php:18
-#: productvendor\views\emails\admin-new-order.php:23
-#: productvendor\views\emails\notify-vendor-shipped.php:23
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/front/orders/class-export-csv.php:38
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/reports.php:18
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/emails/admin-new-order.php:23
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/emails/notify-vendor-shipped.php:23
 msgid "Quantity"
 msgstr ""
 
-#: productvendor\classes\front\orders\class-orders.php:107
-msgid "You haven't selected a product's orders to view! Please go back to the Vendor Dashboard and click Show Orders on the product you'd like to view."
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/front/orders/class-orders.php:107
+msgid ""
+"You haven't selected a product's orders to view! Please go back to the "
+"Vendor Dashboard and click Show Orders on the product you'd like to view."
 msgstr ""
 
-#: productvendor\classes\front\orders\class-orders.php:111
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/front/orders/class-orders.php:111
 msgid "No orders."
 msgstr ""
 
-#: productvendor\classes\front\orders\class-orders.php:144
-#: productvendor\classes\front\orders\class-orders.php:145
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/front/orders/class-orders.php:144
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/front/orders/class-orders.php:145
 msgid "Tracking number"
 msgstr ""
 
-#: productvendor\classes\front\orders\class-orders.php:147
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/front/orders/class-orders.php:147
 msgid "Success. Your tracking number has been updated."
 msgstr ""
 
-#: productvendor\classes\front\orders\class-orders.php:209
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/front/orders/class-orders.php:209
 msgid "Product Title"
 msgstr ""
 
-#: productvendor\classes\front\orders\class-orders.php:210
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/front/orders/class-orders.php:210
 msgid "Full name"
 msgstr ""
 
-#: productvendor\classes\front\orders\class-orders.php:211
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/front/orders/class-orders.php:211
 msgid "Address"
 msgstr ""
 
-#: productvendor\classes\front\orders\class-orders.php:212
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/front/orders/class-orders.php:212
 msgid "City"
 msgstr ""
 
-#: productvendor\classes\front\orders\class-orders.php:213
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/front/orders/class-orders.php:213
 msgid "State"
 msgstr ""
 
-#: productvendor\classes\front\orders\class-orders.php:214
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/front/orders/class-orders.php:214
 msgid "Zip"
 msgstr ""
 
-#: productvendor\classes\front\orders\class-orders.php:215
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/front/orders/class-orders.php:215
 msgid "Email address"
 msgstr ""
 
-#: productvendor\classes\front\orders\class-submit-comment.php:41
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/front/orders/class-submit-comment.php:41
 msgid "You've left the comment field empty!"
 msgstr ""
 
-#: productvendor\classes\front\orders\class-submit-comment.php:63
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/front/orders/class-submit-comment.php:63
 msgid "Success. The customer has been notified of your comment."
 msgstr ""
 
-#: productvendor\classes\front\signup\class-vendor-signup.php:44
-#: productvendor\views\dashboard\denied.php:22
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/front/signup/class-vendor-signup.php:44
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/denied.php:22
 msgid "Apply to become a vendor?"
 msgstr ""
 
-#: productvendor\classes\front\signup\class-vendor-signup.php:53
-#: productvendor\views\dashboard\denied.php:33
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/front/signup/class-vendor-signup.php:53
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/denied.php:33
 #, php-format
 msgid "I have read and accepted the <a href=\"%s\">terms and conditions</a>"
 msgstr ""
 
-#: productvendor\classes\front\signup\class-vendor-signup.php:89
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/front/signup/class-vendor-signup.php:89
 msgid "Application denied. You are an administrator."
 msgstr ""
 
-#: productvendor\classes\front\signup\class-vendor-signup.php:91
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/front/signup/class-vendor-signup.php:91
 msgid "Your application has been submitted."
 msgstr ""
 
-#: productvendor\classes\front\signup\class-vendor-signup.php:129
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/front/signup/class-vendor-signup.php:129
 msgid "You must accept the terms and conditions to become a vendor."
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:43
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:43
 msgid "PayPal Adaptive Payments"
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:119
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:119
 #, php-format
-msgid "Something went wrong. Response from PayPal invalidated this order. Status: %s."
+msgid ""
+"Something went wrong. Response from PayPal invalidated this order. Status: "
+"%s."
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:124
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:124
 msgid "IPN payment completed"
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:146
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:146
 msgid "Enable PayPal Adaptive Payments"
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:152
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:152
 msgid "Method Title"
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:153
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:153
 msgid "This controls the title which the user sees during checkout."
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:154
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:154
 msgid "PayPal"
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:159
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:159
 msgid "Description"
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:160
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:160
 msgid "This controls the description which the user sees during checkout."
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:161
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:161
 msgid "Pay via PayPal!"
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:172
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:172
 msgid "Live Credentials"
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:174
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:174
 #, php-format
-msgid "You must have an <a href=\"%s\">Application ID</a> to process live transactions. You do not need one for testing in Sandbox mode."
+msgid ""
+"You must have an <a href=\"%s\">Application ID</a> to process live "
+"transactions. You do not need one for testing in Sandbox mode."
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:179
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:213
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:179
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:213
 msgid "PayPal Email"
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:180
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:214
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:180
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:214
 msgid "The email address main payments should go to."
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:185
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:219
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:185
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:219
 msgid "API Username"
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:190
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:224
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:190
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:224
 msgid "API Password"
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:195
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:229
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:195
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:229
 msgid "API Signature"
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:200
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:200
 msgid "Application ID"
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:202
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:202
 msgid "Only required when doing live transactions."
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:206
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:206
 msgid "Sandbox Credentials"
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:208
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:208
 #, php-format
-msgid "You can signup for a sandbox developer account <a href=\"%s\">here</a>. You need a developer account if you want to enable Sandbox mode for testing."
+msgid ""
+"You can signup for a sandbox developer account <a href=\"%s\">here</a>. You "
+"need a developer account if you want to enable Sandbox mode for testing."
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:240
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:240
 msgid "Misc. Settings"
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:245
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:245
 msgid "Enable PayPal Sandbox mode"
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:251
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:251
 msgid "Enable logging"
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:269
-msgid "The PayPal Adaptive Payments gateway can instantly pay your vendors their due commission (if enabled). Also used to mass pay vendors on a schedule / manual method (if enabled)."
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:269
+msgid ""
+"The PayPal Adaptive Payments gateway can instantly pay your vendors their "
+"due commission (if enabled). Also used to mass pay vendors on a schedule / "
+"manual method (if enabled)."
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:280
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:280
 msgid "Gateway Disabled"
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:280
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:280
 #, php-format
 msgid "%s does not support your store currency."
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:369
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:483
-#: productvendor\classes\gateways\paypal_masspay\class-paypal-masspay.php:146
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:369
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:483
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_Masspay/class-paypal-masspay.php:146
 #, php-format
 msgid "Error: %s"
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:378
-#: productvendor\classes\gateways\paypal_advpayments\paypal_ap.php:379
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:378
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_AdvPayments/paypal_ap.php:379
 #, php-format
 msgid "Error ID: %s. %s"
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_masspay\class-paypal-masspay.php:111
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_Masspay/class-paypal-masspay.php:111
 msgid "No vendors found to pay. Maybe they haven't set a PayPal address?"
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_masspay\class-paypal-masspay.php:160
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_Masspay/class-paypal-masspay.php:160
 msgid "All due commission has been paid for."
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_masspay\class-paypal-masspay.php:166
-msgid "All due commission has been paid for, but I could not clear it from their profiles due to an internal error. Commission will still be listed as due. Please manually mark the commission as paid from the Commissions page."
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_Masspay/class-paypal-masspay.php:166
+msgid ""
+"All due commission has been paid for, but I could not clear it from their "
+"profiles due to an internal error. Commission will still be listed as due. "
+"Please manually mark the commission as paid from the Commissions page."
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_masspay\class-paypal-masspay.php:201
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_Masspay/class-paypal-masspay.php:201
 msgid "WooCommerce: Mass payments for vendors update"
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_masspay\class-paypal-masspay.php:203
-msgid "Hello! A payment was just triggered to mass pay all vendors their due commission."
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_Masspay/class-paypal-masspay.php:203
+msgid ""
+"Hello! A payment was just triggered to mass pay all vendors their due "
+"commission."
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_masspay\class-paypal-masspay.php:204
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_Masspay/class-paypal-masspay.php:204
 #, php-format
 msgid "Payment status: %s."
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_masspay\class-paypal-masspay.php:205
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_Masspay/class-paypal-masspay.php:205
 #, php-format
 msgid "Payment message: %s."
 msgstr ""
 
-#: productvendor\classes\gateways\paypal_masspay\class-paypal-masspay.php:208
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/classes/gateways/PayPal_Masspay/class-paypal-masspay.php:208
 #, php-format
 msgid "Payment total: %s."
 msgstr ""
 
-#: productvendor\classes\mg-includes\class-mgates-plugin-updater.php:141
-msgid "The plugin has been updated, but could not be reactivated. Please reactivate it manually."
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/denied.php:8
+msgid ""
+"Your account has not yet been approved to become a vendor.  When it is, you "
+"will receive an email telling you that your account is approved!"
 msgstr ""
 
-#: productvendor\classes\mg-includes\class-mgates-plugin-updater.php:142
-msgid "Plugin reactivated successfully."
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/denied.php:12
+msgid ""
+"Your account is not setup as a vendor yet.  If you would like to register, "
+"please complete this page!"
 msgstr ""
 
-#: productvendor\classes\mg-includes\class-mgates-plugin-updater.php:240
-msgid "MGates.me Updates"
-msgstr ""
-
-#: productvendor\classes\mg-includes\class-mgates-plugin-updater.php:271
-msgid "MGates.me Plugin Updater"
-msgstr ""
-
-#: productvendor\classes\mg-includes\class-mgates-plugin-updater.php:282
-msgid "Enter your license key to automatically receive updates."
-msgstr ""
-
-#: productvendor\classes\mg-includes\class-mgates-plugin-updater.php:316
-#: productvendor\views\dashboard\settings\settings.php:50
-msgid "Save"
-msgstr ""
-
-#: productvendor\classes\mg-includes\class-mgates-plugin-updater.php:319
-msgid "Check for updates <b>now</b>"
-msgstr ""
-
-#: productvendor\classes\mg-includes\class-mgates-plugin-updater.php:346
-#, php-format
-msgid "<b style=\"color: #468847;\">Key deactivated.</b> License key for <i>%s</i> has been <b>deactivated</b>."
-msgstr ""
-
-#: productvendor\classes\mg-includes\class-mgates-plugin-updater.php:348
-#, php-format
-msgid "<b style=\"color: #B94A48;\">Error.</b> License key for <i>%s</i> could not be deactivated."
-msgstr ""
-
-#: productvendor\classes\mg-includes\class-mgates-plugin-updater.php:356
-#, php-format
-msgid "<b style=\"color: #468847;\">Key activated.</b> License key for <i>%s</i> has been <b>activated</b>."
-msgstr ""
-
-#: productvendor\classes\mg-includes\class-mgates-plugin-updater.php:358
-#, php-format
-msgid "<b style=\"color: #B94A48;\">Error.</b> License key for <i>%s</i> is invalid."
-msgstr ""
-
-#: productvendor\classes\mg-includes\class-mgates-plugin-updater.php:396
-msgid "Enable MGates.me Plugin Updates."
-msgstr ""
-
-#: productvendor\classes\mg-includes\class-mgates-plugin-updater.php:398
-#, php-format
-msgid "<a href=\"%1$s\">Add your license keys</a> to enable automatic plugin updates."
-msgstr ""
-
-#: productvendor\classes\mg-includes\class-mgates-plugin-updater.php:405
-msgid "Hide This Message"
-msgstr ""
-
-#: productvendor\views\dashboard\denied.php:8
-msgid "Your account has not yet been approved to become a vendor."
-msgstr ""
-
-#: productvendor\views\dashboard\denied.php:12
-msgid "Your account is not vendor capable."
-msgstr ""
-
-#: productvendor\views\dashboard\denied.php:53
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/denied.php:53
 msgid "Submit"
 msgstr ""
 
-#: productvendor\views\dashboard\links.php:1
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/links.php:1
 msgid "Control Center"
 msgstr ""
 
-#: productvendor\views\dashboard\links.php:3
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/links.php:3
 msgid "My shop"
 msgstr ""
 
-#: productvendor\views\dashboard\links.php:7
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/links.php:7
 msgid "My settings"
 msgstr ""
 
-#: productvendor\views\dashboard\links.php:13
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/links.php:13
 msgid "Submit a product"
 msgstr ""
 
-#: productvendor\views\dashboard\orders.php:7
-#: productvendor\views\dashboard\orders.php:10
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/orders.php:7
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/orders.php:10
 msgid "Hide items"
 msgstr ""
 
-#: productvendor\views\dashboard\orders.php:8
-#: productvendor\views\dashboard\orders.php:58
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/orders.php:8
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/orders.php:58
 msgid "View items"
 msgstr ""
 
-#: productvendor\views\dashboard\orders.php:27
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/orders.php:27
 msgid "Links"
 msgstr ""
 
-#: productvendor\views\dashboard\orders.php:58
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/orders.php:58
 msgid "Unmark shipped"
 msgstr ""
 
-#: productvendor\views\dashboard\orders.php:58
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/orders.php:58
 msgid "Mark shipped"
 msgstr ""
 
-#: productvendor\views\dashboard\orders.php:90
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/orders.php:90
 msgid "You have no orders during this period."
 msgstr ""
 
-#: productvendor\views\dashboard\reports.php:1
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/reports.php:1
 msgid "Sales Report"
 msgstr ""
 
-#: productvendor\views\dashboard\reports.php:20
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/reports.php:20
 msgid "Rate"
 msgstr ""
 
-#: productvendor\views\dashboard\reports.php:47
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/reports.php:47
 msgid "Show Orders"
 msgstr ""
 
-#: productvendor\views\dashboard\reports.php:56
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/reports.php:56
 msgid "Totals"
 msgstr ""
 
-#: productvendor\views\dashboard\reports.php:71
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/reports.php:71
 msgid "You have no sales during this period."
 msgstr ""
 
-#: productvendor\views\dashboard\reports.php:82
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/reports.php:82
 msgid "You haven't made any sales yet."
 msgstr ""
 
-#: productvendor\views\dashboard\settings\paypal-email-form.php:2
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/settings/paypal-email-form.php:2
 msgid "PayPal Address"
 msgstr ""
 
-#: productvendor\views\dashboard\settings\paypal-email-form.php:3
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/settings/paypal-email-form.php:3
 msgid "Your PayPal address is used to send you your commission."
 msgstr ""
 
-#: productvendor\views\dashboard\settings\seller-info.php:4
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/settings/seller-info.php:4
 msgid "This is displayed on each of your products."
 msgstr ""
 
-#: productvendor\views\dashboard\settings\shop-description.php:2
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/settings/settings.php:50
+msgid "Save"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/settings/shop-description.php:2
 msgid "Shop Description"
 msgstr ""
 
-#: productvendor\views\dashboard\settings\shop-description.php:3
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/settings/shop-description.php:3
 #, php-format
 msgid "This is displayed on your <a href=\"%s\">shop page</a>."
 msgstr ""
 
-#: productvendor\views\dashboard\settings\shop-name.php:2
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/settings/shop-name.php:2
 msgid "Shop Name"
 msgstr ""
 
-#: productvendor\views\dashboard\settings\shop-name.php:3
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/dashboard/settings/shop-name.php:3
 msgid "Your shop name is public and must be unique."
 msgstr ""
 
-#: productvendor\views\emails\admin-new-order.php:13
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/emails/admin-new-order.php:13
 #, php-format
 msgid "You have received an order from %s. Their order is as follows:"
 msgstr ""
 
-#: productvendor\views\emails\admin-new-order.php:17
-#: productvendor\views\emails\notify-vendor-shipped.php:17
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/emails/admin-new-order.php:17
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/emails/notify-vendor-shipped.php:17
 #, php-format
 msgid "Order: %s"
 msgstr ""
 
-#: productvendor\views\emails\admin-new-order.php:24
-#: productvendor\views\emails\notify-vendor-shipped.php:24
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/emails/admin-new-order.php:24
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/emails/notify-vendor-shipped.php:24
 msgid "Price"
 msgstr ""
 
-#: productvendor\views\emails\admin-new-order.php:50
-#: productvendor\views\emails\notify-vendor-shipped.php:50
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/emails/admin-new-order.php:50
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/emails/notify-vendor-shipped.php:50
 msgid "Customer details"
 msgstr ""
 
-#: productvendor\views\emails\admin-new-order.php:53
-#: productvendor\views\emails\notify-vendor-shipped.php:53
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/emails/admin-new-order.php:53
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/emails/notify-vendor-shipped.php:53
 msgid "Email:"
 msgstr ""
 
-#: productvendor\views\emails\admin-new-order.php:56
-#: productvendor\views\emails\notify-vendor-shipped.php:56
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/emails/admin-new-order.php:56
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/emails/notify-vendor-shipped.php:56
 msgid "Tel:"
 msgstr ""
 
-#: productvendor\views\emails\application-status.php:5
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/emails/application-status.php:5
 #, php-format
 msgid "Hi there. This is a notification about a vendor application on %s."
 msgstr ""
 
-#: productvendor\views\emails\application-status.php:8
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/emails/application-status.php:8
 #, php-format
 msgid "Application status: %s"
 msgstr ""
 
-#: productvendor\views\emails\application-status.php:9
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/emails/application-status.php:9
 #, php-format
 msgid "Applicant username: %s"
 msgstr ""
 
-#: productvendor\views\emails\new-product.php:5
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/emails/new-product.php:5
 #, php-format
 msgid "Hi there. This is a notification about a new product on %s."
 msgstr ""
 
-#: productvendor\views\emails\new-product.php:8
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/emails/new-product.php:8
 #, php-format
 msgid "Product title: %s"
 msgstr ""
 
-#: productvendor\views\emails\new-product.php:9
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/emails/new-product.php:9
 #, php-format
 msgid "Submitted by: %s"
 msgstr ""
 
-#: productvendor\views\emails\new-product.php:10
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/emails/new-product.php:10
 #, php-format
 msgid "Edit product: %s"
 msgstr ""
 
-#: productvendor\views\emails\notify-vendor-shipped.php:13
-msgid "A vendor has marked part of your order as shipped. The items that are shipped are as follows:"
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/emails/notify-vendor-shipped.php:13
+msgid ""
+"A vendor has marked part of your order as shipped. The items that are "
+"shipped are as follows:"
 msgstr ""
 
-#: productvendor\views\orders\csv-export.php:6
-msgid "Export orders"
-msgstr ""
-
-#: productvendor\views\orders\orders.php:84
-#, php-format
-msgid "Comments (%s)"
-msgstr ""
-
-#: productvendor\views\orders\table-body.php:25
-#, php-format
-msgid "Quantity: %d"
-msgstr ""
-
-#: productvendor\views\orders\comments\add-new-comment.php:11
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/orders/comments/add-new-comment.php:11
 msgid "Add comment"
 msgstr ""
 
-#: productvendor\views\orders\comments\existing-comments.php:9
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/orders/comments/existing-comments.php:9
 #, php-format
 msgid "added %s ago"
 msgstr ""
 
-#: productvendor\views\orders\customer-note\customer-note.php:4
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/orders/csv-export.php:6
+msgid "Export orders"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/orders/customer-note/customer-note.php:4
 msgid "Customer note"
 msgstr ""
 
-#: productvendor\views\orders\customer-note\customer-note.php:8
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/orders/customer-note/customer-note.php:8
 msgid "No customer note."
 msgstr ""
 
-#: productvendor\views\orders\shipping\shipping-form.php:46
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/orders/orders.php:84
+#, php-format
+msgid "Comments (%s)"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/orders/shipping/shipping-form.php:46
 msgid "Provider:"
 msgstr ""
 
-#: productvendor\views\orders\shipping\shipping-form.php:48
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/orders/shipping/shipping-form.php:48
 msgid "Custom Provider"
 msgstr ""
 
-#: productvendor\views\orders\shipping\shipping-form.php:68
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/orders/shipping/shipping-form.php:68
 msgid "Provider Name:"
 msgstr ""
 
-#: productvendor\views\orders\shipping\shipping-form.php:76
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/orders/shipping/shipping-form.php:76
 msgid "Tracking number:"
 msgstr ""
 
-#: productvendor\views\orders\shipping\shipping-form.php:84
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/orders/shipping/shipping-form.php:84
 msgid "Tracking link:"
 msgstr ""
 
-#: productvendor\views\orders\shipping\shipping-form.php:93
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/orders/shipping/shipping-form.php:93
 msgid "Date shipped:"
 msgstr ""
 
-#: productvendor\views\orders\shipping\shipping-form.php:101
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/orders/shipping/shipping-form.php:101
 msgid "Preview:"
 msgstr ""
 
-#: productvendor\views\orders\shipping\shipping-form.php:101
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/orders/shipping/shipping-form.php:101
 msgid "Click here to track your shipment"
 msgstr ""
 
-#: productvendor\views\orders\shipping\shipping-form.php:110
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/orders/shipping/shipping-form.php:110
 msgid "Update tracking number"
 msgstr ""
 
-#: productvendor\views\orders\shipping\shipping-form.php:112
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/orders/shipping/shipping-form.php:112
 msgid "Mark as shipped"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/WCVendors/views/orders/table-body.php:25
+#, php-format
+msgid "Quantity: %d"
+msgstr ""
+
+#: /Users/jamie/Documents/Development/wcvendors/class-wc-vendors.php:82
+msgid ""
+"<b>WC Vendors is disabled</b>. WC Vendors requires a minimum of WooCommerce "
+"v2.2.0."
 msgstr ""
