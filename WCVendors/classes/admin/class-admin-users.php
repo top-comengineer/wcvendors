@@ -339,7 +339,7 @@ class WCV_Admin_Users
 	public function show_extra_profile_fields( $user )
 	{
 		?>
-		<h3><?php _e( 'Product Vendor', 'wcvendors' ); ?></h3>
+		<h3><?php _e( 'WC Vendors', 'wcvendors' ); ?></h3>
 		<table class="form-table">
 			<tbody>
 			<?php do_action( 'wcvendors_admin_before_shop_html', $user ); ?>
