@@ -159,7 +159,7 @@ class WCV_Vendor_Dashboard
 		ob_start();
 		do_action( 'wcvendors_before_dashboard' );
 
-		woocommerce_show_messages();
+		wc_print_notices();
 		woocommerce_get_template( 'links.php', array(
 													'shop_page'     => urldecode($shop_page),
 													'settings_page' => $settings_page,

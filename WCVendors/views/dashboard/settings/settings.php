@@ -2,7 +2,7 @@
 
 <?php if ( function_exists( 'wc_print_messages' ) ) wc_print_messages(); else {
 	global $woocommerce;
-	$woocommerce->show_messages();
+	wc_print_messages(); 
 } ?>
 
 <form method="post">
