@@ -53,7 +53,7 @@ if ( !class_exists( 'SF_Sanitize' ) ) {
 		 *
 		 * @return string
 		 */
-		public function sanitize_textarea( $input )
+		public static function sanitize_textarea( $input )
 		{
 			global $allowedposttags;
 			$output = wp_kses( $input, $allowedposttags );
@@ -83,7 +83,7 @@ if ( !class_exists( 'SF_Sanitize' ) ) {
 		 *
 		 * @return int
 		 */
-		public function sanitize_checkbox( $input, $option )
+		public static function sanitize_checkbox( $input, $option )
 		{
 			if ( !empty( $option[ 'multiple' ] ) ) {
 

@@ -12,7 +12,7 @@ class WCV_Queries
 	 */
 
 
-	public function get_commission_products( $user_id )
+	public static function get_commission_products( $user_id )
 	{
 		global $wpdb;
 

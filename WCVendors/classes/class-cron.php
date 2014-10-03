@@ -27,7 +27,7 @@ class WCV_Cron
 	 * @param         array
 	 * @param unknown $options
 	 */
-	public function check_schedule( $options )
+	public static function check_schedule( $options )
 	{
 		$old_interval = wp_get_schedule( 'pv_schedule_mass_payments' );
 		$new_interval = $options[ 'schedule' ];
@@ -57,7 +57,7 @@ class WCV_Cron
 	 *
 	 * @return array
 	 */
-	public function check_schedule_now( $options )
+	public static function check_schedule_now( $options )
 	{
 		$old_schedule = WC_Vendors::$pv_options->get_option( 'schedule' );
 		$new_schedule = $options[ 'schedule' ];
@@ -99,7 +99,7 @@ class WCV_Cron
 	 *
 	 * @return bool
 	 */
-	private function remove_cron_schedule()
+	private static function remove_cron_schedule()
 	{
 		$timestamp = wp_next_scheduled( 'pv_schedule_mass_payments' );
 
