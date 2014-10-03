@@ -55,7 +55,7 @@ class WCV_Queries
 	 */
 
 
-	public function get_products_for_order( $order_id )
+	public static function get_products_for_order( $order_id )
 	{
 		global $wpdb;
 
