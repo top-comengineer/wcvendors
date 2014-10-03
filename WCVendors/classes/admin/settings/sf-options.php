@@ -260,7 +260,7 @@ $options[ ] = array( 'name' => __( 'Payments', 'wcvendors' ), 'type' => 'heading
 $options[ ] = array(
 	'name' => __( 'User payments', 'wcvendors' ), 'type' => 'title', 'desc' =>
 		sprintf( __( 'Total commission currently due: %s. <a href="%s">View details</a>.', 'wcvendors' ), !function_exists( 'woocommerce_price' ) ? $total_due : woocommerce_price( $total_due ), '?page=pv_admin_commissions' ) .
-		'<br/><br/>' . sprintf( __( 'Make sure you update your PayPal Adaptive Payments settings <a href="%s">here</a>.', 'wcvendors' ), 'admin.php?page=woocommerce_settings&tab=payment_gateways&section=WC_PaypalAP' )
+		'<br/><br/>' . sprintf( __( 'Make sure you update your PayPal Adaptive Payments settings <a href="%s">here</a>.', 'wcvendors' ), 'admin.php?page=wc-settings&tab=checkout&section=wc_paypalap' )
 );
 
 $options[ ] = array(
