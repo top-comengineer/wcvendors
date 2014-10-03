@@ -3,7 +3,7 @@
 /**
  * Plugin Name:         WC Vendors
  * Plugin URI:          http://wcvendors.com
- * Description:         Allow vendors to sell their own products and receive a commission for each sale, this is a fork of Matt Gates Product Vendor after it was abandoned. 
+ * Description:         Allow vendors to sell their own products and receive a commission for each sale. 
  * Author:              WC Vendors
  * Author URI:          http://wcvendors.com
  *
@@ -236,5 +236,8 @@ if ( is_woocommerce_activated() ) {
 
 
 	new WC_Vendors;
+
+} else { 
+
 
 }
