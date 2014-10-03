@@ -2,7 +2,7 @@
 $options = array();
 
 $options[ ] = array( 'name' => __( 'General', 'wcvendors' ), 'type' => 'heading' );
-$options[ ] = array( 'name' => __( 'General options', 'wcvendors' ), 'type' => 'title', 'desc' => __( '', 'wcvendors' ) );
+$options[ ] = array( 'name' => __( 'General options', 'wcvendors' ), 'type' => 'title', 'desc' => __( ' ', 'wcvendors' ) );
 
 $options[ ] = array(
 	'name'     => __( 'Default commission (%)', 'wcvendors' ),
@@ -42,7 +42,7 @@ $options[ ] = array(
 	'std'  => false,
 );
 
-$options[ ] = array( 'name' => __( 'Shop options', 'wcvendors' ), 'type' => 'title', 'desc' => __( '', 'wcvendors' ) );
+$options[ ] = array( 'name' => __( 'Shop options', 'wcvendors' ), 'type' => 'title', 'desc' => __( ' ', 'wcvendors' ) );
 
 $options[ ] = array(
 	'name' => __( 'Shop HTML', 'wcvendors' ),
@@ -210,7 +210,7 @@ $options[ ] = array(
 );
 
 $options[ ] = array( 'name' => __( 'Pages', 'wcvendors' ), 'type' => 'heading' );
-$options[ ] = array( 'name' => __( 'Page configuration', 'wcvendors' ), 'type' => 'title', 'desc' => __( '', 'wcvendors' ) );
+$options[ ] = array( 'name' => __( 'Page configuration', 'wcvendors' ), 'type' => 'title', 'desc' => __( ' ', 'wcvendors' ) );
 
 $options[ ] = array(
 	'name'    => __( 'Vendor dashboard', 'wcvendors' ),

@@ -240,7 +240,7 @@ class WCV_Admin_Reports
 			<?php if ( $_GET[ 'chart' ] == 2 ) { ?>
 
 				<select id="product_ids" name="product_ids[]" class="ajax_chosen_select_products" multiple="multiple"
-						data-placeholder="<?php _e( 'Search for a product&hellip;', 'woocommerce' ); ?>"
+						data-placeholder="<?php _e( 'Year', 'wcvendors' ); ?>"
 						style="width: 400px;"></select>
 				<script type="text/javascript">
 					jQuery(function () {
