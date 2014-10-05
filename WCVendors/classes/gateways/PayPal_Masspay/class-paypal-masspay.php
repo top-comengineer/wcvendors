@@ -12,7 +12,7 @@ class PV_Mass_Pay
 {
 
 	private static $pluginDir;
-	private $orders_paid;
+	private $orders_paid; 
 
 	/**
 	 * Pay out all outstanding commission.
@@ -21,6 +21,7 @@ class PV_Mass_Pay
 	 */
 	public function do_payments()
 	{
+		$vendors = array(); 
 		self::$pluginDir = trailingslashit( dirname( __FILE__ ) );
 		$vendors         = $this->get_users();
 
@@ -49,6 +50,8 @@ class PV_Mass_Pay
 	{
 		$orders = WCV_Commission::get_all_due();
 		if ( empty( $orders ) ) return false;
+
+		$vendors = array(); 
 
 		$due_amounts = array();
 		foreach ( $orders as $data ) {
