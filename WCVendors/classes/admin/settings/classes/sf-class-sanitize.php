@@ -116,13 +116,15 @@ if ( !class_exists( 'SF_Sanitize' ) ) {
 		 *
 		 * @return bool
 		 */
-		public function sanitize_enum( $input, $option )
+		public static function sanitize_enum( $input, $option )
 		{
 			$output = $input;
 
+			$sfs = new SF_Sanitize(); 
+
 			if ( is_array( $input ) ) {
 				foreach ( $input as $value ) {
-					if ( !SF_Sanitize::sanitize_enum( $value, $option ) ) {
+					if ( !$sfs->sanitize_enum( $value, $option ) ) {
 						$output = false;
 						break;
 					}
