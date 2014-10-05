@@ -51,9 +51,10 @@ class WCV_Mass_Pay
 		$orders = WCV_Commission::get_all_due();
 		if ( empty( $orders ) ) return false;
 
+		//  Initialise the arrays
 		$vendors = array(); 
-
 		$due_amounts = array();
+
 		foreach ( $orders as $data ) {
 			$due_amounts[ $data->vendor_id ][ ] = $data->total_due;
 			$this->orders_paid[ ]               = $data->id;
