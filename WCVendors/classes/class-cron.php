@@ -80,7 +80,7 @@ class WCV_Cron
 	 */
 	public static function pay_now()
 	{
-		$mass_pay = new PV_Mass_Pay;
+		$mass_pay = new WCV_Mass_Pay;
 		$mass_pay = $mass_pay->do_payments();
 
 		$message = !empty( $mass_pay[ 'total' ] )

@@ -8,7 +8,7 @@
  */
 
 
-class PV_Mass_Pay
+class WCV_Mass_Pay
 {
 
 	private static $pluginDir;
