@@ -78,7 +78,7 @@ class WCV_Cron
 	 *
 	 * @return array
 	 */
-	public function pay_now()
+	public static function pay_now()
 	{
 		$mass_pay = new PV_Mass_Pay;
 		$mass_pay = $mass_pay->do_payments();
@@ -114,7 +114,7 @@ class WCV_Cron
 	 *
 	 * @return bool
 	 */
-	public function schedule_cron( $interval )
+	public static function schedule_cron( $interval )
 	{
 		// Scheduled event
 		add_action( 'pv_schedule_mass_payments', array( 'WCV_Cron', 'pay_now' ) );

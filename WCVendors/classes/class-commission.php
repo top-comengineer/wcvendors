@@ -177,7 +177,7 @@ class WCV_Commission
 	 *
 	 * @return object
 	 */
-	public function get_all_due()
+	public static function get_all_due()
 	{
 		global $wpdb;
 
