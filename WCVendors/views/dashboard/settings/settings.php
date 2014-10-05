@@ -1,9 +1,6 @@
 <h2><?php _e( 'Settings', 'wcvendors' ); ?></h2>
 
-<?php if ( function_exists( 'wc_print_messages' ) ) wc_print_messages(); else {
-	global $woocommerce;
-	wc_print_messages(); 
-} ?>
+<?php if ( function_exists( 'wc_print_notices' ) ) { wc_print_notices(); } ?>
 
 <form method="post">
 	<?php
