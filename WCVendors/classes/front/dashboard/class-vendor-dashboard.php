@@ -95,8 +95,8 @@ class WCV_Vendor_Dashboard
 
 		do_action( 'wcvendors_shop_settings_saved', $user_id );
 
-		if ( !$woocommerce->error_count() ) {
-			if ( function_exists( 'wc_add_message' ) ) wc_add_message( __( 'Settings saved.', 'wcvendors' ) ); else $woocommerce->add_message( __( 'Settings saved.', 'wcvendors' ) );
+		if ( !wc_notice_count() ) {
+			if ( function_exists( 'wc_add_message' ) ) wc_add_message( __( 'Settings saved.', 'wcvendors' ) ); else wc_add_notice( __( 'Settings saved.', 'wcvendors' ) );
 		}
 	}
 
