@@ -49,7 +49,7 @@ class WCV_Vendor_Cart
 	/**
 	 *
 	 */
-	public function sold_by_meta()
+	public static function sold_by_meta()
 	{
 		$author_id = get_the_author_meta( 'ID' );
 
