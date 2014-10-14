@@ -1,6 +1,6 @@
-<?php if ( function_exists( 'wc_print_messages' ) ) wc_print_messages(); else {
+<?php if ( function_exists( 'wc_print_notices' ) ) wc_print_notices(); else {
 	global $woocommerce;
-	wc_print_messages(); 
+	wc_print_notices(); 
 } ?>
 
 <?php if ( WCV_Vendors::is_pending( get_current_user_id() ) ) { ?>
