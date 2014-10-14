@@ -6,7 +6,7 @@ Requires at least: 4.0
 Tested up to: 4.0
 Stable tag: trunk
 
-The free multi-vendor plugin for WooCommerce.  Now you can anyone to open a store on your site!
+The free multi-vendor plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
 
 == Description ==
 Create your own marketplace and allow vendors to sell just like etsy, Envato, or Amazon type sites! This allows other users to sell tangible products, virtual products, or downloads on your site. With this plugin, your vendors receive commissions you set on products they sell from your store.
