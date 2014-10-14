@@ -2,6 +2,7 @@
 
 /**
  * Format an options array into HTML
+ * This class has been deprecated
  *
  * @author  Matt Gates <http://mgates.me>
  * @package WordPress
