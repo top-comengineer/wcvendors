@@ -1,5 +1,49 @@
 Changelog for WC Vendors
 
+Version 1.1.4
+
+* Fixed called to incorrect notice method
+* Moved methods into parent class See #41
+* PHP Strict updates
+* Deprecated Class due to PHP strict issues
+* fixing static call
+* Tidying up and comments.
+* Renaming class to new standard
+* Removing deprecated wc methods.
+* Fixing incorrect method call
+* Problem with undefined variable.
+* fixing static call issues
+* fixing static call problems
+* Fixing more strict issues
+* fixing encoding issue
+* Fixing tax rounding issue #37
+* Fixing deprecated calls #42
+* Fixing strict standards
+* Fixing constant reference #36
+* Fixed reference to old plugin name
+* Fixing strict errors #27
+* New Default POT translations #26
+* Fixing translation strings #26
+* Updated description
+* Fix link to paypal adaptive payments #25
+* Fixing issue #22
+* Remove support for woo commerce 2.1 and below
+* Class rename
+* Fixed incorrect table name see #35
+* Fixed Class description
+* Added label on vendor email shipping line see #22
+* Fix issue #23 Notify vendor email problem
+* Fixing Issue #28 & removing WC2.0 support
+* Strict Standards in WCV_Vendors #32
+* Fixing Issue #31 PHP Strict Issues
+* Fixing Issue #30 PHP Strict Standards
+* Change Log added for release changes
+* WC Version Requirement changed
+* Updating author to include wc after modifications
+* Rename class
+* Fixing up link to documentation
+* Updated Readme
+
 Version 1.1.3
 
 *  Fixing table names for compatibility
