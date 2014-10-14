@@ -1,17 +1,15 @@
-/**
- * Plugin Name:         WCVendors
- * Plugin URI:          http://www.wcvendors.com
- * Description:         Create a market place on top of your WooCommerce store receive a commission for each sale.
- * Author:              WC Vendors, Matt Gates
- * Author URI:          http://www.wvcendors.com 
+=== WC Vendors ===
+Contributors: wcvendors, digitalchild
+Tags: woocommerce, vendor, shops, product vendor, product vendors, seller
+Donate link: http://www.wcvendors.com/
+Requires at least: 4.0
+Tested up to: 4.0
+Stable tag: trunk
 
- * @category            Plugin
- * @copyright           Copyright © 2014 WooCommerce Ltd.
- * @author              WCVendors
- * @package             WCVendors
- */
+The free multi-vendor plugin for WooCommerce.  Now you can anyone to open a store on your site!
 
-Create your own maketplace and allow vendors to sell just like etsy, Envato, or Amazon type sites! This allows other users to sell tangible products, virtual products, or downloads on your site. With this plugin, your vendors can receive commission of products they own from your store.
+== Description ==
+Create your own marketplace and allow vendors to sell just like etsy, Envato, or Amazon type sites! This allows other users to sell tangible products, virtual products, or downloads on your site. With this plugin, your vendors receive commissions you set on products they sell from your store.
 
 Features:
  * Instantly pay users their commission as soon as an order is placed
@@ -21,31 +19,43 @@ Features:
  * Users can comment on their orders (eg, to inform customers of a tracking number)
  * Users can export their orders to a CSV file
 
-Documentation:
-http://www.wcvendors.com/knowledgebase/
 
-History:
-August 09, 2014 - version 1.1.3
-  - NUMEROUS bug fixes
+
+== Installation ==
+1.) Download and install from WordPress.org.
+2.) Configure as you see fit, under WooCommerce / WC Vendors.
+3.) Configure email notifications under WooCommerce / Settings
+4.) View Commissions under WooCommerce / Commissions and WooCommerce / Reports / WC Vendors
+5.) For more help, visit WCVendors.com and say hello on the community forums.
+
+== Frequently Asked Questions ==
+Official FAQ
+
+== Changelog ==
+October 14, 2014 - version 1.1.4 (First release on WordPress.org)
+  - Resolved shipping bug
+  - Commission totals are now properly displayed on the WooCommerce / WC Vendors / Payments tab
+  - Number of internal bug fixes
+
+August 09, 2014 - version 1.1.3 (Initial Public Release)
+  - Numerous bug fixes
 
   - New Shortcodes:  These new shortcodes are based on the WooCommerce included shortcodes.  They have been modified to show output based on the vendor you specify.  All other arguments to the shortcodes from WooCommerce will also work on these shortcodes.
-	    Recent Products Shortcode
-	    [wcv_recent_products vendor="VENDOR-LOGIN-NAME" per_page=3]
 
-	    Products Shortcode
-	    [wcv_products vendor="VENDOR-LOGIN-NAME"]
+          Recent Products Shortcode
+          [wcv_recent_products vendor=\"VENDOR-LOGIN-NAME\" per_page=3]
 
-	    Featured Products Shortcode
-	    [wcv_featured_products vendor="VENDOR-LOGIN-NAME"]
+          Products Shortcode
+          [wcv_products vendor=\"VENDOR-LOGIN-NAME\"]
 
-	    Sale Products
-      [wcv_sale_products vendor="VENDOR-LOGIN-NAME"]
+          Featured Products Shortcode
+          [wcv_featured_products vendor=\"VENDOR-LOGIN-NAME\"]
 
-	    Top Rated Products on sale
-	    [wcv_top_rated_products vendor="VENDOR-LOGIN-NAME"]
+          Sale Products
+          [wcv_sale_products vendor=\"VENDOR-LOGIN-NAME\"]
 
-	    Best Selling Products on sale
-	    [wcv_best_selling_products vendor="VENDOR-LOGIN-NAME"]
-	    
---- end ---
+          Top Rated Products on sale
+          [wcv_top_rated_products vendor=\"VENDOR-LOGIN-NAME\"]
 
+          Best Selling Products on sale
+          [wcv_best_selling_products vendor=\"VENDOR-LOGIN-NAME\"]
