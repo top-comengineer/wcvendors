@@ -38,7 +38,7 @@ if ( !class_exists( 'SF_Sanitize' ) ) {
 		 *
 		 * @return int
 		 */
-		public function sanitize_number_field( $input )
+		public static function sanitize_number_field( $input )
 		{
 			$output = is_numeric( $input ) ? (float) $input : false;
 
@@ -69,7 +69,7 @@ if ( !class_exists( 'SF_Sanitize' ) ) {
 		 *
 		 * @return string
 		 */
-		public function sanitize_wysiwyg( $input )
+		public static function sanitize_wysiwyg( $input )
 		{
 			return $input;
 		}
@@ -146,7 +146,7 @@ if ( !class_exists( 'SF_Sanitize' ) ) {
 		 *
 		 * @return int
 		 */
-		public function sanitize_select_pages( $input, $option )
+		public static function sanitize_select_pages( $input, $option )
 		{
 			$output = get_page( $input ) ? (int) $input : 0;
 
