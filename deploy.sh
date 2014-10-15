@@ -60,7 +60,7 @@ echo "Creating local copy of SVN repo ..."
 svn co $SVNURL $SVNPATH
 
 echo "Adding assets...."
-cp ../wcvendors-svn/assets/* $SVNPATH/assets/*
+cp ../wcvendors-svn/assets/* $SVNPATH/assets
 svn add $SVNPATH/assets/*
 
 echo "Exporting the HEAD of master from git to the trunk of SVN"
@@ -85,6 +85,6 @@ cd $SVNPATH/tags/$NEWVERSION1
 svn commit --username=$SVNUSER -m "Tagging version $NEWVERSION1"
 
 echo "Removing temporary directory $SVNPATH"
-rm -fr $SVNPATH/
+#rm -fr $SVNPATH/
 
 echo "*** THE END ***"
