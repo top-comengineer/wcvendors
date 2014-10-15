@@ -44,7 +44,14 @@ PHP 5.4 has been tested.
 You can post a support question on the support tab, however you'll get more help over at our community forums (http://www.wcvendors.com)
 
 == Screenshots ==
-Screen shots go here
+
+1. General options - Configure default commission, how users can register and more.
+2. Product options pag - allows you to hide specific options from the add new product window. 
+3. Capabilities options - restrict what your vendors can see and do. 
+4. Pages options - what pages will load the relevant vendor templates. These can be customised. 
+5. User paypment info - define how your users get paid and when. 
+6. WC Vendors Paypal Adaptive payments setup.
+7. Email template options for the relevant WC Vendor emails. 
 
 == Upgrade Notice ==
 No Upgrade required at this time.
