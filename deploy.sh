@@ -76,8 +76,6 @@ svn commit --username=$SVNUSER -m "$COMMITMSG"
 
 echo "Adding assets...."
 cp ../wcvendors-svn/assets/* $SVNPATH/assets
-svn add $SVNPATH/assets/*
-svn commit --username=$SVNUSER
 
 echo "Creating new SVN tag & committing it"
 cd $SVNPATH
