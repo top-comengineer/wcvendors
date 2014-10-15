@@ -15,12 +15,12 @@ The free multi-vendor plugin for WooCommerce.  Now you can allow anyone to open 
 Create your own marketplace and allow vendors to sell just like etsy, Envato, or Amazon type sites! This allows other users to sell tangible products, virtual products, or downloads on your site. With this plugin, your vendors receive commissions you set on products they sell from your store.
 
 ## Features ## 
-* Instantly pay users their commission as soon as an order is placed
+* Instantly pay vendors their commission as soon as an order is placed
 * Or, pay commission on a schedule. Weekly, biweekly, monthly, or manually.
-* Users can submit products for admin review
-* Users can view live sales and reports for their products
-* Users can comment on their orders (eg, to inform customers of a tracking number)
-* Users can export their orders to a CSV file
+* Vendors can submit products for admin review
+* Vendors can view live sales and reports for their products
+* Vendors can comment on their orders (eg, to inform customers of a tracking number)
+* Vendors can export their orders to a CSV file
 
 == Installation ==
 1. Download and install from WordPress.org.
@@ -45,11 +45,11 @@ You can post a support question on the support tab, however you'll get more help
 
 == Screenshots ==
 
-1. General options - Configure default commission, how users can register and more.
-2. Product options pag - allows you to hide specific options from the add new product window. 
+1. General options - Configure default commission, how members can register and more.
+2. Product options pag - allows you to hide specific options on the add new product window from vendors. 
 3. Capabilities options - restrict what your vendors can see and do. 
-4. Pages options - what pages will load the relevant vendor templates. These can be customised. 
-5. User paypment info - define how your users get paid and when. 
+4. Pages options - configure what pages will load the relevant vendor templates. These can be customised. 
+5. User paypment info - define how your vendors get paid and when. 
 6. WC Vendors Paypal Adaptive payments setup.
 7. Email template options for the relevant WC Vendor emails. 
 
