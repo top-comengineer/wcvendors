@@ -72,7 +72,7 @@ echo "Adding assets...."
 cp ../wcvendors-svn/assets/* $SVNPATH/assets
 cd $SVNPATH/assets
 svn add *
-svn commit --username=$SVNUSER
+svn commit --username=$SVNUSER -m "Assets added"
 
 echo "Changing directory to SVN and committing to trunk"
 cd $SVNPATH/trunk/
