@@ -70,6 +70,9 @@ README.md
 
 echo "Adding assets...."
 cp ../wcvendors-svn/assets/* $SVNPATH/assets
+cd $SVNPATH/assets
+svn add *
+svn commit --username=$SVNUSER
 
 echo "Changing directory to SVN and committing to trunk"
 cd $SVNPATH/trunk/
@@ -84,6 +87,6 @@ cd $SVNPATH/tags/$NEWVERSION1
 svn commit --username=$SVNUSER -m "Tagging version $NEWVERSION1"
 
 echo "Removing temporary directory $SVNPATH"
-#rm -fr $SVNPATH/
+rm -fr $SVNPATH/
 
 echo "*** THE END ***"
