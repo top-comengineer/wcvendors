@@ -69,19 +69,19 @@ No Upgrade required at this time.
 * New Shortcodes:  These new shortcodes are based on the WooCommerce included shortcodes.  They have been modified to show output based on the vendor you specify.  All other arguments to the shortcodes from WooCommerce will also work on these shortcodes.
 
           Recent Products Shortcode
-          [wcv_recent_products vendor=\"VENDOR-LOGIN-NAME\" per_page=3]
+          [wcv_recent_products vendor="VENDOR-LOGIN-NAME" per_page=3]
 
           Products Shortcode
-          [wcv_products vendor=\"VENDOR-LOGIN-NAME\"]
+          [wcv_products vendor="VENDOR-LOGIN-NAME"]
 
           Featured Products Shortcode
-          [wcv_featured_products vendor=\"VENDOR-LOGIN-NAME\"]
+          [wcv_featured_products vendor="VENDOR-LOGIN-NAME"]
 
           Sale Products
-          [wcv_sale_products vendor=\"VENDOR-LOGIN-NAME\"]
+          [wcv_sale_products vendor="VENDOR-LOGIN-NAME"]
 
           Top Rated Products on sale
-          [wcv_top_rated_products vendor=\"VENDOR-LOGIN-NAME\"]
+          [wcv_top_rated_products vendor="VENDOR-LOGIN-NAME"]
 
           Best Selling Products on sale
-          [wcv_best_selling_products vendor=\"VENDOR-LOGIN-NAME\"]
+          [wcv_best_selling_products vendor="VENDOR-LOGIN-NAME"]
