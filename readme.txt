@@ -7,6 +7,7 @@ Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.0
 Tested up to: 4.0
 Stable tag: 1.1.4
+License: GPLv2 or later
 
 The free multi-vendor plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
 
@@ -29,18 +30,36 @@ Create your own marketplace and allow vendors to sell just like etsy, Envato, or
 5. For more help, visit WCVendors.com and say hello on the community forums.
 
 == Frequently Asked Questions ==
-Official FAQ
+
+= What version of WooCommerce do you support ? =
+
+Woocommerce 2.1 or above is supported.
+
+= What version of php has been tested ? =
+
+PHP 5.4 has been tested. 
+
+= Where do I get help ? =
+
+You can post a support question on the support tab, however you'll get more help over at our community forums (http://www.wcvendors.com)
+
+== Screenshots ==
+Screen shots go here
+
+== Upgrade Notice ==
+No Upgrade required at this time.
 
 == Changelog ==
-October 14, 2014 - version 1.1.4 (First release on WordPress.org)
-  - Resolved shipping bug
-  - Commission totals are now properly displayed on the WooCommerce / WC Vendors / Payments tab
-  - Number of internal bug fixes
+## October 14, 2014 ##
+* version 1.1.4 (First release on WordPress.org)
+* Resolved shipping bug
+* Commission totals are now properly displayed on the WooCommerce / WC Vendors / Payments tab
+* Number of internal bug fixes
 
-August 09, 2014 - version 1.1.3 (Initial Public Release)
-  - Numerous bug fixes
-
-  - New Shortcodes:  These new shortcodes are based on the WooCommerce included shortcodes.  They have been modified to show output based on the vendor you specify.  All other arguments to the shortcodes from WooCommerce will also work on these shortcodes.
+## August 09, 2014 ##
+* version 1.1.3 (Initial Public Release)
+* Numerous bug fixes
+* New Shortcodes:  These new shortcodes are based on the WooCommerce included shortcodes.  They have been modified to show output based on the vendor you specify.  All other arguments to the shortcodes from WooCommerce will also work on these shortcodes.
 
           Recent Products Shortcode
           [wcv_recent_products vendor=\"VENDOR-LOGIN-NAME\" per_page=3]
