@@ -59,6 +59,9 @@ echo
 echo "Creating local copy of SVN repo ..."
 svn co $SVNURL $SVNPATH
 
+echo "Adding assets...."
+cp ../wcvendors-svn/assets/* $SVNPATH/assets
+
 echo "Exporting the HEAD of master from git to the trunk of SVN"
 git checkout-index -a -f --prefix=$SVNPATH/trunk/
 
