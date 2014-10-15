@@ -8,8 +8,8 @@
  * Author URI:          http://wcvendors.com
  *
  * Version:             1.1.4
- * Requires at least:   3.2.1
- * Tested up to:        3.9.2
+ * Requires at least:   4.0.0
+ * Tested up to:        4.0.0
  *
  * Text Domain:         wcvendors
  * Domain Path:         /WCVendors/languages/

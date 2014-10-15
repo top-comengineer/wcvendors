@@ -4,7 +4,7 @@ Tags: woocommerce, vendor, shops, product vendor, product vendors, seller
 Donate link: http://www.wcvendors.com/
 Requires at least: 4.0
 Tested up to: 4.0
-Stable tag: trunk
+Stable tag: 1.1.4
 
 The free multi-vendor plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
 
