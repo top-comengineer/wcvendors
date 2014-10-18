@@ -340,11 +340,11 @@ class WCV_Shortcodes {
 
 		ob_start();
 
-		add_filter( 'posts_clauses', array( WC_Shortcodes, 'order_by_rating_post_clauses' ) );
+		add_filter( 'posts_clauses', array( 'WC_Shortcodes', 'order_by_rating_post_clauses' ) );
 
 		$products = new WP_Query( apply_filters( 'woocommerce_shortcode_products_query', $args, $atts ) );
 
-		remove_filter( 'posts_clauses', array( WC_Shortcodes, 'order_by_rating_post_clauses' ) );
+		remove_filter( 'posts_clauses', array( 'WC_Shortcodes', 'order_by_rating_post_clauses' ) );
 
 		$woocommerce_loop['columns'] = $columns;
 
