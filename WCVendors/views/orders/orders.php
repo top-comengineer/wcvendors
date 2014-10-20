@@ -2,7 +2,7 @@
 
 global $woocommerce; ?>
 
-<?php if ( function_exists( 'wc_print_messages' ) ) wc_print_messages(); else wc_print_messages(); ?>
+<?php if ( function_exists( 'wc_print_notices' ) ) { wc_print_notices(); } ?>
 
 <h2><?php printf( 'Orders for %s', get_product( $product_id )->get_title() ); ?></h2>
 
