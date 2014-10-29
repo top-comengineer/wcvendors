@@ -1,5 +1,9 @@
 Changelog for WC Vendors
 
+Version 1.1.5
+
+* Fixed orders view to remove incorrect call to woocommerce print messages
+
 Version 1.1.4
 
 * Fixed called to incorrect notice method
