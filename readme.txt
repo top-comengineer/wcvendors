@@ -6,7 +6,7 @@ Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.0
 Tested up to: 4.0
-Stable tag: 1.1.4
+Stable tag: 1.1.5
 License: GPLv2 or later
 
 The free multi-vendor plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
@@ -57,6 +57,10 @@ You can post a support question on the support tab, however you'll get more help
 No Upgrade required at this time.
 
 == Changelog ==
+## October 29, 2014 ##
+* version 1.1.5
+* Fixed orders view to remove incorrect call to woocommerce print messages
+
 ## October 14, 2014 ##
 * version 1.1.4 (First release on WordPress.org)
 * Resolved shipping bug
