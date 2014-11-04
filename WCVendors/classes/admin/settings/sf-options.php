@@ -71,7 +71,7 @@ $options[ ] = array(
 		'inventory'      => 'Inventory',
 		'shipping'       => 'Shipping',
 		'linked_product' => 'Linked Products',
-		'attributes'     => 'Attributes',
+		'attribute'     => 'Attributes',
 		'advanced'       => 'Advanced',
 	),
 	'type'     => 'checkbox',
