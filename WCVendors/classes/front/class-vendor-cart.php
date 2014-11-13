@@ -38,7 +38,7 @@ class WCV_Vendor_Cart
 			: get_bloginfo( 'name' );
 
 		$values[ ] = array(
-			'name'    => apply_filters('wcv_cart_sold_by', __( 'Sold by', 'wcvendors' )),
+			'name'    => apply_filters('wcvendors_cart_sold_by', __( 'Sold by', 'wcvendors' )),
 			'display' => $sold_by,
 		);
 
