@@ -6,7 +6,7 @@ Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.0
 Tested up to: 4.0
-Stable tag: 1.1.6
+Stable tag: 1.2.0
 License: GPLv2 or later
 
 The free multi-vendor plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
@@ -58,14 +58,14 @@ No Upgrade required at this time.
 
 == Changelog ==
 
-## Version 1.1.6  - November 14, 2014 ##
+## Version 1.2.0  - November 14, 2014 ##
  
-* Updated default.pot 
 * Added new filters to change sold by text see Knowledge base for details
 * Added sold by to product loop for archive-product.php, see knowledge base on how to disable or change this
 * Added new option to hide "Featured product" from vendors
+* Added Sold By Filter as per #3
 * Removing unused tag filter
-* Adding Sold By Filter as per #3
+* Updated default.pot 
 * Fixing attribute bug #48 - Thanks to gcskye
 * Removing legacy translations
 * Fixed Orders view errors
