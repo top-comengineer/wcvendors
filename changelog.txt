@@ -1,5 +1,10 @@
 Changelog for WC Vendors
 
+Version 1.1.6 
+
+* Added new filters to change Sold By text (cart: wcvendors_cart_sold_by, product: wcvendors_cart_sold_by_meta, email: wcvendors_sold_by_in_email)
+
+
 Version 1.1.5
 
 * Fixed orders view to remove incorrect call to woocommerce print messages
