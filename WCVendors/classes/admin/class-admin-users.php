@@ -22,11 +22,8 @@ class WCV_Admin_Users
 		add_action( 'edit_user_profile', array( $this, 'show_extra_profile_fields' ) );
 		add_action( 'edit_user_profile_update', array( $this, 'save_extra_profile_fields' ) );
 
-		add_filter( 'add_menu_classes', array( $this, 'show_pending_number' ) );
-		// add_filter( 'get_terms', array( $this, 'get_terms_filter' ), 10, 3 );
+		add_filter( 'add_menu_classes', array( $this, 'show_pending_number' ) );			
 
-		
-		
 		// Disabling non-vendor related items on the admin screens
 		if ( WCV_Vendors::is_vendor( get_current_user_id() ) ) {
 			add_filter( 'woocommerce_csv_product_role', array( $this, 'csv_import_suite_compatibility' ) );
