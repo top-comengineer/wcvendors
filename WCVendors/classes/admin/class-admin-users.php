@@ -25,6 +25,8 @@ class WCV_Admin_Users
 		add_filter( 'add_menu_classes', array( $this, 'show_pending_number' ) );
 		// add_filter( 'get_terms', array( $this, 'get_terms_filter' ), 10, 3 );
 
+		
+		
 		// Disabling non-vendor related items on the admin screens
 		if ( WCV_Vendors::is_vendor( get_current_user_id() ) ) {
 			add_filter( 'woocommerce_csv_product_role', array( $this, 'csv_import_suite_compatibility' ) );
@@ -49,6 +51,14 @@ class WCV_Admin_Users
 			add_filter( 'product_type_options', array( $this, 'filter_product_type_options' ), 99 );
 
 			add_filter( 'woocommerce_duplicate_product_capability', array( $this, 'add_duplicate_capability' ) );
+
+			// WC > Product featured
+			$product_misc  = (array) WC_Vendors::$pv_options->get_option( 'hide_product_misc' );
+			if ($product_misc['featured']) { 
+			
+				add_filter( 'manage_edit-product_columns', array($this, 'manage_product_columns'), 99);
+			}
+			
 		}
 
 	}
@@ -390,6 +400,15 @@ class WCV_Admin_Users
 			</tbody>
 		</table>
 	<?php
+	}
+
+	/* 
+		Remove featured check box from the product listing
+	*/
+	public function manage_product_columns( $columns ){ 
+		global $woocommerce;
+		unset($columns['featured']);
+		return $columns;
 	}
 
 }

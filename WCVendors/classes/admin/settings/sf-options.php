@@ -108,8 +108,9 @@ $options[ ] = array(
 	'name'     => __( 'Miscellaneous', 'wcvendors' ),
 	'id'       => 'hide_product_misc',
 	'options'  => array(
-		'taxes' => 'Taxes',
-		'sku'   => 'SKU',
+		'taxes' 		=> 'Taxes',
+		'sku'   		=> 'SKU',
+		'featured'		=> 'Featured',
 	),
 	'type'     => 'checkbox',
 	'multiple' => true,
