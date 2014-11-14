@@ -2,8 +2,9 @@ Changelog for WC Vendors
 
 Version 1.1.6 
 
-* Added new filters to change Sold By text (cart: wcvendors_cart_sold_by, product: wcvendors_cart_sold_by_meta, email: wcvendors_sold_by_in_email)
-
+* Added new filters to change sold by text see Knowledge base for details
+* Added sold by to product loop for archive-product.php, see knowledge base on how to disable or change this
+* Added new option to hide "Featured product" from vendors
 
 Version 1.1.5
 
