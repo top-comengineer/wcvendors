@@ -27,6 +27,10 @@ class WCV_Vendor_Shop
 		add_action( 'woocommerce_before_main_content', array( $this, 'shop_description' ), 20 );
 		add_filter( 'woocommerce_product_tabs', array( 'WCV_Vendor_Shop', 'seller_info_tab' ) );
 		add_filter( 'post_type_archive_link', array( 'WCV_Vendor_Shop', 'change_archive_link' ) );
+
+		// Add sold by to product loop before add to cart
+		add_action( 'woocommerce_after_shop_loop_item', array('WCV_Vendor_Shop', 'template_loop_sold_by'), 9 );
+
 	}
 
 	public static function change_archive_link( $link )
@@ -148,6 +152,18 @@ class WCV_Vendor_Shop
 		$vendor_id   = WCV_Vendors::get_vendor_id( $vendor_shop );
 
 		return $vendor_id ? WCV_Vendors::get_vendor_shop_name( $vendor_id ) : $page_title;
+	}
+
+
+	/* 
+		Adding sold by to product loop
+	*/
+	public function template_loop_sold_by($product_id) { 
+		$author     = WCV_Vendors::get_vendor_from_product( $product_id );
+		$sold_by = WCV_Vendors::is_vendor( $author )
+			? sprintf( '<a href="%s">%s</a>', WCV_Vendors::get_vendor_shop_page( $author), WCV_Vendors::get_vendor_shop_name( $author ) )
+			: get_bloginfo( 'name' );
+		echo '<small>' . apply_filters('wcvendors_sold_by_in_loop', __( 'Sold by: ', 'wcvendors' )). $sold_by . '</small>';
 	}
 
 
