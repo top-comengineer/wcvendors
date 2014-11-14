@@ -163,7 +163,7 @@ class WCV_Vendor_Shop
 		$sold_by = WCV_Vendors::is_vendor( $author )
 			? sprintf( '<a href="%s">%s</a>', WCV_Vendors::get_vendor_shop_page( $author), WCV_Vendors::get_vendor_shop_name( $author ) )
 			: get_bloginfo( 'name' );
-		echo '<small>' . apply_filters('wcvendors_sold_by_in_loop', __( 'Sold by: ', 'wcvendors' )). $sold_by . '</small>';
+		echo '<small>' . apply_filters('wcvendors_sold_by_in_loop', __( 'Sold by: ', 'wcvendors' )). $sold_by . '</small> <br />';
 	}
 
 
