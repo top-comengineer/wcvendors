@@ -710,7 +710,7 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 							   class="<?php echo $class; ?>"
 							   style="<?php echo $css; ?>"
 							   value="<?php echo $key; ?>"
-							<?php checked( $selected[$key], 1 ); ?>
+							<?php @checked( $selected[$key], 1 ); ?>
 							/>
 						<label for="<?php echo $id . '_' . $key; ?>">
 							<?php echo $desc; ?>
