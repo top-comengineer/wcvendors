@@ -154,7 +154,7 @@ class WCV_Vendor_Dashboard
 		$order_summary   = WCV_Queries::get_orders_for_products( $products );
 		$shop_page       = WCV_Vendors::get_vendor_shop_page( wp_get_current_user()->user_login );
 
-		wp_enqueue_style( 'pv_frontend_style', wcv_assets_url . 'css/pv-frontend.css' );
+		wp_enqueue_style( 'pv_frontend_style', wcv_assets_url . 'css/wcv-frontend.css' );
 
 		ob_start();
 		do_action( 'wcvendors_before_dashboard' );
