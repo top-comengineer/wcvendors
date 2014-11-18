@@ -237,7 +237,4 @@ if ( is_woocommerce_activated() ) {
 
 	new WC_Vendors;
 
-} else { 
-
-
 }
