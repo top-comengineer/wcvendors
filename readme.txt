@@ -58,11 +58,12 @@ No Upgrade required at this time.
 
 == Changelog ==
 
-= Version 1.5.0 - March 10th 2015 = 
+= Version 1.5.0 - March 11th 2015 = 
 
-* Added: Spanish translation 
+* Added: Spanish translation thanks Mauricio
+* Added: French translation thanks JP
 * Added: CSS class for sold by (classes same as filters in those files)
-* Fixed: Paypal return URL  
+* Fixed: Paypal return URL 
 * Added: Vendor Dashboard UI Improvements
 * Added: WC Vendors Test Gateway
 * Updated: ToolTips to be more helpful
