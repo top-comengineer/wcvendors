@@ -62,7 +62,7 @@ class WC_Gateway_WCV_Gateway_Test extends WC_Payment_Gateway {
 				'title'   => __( 'Enable/Disable', 'woocommerce' ),
 				'type'    => 'checkbox',
 				'label'   => __( 'Enable WC Vendors Test Gateway Payment', 'woocommerce' ),
-				'default' => 'yes'
+				'default' => 'no'
 			),
 			'title' => array(
 				'title'       => __( 'Title', 'woocommerce' ),

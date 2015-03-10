@@ -2,7 +2,8 @@ Changelog for WC Vendors
 
 Version 1.5.0
 
-* Added: Spanish translation 
+* Added: Spanish translation thanks Mauricio
+* Added: French translation thanks JP
 * Added: CSS class for sold by (classes same as filters in those files)
 * Fixed: Paypal return URL 
 * Added: Vendor Dashboard UI Improvements
