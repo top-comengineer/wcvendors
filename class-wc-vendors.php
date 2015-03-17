@@ -12,7 +12,7 @@
  * Tested up to:        4.1.1
  *
  * Text Domain:         wcvendors
- * Domain Path:         /WCVendors/languages/
+ * Domain Path:         /languages/
  *
  * @category            Plugin
  * @copyright           Copyright © 2012 Matt Gates
@@ -25,7 +25,7 @@
 /**
  * Required functions
  */
-require_once trailingslashit( dirname( __FILE__ ) ) . 'WCVendors/classes/includes/class-functions.php';
+require_once trailingslashit( dirname( __FILE__ ) ) . 'classes/includes/class-functions.php';
 
 /**
  * Check if WooCommerce is active
@@ -33,8 +33,8 @@ require_once trailingslashit( dirname( __FILE__ ) ) . 'WCVendors/classes/include
 if ( is_woocommerce_activated() ) {
 
 	/* Define an absolute path to our plugin directory. */
-	if ( !defined( 'wcv_plugin_dir' ) ) define( 'wcv_plugin_dir', trailingslashit( dirname( __FILE__ ) ) . 'WCVendors/' );
-	if ( !defined( 'wcv_assets_url' ) ) define( 'wcv_assets_url', trailingslashit( plugins_url( 'WCVendors/assets', __FILE__ ) ) );
+	if ( !defined( 'wcv_plugin_dir' ) ) define( 'wcv_plugin_dir', trailingslashit( dirname( __FILE__ ) ) . '/' );
+	if ( !defined( 'wcv_assets_url' ) ) define( 'wcv_assets_url', trailingslashit( plugins_url( 'assets', __FILE__ ) ) );
 
 	$domain = 'wcvendors';
 
@@ -45,7 +45,7 @@ if ( is_woocommerce_activated() ) {
     //Place your custom translations into wp-content/languages/wc-vendors to be upgrade safe 
     load_textdomain($domain, WP_LANG_DIR.'/wc-vendors/'.$domain.'-'.$locale.'.mo');
 	
-	load_plugin_textdomain( 'wcvendors', false, dirname( plugin_basename( __FILE__ ) ) . '/WCVendors/languages/' );
+	load_plugin_textdomain( 'wcvendors', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
 
 	/**
