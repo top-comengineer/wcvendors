@@ -213,7 +213,7 @@ class WCV_Vendor_Shop
 													'shop_name'			=> $shop_name, 
 													'vendor_id' 		=> $vendor_id, 
 													'shop_description'	=> $shop_description
-											   ), 'wc-product-vendor/front/', wcv_plugin_dir . 'views/front/' );
+											   ), 'wc-vendors/front/', wcv_plugin_dir . 'templates/front/' );
 
 			do_action('wcv_after_main_header', $vendor_id); 
 
@@ -245,7 +245,7 @@ class WCV_Vendor_Shop
 													'vendor_shop_link' 	=> $vendor_shop_link, 
 													'shop_description'	=> $shop_description, 
 													'shop_name'			=> $vendor->pv_shop_name, 
-											   ), 'wc-product-vendor/front/', wcv_plugin_dir . 'views/front/' );
+											   ), 'wc-vendors/front/', wcv_plugin_dir . 'templates/front/' );
 			
 			do_action('wcv_after_mini_header', $vendor->ID); 
 

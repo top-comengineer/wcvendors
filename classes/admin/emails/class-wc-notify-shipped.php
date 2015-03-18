@@ -33,7 +33,7 @@ class WC_Email_Notify_Shipped extends WC_Email
 
 		$this->template_html  = 'notify-vendor-shipped.php';
 		$this->template_plain = 'notify-vendor-shipped.php';
-		$this->template_base  = dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/views/emails/';
+		$this->template_base  = dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/templates/emails/';
 
 		// Call parent constuctor
 		parent::__construct();

@@ -31,7 +31,7 @@ class WC_Email_Notify_Admin extends WC_Email
 		$this->heading = __( 'New product submitted: {product_name}', 'wcvendors' );
 		$this->subject = __( '[{blogname}] New product submitted by {vendor_name} - {product_name}', 'wcvendors' );
 
-		$this->template_base  = dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/views/emails/';
+		$this->template_base  = dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/templates/emails/';
 		$this->template_html  = 'new-product.php';
 		$this->template_plain = 'new-product.php';
 

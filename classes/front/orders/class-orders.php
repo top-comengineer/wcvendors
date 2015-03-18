@@ -98,7 +98,7 @@ class WCV_Orders
 	{
 		if ( !WCV_Vendors::is_vendor( get_current_user_id() ) ) {
 			ob_start();
-			wc_get_template( 'denied.php', array(), 'wc-product-vendor/dashboard/', wcv_plugin_dir . 'views/dashboard/' );
+			wc_get_template( 'denied.php', array(), 'wc-vendors/dashboard/', wcv_plugin_dir . 'templates/dashboard/' );
 
 			return ob_get_clean();
 		}
@@ -181,7 +181,7 @@ class WCV_Orders
 		ob_start();
 		// Show the Export CSV button
 		if ( $this->can_export_csv ) {
-			wc_get_template( 'csv-export.php', array(), 'wc-product-vendor/orders/', wcv_plugin_dir . 'views/orders/' );
+			wc_get_template( 'csv-export.php', array(), 'wc-vendors/orders/', wcv_plugin_dir . 'templates/orders/' );
 		}
 
 		wc_get_template( 'orders.php', array(
@@ -191,7 +191,7 @@ class WCV_Orders
 													 'product_id'     => $all[ 'product_id' ],
 													 'providers'      => $providers,
 													 'provider_array' => $provider_array,
-												), 'wc-product-vendor/orders/', wcv_plugin_dir . 'views/orders/' );
+												), 'wc-vendors/orders/', wcv_plugin_dir . 'templates/orders/' );
 
 		return ob_get_clean();
 	}

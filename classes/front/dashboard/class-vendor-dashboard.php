@@ -207,7 +207,7 @@ class WCV_Vendor_Dashboard
 													'can_submit'    => $can_submit,
 													'submit_link'   => $submit_link,
 													'edit_link'		=> $edit_link,
-											   ), 'wc-product-vendor/dashboard/', wcv_plugin_dir . 'views/dashboard/' );
+											   ), 'wc-vendors/dashboard/', wcv_plugin_dir . 'templates/dashboard/' );
 
 		if ( $can_view_sales = WC_Vendors::$pv_options->get_option( 'can_view_frontend_reports' ) ) {
 
@@ -218,7 +218,7 @@ class WCV_Vendor_Dashboard
 													  'vendor_summary'  => $vendor_summary,
 													  'datepicker'      => $datepicker,
 													  'can_view_orders' => $can_view_orders,
-												 ), 'wc-product-vendor/dashboard/', wcv_plugin_dir . 'views/dashboard/' );
+												 ), 'wc-vendors/dashboard/', wcv_plugin_dir . 'templates/dashboard/' );
 		}
 
 		wc_get_template( 'orders.php', array(
@@ -230,7 +230,7 @@ class WCV_Vendor_Dashboard
 													  'providers'      => $providers,
 													  'provider_array' => $provider_array,
 													  'can_view_orders' => $can_view_orders,
-												 ), 'wc-product-vendor/dashboard/', wcv_plugin_dir . 'views/dashboard/' );
+												 ), 'wc-vendors/dashboard/', wcv_plugin_dir . 'templates/dashboard/' );
 		do_action( 'wcvendors_after_dashboard' );
 
 		return ob_get_clean();
@@ -274,7 +274,7 @@ class WCV_Vendor_Dashboard
 													   'shop_description' => $shop_description,
 													   'shop_page'        => $shop_page,
 													   'user_id'          => $user_id,
-												  ), 'wc-product-vendor/dashboard/settings/', wcv_plugin_dir . 'views/dashboard/settings/' );
+												  ), 'wc-vendors/dashboard/settings/', wcv_plugin_dir . 'templates/dashboard/settings/' );
 
 		return ob_get_clean();
 	}
@@ -293,7 +293,7 @@ class WCV_Vendor_Dashboard
 
 		} else if ( !WCV_Vendors::is_vendor( get_current_user_id() ) ) {
 
-			wc_get_template( 'denied.php', array(), 'wc-product-vendor/dashboard/', wcv_plugin_dir . 'views/dashboard/' );
+			wc_get_template( 'denied.php', array(), 'wc-vendors/dashboard/', wcv_plugin_dir . 'templates/dashboard/' );
 
 			return false;
 

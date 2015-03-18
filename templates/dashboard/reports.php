@@ -6,7 +6,7 @@ if ( $datepicker !== 'false' ) {
 	wc_get_template( 'date-picker.php', array(
 													  'start_date' => $start_date,
 													  'end_date'   => $end_date,
-												 ), 'wc-product-vendor/dashboard/', wcv_plugin_dir . 'views/dashboard/' );
+												 ), 'wc-vendors/dashboard/', wcv_plugin_dir . 'templates/dashboard/' );
 }
 
 ?>

@@ -95,7 +95,7 @@ jQuery(function () {
 																			'product_id'     => $product_id,
 																			'providers'      => $providers,
 																			'provider_array' => $provider_array,
-																	   ), 'wc-product-vendor/orders/shipping/', wcv_plugin_dir . 'views/orders/shipping/' );
+																	   ), 'wc-vendors/orders/shipping/', wcv_plugin_dir . 'templates/orders/shipping/' );
 						?>
 					</div>
 

@@ -32,7 +32,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 
 		$this->template_html  = 'admin-new-order.php';
 		$this->template_plain = 'plain/admin-new-order.php';
-		$this->template_base  = dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/views/emails/';
+		$this->template_base  = dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/templates/emails/';
 
 		// Triggers for this email
 		add_action( 'woocommerce_order_status_pending_to_processing_notification', array( $this, 'trigger' ) );

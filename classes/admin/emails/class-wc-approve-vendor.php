@@ -31,7 +31,7 @@ class WC_Email_Approve_Vendor extends WC_Email
 		$this->heading = __( 'Application {status}', 'wcvendors' );
 		$this->subject = __( '[{blogname}] Your vendor application has been {status}', 'wcvendors' );
 
-		$this->template_base  = dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/views/emails/';
+		$this->template_base  = dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/templates/emails/';
 		$this->template_html  = 'application-status.php';
 		$this->template_plain = 'application-status.php';
 

@@ -600,7 +600,7 @@ class WCV_Shortcodes {
 														'shop_name'			=> $vendor->pv_shop_name, 
 														'vendor_id' 		=> $vendor->ID, 
 														'shop_description'	=> $vendor->pv_shop_description, 
-												), 'wc-product-vendor/front/', wcv_plugin_dir . 'views/front/' );
+												), 'wc-vendors/front/', wcv_plugin_dir . 'templates/front/' );
 	    } // End foreach 
 	   	
 	   	$html .= '<ul class="wcv_vendorslist">' . ob_get_clean() . '</ul>';

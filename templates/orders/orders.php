@@ -50,7 +50,7 @@ global $woocommerce; ?>
 																 'item'     => $item,
 																 'count'    => $count,
 																 'order_id' => $order_id,
-															), 'wc-product-vendor/orders/', wcv_plugin_dir . 'views/orders/' );
+															), 'wc-vendors/orders/', wcv_plugin_dir . 'templates/orders/' );
 
 			}
 
@@ -58,7 +58,7 @@ global $woocommerce; ?>
 				$customer_note = $order[ 'comments' ];
 				wc_get_template( 'customer-note.php', array(
 																	'customer_note' => $customer_note,
-															   ), 'wc-product-vendor/orders/customer-note/', wcv_plugin_dir . 'views/orders/customer-note/' );
+															   ), 'wc-vendors/orders/customer-note/', wcv_plugin_dir . 'templates/orders/customer-note/' );
 			}
 
 			?>
@@ -93,14 +93,14 @@ global $woocommerce; ?>
 					if ( $can_view_comments && !empty( $comments ) ) {
 						wc_get_template( 'existing-comments.php', array(
 																				'comments' => $comments,
-																		   ), 'wc-product-vendor/orders/comments/', wcv_plugin_dir . 'views/orders/comments/' );
+																		   ), 'wc-vendors/orders/comments/', wcv_plugin_dir . 'templates/orders/comments/' );
 					}
 
 					if ( $can_add_comments ) {
 						wc_get_template( 'add-new-comment.php', array(
 																			  'order_id'   => $order_id,
 																			  'product_id' => $product_id,
-																		 ), 'wc-product-vendor/orders/comments/', wcv_plugin_dir . 'views/orders/comments/' );
+																		 ), 'wc-vendors/orders/comments/', wcv_plugin_dir . 'templates/orders/comments/' );
 					}
 
 					?>
@@ -121,7 +121,7 @@ global $woocommerce; ?>
 																			'product_id'     => $product_id,
 																			'providers'      => $providers,
 																			'provider_array' => $provider_array,
-																	   ), 'wc-product-vendor/orders/shipping/', wcv_plugin_dir . 'views/orders/shipping/' );
+																	   ), 'wc-vendors/orders/shipping/', wcv_plugin_dir . 'templates/orders/shipping/' );
 						?>
 					</div>
 
