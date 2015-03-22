@@ -52,7 +52,7 @@ class WCV_Admin_Users
 			// WC > Product featured
 			$product_misc  = (array) WC_Vendors::$pv_options->get_option( 'hide_product_misc' );
 			
-			if ($product_misc['featured']) { 
+			if ( isset( $product_misc['featured'] ) ) { 
 				add_filter( 'manage_product_posts_columns', array($this, 'manage_product_columns'), 99);
 			}
 			
