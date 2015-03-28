@@ -8,11 +8,10 @@
 */
 ?>
 
-<li>
-	<a href="<?php echo $shop_link; ?>" alt="<?php echo $shop_name; ?>" >
-	    <figure>
-	    	<?php echo get_avatar($vendor_id, 50); ?>
-	    	<span><?php echo $shop_name; ?></span>
-	    </figure>
-	</a>
-</li>
+<div style="display:inline-block; margin-right:10%;">
+        <center>
+        <a href="<?php echo $shop_link; ?>"><?php echo get_avatar($vendor_id, 200); ?></a><br />
+        <a href="<?php echo $shop_link; ?>" class="button"><?php echo $shop_name; ?></a>
+        <br /><br />
+        </center>
+</div>
