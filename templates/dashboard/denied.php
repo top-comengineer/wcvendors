@@ -9,7 +9,7 @@
 
 <?php } else { ?>
 
-	<p><?php _e( 'Your account is not setup as a vendor yet.  If you would like to register, please complete this page!', 'wcvendors' ); ?></p>
+	<p><?php _e( 'Your account is not setup as a vendor.', 'wcvendors' ); ?></p>
 
 	<?php if ( WC_Vendors::$pv_options->get_option( 'show_vendor_registration' ) ) { ?>
 		<form method="POST" action="">
