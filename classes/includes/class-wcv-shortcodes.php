@@ -525,6 +525,8 @@ class WCV_Shortcodes {
 
 		global $wpdb; 
 
+		// $post_count = $products ? ' AND post_count  > 0 ' : ''; 
+
 	    if ( isset( $query->query_vars['query_id'] ) && 'vendors_with_products' == $query->query_vars['query_id'] ) {  
 	        $query->query_from = $query->query_from . ' LEFT OUTER JOIN (
 	                SELECT post_author, COUNT(*) as post_count
@@ -532,7 +534,7 @@ class WCV_Shortcodes {
 	                WHERE post_type = "product" AND (post_status = "publish" OR post_status = "private")
 	                GROUP BY post_author
 	            ) p ON ('.$wpdb->prefix.'users.ID = p.post_author)';
-	        $query->query_where = $query->query_where . ' AND post_count  > 0 ';  
+	        $query->query_where = $query->query_where . ' AND post_count  > 0 ' ;  
 	    } 
 	}
 
@@ -549,14 +551,15 @@ class WCV_Shortcodes {
 	  			'orderby' 		=> 'registered',
 	  			'order'			=> 'ASC',
 				'per_page'      => '12',
-				'columns'       => '4'
+				'columns'       => '4', 
+				'show_products'	=> 'yes' 
 			), $atts ) );
 
 	  	$paged      = (get_query_var('paged')) ? get_query_var('paged') : 1;   
 	  	$offset     = ($paged - 1) * $per_page;
 
 	  	// Hook into the user query to modify the query to return users that have at least one product 
-	  	add_action( 'pre_user_query', array( $this, 'vendors_with_products' ) );
+	  	if ($show_products == 'yes') add_action( 'pre_user_query', array( $this, 'vendors_with_products') );
 
 	  	// Get all vendors 
 	  	$vendor_total_args = array ( 
@@ -566,8 +569,10 @@ class WCV_Shortcodes {
 			'meta_compare' 		=> '>',
 			'orderby' 			=> $orderby,
   			'order'				=> $order,
-	  		'query_id'			=> 'vendors_with_products',
 	  	);
+
+	  	if ($show_products == 'yes') $vendor_total_args['query_id'] = 'vendors_with_products'; 
+
 	  	$vendor_query = New WP_User_Query( $vendor_total_args ); 
 	  	$all_vendors =$vendor_query->get_results(); 
 
@@ -581,8 +586,10 @@ class WCV_Shortcodes {
   			'order'				=> $order,
 	  		'offset' 			=> $offset, 
 	  		'number' 			=> $per_page, 
-	  		'query_id'			=> 'vendors_with_products',
 	  	);
+
+	  	if ($show_products == 'yes' ) $vendor_total_args['query_id'] = 'vendors_with_products'; 
+
 	  	$vendor_paged_query = New WP_User_Query( $vendor_paged_args ); 
 	  	$paged_vendors = $vendor_query->get_results(); 
 
