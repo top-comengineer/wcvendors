@@ -285,7 +285,7 @@ class WCV_Vendor_Dashboard
 	 *
 	 * @return unknown
 	 */
-	public function can_view_vendor_page()
+	public static function can_view_vendor_page()
 	{
 		if ( !is_user_logged_in() ) {
 
