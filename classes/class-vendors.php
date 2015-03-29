@@ -79,7 +79,7 @@ class WCV_Vendors
 		global $woocommerce;
 
 		$give_tax       	= WC_Vendors::$pv_options->get_option( 'give_tax' );
-		$give_shipping 	= WC_Vendors::$pv_options->get_option( 'give_shipping' );
+		$give_shipping 		= WC_Vendors::$pv_options->get_option( 'give_shipping' );
 		$receiver      		= array();
 		$shipping_given 	= 0;
 		$tax_given      	= 0;
