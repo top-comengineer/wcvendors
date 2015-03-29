@@ -305,7 +305,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 
 			$response[ $i ]            = new Receiver();
 			$response[ $i ]->email     = $values[ 'vendor_id' ] == 1 ? $this->main_paypal : WCV_Vendors::get_vendor_paypal( $values[ 'vendor_id' ] );
-			$response[ $i ]->amount    = $values[ 'total' ];
+			$response[ $i ]->amount    = round( $values[ 'total' ], 2);
 			$response[ $i ]->primary   = false;
 			$response[ $i ]->invoiceId = $order->id;
 			$i++;
@@ -435,8 +435,8 @@ class WC_PaypalAP extends WC_Payment_Gateway
 			$receiverOptions->receiver                   = $receiverId;
 			$receiverOptions->invoiceData                = new InvoiceData();
 			$receiverOptions->invoiceData->item          = $invoice_items;
-			$receiverOptions->invoiceData->totalTax      = round( $receivers_two[$product['vendor_id']]['tax'], 2 );
-			$receiverOptions->invoiceData->totalShipping = $receivers_two[$product['vendor_id']]['shipping'];
+			$receiverOptions->invoiceData->totalTax      = number_format( $receivers_two[$product['vendor_id']['tax']], 2 );
+			$receiverOptions->invoiceData->totalShipping = number_format( $receivers_two[$product['vendor_id']]['shipping'], 2 );
 		}
 
 		return $setPaymentOptionsRequest;
