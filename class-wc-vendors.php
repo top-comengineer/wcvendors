@@ -35,6 +35,7 @@ if ( is_woocommerce_activated() ) {
 	/* Define an absolute path to our plugin directory. */
 	if ( !defined( 'wcv_plugin_dir' ) ) define( 'wcv_plugin_dir', trailingslashit( dirname( __FILE__ ) ) . '/' );
 	if ( !defined( 'wcv_assets_url' ) ) define( 'wcv_assets_url', trailingslashit( plugins_url( 'assets', __FILE__ ) ) );
+	if ( !defined( 'wcv_plugin_base' ) ) define( 'wcv_plugin_base', plugin_basename( __FILE__ ) );
 
 	$domain = 'wcvendors';
 
@@ -78,7 +79,7 @@ if ( is_woocommerce_activated() ) {
 			add_action( 'plugins_loaded', array( $this, 'include_core' ) ); 
 			add_action( 'current_screen', array( $this, 'include_assets' ) ); 
 
-			add_filter( 'plugin_row_meta', array($this, 'wcv_plugin_row_meta') );
+			add_filter( 'plugin_row_meta', array($this, 'plugin_row_meta'), 10, 2 );
 
 			
 			add_action( self::$id . '_options_updated', array( $this, 'option_updates' ), 10, 2 );
@@ -264,17 +265,20 @@ if ( is_woocommerce_activated() ) {
 		}
 
 		/* Adds useful links to the plugin page. */
-		function wcv_plugin_row_meta( $links, $file ) {
-		        if ( strpos( $file, 'class-wc-vendors.php' ) !== false ) {
-		                $new_links = array(
-		                                        '<a href="http://www.wcvendors.com/knowledgebase/" target="_blank">Documentation/KB</a>',
-		                                        '<a href="http://www.wcvendors.com/help/" target="_blank">Help Forums</a>',
-		                                        '<a href="http://www.wcvendors.com/contact-us/" target="_blank">Paid Support</a>'
-		                                );
+		public static function plugin_row_meta( $links, $file ) {
+			if ( $file == wcv_plugin_base ) {
 
-		                $links = array_merge( $links, $new_links );
-		        }
-		} 
+				$row_meta = array(
+	                            'docs' 		=> '<a href="http://www.wcvendors.com/knowledgebase/" target="_blank">'.__( 'Documentation/KB', 'wcvendors' ).'</a>',
+	                            'help' 		=> '<a href="http://www.wcvendors.com/help/" target="_blank">'.__( 'Help Forums', 'wcvendors').'</a>',
+	                            'support' 	=> '<a href="http://www.wcvendors.com/contact-us/" target="_blank">'.__( 'Paid Support', 'wcvendors' ).'</a>'
+	                        );
+
+				return array_merge( $links, $row_meta );
+			}
+
+			return (array) $links;
+		}
 
 
 	}
