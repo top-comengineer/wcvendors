@@ -77,6 +77,9 @@ if ( is_woocommerce_activated() ) {
 			add_action( 'plugins_loaded', array( $this, 'include_gateways' ) );
 			add_action( 'plugins_loaded', array( $this, 'include_core' ) ); 
 			add_action( 'current_screen', array( $this, 'include_assets' ) ); 
+
+			add_filter( 'plugin_row_meta', array($this, 'wcv_plugin_row_meta') );
+
 			
 			add_action( self::$id . '_options_updated', array( $this, 'option_updates' ), 10, 2 );
 
@@ -260,6 +263,19 @@ if ( is_woocommerce_activated() ) {
 			}
 		}
 
+		/* Adds useful links to the plugin page. */
+		function wcv_plugin_row_meta( $links, $file ) {
+		        if ( strpos( $file, 'class-wc-vendors.php' ) !== false ) {
+		                $new_links = array(
+		                                        '<a href="http://www.wcvendors.com/knowledgebase/" target="_blank">Documentation/KB</a>',
+		                                        '<a href="http://www.wcvendors.com/help/" target="_blank">Help Forums</a>',
+		                                        '<a href="http://www.wcvendors.com/contact-us/" target="_blank">Paid Support</a>'
+		                                );
+
+		                $links = array_merge( $links, $new_links );
+		        }
+		} 
+
 
 	}
 
@@ -267,16 +283,3 @@ if ( is_woocommerce_activated() ) {
 	new WC_Vendors;
 
 }
-
-/* Adds useful links to the plugin page. */
-add_filter( 'plugin_row_meta', 'wcv_plugin_row_meta', 10, 2 );
-function wcv_plugin_row_meta( $links, $file ) {
-        if ( strpos( $file, 'class-wc-vendors.php' ) !== false ) {
-                $new_links = array(
-                                        '<a href="http://www.wcvendors.com/knowledgebase/" target="_blank">Documentation/KB</a>',
-                                        '<a href="http://www.wcvendors.com/help/" target="_blank">Help Forums</a>',
-                                        '<a href="http://www.wcvendors.com/contact-us/" target="_blank">Paid Support</a>'
-                                );
-
-                $links = array_merge( $links, $new_links );
-        }
