@@ -267,3 +267,16 @@ if ( is_woocommerce_activated() ) {
 	new WC_Vendors;
 
 }
+
+/* Adds useful links to the plugin page. */
+add_filter( 'plugin_row_meta', 'wcv_plugin_row_meta', 10, 2 );
+function wcv_plugin_row_meta( $links, $file ) {
+        if ( strpos( $file, 'class-wc-vendors.php' ) !== false ) {
+                $new_links = array(
+                                        '<a href="http://www.wcvendors.com/knowledgebase/" target="_blank">Documentation/KB</a>',
+                                        '<a href="http://www.wcvendors.com/help/" target="_blank">Help Forums</a>',
+                                        '<a href="http://www.wcvendors.com/contact-us/" target="_blank">Paid Support</a>'
+                                );
+
+                $links = array_merge( $links, $new_links );
+        }
