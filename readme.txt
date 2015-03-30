@@ -178,3 +178,8 @@ No Upgrade required at this time.
 
           Best Selling Products on sale
           [wcv_best_selling_products vendor="VENDOR-LOGIN-NAME"]
+
+== Upgrade Notice ==
+
+= 1.6.0 =
+Our template system has been upgraded.  See (http://www.wcvendors.com/knowledgebase/v1-5-0-to-v1-6-0-upgrade-guide/) for the upgrade guide if you have used our templates to change how your site looks.
