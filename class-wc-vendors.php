@@ -73,6 +73,9 @@ if ( is_woocommerce_activated() ) {
 			// Install & upgrade
 			add_action( 'admin_init', array( $this, 'check_install' ) );
 			add_action( 'admin_init', array( $this, 'maybe_flush_permalinks' ), 99 );
+			add_action( 'admin_init', array( $this, 'wcv_required_ignore_notices' ) );
+			add_action( 'admin_notices', array( $this, 'wcv_required_admin_notice') );
+
 
 			add_action( 'plugins_loaded', array( $this, 'load_settings' ) );
 			add_action( 'plugins_loaded', array( $this, 'include_gateways' ) );
@@ -278,6 +281,46 @@ if ( is_woocommerce_activated() ) {
 			}
 
 			return (array) $links;
+		}
+
+		public function wcv_required_admin_notice(){
+				global $current_user;
+
+			if ( current_user_can( 'manage_options' ) ) {
+	        		$current_user_id = $current_user->ID;
+
+					if ( WC_Vendors::$pv_options->get_option( 'vendor_shop_permalink' ) == null  && ! get_user_meta( $current_user_id, 'wcv_shop_ignore_notice' ) ) {
+						echo '<div class="updated">
+					   	<p>'.sprintf (__('WC Vendors requires the Vendor shop page value be set <a href="%s">click here to set it.</a> | <a href="%s">Hide Notice</a>','wcvendors'), 'admin.php?page=wc_prd_vendor' ,add_query_arg( 'wcv_shop_ignore_notice', '0' )).'</p>
+						</div>';
+					}
+
+					$general_tab = ( isset( $_GET['tab'] ) && 'general' == $_GET['tab'] ) || !isset( $_GET['tab'] ) ? true : false; 
+
+					if ( isset( $_GET['page'] ) && 'wc_prd_vendor' == $_GET['page'] && isset( $_GET[ 'settings-updated' ] ) && $general_tab == true && ! get_user_meta( $current_user_id, 'wcv_pl_ignore_notice' ) ) {
+						echo '<div class="updated">
+					   	<p>'.sprintf (__('You must save your permalinks once you have modified your vendor page. <a href="%s">click here to save</a>.  | <a href="%s">Hide Notice</a>','wcvendors'), 'options-permalink.php', add_query_arg( 'cron_mail_ignore', '0' )).'</p>
+						</div>';
+					}
+				}	
+		}			
+            
+		/**
+		 * Add user meta to remember ignore notices 
+		 * @access public
+         * 
+		 */
+		public function wcv_required_ignore_notices(){
+			global $current_user;
+    		$current_user_id = $current_user->ID;
+    		
+	        /* If user clicks to ignore the notice, add that to their user meta */
+	        if ( isset( $_GET[ 'wcv_shop_ignore_notice' ] ) && '0' == $_GET[ 'wcv_shop_ignore_notice' ] ) {
+	            add_user_meta( $current_user_id, 'wcv_shop_ignore_notice', 'true', true);
+	    	}				
+			if ( isset($_GET['wcv_pl_ignore_notice']) && '0' == $_GET['wcv_pl_ignore_notice'] ) {
+			 	add_user_meta( $current_user_id, 'wcv_pl_ignore_notice', 'true' , true);
+			}
 		}
 
 
