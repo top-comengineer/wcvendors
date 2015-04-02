@@ -257,8 +257,10 @@ if ( is_woocommerce_activated() ) {
 
 
 		/**
+		 *  If the settings are updated and the vendor page link has changed update permalinks 
+		 *	@access public
 		 *
-		 */
+		*/
 		public function maybe_flush_permalinks()
 		{
 			if ( get_option( WC_Vendors::$id . '_flush_rules' ) ) {
@@ -267,7 +269,13 @@ if ( is_woocommerce_activated() ) {
 			}
 		}
 
-		/* Adds useful links to the plugin page. */
+		/**
+		 *  Add links to plugin page to our external help site. 
+		 *	@param $links - links array from action 
+		 *	@param $file - file reference for this plugin 
+		 *	@access public 
+		 * 
+		 */
 		public static function plugin_row_meta( $links, $file ) {
 			if ( $file == wcv_plugin_base ) {
 
@@ -283,6 +291,11 @@ if ( is_woocommerce_activated() ) {
 			return (array) $links;
 		}
 
+		/**
+		 *  Add admin notices to ensure users are saving the settings correctly 
+		 * 	@access public 
+		 * 
+		*/
 		public function wcv_required_admin_notice(){
 				global $current_user;
 
@@ -302,7 +315,7 @@ if ( is_woocommerce_activated() ) {
 					   	<p>'.sprintf (__('You must save your permalinks once you have modified your vendor page. <a href="%s">click here to save</a>.  | <a href="%s">Hide Notice</a>','wcvendors'), 'options-permalink.php', add_query_arg( 'cron_mail_ignore', '0' )).'</p>
 						</div>';
 					}
-				}	
+			}	
 		}			
             
 		/**
