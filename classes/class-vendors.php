@@ -259,13 +259,17 @@ class WCV_Vendors
 	 */
 	public static function get_vendor_from_product( $product_id )
 	{
-		$parent = get_post_ancestors( $product_id );
-		if ( $parent ) $product_id = $parent[ 0 ];
+		// Make sure we are returning an author for products only 
+		if ( 'product' === get_post_type( $product_id ) ) { 
+			$parent = get_post_ancestors( $product_id );
+			if ( $parent ) $product_id = $parent[ 0 ];
 
-		$post = get_post( $product_id );
-		$author = $post ? $post->post_author : 1;
-		$author = apply_filters( 'pv_product_author', $author, $product_id );
-
+			$post = get_post( $product_id );
+			$author = $post ? $post->post_author : 1;
+			$author = apply_filters( 'pv_product_author', $author, $product_id );
+		} else { 
+			$author = -1; 
+		}
 		return $author;
 	}
 
