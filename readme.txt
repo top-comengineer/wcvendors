@@ -6,7 +6,7 @@ Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.0
 Tested up to: 4.1.1
-Stable tag: 1.5.0
+Stable tag: 1.6.0
 License: GPLv2 or later
 
 The free multi-vendor plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
@@ -57,6 +57,19 @@ You can post a support question on the support tab, however you'll get more help
 No Upgrade required at this time.
 
 == Changelog ==
+
+= Version 1.6.0 - April 8th 2015 = 
+
+* Added: Admin notices for vendor page slug & permalinks
+* Fixed: Plugin row meta links
+* Added: Upgrade notice
+* Fixed: Rounding issue #120
+* Fixed: Paypal https host check depreciated call
+* Added: show_products attribute #107
+* Updated: Text in denied template to make more sense when registration disabled #123
+* Updated: wcv_vendorslist shortcode now shows 3 column output #123
+* Fixed: Index issue #122
+* Updated: New plugin and template directory structure - IMPORTANT READ KB
 
 = Version 1.5.0 - March 11th 2015 = 
 

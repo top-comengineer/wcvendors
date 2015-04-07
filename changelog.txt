@@ -1,5 +1,18 @@
 Changelog for WC Vendors
 
+Version 1.6.0 
+
+* Added: Admin notices for vendor page slug & permalinks
+* Fixed: Plugin row meta links
+* Added: Upgrade notice
+* Fixed: Rounding issue #120
+* Fixed: Paypal https host check depreciated call
+* Added: show_products attribute #107
+* Updated: Text in denied template to make more sense when registration disabled #123
+* Updated: wcv_vendorslist shortcode now shows 3 column output #123
+* Fixed: Index issue #122
+* Updated: New plugin and template directory structure - IMPORTANT READ KB
+
 Version 1.5.0
 
 * Added: Spanish translation thanks Mauricio
