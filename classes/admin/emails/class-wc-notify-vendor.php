@@ -100,7 +100,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 	function check_order_totals( $total_rows, $order )
 	{
 		$return[ 'cart_subtotal' ]            = $total_rows[ 'cart_subtotal' ];
-		$return[ 'cart_subtotal' ][ 'label' ] = __( 'Commission Subtotal:', 'wcvendors' );
+		$return[ 'cart_subtotal' ][ 'label' ] = apply_filters('wcv_notify_vendor_commision_label', __( 'Commission Subtotal:', 'wcvendors' ) ) ;
 
 		$dues = WCV_Vendors::get_vendor_dues_from_order( $order );
 
