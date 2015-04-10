@@ -52,6 +52,8 @@ class WCV_Shipping
 			// Get Shipping methods. 
 			$shipping_methods = $order->get_shipping_methods();
 
+			error_log(print_r($shipping_methods, true)); 
+
 			// TODO: Currently this only allows one shipping method per order, this definitely needs changing
 			foreach ($shipping_methods as $shipping_method) {
 					$method = $shipping_method['method_id'];
@@ -63,7 +65,7 @@ class WCV_Shipping
 				// $shipping_due = WCV_Shipping::trs2_get_due( $order_id, $product[ 'product_id' ] );
 
 				// Per Product Shipping 2
-			} else if ( function_exists( 'woocommerce_per_product_shipping' ) && $method == 'per_product' ) {
+			} else if ( ( class_exists('WC_Shipping_Per_Product_Init') || function_exists( 'woocommerce_per_product_shipping' ) ) && $method == 'per_product' ) {
 				$shipping_due = WCV_Shipping::pps_get_due( $order_id, $product );
 
 				// Local Delivery
@@ -101,7 +103,7 @@ class WCV_Shipping
 	 *
 	 * @return unknown
 	 */
-	public function pps_get_due( $order_id, $product )
+	public static function pps_get_due( $order_id, $product )
 	{
 		global $woocommerce;
 
