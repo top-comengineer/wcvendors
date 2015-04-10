@@ -1,5 +1,9 @@
 Changelog for WC Vendors
 
+Version 1.6.1 
+
+* Fixed: Support for Per Product Shipping 2.2.x #126
+
 Version 1.6.0 
 
 * Added: Admin notices for vendor page slug & permalinks
