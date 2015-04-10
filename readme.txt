@@ -61,6 +61,7 @@ No Upgrade required at this time.
 = Version 1.6.1 - April 10th 2015 =
 
 * Fixed: Support for Per Product Shipping 2.2.x #126
+* Added: Filter to change commission label in vendor email #127
 
 = Version 1.6.0 - April 8th 2015 = 
 
