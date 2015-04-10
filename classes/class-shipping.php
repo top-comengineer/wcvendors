@@ -52,8 +52,6 @@ class WCV_Shipping
 			// Get Shipping methods. 
 			$shipping_methods = $order->get_shipping_methods();
 
-			error_log(print_r($shipping_methods, true)); 
-
 			// TODO: Currently this only allows one shipping method per order, this definitely needs changing
 			foreach ($shipping_methods as $shipping_method) {
 					$method = $shipping_method['method_id'];
