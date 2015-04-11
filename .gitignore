@@ -1,3 +1,4 @@
 /.codenvy
 .DS_Store
 deploy-hc.sh
+deploy.sh
