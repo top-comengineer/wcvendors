@@ -259,8 +259,8 @@ class WCV_Vendors
 	 */
 	public static function get_vendor_from_product( $product_id )
 	{
-		// Make sure we are returning an author for products only 
-		if ( 'product' === get_post_type( $product_id ) ) { 
+		// Make sure we are returning an author for products or product variations only 
+		if ( 'product' === get_post_type( $product_id ) || 'product_variation' === get_post_type( $product_id ) ) { 
 			$parent = get_post_ancestors( $product_id );
 			if ( $parent ) $product_id = $parent[ 0 ];
 
