@@ -221,7 +221,7 @@ class WCV_Admin_Users
 	{
 		global $current_user, $pagenow;
 
-		if ( $pagenow == 'upload.php' || ( $pagenow == 'admin-ajax.php' && !empty( $_POST[ 'action' ] ) && $_POST[ 'action' ] == 'query-attachments' ) ) {
+		if ( $pagenow == 'upload.php' || ( $pagenow == 'admin-ajax.php' && !empty( $_POST[ 'action' ] ) && $_POST[ 'action' ] == 'query-attachments' ) && isset( $query->query_vars['post_type'] ) && 'post-type-name' === $query->query_vars['post_type'] ) {
 			$wp_query_obj->set( 'author', $current_user->ID );
 		}
 	}
