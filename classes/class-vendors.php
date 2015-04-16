@@ -415,4 +415,24 @@ class WCV_Vendors
 
 	}
 
+	public static function get_vendor_sold_by( $vendor_id ){ 
+
+		$vendor_display_name = WC_Vendors::$pv_options->get_option( 'vendor_display_name' ); 
+		$vendor =  get_userdata( $vendor_id ); 
+
+		switch ($vendor_display_name) {
+			case 'display_name':
+				$display_name = $vendor->display_name;
+				break;
+			case 'user_login': 
+				$display_name = $vendor->user_login;
+				break;
+			default:
+				$display_name = WCV_Vendors::get_vendor_shop_name( $vendor_id ); 
+				break;
+		}
+
+		return $display_name; 
+	}
+
 }

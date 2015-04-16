@@ -172,12 +172,8 @@ class WCV_Vendor_Shop
 	*/
 	public static function template_loop_sold_by($product_id) { 
 		$vendor_id     = WCV_Vendors::get_vendor_from_product( $product_id );
-		$vendor_display_name = WC_Vendors::$pv_options->get_option( 'vendor_display_name' ); 
-		$vendor =  get_userdata( $vendor_id ); 
-		$display_name = ( 'shop_name' === $vendor_display_name ) ? WCV_Vendors::get_vendor_shop_name( $vendor_id ) : $vendor->display_name; 
-
 		$sold_by = WCV_Vendors::is_vendor( $vendor_id )
-			? sprintf( '<a href="%s">%s</a>', WCV_Vendors::get_vendor_shop_page( $vendor_id ), $display_name )
+			? sprintf( '<a href="%s">%s</a>', WCV_Vendors::get_vendor_shop_page( $vendor_id ), WCV_Vendors::get_vendor_sold_by( $vendor_id ) )
 			: get_bloginfo( 'name' );
 		echo '<small class="wcvendors_sold_by_in_loop">' . apply_filters('wcvendors_sold_by_in_loop', __( 'Sold by: ', 'wcvendors' )). $sold_by . '</small> <br />';
 	}
@@ -263,11 +259,7 @@ class WCV_Vendor_Shop
 	*/ 
 	public static function add_vendor_to_order_item_meta( $item_id, $cart_item) {		
 		$vendor_id = $cart_item[ 'data' ]->post->post_author; 
-		$vendor_display_name = WC_Vendors::$pv_options->get_option( 'vendor_display_name' ); 
-		$vendor =  get_userdata( $vendor_id ); 
-		$display_name = ( 'shop_name' === $vendor_display_name ) ? WCV_Vendors::get_vendor_shop_name( $vendor_id ) : $vendor->display_name; 
-
-      	$sold_by = WCV_Vendors::is_vendor( $vendor_id ) ? sprintf( $display_name ): get_bloginfo( 'name' );
+      	$sold_by = WCV_Vendors::is_vendor( $vendor_id ) ? sprintf( WCV_Vendors::get_vendor_sold_by( $vendor_id ) ): get_bloginfo( 'name' );
         wc_add_order_item_meta( $item_id, apply_filters('wcvendors_sold_by_in_email', __('Sold by', 'wcvendors')), $sold_by);
 	}
 
