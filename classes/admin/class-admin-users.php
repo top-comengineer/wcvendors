@@ -35,12 +35,14 @@ class WCV_Admin_Users
 
 			add_filter( 'woocommerce_prevent_admin_access', array( $this, 'deny_admin_access' ) );
 
-
 			// WC > Product page fixes
 			add_action( 'load-post-new.php', array( $this, 'confirm_access_to_add' ) );
 			add_action( 'load-edit.php', array( $this, 'edit_nonvendors' ) );
 			add_filter( 'views_edit-product', array( $this, 'hide_nonvendor_links' ) );
-			add_action( 'ajax_query_attachments_args', array( $this, 'users_own_attachments_only' ) ); 
+
+			// Filter user attachments so they only see their own attachements 
+			add_action( 'ajax_query_attachments_args', array( $this, 'show_user_attachment_ajax' ) ); 
+		 	add_filter( 'parse_query', array( $this, 'show_user_attachment_page' ) );
 
 			add_action( 'admin_menu', array( $this, 'remove_menu_page' ), 99 );
 			add_action( 'add_meta_boxes', array( $this, 'remove_meta_boxes' ), 99 );
@@ -217,7 +219,7 @@ class WCV_Admin_Users
 	 *
 	 * @param object $query
 	 */
-	function users_own_attachments_only ( $query ) { 
+	function show_user_attachment_ajax ( $query ) { 
 
 		 $user_id = get_current_user_id();
 		    if ( $user_id ) {
@@ -226,6 +228,21 @@ class WCV_Admin_Users
 		    return $query;
 	}
 
+	/**
+	 * Show attachments only belonging to vendor
+	 *
+	 * @param object $query
+	 */
+	function show_user_attachment_page ( $query ) {
+
+		if ( strpos( $_SERVER[ 'REQUEST_URI' ], '/wp-admin/upload.php' ) !== false 
+	         || strpos( $_SERVER[ 'REQUEST_URI' ], '/wp-admin/user.php' ) !== false) {
+		    if ( !current_user_can( 'manage_options' ) ) {
+				global $current_user;
+				$query->set( 'author', $current_user->ID );
+		    }
+		}
+	}
 
 	/**
 	 * Allow vendors to access admin when disabled
