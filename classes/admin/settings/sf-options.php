@@ -84,8 +84,9 @@ $options[ ] = array(
 	'id'      => 'vendor_display_name',
 	'type'    => 'select',
 	'options' => array(
-		'display_name' 	=> 'Dislpay Name', 
-		'shop_name'		=> 'Shop Name'
+		'display_name' 	=> __( 'Display Name', 'wcvendors'), 
+		'shop_name'		=> __( 'Shop Name', 'wcvendors'), 
+		'user_login' 	=> __( 'User Login', 'wcvendors'), 
 	), 
 	'std'	=> 'shop_name'
 
