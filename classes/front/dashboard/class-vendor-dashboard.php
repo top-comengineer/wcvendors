@@ -159,8 +159,8 @@ class WCV_Vendor_Dashboard
 		$can_view_orders = WC_Vendors::$pv_options->get_option( 'can_show_orders' );
 		$settings_page   = get_permalink( WC_Vendors::$pv_options->get_option( 'shop_settings_page' ) );
 		$can_submit      = WC_Vendors::$pv_options->get_option( 'can_submit_products' );
-		if ( $can_submit ) $submit_link = admin_url( 'post-new.php?post_type=product' );
-		if ( $can_submit ) $edit_link = admin_url( 'edit.php?post_type=product' );
+		$submit_link = ( $can_submit ) ? admin_url( 'post-new.php?post_type=product' ) : '';
+		$edit_link   = ( $can_submit ) ? admin_url( 'edit.php?post_type=product' ) : '';
 
 		if ( !$this->can_view_vendor_page() ) {
 			return false;
