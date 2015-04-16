@@ -1,5 +1,14 @@
 Changelog for WC Vendors
 
+Version 1.6.2
+
+* Added: Option to change sold by vendor name #106
+* Fixed: Error notice in vendor dashboard #133
+* Fixed: Pagination in commissions admin screen #68
+* Added: Support for WooCommerce Order Status Manager
+* Fixed: Updated media filter method for vendors #132
+* Fixed: Commission not logged for variations #131
+
 Version 1.6.1 
 
 * Fixed: Support for Per Product Shipping 2.2.x #126

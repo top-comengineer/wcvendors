@@ -6,7 +6,7 @@ Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.0
 Tested up to: 4.1.1
-Stable tag: 1.6.1
+Stable tag: 1.6.2
 License: GPLv2 or later
 
 The free multi-vendor plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
@@ -57,6 +57,15 @@ You can post a support question on the support tab, however you'll get more help
 No Upgrade required at this time.
 
 == Changelog ==
+
+= Version 1.6.2 - April 17th 2015 = 
+
+* Added: Option to change sold by vendor name #106
+* Fixed: Error notice in vendor dashboard #133
+* Fixed: Pagination in commissions admin screen #68
+* Added: Support for WooCommerce Order Status Manager
+* Fixed: Updated media filter method for vendors #132
+* Fixed: Commission not logged for variations #131
 
 = Version 1.6.1 - April 10th 2015 =
 
