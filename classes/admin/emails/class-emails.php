@@ -80,8 +80,11 @@ class WCV_Emails
 	{
 		$product = get_post( $_product->id );
 
+		$vendor_display_name = WC_Vendors::$pv_options->get_option( 'vendor_display_name' ); 
+		$display_name = ( 'shop_name' === $vendor_display_name ) ? WCV_Vendors::get_vendor_shop_name( $product->post_author ) : get_userdata( $product->post_author )->display_name; 
+
 		$sold_by = WCV_Vendors::is_vendor( $product->post_author )
-			? sprintf( '<a href="%s">%s</a>', WCV_Vendors::get_vendor_shop_page( $product->post_author ), WCV_Vendors::get_vendor_shop_name( $product->post_author ) )
+			? sprintf( '<a href="%s">%s</a>', WCV_Vendors::get_vendor_shop_page( $product->post_author ), $display_name )
 			: get_bloginfo( 'name' );
 
 		$name .= '<small class="wcvendors_sold_by_in_email"><br />' . apply_filters('wcvendors_sold_by_in_email', __( 'Sold by: ', 'wcvendors' )). $sold_by . '</small><br />';

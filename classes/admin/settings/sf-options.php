@@ -78,6 +78,19 @@ $options[ ] = array(
 	'std'  => false,
 );
 
+$options[ ] = array(
+	'name'    => __( 'Vendor Display Name', 'wcvendors' ),
+	'desc'    => __( 'Select what will be displayed for the sold by text throughout the store.', 'wcvendors' ),
+	'id'      => 'vendor_display_name',
+	'type'    => 'select',
+	'options' => array(
+		'display_name' 	=> 'Dislpay Name', 
+		'shop_name'		=> 'Shop Name'
+	), 
+	'std'	=> 'shop_name'
+
+);
+
 $options[ ] = array( 'name' => __( 'Products', 'wcvendors' ), 'type' => 'heading' );
 $options[ ] = array( 'name' => __( 'Product Add Page', 'wcvendors' ), 'type' => 'title', 'desc' => __( 'Configure what to hide from all vendors when adding a product', 'wcvendors' ) );
 
