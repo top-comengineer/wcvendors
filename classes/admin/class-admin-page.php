@@ -132,7 +132,7 @@ class WCV_Admin_Setup
 			<div id="icon-woocommerce" class="icon32 icon32-woocommerce-reports"><br/></div>
 			<h2><?php _e( 'Commission', 'wcvendors' ); ?></h2>
 
-			<form id="posts-filter" method="POST">
+			<form id="posts-filter" method="get">
 
 				<input type="hidden" name="page" value="pv_admin_commissions"/>
 				<?php $PV_Admin_Page->display() ?>
@@ -315,7 +315,8 @@ class WCV_Admin_Page extends WP_List_Table
 			<div class="alignleft actions"><?php
 			$this->status_dropdown( 'commission' );
 			submit_button( __( 'Filter' ), false, false, false, array( 'id' => "post-query-submit", 'name' => 'do-filter' ) );
-			?></div><?php
+			?></div>
+			<?php
 		}
 	}
 
@@ -345,9 +346,9 @@ class WCV_Admin_Page extends WP_List_Table
 		if ( !$month_count || ( 1 == $month_count && 0 == $months[ 0 ]->month ) )
 			return;
 
-		$m = isset( $_POST[ 'm' ] ) ? (int) $_POST[ 'm' ] : 0;
+		$m = isset( $_GET[ 'm' ] ) ? (int) $_GET[ 'm' ] : 0;
 		?>
-		<select name="m">
+		<select name="m" id="filter-by-date">
 			<option<?php selected( $m, 0 ); ?> value='0'><?php _e( 'Show all dates' ); ?></option>
 			<?php
 			foreach ( $months as $arc_row ) {
@@ -366,6 +367,7 @@ class WCV_Admin_Page extends WP_List_Table
 			}
 			?>
 		</select>
+		
 	<?php
 	}
 
@@ -379,7 +381,7 @@ class WCV_Admin_Page extends WP_List_Table
 	 */
 	function status_dropdown( $post_type )
 	{
-		$com_status = isset( $_POST[ 'com_status' ] ) ? $_POST[ 'com_status' ] : '';
+		$com_status = isset( $_GET[ 'com_status' ] ) ? $_GET[ 'com_status' ] : '';
 		?>
 		<select name="com_status">
 			<option<?php selected( $com_status, '' ); ?> value=''><?php _e( 'Show all Statuses', 'wcvendors' ); ?></option>
@@ -398,9 +400,9 @@ class WCV_Admin_Page extends WP_List_Table
 	 */
 	function process_bulk_action()
 	{
-		if ( !isset( $_POST[ 'id' ] ) ) return;
+		if ( !isset( $_GET[ 'id' ] ) ) return;
 
-		$items = array_map( 'intval', $_POST[ 'id' ] );
+		$items = array_map( 'intval', $_GET[ 'id' ] );
 		$ids   = implode( ',', $items );
 
 		switch ( $this->current_action() ) {
@@ -527,9 +529,10 @@ class WCV_Admin_Page extends WP_List_Table
 		 */
 		$sql = "SELECT COUNT(id) FROM {$wpdb->prefix}pv_commission";
 
-		if ( !empty( $_POST[ 'm' ] ) ) {
-			$year  = substr( $_POST[ 'm' ], 0, 4 );
-			$month = substr( $_POST[ 'm' ], 4, 2 );
+		if ( !empty( $_GET[ 'm' ] ) ) {
+
+			$year  = substr( $_GET[ 'm' ], 0, 4 );
+			$month = substr( $_GET[ 'm' ], 4, 2 );
 
 			$time_sql = "
 				WHERE MONTH(`time`) = '$month'
@@ -539,21 +542,22 @@ class WCV_Admin_Page extends WP_List_Table
 			$sql .= $time_sql;
 		}
 
-		if ( !empty( $_POST[ 'com_status' ] ) ) { 
+		if ( !empty( $_GET[ 'com_status' ] ) ) { 
 
 			if ( $time_sql == '' ) { 
 				$status_sql = " 
-					WHERE status = '$com_status'
+				WHERE status = '$com_status'
 				"; 
 			} else { 
 				$status_sql = " 
-					AND status = '$com_status'
+				AND status = '$com_status'
 				";
 			}
 			
 
 			$sql .= $status_sql; 
 		}
+		error_log('First Query: '. $sql); 
 
 		$max = $wpdb->get_var( $sql );
 
@@ -561,20 +565,26 @@ class WCV_Admin_Page extends WP_List_Table
 			SELECT * FROM {$wpdb->prefix}pv_commission
 		";
 
-		if ( !empty( $_POST[ 'm' ] ) ) {
+		if ( !empty( $_GET[ 'm' ] ) ) {
 			$sql .= $time_sql;
 		}
 
-		if ( !empty( $_POST['com_status'] ) ) { 
+		if ( !empty( $_GET['com_status'] ) ) { 
 			$sql .= $status_sql;
 		}
 
+		$offset = ( $current_page - 1 ) * $per_page; 
+
+
 		$sql .= "
 			ORDER BY `{$orderby}` {$order}
-			LIMIT %d, %d
+			LIMIT {$offset}, {$per_page}
 		";
 
-		$this->items = $wpdb->get_results( $wpdb->prepare( $sql, ( $current_page - 1 ) * $per_page, $per_page ) );
+		error_log($sql); 
+
+		// $this->items = $wpdb->get_results( $wpdb->prepare( $sql, ( $current_page - 1 ) * $per_page, $per_page ) );
+		$this->items = $wpdb->get_results( $sql );
 
 		/**
 		 * Pagination
