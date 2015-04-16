@@ -554,10 +554,8 @@ class WCV_Admin_Page extends WP_List_Table
 				";
 			}
 			
-
 			$sql .= $status_sql; 
 		}
-		error_log('First Query: '. $sql); 
 
 		$max = $wpdb->get_var( $sql );
 
@@ -580,8 +578,6 @@ class WCV_Admin_Page extends WP_List_Table
 			ORDER BY `{$orderby}` {$order}
 			LIMIT {$offset}, {$per_page}
 		";
-
-		error_log($sql); 
 
 		// $this->items = $wpdb->get_results( $wpdb->prepare( $sql, ( $current_page - 1 ) * $per_page, $per_page ) );
 		$this->items = $wpdb->get_results( $sql );
