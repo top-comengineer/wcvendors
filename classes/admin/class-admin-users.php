@@ -244,7 +244,7 @@ class WCV_Admin_Users
 	        return;
 
 	    if( !current_user_can('delete_pages') )
-	        $query->set('author', $current_user->id );
+	        $query->set('author', $current_user->ID );
 
 	    return;
 	}
