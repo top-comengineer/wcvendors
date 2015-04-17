@@ -235,13 +235,18 @@ class WCV_Admin_Users
 	 */
 	function show_user_attachment_page ( $query ) {
 
-		if ( strpos( $_SERVER[ 'REQUEST_URI' ], '/wp-admin/upload.php' ) !== false 
-	         || strpos( $_SERVER[ 'REQUEST_URI' ], '/wp-admin/user.php' ) !== false) {
-		    if ( !current_user_can( 'manage_options' ) ) {
-				global $current_user;
-				$query->set( 'author', $current_user->ID );
-		    }
-		}
+		global $current_user, $pagenow;
+
+	    if( !is_a( $current_user, 'WP_User') )
+	        return;
+
+	    if( 'upload.php' != $pagenow && 'media-upload.php' != $pagenow)
+	        return;
+
+	    if( !current_user_can('delete_pages') )
+	        $query->set('author', $current_user->id );
+
+	    return;
 	}
 
 	/**
