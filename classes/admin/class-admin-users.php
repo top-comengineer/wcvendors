@@ -237,13 +237,13 @@ class WCV_Admin_Users
 
 		global $current_user, $pagenow;
 
-	    if( !is_a( $current_user, 'WP_User') )
+	    if ( !is_a( $current_user, 'WP_User') )
 	        return;
 
-	    if( 'upload.php' != $pagenow && 'media-upload.php' != $pagenow)
+	    if ( 'upload.php' != $pagenow && 'media-upload.php' != $pagenow)
 	        return;
 
-	    if( !current_user_can('delete_pages') )
+	    if ( !current_user_can('delete_pages') )
 	        $query->set('author', $current_user->ID );
 
 	    return;
