@@ -6,7 +6,6 @@ class WCV_Admin_Setup
 	 * WC > Referrals menu
 	 */
 
-
 	public function __construct()
 	{
 		add_filter( 'set-screen-option', array( 'WCV_Admin_Setup', 'set_table_option' ), 10, 3 );

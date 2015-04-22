@@ -7,9 +7,9 @@
  * Author:              WC Vendors
  * Author URI:          http://wcvendors.com
  *
- * Version:             1.6.2
+ * Version:             1.6.3
  * Requires at least:   4.0.0
- * Tested up to:        4.1.1
+ * Tested up to:        4.2.0
  *
  * Text Domain:         wcvendors
  * Domain Path:         /languages/
@@ -83,8 +83,6 @@ if ( is_woocommerce_activated() ) {
 			add_action( 'current_screen', array( $this, 'include_assets' ) ); 
 
 			add_filter( 'plugin_row_meta', array($this, 'plugin_row_meta'), 10, 2 );
-
-			
 			add_action( self::$id . '_options_updated', array( $this, 'option_updates' ), 10, 2 );
 
 			// Start a PHP session, if not yet started

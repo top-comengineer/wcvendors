@@ -1,5 +1,9 @@
 Changelog for WC Vendors
 
+Version 1.6.3 
+
+* Fixed: add_query_arg/remove_query_arg XSS issue
+
 Version 1.6.2
 
 * Added: Option to change sold by vendor name #106
