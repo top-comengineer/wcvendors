@@ -1,10 +1,11 @@
 <?php
 
 /**
- * My account views
+ * WCV Vendor Dashboard 
  *
  * @author  Matt Gates <http://mgates.me>
- * @package ProductVendor
+ * @author  Jamie Madden <http://wcvendors.com>
+ * @package WCVendors 
  */
 
 
@@ -373,6 +374,4 @@ class WCV_Vendor_Dashboard
 	{
 		return strcasecmp( $a[ 'title' ], $b[ 'title' ] );
 	}
-
-
 }
