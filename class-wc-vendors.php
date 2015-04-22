@@ -161,7 +161,7 @@ if ( is_woocommerce_activated() ) {
 			require_once wcv_plugin_dir . 'classes/admin/class-admin-reports.php';
 			require_once wcv_plugin_dir . 'classes/admin/class-admin-users.php';
 			require_once wcv_plugin_dir . 'classes/admin/class-admin-page.php';
-			require_once wcv_plugin_dir . 'classes/admin/class-vendor-page.php'; 
+			require_once wcv_plugin_dir . 'classes/admin/class-vendor-admin-dashboard.php'; 
 			require_once wcv_plugin_dir . 'classes/includes/class-wcv-shortcodes.php';
 
 
@@ -179,7 +179,7 @@ if ( is_woocommerce_activated() ) {
 			new WCV_Product_Meta;
 			new WCV_Vendor_Reports;
 			new WCV_Admin_Setup;
-			new WCV_Vendor_Page; 
+			new WCV_Vendor_Admin_Dashboard; 
 			new WCV_Admin_Reports;
 			new WCV_Vendor_Applicants;
 			new WCV_Admin_Users;
