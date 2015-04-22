@@ -14,7 +14,7 @@ Class WCV_Vendor_page {
 
 
 	function settings_page_admin_menu(){
-        add_menu_page( __('Shop Settings', 'wcvendors'), __('Shop Settings', 'wcvendors'), 'manage_options', 'test-plugin', 'settings_page' );
+        add_menu_page( __('Shop Settings', 'wcvendors'), __('Shop Settings', 'wcvendors'), 'manage_product', 'wcv-vendor-shopsettings', array( $this, 'settings_page' ) );
 	}
  
 	function settings_page(){ 
