@@ -89,41 +89,44 @@ class WCV_Vendor_Dashboard
 			return false;
 		}
 
-		if ( !wp_verify_nonce( $_POST[ 'wc-product-vendor-nonce' ], 'save-shop-settings' ) ) {
-			return false;
-		}
+		if (isset ( $_POST[ 'wc-product-vendor-nonce' ] ) ) { 
 
-
-		if ( isset( $_POST[ 'pv_paypal' ] ) ) {
-			if ( !is_email( $_POST[ 'pv_paypal' ] ) ) {
-				wc_add_notice( __( 'Your PayPal address is not a valid email address.', 'wcvendors' ), 'error' );
-			} else {
-				update_user_meta( $user_id, 'pv_paypal', $_POST[ 'pv_paypal' ] );
+			if ( !wp_verify_nonce( $_POST[ 'wc-product-vendor-nonce' ], 'save-shop-settings' ) ) {
+				return false;
 			}
-		}
 
-		if ( !empty( $_POST[ 'pv_shop_name' ] ) ) {
-			$users = get_users( array( 'meta_key' => 'pv_shop_slug', 'meta_value' => sanitize_title( $_POST[ 'pv_shop_name' ] ) ) );
-			if ( !empty( $users ) && $users[ 0 ]->ID != $user_id ) {
-				wc_add_notice( __( 'That shop name is already taken. Your shop name must be unique.', 'wcvendors' ), 'error' ); 
-			} else {
-				update_user_meta( $user_id, 'pv_shop_name', $_POST[ 'pv_shop_name' ] );
-				update_user_meta( $user_id, 'pv_shop_slug', sanitize_title( $_POST[ 'pv_shop_name' ] ) );
+
+			if ( isset( $_POST[ 'pv_paypal' ] ) ) {
+				if ( !is_email( $_POST[ 'pv_paypal' ] ) ) {
+					wc_add_notice( __( 'Your PayPal address is not a valid email address.', 'wcvendors' ), 'error' );
+				} else {
+					update_user_meta( $user_id, 'pv_paypal', $_POST[ 'pv_paypal' ] );
+				}
 			}
-		}
 
-		if ( isset( $_POST[ 'pv_shop_description' ] ) ) {
-			update_user_meta( $user_id, 'pv_shop_description', $_POST[ 'pv_shop_description' ] );
-		}
+			if ( !empty( $_POST[ 'pv_shop_name' ] ) ) {
+				$users = get_users( array( 'meta_key' => 'pv_shop_slug', 'meta_value' => sanitize_title( $_POST[ 'pv_shop_name' ] ) ) );
+				if ( !empty( $users ) && $users[ 0 ]->ID != $user_id ) {
+					wc_add_notice( __( 'That shop name is already taken. Your shop name must be unique.', 'wcvendors' ), 'error' ); 
+				} else {
+					update_user_meta( $user_id, 'pv_shop_name', $_POST[ 'pv_shop_name' ] );
+					update_user_meta( $user_id, 'pv_shop_slug', sanitize_title( $_POST[ 'pv_shop_name' ] ) );
+				}
+			}
 
-		if ( isset( $_POST[ 'pv_seller_info' ] ) ) {
-			update_user_meta( $user_id, 'pv_seller_info', $_POST[ 'pv_seller_info' ] );
-		}
+			if ( isset( $_POST[ 'pv_shop_description' ] ) ) {
+				update_user_meta( $user_id, 'pv_shop_description', $_POST[ 'pv_shop_description' ] );
+			}
 
-		do_action( 'wcvendors_shop_settings_saved', $user_id );
+			if ( isset( $_POST[ 'pv_seller_info' ] ) ) {
+				update_user_meta( $user_id, 'pv_seller_info', $_POST[ 'pv_seller_info' ] );
+			}
 
-		if ( !wc_notice_count() ) {
-			wc_add_notice( __( 'Settings saved.', 'wcvendors' ), 'success' );
+			do_action( 'wcvendors_shop_settings_saved', $user_id );
+
+			if ( !wc_notice_count() ) {
+				wc_add_notice( __( 'Settings saved.', 'wcvendors' ), 'success' );
+			}
 		}
 	}
 
