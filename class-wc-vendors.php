@@ -304,7 +304,7 @@ if ( is_woocommerce_activated() ) {
 
 					if ( WC_Vendors::$pv_options->get_option( 'vendor_shop_permalink' ) == null  && ! get_user_meta( $current_user_id, 'wcv_shop_ignore_notice' ) ) {
 						echo '<div class="updated">
-					   	<p>'.sprintf (__('WC Vendors requires the Vendor shop page value be set <a href="%s">click here to set it.</a> | <a href="%s">Hide Notice</a>','wcvendors'), 'admin.php?page=wc_prd_vendor' ,add_query_arg( 'wcv_shop_ignore_notice', '0' )).'</p>
+					   	<p>'.sprintf (__('WC Vendors requires the Vendor shop page value be set <a href="%s">click here to set it.</a> | <a href="%s">Hide Notice</a>','wcvendors'), 'admin.php?page=wc_prd_vendor', esc_url( add_query_arg( 'wcv_shop_ignore_notice', '0' ) ) ).'</p>
 						</div>';
 					}
 
@@ -312,7 +312,7 @@ if ( is_woocommerce_activated() ) {
 
 					if ( isset( $_GET['page'] ) && 'wc_prd_vendor' == $_GET['page'] && isset( $_GET[ 'settings-updated' ] ) && $general_tab == true && ! get_user_meta( $current_user_id, 'wcv_pl_ignore_notice' ) ) {
 						echo '<div class="updated">
-					   	<p>'.sprintf (__('You must save your permalinks once you have modified your vendor page. <a href="%s">click here to save</a>.  | <a href="%s">Hide Notice</a>','wcvendors'), 'options-permalink.php', add_query_arg( 'cron_mail_ignore', '0' )).'</p>
+					   	<p>'.sprintf (__('You must save your permalinks once you have modified your vendor page. <a href="%s">click here to save</a>.  | <a href="%s">Hide Notice</a>','wcvendors'), 'options-permalink.php', esc_url( add_query_arg( 'cron_mail_ignore', '0' ) ) ).'</p>
 						</div>';
 					}
 			}	

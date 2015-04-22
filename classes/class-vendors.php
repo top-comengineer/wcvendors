@@ -346,7 +346,7 @@ class WCV_Vendors
 
 			return trailingslashit( home_url( sprintf( '/%s%s', $permalink, $vendor ) ) );
 		} else {
-			return add_query_arg( array( 'vendor_shop' => $vendor ), get_post_type_archive_link( 'product' ) );
+			return esc_url( add_query_arg( array( 'vendor_shop' => $vendor ), get_post_type_archive_link( 'product' ) ) );
 		}
 	}
 

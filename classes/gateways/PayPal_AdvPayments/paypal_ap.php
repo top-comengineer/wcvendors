@@ -340,7 +340,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 		$actionType   = 'CREATE';
 		$cancelUrl    = $order->get_cancel_order_url();
 		$currencyCode = get_woocommerce_currency();
-		$returnUrl    = add_query_arg( 'key', $order->order_key, add_query_arg( 'order', $order->id, $order->get_checkout_order_received_url() ) );
+		$returnUrl    = esc_url( add_query_arg( 'key', $order->order_key, add_query_arg( 'order', $order->id, $order->get_checkout_order_received_url() ) ) );
 
 		$payRequest = new PayRequest( new RequestEnvelope( "en_US" ), $actionType, $cancelUrl, $currencyCode, $receiverList, $returnUrl );
 
@@ -358,7 +358,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 			'order_id'         	=> $order_id,
 		);
 
-		$payRequest->ipnNotificationUrl                = str_replace( 'https:', 'http:', add_query_arg( $args, home_url( '/' ) ) );
+		$payRequest->ipnNotificationUrl                = esc_url( str_replace( 'https:', 'http:', add_query_arg( $args, home_url( '/' ) ) ) );
 		$payRequest->memo                              = !empty( $order->customer_note ) ? $order->customer_note : '';
 		$payRequest->reverseAllParallelPaymentsOnError = true;
 
