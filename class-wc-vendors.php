@@ -179,13 +179,13 @@ if ( is_woocommerce_activated() ) {
 			new WCV_Product_Meta;
 			new WCV_Vendor_Reports;
 			new WCV_Admin_Setup;
+			new WCV_Vendor_Page; 
 			new WCV_Admin_Reports;
 			new WCV_Vendor_Applicants;
 			new WCV_Admin_Users;
 			new WCV_Emails;
 			new WCV_Vendor_Signup;
 			new WCV_Shortcodes; 
-			new WCV_Vendor_page; 
 		}
 
 		/** 
