@@ -5,7 +5,7 @@ Donate link: http://www.wcvendors.com/
 Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.0
-Tested up to: 4.1.1
+Tested up to: 4.2.0
 Stable tag: 1.6.3
 License: GPLv2 or later
 
@@ -57,6 +57,11 @@ You can post a support question on the support tab, however you'll get more help
 No Upgrade required at this time.
 
 == Changelog ==
+
+= Version 1.6.3 - April 23rd 2015 = 
+
+* Fixed: add_query_arg/remove_query_arg XSS issue
+* Added: Shop Settings page in wordpress dashboard
 
 = Version 1.6.2 - April 17th 2015 = 
 

@@ -3,6 +3,7 @@ Changelog for WC Vendors
 Version 1.6.3 
 
 * Fixed: add_query_arg/remove_query_arg XSS issue
+* Added: Shop Settings page in wordpress dashboard
 
 Version 1.6.2
 
