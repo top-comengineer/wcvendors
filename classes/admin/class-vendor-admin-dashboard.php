@@ -304,15 +304,14 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 	 */
 	function process_bulk_action()
 	{
-		if ( !isset( $_GET[ 'id' ] ) ) return;
+		if ( !isset( $_GET[ 'order_id' ] ) ) return;
 
-		$items = array_map( 'intval', $_GET[ 'id' ] );
-		$ids   = implode( ',', $items );
+		$items = array_map( 'intval', $_GET[ 'order_id' ] );
 
 		switch ( $this->current_action() ) {
 			case 'mark_shipped':
 
-				$result = $this->mark_shipped( $ids );
+				$result = $this->mark_shipped( $items );
 
 				if ( $result )
 					echo '<div class="updated"><p>' . __( 'Orders marked shipped.', 'wcvendors' ) . '</p></div>';
@@ -404,8 +403,6 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 
 			$sum = WCV_Queries::sum_for_orders( array( $order->id ), array('vendor_id' =>get_current_user_id() ) ); 
 			$total = $sum[0]->line_total; 
-
-			// print_r($order); 
 
 			$order_items = array(); 
 			$order_items[ 'order_id' ] 	= $order->id;
