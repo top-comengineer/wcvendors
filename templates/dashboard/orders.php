@@ -57,7 +57,8 @@ jQuery(function () {
 
 			$shippers = (array) get_post_meta( $order->id, 'wc_pv_shipped', true );
 			$shipped = in_array($user_id, $shippers);
-			 ?>
+			
+			?>
 
 			<tr>
 				<td><?php echo $order->get_order_number(); ?></td>
