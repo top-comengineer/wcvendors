@@ -391,11 +391,13 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 
 			foreach ($valid as $key => $item) { 
 						$item_meta = new WC_Order_Item_Meta( $item[ 'item_meta' ] );
-						$item_meta = $item_meta->display( false, true ); 
-						$products .= $item['qty'] . 'x ' . $item['name'] . '<br />'; 
-						// if (!empty( $item_meta ) && $item_meta != '<dl class="variation"></dl>') {
-						// 	echo $item_meta;
-						// }
+						// $item_meta = $item_meta->display( false, true ); 
+						$item_meta = $item_meta->get_formatted( ); 
+						$products .= '<strong>'. $item['qty'] . ' x ' . $item['name'] . '</strong><br />'; 
+						foreach ($item_meta as $key => $meta) {
+							// Remove the sold by meta key for display 
+							if (strtolower($key) != 'sold by' ) $products .= $meta[ 'label' ] .' : ' . $meta[ 'value' ]. '<br />'; 
+						}
 			}
 
 			$shippers = (array) get_post_meta( $order->id, 'wc_pv_shipped', true );
@@ -406,7 +408,7 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 
 			$order_items = array(); 
 			$order_items[ 'order_id' ] 	= $order->id;
-			$order_items[ 'customer' ] 	= apply_filters( 'wcvendors_dashboard_google_maps_link', '<a target="_blank" href="' . esc_url( 'http://maps.google.com/maps?&q=' . urlencode( esc_html( preg_replace( '#<br\s*/?>#i', ', ', $order->get_formatted_shipping_address() ) ) ) . '&z=16' ) . '">'. esc_html( preg_replace( '#<br\s*/?>#i', ', ', $order->get_formatted_shipping_address() ) ) .'</a>' );
+			$order_items[ 'customer' ] 	= $order->get_formatted_shipping_address();
 			$order_items[ 'products' ] 	= $products; 
 			$order_items[ 'total' ] 	= woocommerce_price( $total );
 			$order_items[ 'date' ] 		= date_i18n( wc_date_format(), strtotime( $order->order_date ) ); 
