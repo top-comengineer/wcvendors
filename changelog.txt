@@ -1,5 +1,10 @@
 Changelog for WC Vendors
 
+Version 1.7.1 
+
+* Fixed: Invalid argument on new orders dashboard page #138
+* Updated: Base translation file
+
 Version 1.7.0
 
 * Fixed: add_query_arg/remove_query_arg XSS issue

@@ -7,7 +7,7 @@
  * Author:              WC Vendors
  * Author URI:          http://wcvendors.com
  *
- * Version:             1.7.0
+ * Version:             1.7.1
  * Requires at least:   4.0.0
  * Tested up to:        4.2.0
  *
