@@ -62,8 +62,8 @@ No Upgrade required at this time.
 
 * Fixed: add_query_arg/remove_query_arg XSS issue
 * Fixed: Hide Notice not working for admin settings
-* Added: Shop Settings page in wordpress dashboard
-* Added: Orders page in wordpress dashboard 
+* Added: Shop Settings page in WordPress dashboard
+* Added: Orders page in WordPress dashboard 
 
 = Version 1.6.2 - April 17th 2015 = 
 
