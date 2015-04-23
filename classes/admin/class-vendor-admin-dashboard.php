@@ -372,49 +372,51 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 		}
 
 		$_orders   = WCV_Queries::get_orders_for_products( $products );
+		
+		if (!empty( $_orders ) ) { 
+			foreach ( $_orders as $order ) {
 
-		foreach ( $_orders as $order ) {
+				$order = new WC_Order( $order->order_id );
+				$valid_items = WCV_Queries::get_products_for_order( $order->id );
+				$valid = array();
 
-			$order = new WC_Order( $order->order_id );
-			$valid_items = WCV_Queries::get_products_for_order( $order->id );
-			$valid = array();
+				$items = $order->get_items();
 
-			$items = $order->get_items();
-
-			foreach ($items as $key => $value) {
-				if ( in_array($value['variation_id'], $valid_items) || in_array($value['product_id'], $valid_items)) {
-					$valid[] = $value;
+				foreach ($items as $key => $value) {
+					if ( in_array($value['variation_id'], $valid_items) || in_array($value['product_id'], $valid_items)) {
+						$valid[] = $value;
+					}
 				}
+
+				$products = ''; 
+
+				foreach ($valid as $key => $item) { 
+							$item_meta = new WC_Order_Item_Meta( $item[ 'item_meta' ] );
+							// $item_meta = $item_meta->display( false, true ); 
+							$item_meta = $item_meta->get_formatted( ); 
+							$products .= '<strong>'. $item['qty'] . ' x ' . $item['name'] . '</strong><br />'; 
+							foreach ($item_meta as $key => $meta) {
+								// Remove the sold by meta key for display 
+								if (strtolower($key) != 'sold by' ) $products .= $meta[ 'label' ] .' : ' . $meta[ 'value' ]. '<br />'; 
+							}
+				}
+
+				$shippers = (array) get_post_meta( $order->id, 'wc_pv_shipped', true );
+				$shipped = in_array($user_id, $shippers) ? 'Yes' : 'No' ; 
+
+				$sum = WCV_Queries::sum_for_orders( array( $order->id ), array('vendor_id' =>get_current_user_id() ) ); 
+				$total = $sum[0]->line_total; 
+
+				$order_items = array(); 
+				$order_items[ 'order_id' ] 	= $order->id;
+				$order_items[ 'customer' ] 	= $order->get_formatted_shipping_address();
+				$order_items[ 'products' ] 	= $products; 
+				$order_items[ 'total' ] 	= woocommerce_price( $total );
+				$order_items[ 'date' ] 		= date_i18n( wc_date_format(), strtotime( $order->order_date ) ); 
+				$order_items[ 'status' ] 	= $shipped;
+
+				$orders[] = (object) $order_items; 
 			}
-
-			$products = ''; 
-
-			foreach ($valid as $key => $item) { 
-						$item_meta = new WC_Order_Item_Meta( $item[ 'item_meta' ] );
-						// $item_meta = $item_meta->display( false, true ); 
-						$item_meta = $item_meta->get_formatted( ); 
-						$products .= '<strong>'. $item['qty'] . ' x ' . $item['name'] . '</strong><br />'; 
-						foreach ($item_meta as $key => $meta) {
-							// Remove the sold by meta key for display 
-							if (strtolower($key) != 'sold by' ) $products .= $meta[ 'label' ] .' : ' . $meta[ 'value' ]. '<br />'; 
-						}
-			}
-
-			$shippers = (array) get_post_meta( $order->id, 'wc_pv_shipped', true );
-			$shipped = in_array($user_id, $shippers) ? 'Yes' : 'No' ; 
-
-			$sum = WCV_Queries::sum_for_orders( array( $order->id ), array('vendor_id' =>get_current_user_id() ) ); 
-			$total = $sum[0]->line_total; 
-
-			$order_items = array(); 
-			$order_items[ 'order_id' ] 	= $order->id;
-			$order_items[ 'customer' ] 	= $order->get_formatted_shipping_address();
-			$order_items[ 'products' ] 	= $products; 
-			$order_items[ 'total' ] 	= woocommerce_price( $total );
-			$order_items[ 'date' ] 		= date_i18n( wc_date_format(), strtotime( $order->order_date ) ); 
-			$order_items[ 'status' ] 	= $shipped;
-
-			$orders[] = (object) $order_items; 
 		}
 		return $orders; 
 
