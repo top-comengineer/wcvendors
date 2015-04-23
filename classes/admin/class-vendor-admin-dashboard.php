@@ -205,24 +205,18 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 		global $wpdb;
 
 		switch ( $column_name ) {
-			case 'id' :
-				return $item->id;
-			case 'vendor_id' :
-				$user = get_userdata( $item->vendor_id );
-
-				return '<a href="' . admin_url( 'user-edit.php?user_id=' . $item->vendor_id ) . '">' . WCV_Vendors::get_vendor_shop_name( $item->vendor_id ) . '</a>';
-			case 'total_due' :
-				return woocommerce_price( $item->total_due + $item->total_shipping + $item->tax );
-			case 'product_id' :
-				$parent = get_post_ancestors( $item->product_id );
-				$product_id = $parent ? $parent[ 0 ] : $item->product_id;
-				return '<a href="' . admin_url( 'post.php?post=' . $product_id . '&action=edit' ) . '">' . get_the_title( $item->product_id ) . '</a>';
 			case 'order_id' :
-				return '<a href="' . admin_url( 'post.php?post=' . $item->order_id . '&action=edit' ) . '">' . $item->order_id . '</a>';
-			case 'status' :
+				return $item->order_id;
+			case 'customer' : 
+				return $item->customer; 
+			case 'products' :
+				return $item->products; 
+			case 'total' : 
+				return $item->total; 
+			case 'date' : 
+				return $item->date; 
+			case 'status' : 
 				return $item->status;
-			case 'time' :
-				return date_i18n( get_option( 'date_format' ), strtotime( $item->time ) );
 		}
 	}
 
@@ -241,9 +235,9 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 		return sprintf(
 			'<input type="checkbox" name="%1$s[]" value="%2$s" />',
 			/*$1%s*/
-			'id',
+			'order_id',
 			/*$2%s*/
-			$item->id
+			$item->order_id
 		);
 	}
 
@@ -261,9 +255,9 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 			'order_id'  => __( 'Order ID', 'wcvendors' ),
 			'customer'  => __( 'Customer', 'wcvendors' ),
 			'products'  => __( 'Products', 'wcvendors' ),
-			'total_due' => __( 'Total', 'wcvendors' ),
-			'time'      => __( 'Date', 'wcvendors' ),
-			'status'    => __( 'Status', 'wcvendors' ),
+			'total' 	=> __( 'Total', 'wcvendors' ),
+			'date'      => __( 'Date', 'wcvendors' ),
+			'status'    => __( 'Shipped', 'wcvendors' ),
 		);
 
 		return $columns;
@@ -279,9 +273,9 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 	function get_sortable_columns()
 	{
 		$sortable_columns = array(
-			'order_id'   => array( 'order_id', false ),
-			'total_due'  => array( 'total_due', false ),
-			'status'     => array( 'status', false ),
+			'order_id'  	=> array( 'order_id', false ),
+			'total'  		=> array( 'total', false ),
+			'status'     	=> array( 'status', false ),
 		);
 
 		return $sortable_columns;
@@ -323,7 +317,7 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 				if ( $result )
 					echo '<div class="updated"><p>' . __( 'Orders marked shipped.', 'wcvendors' ) . '</p></div>';
 				break;
-				
+
 			default:
 				// code...
 				break;
@@ -333,63 +327,100 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 
 
 	/**
-	 *
-	 *
-	 * @param unknown $ids (optional)
-	 *
-	 * @return unknown
-	 */
-	public function mark_paid( $ids = array() )
-	{
-		global $wpdb;
-
-		$table_name = $wpdb->prefix . "pv_commission";
-
-		$query  = "UPDATE `{$table_name}` SET `status` = 'paid' WHERE id IN ($ids) AND `status` = 'due'";
-		$result = $wpdb->query( $query );
-
-		return $result;
-	}
-
-
-	/**
-	 *
+	 *  Mark orders as shipped 
 	 *
 	 * @param unknown $ids (optional)
 	 *
 	 * @return unknown
 	 */
-	public function mark_reversed( $ids = array() )
+	public function mark_shipped( $ids = array() )
 	{
-		global $wpdb;
+		global $woocommerce;
 
-		$table_name = $wpdb->prefix . "pv_commission";
+		$user_id = get_current_user_id();
 
-		$query  = "UPDATE `{$table_name}` SET `status` = 'reversed' WHERE id IN ($ids) AND `status` = 'due'";
-		$result = $wpdb->query( $query );
-
-		return $result;
+		if ( !empty( $ids ) ) {
+			foreach ($ids as $order_id ) {
+				$shippers = (array) get_post_meta( $order_id, 'wc_pv_shipped', true );
+				if( !in_array($user_id, $shippers)) {
+					$shippers[] = $user_id;
+					$mails = $woocommerce->mailer()->get_emails();
+					if ( !empty( $mails ) ) {
+						$mails[ 'WC_Email_Notify_Shipped' ]->trigger( $order_id, $user_id );
+					}
+					do_action('wcvendors_vendor_ship', $order_id, $user_id);
+				}
+				update_post_meta( $order_id, 'wc_pv_shipped', $shippers );
+			}
+			return true; 
+		}
+		return false; 
 	}
 
 
-	/**
-	 *
-	 *
-	 * @param unknown $ids (optional)
-	 *
-	 * @return unknown
-	 */
-	public function mark_due( $ids = array() )
-	{
-		global $wpdb;
+	function get_orders() { 
 
-		$table_name = $wpdb->prefix . "pv_commission";
+		$user_id = get_current_user_id(); 
 
-		$query  = "UPDATE `{$table_name}` SET `status` = 'due' WHERE id IN ($ids)";
-		$result = $wpdb->query( $query );
+		$orders = array(); 
 
-		return $result;
+
+		$vendor_products = WCV_Queries::get_commission_products( $user_id );
+		$products = array();
+
+		foreach ($vendor_products as $_product) {
+			$products[] = $_product->ID;
+		}
+
+		$_orders   = WCV_Queries::get_orders_for_products( $products );
+
+		foreach ( $_orders as $order ) {
+
+			$order = new WC_Order( $order->order_id );
+			$valid_items = WCV_Queries::get_products_for_order( $order->id );
+			$valid = array();
+
+			$items = $order->get_items();
+
+			foreach ($items as $key => $value) {
+				if ( in_array($value['variation_id'], $valid_items) || in_array($value['product_id'], $valid_items)) {
+					$valid[] = $value;
+				}
+			}
+
+			$products = ''; 
+
+			foreach ($valid as $key => $item) { 
+						$item_meta = new WC_Order_Item_Meta( $item[ 'item_meta' ] );
+						$item_meta = $item_meta->display( false, true ); 
+						$products .= $item['qty'] . 'x ' . $item['name'] . '<br />'; 
+						// if (!empty( $item_meta ) && $item_meta != '<dl class="variation"></dl>') {
+						// 	echo $item_meta;
+						// }
+			}
+
+			$shippers = (array) get_post_meta( $order->id, 'wc_pv_shipped', true );
+			$shipped = in_array($user_id, $shippers) ? 'Yes' : 'No' ; 
+
+			$sum = WCV_Queries::sum_for_orders( array( $order->id ), array('vendor_id' =>get_current_user_id() ) ); 
+			$total = $sum[0]->line_total; 
+
+			// print_r($order); 
+
+			$order_items = array(); 
+			$order_items[ 'order_id' ] 	= $order->id;
+			$order_items[ 'customer' ] 	= apply_filters( 'wcvendors_dashboard_google_maps_link', '<a target="_blank" href="' . esc_url( 'http://maps.google.com/maps?&q=' . urlencode( esc_html( preg_replace( '#<br\s*/?>#i', ', ', $order->get_formatted_shipping_address() ) ) ) . '&z=16' ) . '">'. esc_html( preg_replace( '#<br\s*/?>#i', ', ', $order->get_formatted_shipping_address() ) ) .'</a>' );
+			$order_items[ 'products' ] 	= $products; 
+			$order_items[ 'total' ] 	= woocommerce_price( $total );
+			$order_items[ 'date' ] 		= date_i18n( wc_date_format(), strtotime( $order->order_date ) ); 
+			$order_items[ 'status' ] 	= $shipped;
+
+			$orders[] = (object) $order_items; 
+		}
+		return $orders; 
+
 	}
+
 
 
 	/**
@@ -399,17 +430,8 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 	 */
 	function prepare_items()
 	{
-		global $wpdb;
 
-		$per_page     = $this->get_items_per_page( 'commission_per_page', 10 );
-		$current_page = $this->get_pagenum();
-
-		$orderby = !empty( $_REQUEST[ 'orderby' ] ) ? esc_attr( $_REQUEST[ 'orderby' ] ) : 'time';
-		$order   = ( !empty( $_REQUEST[ 'order' ] ) && $_REQUEST[ 'order' ] == 'asc' ) ? 'ASC' : 'DESC';
-		$com_status = !empty( $_REQUEST[ 'com_status' ] ) ? esc_attr( $_REQUEST[ 'com_status' ] ) : '';
-		$status_sql = '';
-		$time_sql = ''; 
-
+		
 		/**
 		 * Init column headers
 		 */
@@ -424,69 +446,12 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 		/**
 		 * Get items
 		 */
-		$sql = "SELECT COUNT(id) FROM {$wpdb->prefix}pv_commission";
-
-		if ( !empty( $_GET[ 'm' ] ) ) {
-
-			$year  = substr( $_GET[ 'm' ], 0, 4 );
-			$month = substr( $_GET[ 'm' ], 4, 2 );
-
-			$time_sql = "
-				WHERE MONTH(`time`) = '$month'
-				AND YEAR(`time`) = '$year'
-			";
-
-			$sql .= $time_sql;
-		}
-
-		if ( !empty( $_GET[ 'com_status' ] ) ) { 
-
-			if ( $time_sql == '' ) { 
-				$status_sql = " 
-				WHERE status = '$com_status'
-				"; 
-			} else { 
-				$status_sql = " 
-				AND status = '$com_status'
-				";
-			}
-			
-			$sql .= $status_sql; 
-		}
-
-		$max = $wpdb->get_var( $sql );
-
-		$sql = "
-			SELECT * FROM {$wpdb->prefix}pv_commission
-		";
-
-		if ( !empty( $_GET[ 'm' ] ) ) {
-			$sql .= $time_sql;
-		}
-
-		if ( !empty( $_GET['com_status'] ) ) { 
-			$sql .= $status_sql;
-		}
-
-		$offset = ( $current_page - 1 ) * $per_page; 
-
-
-		$sql .= "
-			ORDER BY `{$orderby}` {$order}
-			LIMIT {$offset}, {$per_page}
-		";
-
-		// $this->items = $wpdb->get_results( $wpdb->prepare( $sql, ( $current_page - 1 ) * $per_page, $per_page ) );
-		$this->items = $wpdb->get_results( $sql );
+		
+		$this->items = $this->get_orders();
 
 		/**
 		 * Pagination
 		 */
-		$this->set_pagination_args( array(
-										 'total_items' => $max,
-										 'per_page'    => $per_page,
-										 'total_pages' => ceil( $max / $per_page )
-									) );
 	}
 
 
