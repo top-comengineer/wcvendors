@@ -503,6 +503,8 @@ class WCV_Admin_Page extends WP_List_Table
 	{
 		global $wpdb;
 
+		$_SERVER['REQUEST_URI'] = remove_query_arg( '_wp_http_referer', $_SERVER['REQUEST_URI'] );
+
 		$per_page     = $this->get_items_per_page( 'commission_per_page', 10 );
 		$current_page = $this->get_pagenum();
 
