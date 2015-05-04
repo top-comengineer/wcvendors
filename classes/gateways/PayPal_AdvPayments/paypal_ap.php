@@ -435,7 +435,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 			$receiverOptions->receiver                   = $receiverId;
 			$receiverOptions->invoiceData                = new InvoiceData();
 			$receiverOptions->invoiceData->item          = $invoice_items;
-			$receiverOptions->invoiceData->totalTax      = number_format( $receivers_two[$product['vendor_id']['tax']], 2 );
+			$receiverOptions->invoiceData->totalTax      = number_format( $receivers_two[$product['vendor_id']]['tax'], 2 );
 			$receiverOptions->invoiceData->totalShipping = number_format( $receivers_two[$product['vendor_id']]['shipping'], 2 );
 		}
 
