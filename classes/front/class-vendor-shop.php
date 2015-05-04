@@ -96,7 +96,9 @@ class WCV_Vendor_Shop
 
 				$seller_info = do_shortcode( $seller_info );
 				self::$seller_info = '<div class="pv_seller_info">';
+				self::$seller_info = apply_filters('wcv_before_seller_info_tab', ''); 
 				self::$seller_info .= ( $global_html || $has_html ) ? wpautop( wptexturize( wp_kses_post( $seller_info ) ) ) : sanitize_text_field( $seller_info );
+				self::$seller_info = apply_filters('wcv_after_seller_info_tab', ''); 
 				self::$seller_info .= '</div>';
 
 				$tabs[ 'seller_info' ] = array(
