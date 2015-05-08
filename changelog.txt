@@ -1,5 +1,13 @@
 Changelog for WC Vendors
 
+Version 1.7.2 
+
+* Added: Filters for seller tab #141
+* Fixed: URI Too Large Error #143
+* Fixed: Give tax to vendors #142
+* Updated: Spanish Translations #140
+* Added: Persian Translation #139
+
 Version 1.7.1 
 
 * Fixed: Invalid argument on new orders dashboard page #138

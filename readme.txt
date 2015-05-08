@@ -5,8 +5,8 @@ Donate link: http://www.wcvendors.com/
 Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.0
-Tested up to: 4.2.0
-Stable tag: 1.7.1
+Tested up to: 4.2.2
+Stable tag: 1.7.2
 License: GPLv2 or later
 
 The free multi-vendor plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
@@ -57,6 +57,14 @@ You can post a support question on the support tab, however you'll get more help
 No Upgrade required at this time.
 
 == Changelog ==
+
+= Version 1.7.2 - May 8th 2015 = 
+
+* Added: Filters for seller tab #141
+* Fixed: URI Too Large Error #143
+* Fixed: Give tax to vendors #142
+* Updated: Spanish Translations #140
+* Added: Persian Translation #139
 
 = Version 1.7.1 - April 24th 2015 = 
 
