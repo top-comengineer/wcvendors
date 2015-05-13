@@ -286,8 +286,7 @@ class WCV_Vendors
 	{
 		$user = get_userdata( $user_id );
 
-		$role      = !empty( $user->roles ) ? array_shift( $user->roles ) : false;
-		$is_vendor = $role == 'vendor';
+		$is_vendor = in_array( 'vendor', $user->roles );
 
 		return apply_filters( 'pv_is_vendor', $is_vendor, $user_id );
 	}
