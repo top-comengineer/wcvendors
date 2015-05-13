@@ -1,5 +1,9 @@
 Changelog for WC Vendors
 
+Version 1.7.3
+
+* Fixed: Paypal AP IPN url issue
+
 Version 1.7.2 
 
 * Added: Filters for seller tab #141
