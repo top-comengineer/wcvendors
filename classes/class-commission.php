@@ -322,7 +322,7 @@ class WCV_Commission
 	 *
 	 * @return bool.
 	 */
-	public function set_order_commission_paid( $order_id, $column_ids = false )
+	public static function set_order_commission_paid( $order_id, $column_ids = false )
 	{
 		global $wpdb;
 
