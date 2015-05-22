@@ -22,11 +22,14 @@ class WCV_Export_CSV
 			foreach ( $items[ $i ][ 'items' ] as $item ) {
 
 				$item_meta = new WC_Order_Item_Meta( $item[ 'item_meta' ] );
+				$imf = $item_meta->get_formatted(); 
 				$item_meta = $item_meta->display( true, true );
+
 
 				if ( !empty( $item_meta ) ) {
 					$meta          = true;
 					$body[ $i ][ ] = $item[ 'qty' ] . 'x: ' . html_entity_decode( $item_meta );
+					
 				} else {
 					$body[ $i ][ ] = $item[ 'qty' ];
 				}
@@ -54,7 +57,7 @@ class WCV_Export_CSV
 	public static function download( $headers, $body, $filename )
 	{
 		// Clear browser output before this point
-		ob_end_clean();
+		if (ob_get_contents()) ob_end_clean(); 
 
 		// Output headers so that the file is downloaded rather than displayed
 		header( 'Content-Type: text/csv; charset=utf-8' );
