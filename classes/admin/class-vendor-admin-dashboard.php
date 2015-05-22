@@ -48,15 +48,13 @@ Class WCV_Vendor_Admin_Dashboard {
 				return false;
 			}
 
-			if ( isset( $_POST[ 'pv_paypal' ] ) ) {
-				if ( !is_email( $_POST[ 'pv_paypal' ] ) ) {
-					$error_msg .=  __( 'Your PayPal address is not a valid email address.', 'wcvendors' );
-					$error = true; 
-				} else {
-					update_user_meta( $user_id, 'pv_paypal', $_POST[ 'pv_paypal' ] );
-				}
+			if ( !is_email( $_POST[ 'pv_paypal' ] ) ) {
+				$error_msg .=  __( 'Your PayPal address is not a valid email address.', 'wcvendors' );
+				$error = true; 
+			} else {
+				update_user_meta( $user_id, 'pv_paypal', $_POST[ 'pv_paypal' ] );
 			}
-
+		
 			if ( !empty( $_POST[ 'pv_shop_name' ] ) ) {
 				$users = get_users( array( 'meta_key' => 'pv_shop_slug', 'meta_value' => sanitize_title( $_POST[ 'pv_shop_name' ] ) ) );
 				if ( !empty( $users ) && $users[ 0 ]->ID != $user_id ) {
