@@ -57,8 +57,15 @@ class WC_Email_Notify_Admin extends WC_Email
 	 *
 	 * @param unknown $order_id
 	 */
-	function trigger( $post_id, $post )
+	function trigger( $new_status, $old_status, $post )
 	{
+
+		// Ensure this is only firing on products 
+		if (! in_array( $post->post_type, array( 'product', 'product_variation' ) ) ) { 
+			return; 
+		}
+		
+		// Ensure that the post author is a vendor 
 		if ( !WCV_Vendors::is_vendor( $post->post_author ) ) {
 			return;
 		}
