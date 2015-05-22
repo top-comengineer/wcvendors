@@ -5,7 +5,7 @@ if ( !defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 /**
  * New Order Email
  *
- * An email sent to the admin when a new order is received/paid for.
+ * An email sent to the vendor when a new order is received/paid for.
  *
  * @class    WC_Email_Notify_Vendor
  * @version  2.0.0
@@ -30,8 +30,8 @@ class WC_Email_Notify_Vendor extends WC_Email
 		$this->heading = __( 'New customer order', 'wcvendors' );
 		$this->subject = __( '[{blogname}] New customer order ({order_number}) - {order_date}', 'wcvendors' );
 
-		$this->template_html  = 'admin-new-order.php';
-		$this->template_plain = 'plain/admin-new-order.php';
+		$this->template_html  = 'vendor-new-order.php';
+		$this->template_plain = 'vendor-new-order.php';
 		$this->template_base  = dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/templates/emails/';
 
 		// Triggers for this email

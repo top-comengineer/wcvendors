@@ -1,6 +1,6 @@
 <?php
 /**
- * Admin new order email
+ * Vendor new order email
  *
  * @author WooThemes
  * @package WooCommerce/Templates/Emails/HTML
