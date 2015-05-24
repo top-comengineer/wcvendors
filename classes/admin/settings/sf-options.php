@@ -2,7 +2,7 @@
 $options = array();
 
 $options[ ] = array( 'name' => __( 'General', 'wcvendors' ), 'type' => 'heading' );
-$options[ ] = array( 'name' => __( 'General options', 'wcvendors' ), 'type' => 'title', 'desc' => __( ' ', 'wcvendors' ) );
+$options[ ] = array( 'name' => __( 'General options', 'wcvendors' ), 'type' => 'title', 'desc' => '' );
 
 $options[ ] = array(
 	'name'     => __( 'Default commission (%)', 'wcvendors' ),
@@ -51,7 +51,7 @@ $options[ ] = array(
 	'std'  => true,
 );
 
-$options[ ] = array( 'name' => __( 'Shop options', 'wcvendors' ), 'type' => 'title', 'desc' => __( ' ', 'wcvendors' ) );
+$options[ ] = array( 'name' => __( 'Shop options', 'wcvendors' ), 'type' => 'title', 'desc' => '' );
 
 $options[ ] = array(
 	'name' => __( 'Shop HTML', 'wcvendors' ),
@@ -243,7 +243,7 @@ $options[ ] = array(
 );
 
 $options[ ] = array( 'name' => __( 'Pages', 'wcvendors' ), 'type' => 'heading' );
-$options[ ] = array( 'name' => __( 'Page configuration', 'wcvendors' ), 'type' => 'title', 'desc' => __( ' ', 'wcvendors' ) );
+$options[ ] = array( 'name' => __( 'Page configuration', 'wcvendors' ), 'type' => 'title', 'desc' => '' );
 
 $options[ ] = array(
 	'name'    => __( 'Vendor dashboard', 'wcvendors' ),
@@ -278,7 +278,7 @@ $options[ ] = array(
 );
 
 $total_due = 0;
-if ( !empty( $_GET[ 'tab' ] ) && $_GET[ 'tab' ] == 'payments' ) {
+if ( !empty( $_GET[ 'tab' ] ) && $_GET[ 'tab' ] == __( 'payments', 'wcvendors' ) ) {
 	global $wpdb;
 
 	$table_name = $wpdb->prefix . "pv_commission";
