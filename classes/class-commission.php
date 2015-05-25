@@ -375,4 +375,30 @@ class WCV_Commission
 	}
 
 
+	/**
+	 * Set commission to 'paid' for an entire order
+	 *
+	 *
+	 * @access public
+	 *
+	 * @param mixed   $order_id   An array of Order IDs or an int.
+	 *
+	 * @return bool.
+	 */
+	public static function set_vendor_commission_paid( $vendors )
+	{
+		global $wpdb;
+
+		$table_name = $wpdb->prefix . "pv_commission";
+
+		if ( is_array( $vendors ) )
+			$vendors = implode( ',', $vendors );
+
+		$query  = "UPDATE `{$table_name}` SET `status` = 'paid' WHERE vendor_id IN ($vendors)";
+		$result = $wpdb->query( $query );
+
+		return $result;
+	}
+
+
 }

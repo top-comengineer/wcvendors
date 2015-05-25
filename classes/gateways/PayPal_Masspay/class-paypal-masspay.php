@@ -94,11 +94,11 @@ class WCV_Mass_Pay
 	 *
 	 * @return unknown
 	 */
-	private function purge_user_meta( $users )
+	private function purge_user_meta( $vendor_ids )
 	{
 		global $wpdb;
 
-		return WCV_Commission::set_order_commission_paid( $this->orders_paid, true );
+		return WCV_Commission::set_vendor_commission_paid( $vendor_ids );
 	}
 
 
@@ -118,6 +118,8 @@ class WCV_Mass_Pay
 			return $return;
 		}
 
+		$vendor_ids = array(); 
+
 		$this->include_paypal_sdk();
 
 		$logger                      = new PPLoggingManager( 'MassPay' );
@@ -134,6 +136,7 @@ class WCV_Mass_Pay
 			$masspayItem->Amount            = new BasicAmountType( get_woocommerce_currency(), $user[ 'total_due' ] );
 			$masspayItem->ReceiverEmail     = $user_paypal;
 			$massPayRequest->MassPayItem[ ] = $masspayItem;
+			$vendor_ids[]					= $user['user_id'];
 		}
 
 		$massPayReq                 = new MassPayReq();
@@ -158,7 +161,7 @@ class WCV_Mass_Pay
 
 		if ( isset( $massPayResponse ) ) {
 			if ( $massPayResponse->Ack === 'Success' ) {
-				if ( $this->purge_user_meta( $vendors ) ) {
+				if ( $this->purge_user_meta( $vendor_ids ) ) {
 					$return = array(
 						'status' => 'updated',
 						'msg'    => __( 'All due commission has been paid for.', 'wcvendors' ),
