@@ -284,9 +284,13 @@ class WCV_Vendors
 	 */
 	public static function is_vendor( $user_id )
 	{
-		$user = get_userdata( $user_id );
-
-		$is_vendor = $user->roles ? in_array( 'vendor', $user->roles ) : false;
+		$user = get_userdata( $user_id ); 
+		
+		if (is_object($user)) { 
+			$is_vendor = is_array( $user->roles ) ? in_array( 'vendor', $user->roles ) : false;
+		} else { 
+			$is_vendor = false; 
+		}
 
 		return apply_filters( 'pv_is_vendor', $is_vendor, $user_id );
 	}
