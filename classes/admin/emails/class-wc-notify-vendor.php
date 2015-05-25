@@ -195,7 +195,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 		wc_get_template( $this->template_html, array(
 															 'order'         => $this->object,
 															 'email_heading' => $this->get_heading()
-														), 'woocommerce/', $this->template_base );
+														), 'wc-vendors/emails', $this->template_base );
 
 		return ob_get_clean();
 	}
@@ -213,7 +213,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 		wc_get_template( $this->template_plain, array(
 															  'order'         => $this->object,
 															  'email_heading' => $this->get_heading()
-														 ), 'woocommerce/', $this->template_base );
+														 ), 'wc-vendors/emails', $this->template_base );
 
 		return ob_get_clean();
 	}

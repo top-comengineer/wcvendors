@@ -33,7 +33,7 @@ class WC_Email_Notify_Shipped extends WC_Email
 
 		$this->template_html  = 'notify-vendor-shipped.php';
 		$this->template_plain = 'notify-vendor-shipped.php';
-		$this->template_base  = dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/templates/emails/';
+		$this->template_base  = wcv_plugin_dir_path . '/templates/emails/';
 
 		// Call parent constuctor
 		parent::__construct();
@@ -126,7 +126,7 @@ class WC_Email_Notify_Shipped extends WC_Email
 		wc_get_template( $this->template_html, array(
 															 'order'         => $this->object,
 															 'email_heading' => $this->get_heading()
-														), 'woocommerce/', $this->template_base );
+														), 'wc-vendors/emails', $this->template_base );
 
 		return ob_get_clean();
 	}
@@ -144,7 +144,7 @@ class WC_Email_Notify_Shipped extends WC_Email
 		wc_get_template( $this->template_plain, array(
 															  'order'         => $this->object,
 															  'email_heading' => $this->get_heading()
-														 ), 'woocommerce/', $this->template_base );
+														 ), 'wc-vendors/emails', $this->template_base );
 
 		return ob_get_clean();
 	}
