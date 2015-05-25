@@ -66,7 +66,6 @@ No Upgrade required at this time.
 * Added: User email to Vendor Display Options #158
 * Fixed: Mass Pay Now Bug #159
 * Fixed: Mark as shipped for downloadable product #40
-* Updated: additional checks
 * Added:  Brazilian Portuguese language #156 
 * Updated: Default Language file
 * Fixed: Translation issue for query test #155
