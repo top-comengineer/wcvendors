@@ -288,7 +288,7 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 	function get_bulk_actions()
 	{
 		$actions = array(
-			'mark_shipped'     => __( 'Mark shipped', 'wcvendors' ),
+			'mark_shipped'     =>  apply_filters( 'wcvendors_mark_shipped_label', __( 'Mark shipped', 'wcvendors' ) ),
 		);
 
 		return $actions;
