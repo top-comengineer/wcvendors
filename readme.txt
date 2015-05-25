@@ -6,7 +6,7 @@ Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.0
 Tested up to: 4.2.2
-Stable tag: 1.7.3
+Stable tag: 1.7.4
 License: GPLv2 or later
 
 The free multi-vendor plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
@@ -57,6 +57,28 @@ You can post a support question on the support tab, however you'll get more help
 No Upgrade required at this time.
 
 == Changelog ==
+
+= Version 1.7.4 - 26th May 2015 =
+
+* Added: Mark shipped filter #157
+* Fixed: Added Tax total to vendor email #146
+* Updated: Location of email templates in theme to wc-vendors/emails
+* Added: User email to Vendor Display Options #158
+* Fixed: Mass Pay Now Bug #159
+* Fixed: Mark as shipped for downloadable product #40
+* Updated: additional checks
+* Added:  Brazilian Portuguese language #156 
+* Updated: Default Language file
+* Fixed: Translation issue for query test #155
+* Updated: Template base for emails
+* Fixed: Vendor email and renamed template #135
+* Fixed: Better CSV Output #63
+* Fixed: Made PayPal optional on Vendor Dashboard Shop Settings #144
+* Update: fixed return query var
+* Fixed: Test for product post types #149
+* Fixed: 2.1 Depreciated return call
+* Fixed: PHP Strict static call in commissions class
+* Merged: Is Vendor checks all user roles #147 thanks crabilld
 
 = Version 1.7.3 - 13th may 2015 = 
 
