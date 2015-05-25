@@ -431,6 +431,10 @@ class WCV_Vendors
 			case 'user_login': 
 				$display_name = $vendor->user_login;
 				break;
+			case 'user_email': 
+				$display_name = $vendor->user_email;
+				break;
+
 			default:
 				$display_name = WCV_Vendors::get_vendor_shop_name( $vendor_id ); 
 				break;

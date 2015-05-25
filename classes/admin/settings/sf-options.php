@@ -87,6 +87,7 @@ $options[ ] = array(
 		'display_name' 	=> __( 'Display Name', 'wcvendors'), 
 		'shop_name'		=> __( 'Shop Name', 'wcvendors'), 
 		'user_login' 	=> __( 'User Login', 'wcvendors'), 
+		'user_email' 	=> __( 'User Email', 'wcvendors'), 
 	), 
 	'std'	=> 'shop_name'
 
