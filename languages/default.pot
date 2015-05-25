@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WC Vendors\n"
-"POT-Creation-Date: 2015-05-24 21:55+1000\n"
+"POT-Creation-Date: 2015-05-25 19:48+1000\n"
 "PO-Revision-Date: 2015-04-24 09:29+1000\n"
 "Last-Translator: \n"
 "Language-Team: WC Vendors <support@wcvendors.com>\n"
@@ -29,7 +29,7 @@ msgid ""
 "v2.2.0."
 msgstr ""
 
-#: ../class-wc-vendors.php:226 ../classes/admin/settings/sf-options.php:159
+#: ../class-wc-vendors.php:226 ../classes/admin/settings/sf-options.php:160
 msgid "Capabilities"
 msgstr ""
 
@@ -317,7 +317,7 @@ msgstr ""
 
 #: ../classes/admin/class-vendor-admin-dashboard.php:20
 #: ../classes/admin/class-vendor-admin-dashboard.php:140
-#: ../classes/admin/settings/sf-options.php:163
+#: ../classes/admin/settings/sf-options.php:164
 #: ../classes/class-install.php:165 ../templates/dashboard/orders.php:24
 msgid "Orders"
 msgstr ""
@@ -343,8 +343,8 @@ msgid "Customer"
 msgstr ""
 
 #: ../classes/admin/class-vendor-admin-dashboard.php:255
-#: ../classes/admin/settings/sf-options.php:95
-#: ../classes/admin/settings/sf-options.php:221
+#: ../classes/admin/settings/sf-options.php:96
+#: ../classes/admin/settings/sf-options.php:222
 msgid "Products"
 msgstr ""
 
@@ -353,7 +353,7 @@ msgid "Shipped"
 msgstr ""
 
 #: ../classes/admin/class-vendor-admin-dashboard.php:291
-#: ../templates/dashboard/orders.php:68
+#: ../templates/dashboard/orders.php:75
 msgid "Mark shipped"
 msgstr ""
 
@@ -419,7 +419,7 @@ msgstr ""
 #: ../classes/admin/emails/class-wc-approve-vendor.php:123
 #: ../classes/admin/emails/class-wc-notify-admin.php:138
 #: ../classes/admin/emails/class-wc-notify-shipped.php:163
-#: ../classes/admin/emails/class-wc-notify-vendor.php:232
+#: ../classes/admin/emails/class-wc-notify-vendor.php:247
 #: ../classes/gateways/WCV_Gateway_Test/class-wcv-gateway-test.php:62
 msgid "Enable/Disable"
 msgstr ""
@@ -427,7 +427,7 @@ msgstr ""
 #: ../classes/admin/emails/class-wc-approve-vendor.php:125
 #: ../classes/admin/emails/class-wc-notify-admin.php:140
 #: ../classes/admin/emails/class-wc-notify-shipped.php:165
-#: ../classes/admin/emails/class-wc-notify-vendor.php:234
+#: ../classes/admin/emails/class-wc-notify-vendor.php:249
 msgid "Enable this email notification"
 msgstr ""
 
@@ -447,14 +447,14 @@ msgstr ""
 #: ../classes/admin/emails/class-wc-approve-vendor.php:136
 #: ../classes/admin/emails/class-wc-notify-admin.php:151
 #: ../classes/admin/emails/class-wc-notify-shipped.php:169
-#: ../classes/admin/emails/class-wc-notify-vendor.php:238
+#: ../classes/admin/emails/class-wc-notify-vendor.php:253
 msgid "Subject"
 msgstr ""
 
 #: ../classes/admin/emails/class-wc-approve-vendor.php:138
 #: ../classes/admin/emails/class-wc-notify-admin.php:153
 #: ../classes/admin/emails/class-wc-notify-shipped.php:171
-#: ../classes/admin/emails/class-wc-notify-vendor.php:240
+#: ../classes/admin/emails/class-wc-notify-vendor.php:255
 #, php-format
 msgid ""
 "This controls the email subject line. Leave blank to use the default "
@@ -464,14 +464,14 @@ msgstr ""
 #: ../classes/admin/emails/class-wc-approve-vendor.php:143
 #: ../classes/admin/emails/class-wc-notify-admin.php:158
 #: ../classes/admin/emails/class-wc-notify-shipped.php:176
-#: ../classes/admin/emails/class-wc-notify-vendor.php:245
+#: ../classes/admin/emails/class-wc-notify-vendor.php:260
 msgid "Email Heading"
 msgstr ""
 
 #: ../classes/admin/emails/class-wc-approve-vendor.php:145
 #: ../classes/admin/emails/class-wc-notify-admin.php:160
 #: ../classes/admin/emails/class-wc-notify-shipped.php:178
-#: ../classes/admin/emails/class-wc-notify-vendor.php:247
+#: ../classes/admin/emails/class-wc-notify-vendor.php:262
 #, php-format
 msgid ""
 "This controls the main heading contained within the email notification. "
@@ -481,35 +481,35 @@ msgstr ""
 #: ../classes/admin/emails/class-wc-approve-vendor.php:150
 #: ../classes/admin/emails/class-wc-notify-admin.php:165
 #: ../classes/admin/emails/class-wc-notify-shipped.php:183
-#: ../classes/admin/emails/class-wc-notify-vendor.php:252
+#: ../classes/admin/emails/class-wc-notify-vendor.php:267
 msgid "Email type"
 msgstr ""
 
 #: ../classes/admin/emails/class-wc-approve-vendor.php:152
 #: ../classes/admin/emails/class-wc-notify-admin.php:167
 #: ../classes/admin/emails/class-wc-notify-shipped.php:185
-#: ../classes/admin/emails/class-wc-notify-vendor.php:254
+#: ../classes/admin/emails/class-wc-notify-vendor.php:269
 msgid "Choose which format of email to send."
 msgstr ""
 
 #: ../classes/admin/emails/class-wc-approve-vendor.php:156
 #: ../classes/admin/emails/class-wc-notify-admin.php:171
 #: ../classes/admin/emails/class-wc-notify-shipped.php:189
-#: ../classes/admin/emails/class-wc-notify-vendor.php:258
+#: ../classes/admin/emails/class-wc-notify-vendor.php:273
 msgid "Plain text"
 msgstr ""
 
 #: ../classes/admin/emails/class-wc-approve-vendor.php:157
 #: ../classes/admin/emails/class-wc-notify-admin.php:172
 #: ../classes/admin/emails/class-wc-notify-shipped.php:190
-#: ../classes/admin/emails/class-wc-notify-vendor.php:259
+#: ../classes/admin/emails/class-wc-notify-vendor.php:274
 msgid "HTML"
 msgstr ""
 
 #: ../classes/admin/emails/class-wc-approve-vendor.php:158
 #: ../classes/admin/emails/class-wc-notify-admin.php:173
 #: ../classes/admin/emails/class-wc-notify-shipped.php:191
-#: ../classes/admin/emails/class-wc-notify-vendor.php:260
+#: ../classes/admin/emails/class-wc-notify-vendor.php:275
 msgid "Multipart"
 msgstr ""
 
@@ -571,7 +571,11 @@ msgstr ""
 msgid "Commission Subtotal:"
 msgstr ""
 
-#: ../classes/admin/emails/class-wc-notify-vendor.php:112
+#: ../classes/admin/emails/class-wc-notify-vendor.php:109
+msgid "Tax Subtotal:"
+msgstr ""
+
+#: ../classes/admin/emails/class-wc-notify-vendor.php:117
 msgid "Shipping Subtotal:"
 msgstr ""
 
@@ -718,280 +722,284 @@ msgstr ""
 msgid "User Login"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:96
+#: ../classes/admin/settings/sf-options.php:90
+msgid "User Email"
+msgstr ""
+
+#: ../classes/admin/settings/sf-options.php:97
 msgid "Product Add Page"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:96
+#: ../classes/admin/settings/sf-options.php:97
 msgid "Configure what to hide from all vendors when adding a product"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:99
+#: ../classes/admin/settings/sf-options.php:100
 msgid "Left side panel"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:100
+#: ../classes/admin/settings/sf-options.php:101
 msgid ""
 "CHECKING these boxes will HIDE these areas of the add product page for "
 "vendors"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:114
+#: ../classes/admin/settings/sf-options.php:115
 msgid "Types"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:115
+#: ../classes/admin/settings/sf-options.php:116
 msgid "CHECKING these boxes will HIDE these product types from the vendor"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:128
+#: ../classes/admin/settings/sf-options.php:129
 msgid "Type options"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:129
+#: ../classes/admin/settings/sf-options.php:130
 msgid "CHECKING these boxes will HIDE these product options from the vendor"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:140
+#: ../classes/admin/settings/sf-options.php:141
 msgid "Miscellaneous"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:152
+#: ../classes/admin/settings/sf-options.php:153
 msgid "Stylesheet"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:153
+#: ../classes/admin/settings/sf-options.php:154
 msgid ""
 "You can add CSS in this textarea, which will be loaded on the product add/"
 "edit page for vendors."
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:160
+#: ../classes/admin/settings/sf-options.php:161
 msgid "Permissions"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:160
+#: ../classes/admin/settings/sf-options.php:161
 msgid "General permissions used around the shop"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:164
+#: ../classes/admin/settings/sf-options.php:165
 msgid "View orders"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:165
+#: ../classes/admin/settings/sf-options.php:166
 msgid "Show customer details such as email, address, name, etc, for each order"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:172
+#: ../classes/admin/settings/sf-options.php:173
 msgid "View comments"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:173
+#: ../classes/admin/settings/sf-options.php:174
 msgid "View all vendor comments for an order on the frontend"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:180
+#: ../classes/admin/settings/sf-options.php:181
 msgid "Submit comments"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:181
+#: ../classes/admin/settings/sf-options.php:182
 msgid ""
 "Submit comments for an order on the frontend. Eg, tracking ID for a product"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:188
+#: ../classes/admin/settings/sf-options.php:189
 msgid "View email addresses"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:189
+#: ../classes/admin/settings/sf-options.php:190
 msgid ""
 "While viewing order details on the frontend, you can disable or enable email "
 "addresses"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:196
+#: ../classes/admin/settings/sf-options.php:197
 msgid "Export a CSV file of orders for a product"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:197
+#: ../classes/admin/settings/sf-options.php:198
 msgid "Vendors could export orders for a product on the frontend"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:204
+#: ../classes/admin/settings/sf-options.php:205
 msgid "Reports"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:205
+#: ../classes/admin/settings/sf-options.php:206
 msgid "View backend sales reports"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:206
+#: ../classes/admin/settings/sf-options.php:207
 msgid ""
 "Graphs and tables via the Reports page in backend. The reports will only "
 "display sales data that pertain to their products"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:213
+#: ../classes/admin/settings/sf-options.php:214
 msgid "View Frontend sales reports"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:214
+#: ../classes/admin/settings/sf-options.php:215
 msgid ""
 "Sales table on the frontend on the My Account page. The table will only "
 "display sales data that pertain to their products"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:222
+#: ../classes/admin/settings/sf-options.php:223
 msgid "Submit products"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:223
+#: ../classes/admin/settings/sf-options.php:224
 msgid ""
 "Vendors could submit a product through the backend, and an admin would "
 "approve or deny it"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:230
+#: ../classes/admin/settings/sf-options.php:231
 msgid "Edit live products"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:231
+#: ../classes/admin/settings/sf-options.php:232
 msgid ""
 "Vendors could edit an approved product after it has already gone live. There "
 "is no approval or review after editing a live product. This could be "
 "dangerous with malicious vendors, so take caution."
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:238
+#: ../classes/admin/settings/sf-options.php:239
 msgid "Submit products live without requiring approval"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:239
+#: ../classes/admin/settings/sf-options.php:240
 msgid ""
 "Vendors can submit products without review or approval from a shop admin. "
 "This could be dangerous with malicious vendors, so take caution."
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:245
+#: ../classes/admin/settings/sf-options.php:246
 msgid "Pages"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:246
+#: ../classes/admin/settings/sf-options.php:247
 msgid "Page configuration"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:249
+#: ../classes/admin/settings/sf-options.php:250
 msgid "Vendor dashboard"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:250
+#: ../classes/admin/settings/sf-options.php:251
 msgid ""
 "Choose the page that has the shortcode <code>[wcv_vendor_dashboard]</"
 "code><br/>By default, My Account > Vendor Dashboard should have the "
 "shortcode."
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:257
+#: ../classes/admin/settings/sf-options.php:258
 msgid "Shop settings"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:258
+#: ../classes/admin/settings/sf-options.php:259
 msgid ""
 "Choose the page that has the shortcode <code>[wcv_shop_settings]</code><br/"
 ">These are the shop settings a vendor can configure."
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:265
+#: ../classes/admin/settings/sf-options.php:266
 msgid "Orders page"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:266
+#: ../classes/admin/settings/sf-options.php:267
 msgid ""
 "Choose the page that has the shortcode <code>[wcv_orders]</code><br/>By "
 "default, My Account > Orders should have the shortcode."
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:273
+#: ../classes/admin/settings/sf-options.php:274
 msgid "Vendor terms"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:274
+#: ../classes/admin/settings/sf-options.php:275
 msgid ""
 "These terms are shown to a user when submitting an application to become a "
 "vendor.<br/>If left blank, no terms will be shown to the applicant."
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:281
+#: ../classes/admin/settings/sf-options.php:282
 msgid "payments"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:292
+#: ../classes/admin/settings/sf-options.php:293
 msgid "Payments"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:294
+#: ../classes/admin/settings/sf-options.php:295
 msgid "User payments"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:295
+#: ../classes/admin/settings/sf-options.php:296
 #, php-format
 msgid "Total commission currently due: %s. <a href=\"%s\">View details</a>."
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:296
+#: ../classes/admin/settings/sf-options.php:297
 #, php-format
 msgid ""
 "Make sure you update your PayPal Adaptive Payments settings <a href=\"%s"
 "\">here</a>."
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:300
+#: ../classes/admin/settings/sf-options.php:301
 msgid "Instant pay"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:301
+#: ../classes/admin/settings/sf-options.php:302
 msgid "Instantly pay vendors their commission when an order is made"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:302
+#: ../classes/admin/settings/sf-options.php:303
 msgid ""
 "For this to work, customers must checkout with the PayPal Adaptive Payments "
 "gateway. Using any other gateways will not pay vendors instantly"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:309
+#: ../classes/admin/settings/sf-options.php:310
 msgid "Payment schedule"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:310
+#: ../classes/admin/settings/sf-options.php:311
 msgid "Note: Schedule will only work if instant pay is unchecked"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:315
+#: ../classes/admin/settings/sf-options.php:316
 msgid "Weekly"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:316
+#: ../classes/admin/settings/sf-options.php:317
 msgid "Biweekly"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:317
+#: ../classes/admin/settings/sf-options.php:318
 msgid "Monthly"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:318
+#: ../classes/admin/settings/sf-options.php:319
 msgid "Manual"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:319
+#: ../classes/admin/settings/sf-options.php:320
 msgid "Now"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:324
+#: ../classes/admin/settings/sf-options.php:325
 msgid "Email notification"
 msgstr ""
 
-#: ../classes/admin/settings/sf-options.php:325
+#: ../classes/admin/settings/sf-options.php:326
 msgid ""
 "Send the WooCommerce admin an email each time a payment has been made via "
 "the payment schedule options above"
@@ -1284,7 +1292,7 @@ msgstr ""
 
 #: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:369
 #: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:483
-#: ../classes/gateways/PayPal_Masspay/class-paypal-masspay.php:150
+#: ../classes/gateways/PayPal_Masspay/class-paypal-masspay.php:153
 #, php-format
 msgid "Error: %s"
 msgstr ""
@@ -1299,38 +1307,38 @@ msgstr ""
 msgid "No vendors found to pay. Maybe they haven't set a PayPal address?"
 msgstr ""
 
-#: ../classes/gateways/PayPal_Masspay/class-paypal-masspay.php:164
+#: ../classes/gateways/PayPal_Masspay/class-paypal-masspay.php:167
 msgid "All due commission has been paid for."
 msgstr ""
 
-#: ../classes/gateways/PayPal_Masspay/class-paypal-masspay.php:170
+#: ../classes/gateways/PayPal_Masspay/class-paypal-masspay.php:173
 msgid ""
 "All due commission has been paid for, but I could not clear it from their "
 "profiles due to an internal error. Commission will still be listed as due. "
 "Please manually mark the commission as paid from the Commissions page."
 msgstr ""
 
-#: ../classes/gateways/PayPal_Masspay/class-paypal-masspay.php:205
+#: ../classes/gateways/PayPal_Masspay/class-paypal-masspay.php:208
 msgid "WooCommerce: Mass payments for vendors update"
 msgstr ""
 
-#: ../classes/gateways/PayPal_Masspay/class-paypal-masspay.php:207
+#: ../classes/gateways/PayPal_Masspay/class-paypal-masspay.php:210
 msgid ""
 "Hello! A payment was just triggered to mass pay all vendors their due "
 "commission."
 msgstr ""
 
-#: ../classes/gateways/PayPal_Masspay/class-paypal-masspay.php:208
+#: ../classes/gateways/PayPal_Masspay/class-paypal-masspay.php:211
 #, php-format
 msgid "Payment status: %s."
 msgstr ""
 
-#: ../classes/gateways/PayPal_Masspay/class-paypal-masspay.php:209
+#: ../classes/gateways/PayPal_Masspay/class-paypal-masspay.php:212
 #, php-format
 msgid "Payment message: %s."
 msgstr ""
 
-#: ../classes/gateways/PayPal_Masspay/class-paypal-masspay.php:212
+#: ../classes/gateways/PayPal_Masspay/class-paypal-masspay.php:215
 #, php-format
 msgid "Payment total: %s."
 msgstr ""
@@ -1400,7 +1408,7 @@ msgstr ""
 msgid "Hide items"
 msgstr ""
 
-#: ../templates/dashboard/orders.php:8 ../templates/dashboard/orders.php:68
+#: ../templates/dashboard/orders.php:8 ../templates/dashboard/orders.php:74
 msgid "View items"
 msgstr ""
 
@@ -1408,15 +1416,15 @@ msgstr ""
 msgid "Links"
 msgstr ""
 
-#: ../templates/dashboard/orders.php:68
+#: ../templates/dashboard/orders.php:75
 msgid "Unmark shipped"
 msgstr ""
 
-#: ../templates/dashboard/orders.php:68
+#: ../templates/dashboard/orders.php:76
 msgid "Tracking"
 msgstr ""
 
-#: ../templates/dashboard/orders.php:118
+#: ../templates/dashboard/orders.php:126
 msgid "You have no orders during this period."
 msgstr ""
 
