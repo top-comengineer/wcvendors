@@ -47,12 +47,17 @@ jQuery(function () {
 			$order = new WC_Order( $order->order_id );
 			$valid_items = WCV_Queries::get_products_for_order( $order->id );
 			$valid = array();
+			$needs_shipping = false; 
 
 			$items = $order->get_items();
 			foreach ($items as $key => $value) {
 				if ( in_array($value['variation_id'], $valid_items) || in_array($value['product_id'], $valid_items)) {
 					$valid[] = $value;
 				}
+				// See if product needs shipping 
+				$product = new WC_Product($value['product_id'] ); 
+				$needs_shipping = ( !$product->needs_shipping() || $product->is_downloadable('yes') ) ? false : true; 
+
 			}
 
 			$shippers = (array) get_post_meta( $order->id, 'wc_pv_shipped', true );
@@ -65,7 +70,10 @@ jQuery(function () {
 				<td><?php echo apply_filters( 'wcvendors_dashboard_google_maps_link', '<a target="_blank" href="' . esc_url( 'http://maps.google.com/maps?&q=' . urlencode( esc_html( preg_replace( '#<br\s*/?>#i', ', ', $order->get_formatted_shipping_address() ) ) ) . '&z=16' ) . '">'. esc_html( preg_replace( '#<br\s*/?>#i', ', ', $order->get_formatted_shipping_address() ) ) .'</a>' ); ?></td>
 				<td><?php $sum = WCV_Queries::sum_for_orders( array( $order->id ), array('vendor_id'=>get_current_user_id()) ); $total = $sum[0]->line_total; $totals += $total; echo woocommerce_price( $total ); ?></td>
 				<td><?php echo $order->order_date; ?></td>
-				<td><a href="#" class="view-items" id="<?php echo $order->id; ?>"><?php _e('View items', 'wcvendors'); ?></a> | <a href="?wc_pv_mark_shipped=<?php echo $order->id; ?>" class="mark-shipped"><?php echo $shipped ? __('Unmark shipped', 'wcvendors') : __('Mark shipped', 'wcvendors'); ?></a> <?php if ( $providers ) : ?>  <a href="#" class="view-order-tracking" id="<?php echo $order->id; ?>"><?php _e( 'Tracking', 'wcvendors' ); ?></a><?php endif; ?></td>
+				<td>
+				<a href="#" class="view-items" id="<?php echo $order->id; ?>"><?php _e('View items', 'wcvendors'); ?></a>
+				<?php if ($needs_shipping ) { ?> <a href="?wc_pv_mark_shipped=<?php echo $order->id; ?>" class="mark-shipped"><?php echo $shipped ? __('Unmark shipped', 'wcvendors') : __('Mark shipped', 'wcvendors'); ?></a> <?php } ?>
+				<?php if ( $providers ) : ?>  	 <a href="#" class="view-order-tracking" id="<?php echo $order->id; ?>"><?php _e( 'Tracking', 'wcvendors' ); ?></a><?php endif; ?></td>
 			</tr>
 
 			<tr id="view-items-<?php echo $order->id; ?>" style="display:none;">
