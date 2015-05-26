@@ -85,7 +85,7 @@ class WC_Email_Approve_Vendor extends WC_Email
 															 'status'        => $this->status,
 															 'user'          => $this->user,
 															 'email_heading' => $this->get_heading()
-														), 'wc-vendors/email', $this->template_base );
+														), 'wc-vendors/emails', $this->template_base );
 
 		return ob_get_clean();
 	}
