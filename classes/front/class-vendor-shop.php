@@ -241,7 +241,7 @@ class WCV_Vendor_Shop
 			$global_html 		= WC_Vendors::$pv_options->get_option( 'shop_html_enabled' );
 			$description 		= do_shortcode( $vendor->pv_shop_description );
 			$shop_description 	=  ( $global_html || $has_html ) ? wpautop( wptexturize( wp_kses_post( $description ) ) ) : sanitize_text_field( $description );
-			$seller_info 		=  ( $global_html || $has_html ) ? wpautop( get_user_meta( $vendor_id, 'pv_seller_info', true ) ) : sanitize_text_field( get_user_meta( $vendor_id, 'pv_seller_info', true );
+			$seller_info 		=  ( $global_html || $has_html ) ? wpautop( get_user_meta( $vendor_id, 'pv_seller_info', true ) ) : sanitize_text_field( get_user_meta( $vendor_id, 'pv_seller_info', true ) );
 
 			do_action('wcv_before_mini_header', $vendor->ID);
 
