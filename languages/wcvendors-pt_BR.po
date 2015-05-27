@@ -55,7 +55,7 @@ msgstr "Fóruns de Ajuda"
 
 #: ../class-wc-vendors.php:286
 msgid "Paid Support"
-msgstr "Suporte pago"
+msgstr "Suporte Pago"
 
 #: ../class-wc-vendors.php:308
 #, php-format
@@ -104,7 +104,7 @@ msgstr "Produto"
 #: ../classes/admin/class-admin-page.php:252
 #: ../classes/admin/class-vendor-admin-dashboard.php:255
 msgid "Order ID"
-msgstr "Pedido ID"
+msgstr "ID Pedido"
 
 #: ../classes/admin/class-admin-page.php:253
 #: ../classes/admin/class-admin-reports.php:169
@@ -137,15 +137,15 @@ msgstr "Data"
 
 #: ../classes/admin/class-admin-page.php:293
 msgid "Mark paid"
-msgstr "Marca de pago"
+msgstr "Marcar como pago"
 
 #: ../classes/admin/class-admin-page.php:294
 msgid "Mark due"
-msgstr "Marca de à pagar"
+msgstr "Marcar como à pagar"
 
 #: ../classes/admin/class-admin-page.php:295
 msgid "Mark reversed"
-msgstr "Marca de revertido"
+msgstr "Marcar como revertido"
 
 #: ../classes/admin/class-admin-page.php:312
 #: ../classes/admin/class-admin-page.php:316
@@ -297,7 +297,7 @@ msgstr "Nome da loja"
 
 #: ../classes/admin/class-admin-users.php:394
 msgid "PayPal E-mail"
-msgstr "PayPal E-mail"
+msgstr "E-mail do PayPal"
 
 #: ../classes/admin/class-admin-users.php:395
 msgid "required"
@@ -338,7 +338,7 @@ msgstr "Pedidos"
 #: ../classes/admin/class-vendor-admin-dashboard.php:53
 #: ../classes/front/dashboard/class-vendor-dashboard.php:101
 msgid "Your PayPal address is not a valid email address."
-msgstr "Seu endereço do PayPal não é um endereço de email válido"
+msgstr "Seu endereço de e-mail do PayPal não é válido"
 
 #: ../classes/admin/class-vendor-admin-dashboard.php:63
 #: ../classes/front/dashboard/class-vendor-dashboard.php:110
@@ -368,11 +368,11 @@ msgstr "Enviado"
 #: ../classes/admin/class-vendor-admin-dashboard.php:293
 #: ../templates/dashboard/orders.php:68
 msgid "Mark shipped"
-msgstr "Marcar enviado"
+msgstr "Marcar como enviado"
 
 #: ../classes/admin/class-vendor-admin-dashboard.php:317
 msgid "Orders marked shipped."
-msgstr "Pedidos marcados enviados"
+msgstr "Pedidos marcados como enviados"
 
 #: ../classes/admin/class-vendor-applicants.php:26
 msgid "Approve"
@@ -423,11 +423,11 @@ msgstr "Requerimento para Vendedor será aprovado, negado, ou pendente."
 
 #: ../classes/admin/emails/class-wc-approve-vendor.php:31
 msgid "Application {status}"
-msgstr "Requerimento {condição}"
+msgstr "Requerimento {status}"
 
 #: ../classes/admin/emails/class-wc-approve-vendor.php:32
 msgid "[{blogname}] Your vendor application has been {status}"
-msgstr "[{nomedoblog}] Seu requerimento para vendedor foi {condição}"
+msgstr "[{blogname}] Seu requerimento para vendedor foi {status}"
 
 #: ../classes/admin/emails/class-wc-approve-vendor.php:123
 #: ../classes/admin/emails/class-wc-notify-admin.php:131
@@ -549,7 +549,7 @@ msgstr "Novo produto enviado: {produto_nome}"
 #: ../classes/admin/emails/class-wc-notify-admin.php:32
 msgid "[{blogname}] New product submitted by {vendor_name} - {product_name}"
 msgstr ""
-"[{nomedoblog}] Novo produto enviado por {vendedor_nome} - {produto_nome}"
+"[{blogname}] Novo produto enviado por {vendor_name} - {product_name}"
 
 #: ../classes/admin/emails/class-wc-notify-shipped.php:28
 msgid "Vendor has shipped"
@@ -570,7 +570,7 @@ msgstr "Seu pedido já foi enviado"
 msgid ""
 "[{blogname}] Your order has been shipped ({order_number}) - {order_date}"
 msgstr ""
-"[{nomedoblog}] Seu pedido já foi enviado ({pedido_numero}) - {pedido_data}"
+"[{blogname}] Seu pedido já foi enviado ({order_number}) - {order_date}"
 
 #: ../classes/admin/emails/class-wc-notify-shipped.php:112
 msgid "Subtotal:"
@@ -593,7 +593,7 @@ msgstr "Novo pedido de cliente"
 #: ../classes/admin/emails/class-wc-notify-vendor.php:31
 msgid "[{blogname}] New customer order ({order_number}) - {order_date}"
 msgstr ""
-"[{nomedoblog}] Novo pedido de cliente ({pedido_numero}) - {pedido_data}"
+"[{blogname}] Novo pedido de cliente ({order_number}) - {order_date}"
 
 #: ../classes/admin/emails/class-wc-notify-vendor.php:103
 msgid "Commission Subtotal:"
@@ -634,7 +634,7 @@ msgstr "Opções gerais"
 #: ../classes/admin/settings/sf-options.php:54
 #: ../classes/admin/settings/sf-options.php:246
 msgid " "
-msgstr ""
+msgstr " "
 
 #: ../classes/admin/settings/sf-options.php:8
 msgid "Default commission (%)"
@@ -1542,7 +1542,7 @@ msgstr "Links"
 
 #: ../templates/dashboard/orders.php:68
 msgid "Unmark shipped"
-msgstr "Desmarcar enviado"
+msgstr "Desmarcar como enviado"
 
 #: ../templates/dashboard/orders.php:68
 msgid "Tracking"
@@ -1686,15 +1686,15 @@ msgstr "Fornecedor:"
 
 #: ../templates/orders/shipping/shipping-form.php:48
 msgid "Custom Provider"
-msgstr "Fornecedor personalizado"
+msgstr "Fornecedor Personalizado"
 
 #: ../templates/orders/shipping/shipping-form.php:68
 msgid "Provider Name:"
-msgstr "Nome do fornecedor:"
+msgstr "Nome do Fornecedor:"
 
 #: ../templates/orders/shipping/shipping-form.php:76
 msgid "Tracking number:"
-msgstr "Número de rastreamento:"
+msgstr "Código de rastreamento:"
 
 #: ../templates/orders/shipping/shipping-form.php:84
 msgid "Tracking link:"
@@ -1714,7 +1714,7 @@ msgstr "Clique aqui para rastrear seu envio"
 
 #: ../templates/orders/shipping/shipping-form.php:110
 msgid "Update tracking number"
-msgstr "Atualizar número de rastreamento"
+msgstr "Atualizar código de rastreamento"
 
 #: ../templates/orders/shipping/shipping-form.php:112
 msgid "Mark as shipped"
