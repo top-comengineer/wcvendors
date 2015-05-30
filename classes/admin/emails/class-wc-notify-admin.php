@@ -57,7 +57,7 @@ class WC_Email_Notify_Admin extends WC_Email
 	 *
 	 * @param unknown $order_id
 	 */
-	function trigger( $new_status, $old_status, $post )
+	function trigger( $post )
 	{
 
 		// Ensure this is only firing on products 
