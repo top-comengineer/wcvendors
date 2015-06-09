@@ -31,7 +31,7 @@ class WC_Email_Approve_Vendor extends WC_Email
 		$this->heading = __( 'Application {status}', 'wcvendors' );
 		$this->subject = __( '[{blogname}] Your vendor application has been {status}', 'wcvendors' );
 
-		$this->template_base  = wcv_plugin_dir_path . '/templates/emails/';
+		$this->template_base  = dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/templates/emails/';
 		$this->template_html  = 'application-status.php';
 		$this->template_plain = 'application-status.php';
 
@@ -85,7 +85,7 @@ class WC_Email_Approve_Vendor extends WC_Email
 															 'status'        => $this->status,
 															 'user'          => $this->user,
 															 'email_heading' => $this->get_heading()
-														), 'wc-vendors/emails', $this->template_base );
+														), 'woocommerce/emails', $this->template_base );
 
 		return ob_get_clean();
 	}
@@ -104,7 +104,7 @@ class WC_Email_Approve_Vendor extends WC_Email
 															  'status'        => $this->status,
 															  'user'          => $this->user,
 															  'email_heading' => $this->get_heading()
-														 ), 'wc-vendors/emails', $this->template_base );
+														 ), 'woocommerce/emails', $this->template_base );
 
 		return ob_get_clean();
 	}

@@ -32,7 +32,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 
 		$this->template_html  = 'vendor-new-order.php';
 		$this->template_plain = 'vendor-new-order.php';
-		$this->template_base  = wcv_plugin_dir_path . '/templates/emails/';
+		$this->template_base  = dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/templates/emails/';
 
 		// Triggers for this email
 		add_action( 'woocommerce_order_status_pending_to_processing_notification', array( $this, 'trigger' ) );
@@ -210,7 +210,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 		wc_get_template( $this->template_html, array(
 															 'order'         => $this->object,
 															 'email_heading' => $this->get_heading()
-														), 'wc-vendors/emails', $this->template_base );
+														), 'woocommerce/emails', $this->template_base );
 
 		return ob_get_clean();
 	}
@@ -228,7 +228,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 		wc_get_template( $this->template_plain, array(
 															  'order'         => $this->object,
 															  'email_heading' => $this->get_heading()
-														 ), 'wc-vendors/emails', $this->template_base );
+														 ), 'woocommerce/emails', $this->template_base );
 
 		return ob_get_clean();
 	}
