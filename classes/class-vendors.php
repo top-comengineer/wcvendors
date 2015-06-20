@@ -88,16 +88,20 @@ class WCV_Vendors
 
 		foreach ( $order->get_items() as $key => $product ) {
 
-			$product_id = !empty( $product[ 'variation_id' ] ) ? $product[ 'variation_id' ] : $product[ 'product_id' ];
-			$author     = WCV_Vendors::get_vendor_from_product( $product_id );
-			$is_vendor  = WCV_Vendors::is_vendor( $author );
-			$commission = $is_vendor ? WCV_Commission::calculate_commission( $product[ 'line_subtotal' ], $product_id, $order ) : 0;
-			$tax        = !empty( $product[ 'line_tax' ] ) ? (float) $product[ 'line_tax' ] : 0;
+			$product_id 		= !empty( $product[ 'variation_id' ] ) ? $product[ 'variation_id' ] : $product[ 'product_id' ];
+			$author     		= WCV_Vendors::get_vendor_from_product( $product_id );
+			$give_tax_override 	= get_user_meta( $author, 'wcv_give_vendor_tax', true ); 
+			$is_vendor  		= WCV_Vendors::is_vendor( $author );
+			$commission 		= $is_vendor ? WCV_Commission::calculate_commission( $product[ 'line_subtotal' ], $product_id, $order ) : 0;
+			$tax        		= !empty( $product[ 'line_tax' ] ) ? (float) $product[ 'line_tax' ] : 0;
 
 			// Check if shipping is enabled
 			if ( get_option('woocommerce_calc_shipping') === 'no' ) { $shipping = 0; } else {
 					$shipping = WCV_Shipping::get_shipping_due( $order->id, $product, $author );
 			}
+
+			// Tax override on a per vendor basis
+			if ( $give_tax_override ) $give_tax = true; 
 
 			if ( $is_vendor ) {
 

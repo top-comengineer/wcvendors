@@ -365,6 +365,7 @@ class WCV_Admin_Users
 		update_user_meta( $vendor_id, 'pv_custom_commission_rate', $_POST[ 'pv_custom_commission_rate' ] );
 		update_user_meta( $vendor_id, 'pv_shop_description', $_POST[ 'pv_shop_description' ] );
 		update_user_meta( $vendor_id, 'pv_seller_info', $_POST[ 'pv_seller_info' ] );
+		update_user_meta( $vendor_id, 'wcv_give_vendor_tax', isset( $_POST[ 'wcv_give_vendor_tax' ] ) ); 
 
 		do_action( 'wcvendors_update_admin_user', $vendor_id );
 	}
@@ -415,6 +416,17 @@ class WCV_Admin_Users
 				</td>
 			</tr>
 			<?php do_action( 'wcvendors_admin_after_commission_due', $user ); ?>
+			<tr>
+				<th><label for="wcv_give_tax"><?php _e( 'Give Tax', 'wcvendors' ); ?> (%)</label></th>
+				<td>
+					<label for="wcv_give_vendor_tax">
+						<input name="wcv_give_vendor_tax" type="checkbox"
+							   id="wcv_give_vendor_tax" <?php checked( true, get_user_meta( $user->ID, 'wcv_give_vendor_tax', true ), $echo = true ) ?>/>
+						<?php _e( 'Tax override for vendor', 'wcvendors' ); ?>
+					</label>
+				</td>
+			</tr>
+			<?php do_action( 'wcvendors_admin_after_give_tax', $user ); ?>
 			<tr>
 				<th><label for="pv_seller_info"><?php _e( 'Seller info', 'wcvendors' ); ?></label></th>
 				<td><?php wp_editor( get_user_meta( $user->ID, 'pv_seller_info', true ), 'pv_seller_info' ); ?></td>
