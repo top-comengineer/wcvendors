@@ -1,6 +1,8 @@
 <?php
 /**
- *  Vendor Mini Header - Hooked into archive-product page 
+ *  Vendor Mini Header - Hooked into single-product page
+ *
+ *  THIS FILE WILL LOAD ON VENDORS INDIVIDUAL PRODUCT URLs (such as yourdomain.com/shop/product-name/)
  *
  * @author WCVendors
  * @package WCVendors
@@ -10,11 +12,13 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /*
 *	Template Variables available 
-*   $vendor : 			For pulling additional user meta from vendor account
-*   $shop_name : 		Store/Shop Name from Vendor Shop Settings
-*   $shop_description : pv_shop_description (completely sanitized)
-*   $vendor_id  : 		current vendor id for customization 
-*   $seller_info : 		Seller Info from Vendor Shop Settings
+*   $vendor : 			For pulling additional user details from vendor account.  This is an array.
+*   $vendor_id  : 		current vendor user id number
+*   $shop_name : 		Store/Shop Name (From Vendor Dashboard Shop Settings)
+*   $shop_description : Shop Description (completely sanitized) (From Vendor Dashboard Shop Settings)
+*   $seller_info : 		Seller Info(From Vendor Dashboard Shop Settings)
+*	$vendor_email :		Vendors email address
+*	$vendor_login : 	Vendors user_login name
 */ 
 
 ?>

@@ -207,16 +207,23 @@ class WCV_Vendor_Shop
 			$has_html    		= get_user_meta( $vendor_id, 'pv_shop_html_enabled', true );
 			$global_html 		= WC_Vendors::$pv_options->get_option( 'shop_html_enabled' );
 			$description 		= do_shortcode( get_user_meta( $vendor_id, 'pv_shop_description', true ) );
-			$shop_description 	=  ( $global_html || $has_html ) ? wpautop( wptexturize( wp_kses_post( $description ) ) ) : sanitize_text_field( $description );
-			$seller_info 		=  ( $global_html || $has_html ) ? wpautop( get_user_meta( $vendor_id, 'pv_seller_info', true ) ) : sanitize_text_field( get_user_meta( $vendor_id, 'pv_seller_info', true ) );
+			$shop_description 	= ( $global_html || $has_html ) ? wpautop( wptexturize( wp_kses_post( $description ) ) ) : sanitize_text_field( $description );
+			$seller_info 		= ( $global_html || $has_html ) ? wpautop( get_user_meta( $vendor_id, 'pv_seller_info', true ) ) : sanitize_text_field( get_user_meta( $vendor_id, 'pv_seller_info', true ) );
+			$vendor				= get_userdata( $vendor_id );
+			$vendor_email		= $vendor->user_email;
+			$vendor_login		= $vendor->user_login;
+			
 			
 			do_action('wcv_before_main_header', $vendor_id); 
 
 			wc_get_template( 'vendor-main-header.php', array(
-													'shop_name'			=> $shop_name, 
+													'vendor'			=> $vendor,
 													'vendor_id' 		=> $vendor_id, 
+													'shop_name'			=> $shop_name, 
 													'shop_description'	=> $shop_description, 
 													'seller_info'		=> $seller_info, 
+													'vendor_email'		=> $vendor_email,
+													'vendor_login'		=> $vendor_login,
 											   ), 'wc-vendors/front/', wcv_plugin_dir . 'templates/front/' );
 
 			do_action('wcv_after_main_header', $vendor_id); 
@@ -235,22 +242,29 @@ class WCV_Vendor_Shop
 		if (WCV_Vendors::is_vendor_product_page($product->post->post_author)) { 
 			
 			$vendor 			= get_userdata( $product->post->post_author ); 
+			$vendor_id   		= $post->post_author;
 			$vendor_shop_link 	= site_url( WC_Vendors::$pv_options->get_option( 'vendor_shop_permalink' ) .'/' .$vendor->pv_shop_slug ); 
-
-			$has_html    		=  $vendor->pv_shop_html_enabled;
+			$shop_name 			= get_user_meta( $vendor_id, 'pv_shop_name', true );
+			$has_html    		= $vendor->pv_shop_html_enabled;
 			$global_html 		= WC_Vendors::$pv_options->get_option( 'shop_html_enabled' );
 			$description 		= do_shortcode( $vendor->pv_shop_description );
-			$shop_description 	=  ( $global_html || $has_html ) ? wpautop( wptexturize( wp_kses_post( $description ) ) ) : sanitize_text_field( $description );
-			$seller_info 		=  ( $global_html || $has_html ) ? wpautop( get_user_meta( $vendor_id, 'pv_seller_info', true ) ) : sanitize_text_field( get_user_meta( $vendor_id, 'pv_seller_info', true ) );
-
+			$shop_description 	= ( $global_html || $has_html ) ? wpautop( wptexturize( wp_kses_post( $description ) ) ) : sanitize_text_field( $description );
+			$seller_info 		= ( $global_html || $has_html ) ? wpautop( get_user_meta( $vendor_id, 'pv_seller_info', true ) ) : sanitize_text_field( get_user_meta( $vendor_id, 'pv_seller_info', true ) );
+			$vendor_email		= $vendor->user_email;
+			$vendor_login		= $vendor->user_login;
+			
 			do_action('wcv_before_mini_header', $vendor->ID);
 
 			wc_get_template( 'vendor-mini-header.php', array(
 													'vendor'			=> $vendor, 
+													'vendor_id'			=> $vendor_id,
 													'vendor_shop_link' 	=> $vendor_shop_link, 
-													'shop_description'	=> $shop_description, 
 													'shop_name'			=> $vendor->pv_shop_name, 
+													'shop_description'	=> $shop_description, 
 													'seller_info'		=> $seller_info, 
+													'shop_name'			=> $shop_name,
+													'vendor_email'		=> $vendor_email,
+													'vendor_login'		=> $vendor_login,
 											   ), 'wc-vendors/front/', wcv_plugin_dir . 'templates/front/' );
 			
 			do_action('wcv_after_mini_header', $vendor->ID); 
