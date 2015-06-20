@@ -242,7 +242,7 @@ class WCV_Vendor_Shop
 		if (WCV_Vendors::is_vendor_product_page($product->post->post_author)) { 
 			
 			$vendor 			= get_userdata( $product->post->post_author ); 
-			$vendor_id   		= $post->post_author;
+			$vendor_id   		= $product->post->post_author;
 			$vendor_shop_link 	= site_url( WC_Vendors::$pv_options->get_option( 'vendor_shop_permalink' ) .'/' .$vendor->pv_shop_slug ); 
 			$shop_name 			= get_user_meta( $vendor_id, 'pv_shop_name', true );
 			$has_html    		= $vendor->pv_shop_html_enabled;
