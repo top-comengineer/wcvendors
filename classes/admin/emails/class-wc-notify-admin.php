@@ -24,19 +24,20 @@ class WC_Email_Notify_Admin extends WC_Email
 	 */
 	function __construct()
 	{
-		$this->id          = 'admin_new_vendor_product';
-		$this->title       = __( 'New Vendor Product', 'wcvendors' );
-		$this->description = __( 'New order emails are sent when a new product is submitted by a vendor', 'wcvendors' );
+		$this->id          		= 'admin_new_vendor_product';
+		$this->title       		= __( 'New Vendor Product', 'wcvendors' );
+		$this->description 		= __( 'New order emails are sent when a new product is submitted by a vendor', 'wcvendors' );
 
-		$this->heading = __( 'New product submitted: {product_name}', 'wcvendors' );
-		$this->subject = __( '[{blogname}] New product submitted by {vendor_name} - {product_name}', 'wcvendors' );
+		$this->heading 			= __( 'New product submitted: {product_name}', 'wcvendors' );
+		$this->subject 			= __( '[{blogname}] New product submitted by {vendor_name} - {product_name}', 'wcvendors' );
 
-		$this->template_base  = dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/templates/emails/';
-		$this->template_html  = 'new-product.php';
-		$this->template_plain = 'new-product.php';
+		$this->template_base  	= dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/templates/emails/';
+		$this->template_html  	= 'new-product.php';
+		$this->template_plain 	= 'new-product.php';
 
 		// Triggers for this email
-		add_action( 'transition_post_status', array( $this, 'trigger' ), 10, 3 );
+		add_action( 'pending_product', 				array( $this, 'trigger' ), 10, 2 );
+		add_action( 'pending_product_variation', 	array( $this, 'trigger' ), 10, 2 );
 
 		// Call parent constuctor
 		parent::__construct();
@@ -57,14 +58,9 @@ class WC_Email_Notify_Admin extends WC_Email
 	 *
 	 * @param unknown $order_id
 	 */
-	function trigger( $post )
+	function trigger( $id, $post )
 	{
 
-		// Ensure this is only firing on products 
-		if (! in_array( $post->post_type, array( 'product', 'product_variation' ) ) ) { 
-			return; 
-		}
-		
 		// Ensure that the post author is a vendor 
 		if ( !WCV_Vendors::is_vendor( $post->post_author ) ) {
 			return;
