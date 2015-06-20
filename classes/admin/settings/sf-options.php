@@ -144,6 +144,7 @@ $options[ ] = array(
 		'taxes' 		=> __( 'Taxes', 'wcvendors' ),
 		'sku'   		=> __( 'SKU', 'wcvendors' ),
 		'featured'		=> __( 'Featured', 'wcvendors' ),
+		'duplicate'		=> __( 'Duplicate Product', 'wcvendors' ),
 	),
 	'type'     => 'checkbox',
 	'multiple' => true,

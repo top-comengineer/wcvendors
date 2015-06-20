@@ -57,7 +57,10 @@ class WCV_Admin_Users
 			if ( isset( $product_misc['featured'] ) ) { 
 				add_filter( 'manage_product_posts_columns', array($this, 'manage_product_columns'), 99);
 			}
-			
+			// WC > Product Hide duplicate 
+			if ( isset( $product_misc['duplicate'] ) ) { 
+				add_filter( 'post_row_actions', array( $this, 'remove_dupe_link' ), 99, 2 );
+			}
 		}
 
 	}
@@ -436,5 +439,16 @@ class WCV_Admin_Users
 		unset($columns['featured']);
 		return $columns;
 	}
+
+
+	/**
+	 *     Hide the duplicate product link by removing it from the row actions 
+	 */
+	public function remove_dupe_link( $actions, $post ) { 
+		error_log(print_r($actions, true)); 
+		unset($actions['duplicate']); 
+		return $actions; 
+	}
+
 
 }
