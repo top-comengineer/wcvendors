@@ -125,9 +125,16 @@ class WCV_Admin_Users
 	 */
 	public function show_pending_number( $menu )
 	{
-		$num_posts = wp_count_posts( 'product', 'readable' );
+		$args = array( 
+			'post_type' 		=> 'product', 
+			'post_author'		=> get_current_user_id(), 
+			'post_status'		=> 'pending'
+		); 	
 
-		$pending_count = !empty( $num_posts->pending ) ? $num_posts->pending : 0;
+		$pending_posts = get_posts( $args ); 
+		
+		$pending_count = is_array( $pending_posts ) ? count( $pending_posts ) : 0;
+
 		$menu_str      = 'edit.php?post_type=product';
 
 		foreach ( $menu as $menu_key => $menu_data ) {
