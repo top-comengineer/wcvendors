@@ -42,7 +42,8 @@ class WCV_Shipping
 	{
 		global $woocommerce;
 
-		$shipping_due = 0;
+		$shipping_costs = array( 'amount' => 0, 'tax' => 0);
+		$shipping_due = 0; 
 		$method = '';
 		$_product     = get_product( $product[ 'product_id' ] );
 		$order = wc_get_order( $order_id ); 
@@ -64,32 +65,36 @@ class WCV_Shipping
 
 				// Per Product Shipping 2
 			} else if ( ( class_exists('WC_Shipping_Per_Product_Init') || function_exists( 'woocommerce_per_product_shipping' ) ) && $method == 'per_product' ) {
-				$shipping_due = WCV_Shipping::pps_get_due( $order_id, $product );
+				$shipping_costs = WCV_Shipping::pps_get_due( $order_id, $product );
 
 				// Local Delivery
 			} else if ( $method == 'local_delivery' ) {
 				$local_delivery = get_option( 'woocommerce_local_delivery_settings' );
 
 				if ( $local_delivery[ 'type' ] == 'product' ) {
-					$shipping_due = $product[ 'qty' ] * $local_delivery[ 'fee' ];
+
+					$shipping_costs['amount'] 	= $product[ 'qty' ] * $local_delivery[ 'fee' ];
+					$shipping_costs['tax'] 		= WCV_Shipping::calculate_shipping_tax( $shipping_costs['amount'], $order ); 
 				}
 
 				// International Delivery
 			} else if ( $method == 'international_delivery' ) {
+
 				$int_delivery = get_option( 'woocommerce_international_delivery_settings' );
 
 				if ( $int_delivery[ 'type' ] == 'item' ) {
 					$WC_Shipping_International_Delivery = new WC_Shipping_International_Delivery();
 					$fee                                = $WC_Shipping_International_Delivery->get_fee( $int_delivery[ 'fee' ], $_product->get_price() );
-					$shipping_due                       = ( $int_delivery[ 'cost' ] + $fee ) * $product[ 'qty' ];
+					$shipping_costs['amount']           = ( $int_delivery[ 'cost' ] + $fee ) * $product[ 'qty' ];
+					$shipping_costs['tax'] 				= ( 'taxable' === $int_delivery[ 'tax_status' ] ) ? WCV_Shipping::calculate_shipping_tax( $shipping_costs['amount'], $order ) : 0; 
 				}
 
 			}
 		}
 
-		$shipping_due = apply_filters( 'wcvendors_shipping_due', $shipping_due, $order_id, $product );
+		$shipping_costs = apply_filters( 'wcvendors_shipping_due', $shipping_costs, $order_id, $product );
 
-		return $shipping_due;
+		return $shipping_costs;
 	}
 
 
@@ -99,13 +104,17 @@ class WCV_Shipping
 	 * @param unknown $order_id
 	 * @param unknown $product
 	 *
-	 * @return unknown
+	 * @return array
 	 */
 	public static function pps_get_due( $order_id, $product )
 	{
 		global $woocommerce;
 
 		$item_shipping_cost = 0;
+		$shipping_costs = array(); 
+
+		$settings = get_option( 'woocommerce_per_product_settings' ); 
+		$taxable = $settings['tax_status']; 
 
 		$order = new WC_Order( $order_id );
 		$package[ 'destination' ][ 'country' ]  = $order->shipping_country;
@@ -133,7 +142,70 @@ class WCV_Shipping
 			self::$pps_shipping_costs[$order_id][] = $rule->rule_id;
 		}
 
-		return $item_shipping_cost;
+		$shipping_costs['amount'] = $item_shipping_cost; 
+		$shipping_costs['tax'] = ('taxable' === $taxable ) ? WCV_Shipping::calculate_shipping_tax( $item_shipping_cost, $order ) : 0; 
+
+		// return $item_shipping_cost;
+		return $shipping_costs; 
+	}
+
+	public static function calculate_shipping_tax( $shipping_amount, $order ) { 
+
+		$tax_based_on = get_option( 'woocommerce_tax_based_on' );
+		$wc_tax_enabled = get_option( 'woocommerce_calc_taxes' ); 
+
+		// if taxes aren't enabled don't calculate them 
+		if ( 'no' === $wc_tax_enabled ) return 0; 
+
+        if ( 'base' === $tax_based_on ) {
+
+            $default  = wc_get_base_location();
+            $country  = $default['country'];
+            $state    = $default['state'];
+            $postcode = '';
+            $city     = '';
+
+        } elseif ( 'billing' === $tax_based_on ) {
+
+            $country  = $order->billing_country;
+            $state    = $order->billing_state;
+            $postcode = $order->billing_postcode;
+            $city     = $order->billing_city;
+
+        } else {
+
+            $country  = $order->shipping_country;
+            $state    = $order->shipping_state;
+            $postcode = $order->shipping_postcode;
+            $city     = $order->shipping_city;
+
+        }
+
+		// Now calculate shipping tax
+        $matched_tax_rates = array();
+
+        $tax_rates         = WC_Tax::find_rates( array(
+            'country'   => $country,
+            'state'     => $state,
+            'postcode'  => $postcode,
+            'city'      => $city,
+            'tax_class' => ''
+        ) );
+
+
+        if ( $tax_rates ) {
+            foreach ( $tax_rates as $key => $rate ) {
+                if ( isset( $rate['shipping'] ) && 'yes' === $rate['shipping'] ) {
+                    $matched_tax_rates[ $key ] = $rate;
+                }
+            }
+        }
+
+        $shipping_taxes     = WC_Tax::calc_shipping_tax( $shipping_amount, $matched_tax_rates );
+        $shipping_tax_total = WC_Tax::round( array_sum( $shipping_taxes ) );
+
+        return $shipping_tax_total; 
+
 	}
 
 

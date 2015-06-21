@@ -88,31 +88,41 @@ class WCV_Vendors
 
 		foreach ( $order->get_items() as $key => $product ) {
 
-			$product_id 		= !empty( $product[ 'variation_id' ] ) ? $product[ 'variation_id' ] : $product[ 'product_id' ];
-			$author     		= WCV_Vendors::get_vendor_from_product( $product_id );
-			$give_tax_override 	= get_user_meta( $author, 'wcv_give_vendor_tax', true ); 
-			$is_vendor  		= WCV_Vendors::is_vendor( $author );
-			$commission 		= $is_vendor ? WCV_Commission::calculate_commission( $product[ 'line_subtotal' ], $product_id, $order ) : 0;
-			$tax        		= !empty( $product[ 'line_tax' ] ) ? (float) $product[ 'line_tax' ] : 0;
-
+			$product_id 				= !empty( $product[ 'variation_id' ] ) ? $product[ 'variation_id' ] : $product[ 'product_id' ];
+			$author     				= WCV_Vendors::get_vendor_from_product( $product_id );
+			$give_tax_override 			= get_user_meta( $author, 'wcv_give_vendor_tax', true ); 
+			$give_shipping_override 	= get_user_meta( $author, 'wcv_give_vendor_shipping', true ); 
+			$is_vendor  				= WCV_Vendors::is_vendor( $author );
+			$commission 				= $is_vendor ? WCV_Commission::calculate_commission( $product[ 'line_subtotal' ], $product_id, $order ) : 0;
+			$tax        				= !empty( $product[ 'line_tax' ] ) ? (float) $product[ 'line_tax' ] : 0;
+			
 			// Check if shipping is enabled
-			if ( get_option('woocommerce_calc_shipping') === 'no' ) { $shipping = 0; } else {
-					$shipping = WCV_Shipping::get_shipping_due( $order->id, $product, $author );
+			if ( get_option('woocommerce_calc_shipping') === 'no' ) { 
+				$shipping = 0; $shipping_tax = 0; 
+			} else {
+					$shipping_costs = WCV_Shipping::get_shipping_due( $order->id, $product, $author );
+					$shipping = $shipping_costs['amount']; 
+					$shipping_tax = $shipping_costs['tax']; 
 			}
+
+			// Add line item tax and shipping taxes together 
+			$total_tax = (float) $tax + (float) $shipping_tax; 
 
 			// Tax override on a per vendor basis
 			if ( $give_tax_override ) $give_tax = true; 
+			// Shipping override 
+			if ( $give_shipping_override ) $give_shipping = true; 
 
 			if ( $is_vendor ) {
 
 				$shipping_given += $give_shipping ? $shipping : 0;
-				$tax_given += $give_tax ? $tax : 0;
+				$tax_given += $give_tax ? $total_tax : 0;
 
 				$give = 0;
 				$give += !empty( $receiver[ $author ][ 'total' ] ) ? $receiver[ $author ][ 'total' ] : 0;
 				$give += $give_shipping ? $shipping : 0;
 				$give += $commission;
-				$give += $give_tax ? $tax : 0;
+				$give += $give_tax ? $total_tax : 0;
 
 				if ( $group ) {
 
@@ -120,7 +130,7 @@ class WCV_Vendors
 						'vendor_id'  => (int) $author,
 						'commission' => !empty( $receiver[ $author ][ 'commission' ] ) ? $receiver[ $author ][ 'commission' ] + $commission : $commission,
 						'shipping'   => $give_shipping ? ( !empty( $receiver[ $author ][ 'shipping' ] ) ? $receiver[ $author ][ 'shipping' ] + $shipping : $shipping) : 0,
-						'tax'        => $give_tax ? ( !empty( $receiver[ $author ][ 'tax' ] ) ? $receiver[ $author ][ 'tax' ] + $tax : $tax ) : 0,
+						'tax'        => $give_tax ? ( !empty( $receiver[ $author ][ 'tax' ] ) ? $receiver[ $author ][ 'tax' ] + $total_tax : $total_tax ) : 0,
 						'qty'        => !empty( $receiver[ $author ][ 'qty' ] ) ? $receiver[ $author ][ 'qty' ] + $product[ 'qty' ] : $product[ 'qty' ],
 						'total'      => $give,
 					);
@@ -132,9 +142,9 @@ class WCV_Vendors
 						'product_id' => $product_id,
 						'commission' => $commission,
 						'shipping'   => $give_shipping ? $shipping : 0,
-						'tax'        => $give_tax ? $tax : 0,
+						'tax'        => $give_tax ? $total_tax : 0,
 						'qty'        => $product[ 'qty' ],
-						'total'      => ($give_shipping ? $shipping : 0) + $commission + ( $give_tax ? $tax : 0 ),
+						'total'      => ($give_shipping ? $shipping : 0) + $commission + ( $give_tax ? $total_tax : 0 ),
 					);
 
 				}
