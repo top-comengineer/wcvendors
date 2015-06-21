@@ -164,20 +164,17 @@ class WCV_Orders
 		wp_enqueue_script( 'pv_frontend_script', wcv_assets_url . 'js/front-orders.js' );
 
 		// WC Shipment Tracking Providers
-		global $WC_Shipment_Tracking;
-
-		$providers      = !empty( $WC_Shipment_Tracking->providers ) ? $WC_Shipment_Tracking->providers : false;
-		$provider_array = array();
-
-		if ( $providers ) {
-			foreach ( $providers as $providerss ) {
-				foreach ( $providerss as $provider => $format ) {
-					$provider_array[ sanitize_title( $provider ) ] = urlencode( $format );
+		if ( class_exists( 'WC_Shipment_Tracking' ) ) {
+			$WC_Shipment_Tracking 				= new WC_Shipment_Tracking(); 
+			$providers 							= $WC_Shipment_Tracking->get_providers();
+			$provider_array = array();
+			foreach ( $providers as $all_providers ) {
+				foreach ( $all_providers as $provider => $format ) {
+					$provider_array[sanitize_title( $provider )] = urlencode( $format );
 				}
 			}
 		}
-		// End
-
+		
 		ob_start();
 		// Show the Export CSV button
 		if ( $this->can_export_csv ) {
@@ -189,8 +186,8 @@ class WCV_Orders
 													 'body'           => $all[ 'body' ],
 													 'items'          => $all[ 'items' ],
 													 'product_id'     => $all[ 'product_id' ],
-													 'providers'      => $providers,
-													 'provider_array' => $provider_array,
+													 'providers'      => ( is_array( $providers ) ) ? $providers : null ,
+													 'provider_array'=> $provider_array, 
 												), 'wc-vendors/orders/', wcv_plugin_dir . 'templates/orders/' );
 
 		return ob_get_clean();

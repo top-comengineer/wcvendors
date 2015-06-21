@@ -106,7 +106,7 @@ global $woocommerce; ?>
 					?>
 				</div>
 
-				<?php if ( $providers ) : ?>
+				<?php if ( is_array( $providers ) ) : ?>
 
 					<a href="#" class="order-tracking-link">
 						<p>
@@ -115,12 +115,54 @@ global $woocommerce; ?>
 					</a>
 
 					<div class="order-tracking">
-						<?php
+						<?php 
+						$js = "
+							jQuery(function () {
+
+								jQuery('.tracking_provider').unbind().change(function(){
+									
+									var form = jQuery(this).parent().parent().attr('id');
+
+									var tracking = jQuery('#' + form + ' input#tracking_number').val();
+									var provider = jQuery('#' + form + ' #tracking_provider').val();
+									var providers = jQuery.parseJSON( '" . json_encode( $provider_array ) . "' );
+
+									var postcode = '32';
+									postcode = encodeURIComponent(postcode);
+
+									if ( providers[ provider ]) {
+										link = providers[provider];
+										link = link.replace('%251%24s', tracking);
+										link = link.replace('%252%24s', postcode);
+										link = decodeURIComponent(link);
+										jQuery('#' + form + ' #custom_tracking_link, #' + form + ' #custom_tracking_provider').hide();
+									} else {
+										jQuery('#' + form + ' #custom_tracking_link, #' + form + ' #custom_tracking_provider').show();
+										link = jQuery('#' + form + ' input#custom_tracking_link').val();
+									}
+
+									if (link) {
+										jQuery('#' + form + ' p.preview_tracking_link a').attr('href', link);
+										jQuery('#' + form + ' p.preview_tracking_link').show();
+									} else {
+										jQuery('#' + form + ' p.preview_tracking_link').hide();
+									}
+
+								});
+							});
+						"; 
+
+							if ( function_exists( 'wc_enqueue_js' ) ) {
+								wc_enqueue_js( $js );
+							} else {
+								$woocommerce->add_inline_js( $js );
+							}
+
 						wc_get_template( 'shipping-form.php', array(
 																			'order_id'       => $order_id,
 																			'product_id'     => $product_id,
 																			'providers'      => $providers,
-																			'provider_array' => $provider_array,
+																			'provider_array' => $provider_array, 
 																	   ), 'wc-vendors/orders/shipping/', wcv_plugin_dir . 'templates/orders/shipping/' );
 						?>
 					</div>

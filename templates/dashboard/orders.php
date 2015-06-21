@@ -72,8 +72,8 @@ jQuery(function () {
 				<td><?php echo $order->order_date; ?></td>
 				<td>
 				<a href="#" class="view-items" id="<?php echo $order->id; ?>"><?php _e('View items', 'wcvendors'); ?></a>
-				<?php if ($needs_shipping ) { ?> <a href="?wc_pv_mark_shipped=<?php echo $order->id; ?>" class="mark-shipped"><?php echo $shipped ? __('Unmark shipped', 'wcvendors') : __('Mark shipped', 'wcvendors'); ?></a> <?php } ?>
-				<?php if ( $providers ) : ?>  	 <a href="#" class="view-order-tracking" id="<?php echo $order->id; ?>"><?php _e( 'Tracking', 'wcvendors' ); ?></a><?php endif; ?></td>
+				<?php if ( $needs_shipping ) { ?> <a href="?wc_pv_mark_shipped=<?php echo $order->id; ?>" class="mark-shipped"><?php echo $shipped ? __('Unmark shipped', 'wcvendors') : __('Mark shipped', 'wcvendors'); ?></a> <?php } ?>
+				<?php if ( is_array( $providers ) ) : ?>  	 <a href="#" class="view-order-tracking" id="<?php echo $order->id; ?>"><?php _e( 'Tracking', 'wcvendors' ); ?></a><?php endif; ?></td>
 			</tr>
 
 			<tr id="view-items-<?php echo $order->id; ?>" style="display:none;">
@@ -93,8 +93,7 @@ jQuery(function () {
 
 				</td>
 			</tr>
-
-			<?php if ( $providers ) : ?>
+			<?php if ( is_array( $providers ) ) : ?>
 			<tr id="view-tracking-<?php echo $order->id; ?>" style="display:none;"> 
 				<td colspan="5">
 					<div class="order-tracking">
@@ -103,7 +102,6 @@ jQuery(function () {
 																			'order_id'       => $order->id,
 																			'product_id'     => $product_id,
 																			'providers'      => $providers,
-																			'provider_array' => $provider_array,
 																	   ), 'wc-vendors/orders/shipping/', wcv_plugin_dir . 'templates/orders/shipping/' );
 						?>
 					</div>
