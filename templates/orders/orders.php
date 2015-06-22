@@ -117,27 +117,39 @@ global $woocommerce; ?>
 					<div class="order-tracking">
 						<?php 
 						$js = "
-							jQuery(function () {
+							jQuery(function() {
 
-								jQuery('.tracking_provider').unbind().change(function(){
+								var providers = jQuery.parseJSON( '" . json_encode( $provider_array ) . "' );
+
+								jQuery('#tracking_number').prop('readonly',true);
+								jQuery('#date_shipped').prop('readonly',true);
+
+								function updatelink( tracking, provider ) { 
+
+									var postcode = '32';
+									postcode = encodeURIComponent(postcode);
+
+									link = providers[provider];
+									link = link.replace('%251%24s', tracking);
+									link = link.replace('%252%24s', postcode);
+									link = decodeURIComponent(link);
+									return link; 
+								}
+
+								jQuery('.tracking_provider, #tracking_number').unbind().change(function(){
 									
 									var form = jQuery(this).parent().parent().attr('id');
 
 									var tracking = jQuery('#' + form + ' input#tracking_number').val();
 									var provider = jQuery('#' + form + ' #tracking_provider').val();
-									var providers = jQuery.parseJSON( '" . json_encode( $provider_array ) . "' );
-
-									var postcode = '32';
-									postcode = encodeURIComponent(postcode);
-
+									
 									if ( providers[ provider ]) {
-										link = providers[provider];
-										link = link.replace('%251%24s', tracking);
-										link = link.replace('%252%24s', postcode);
-										link = decodeURIComponent(link);
-										jQuery('#' + form + ' #custom_tracking_link, #' + form + ' #custom_tracking_provider').hide();
+										link = updatelink(tracking, provider); 
+										jQuery('#' + form + ' #tracking_number').prop('readonly',false);
+										jQuery('#' + form + ' #date_shipped').prop('readonly',false);
+										jQuery('#' + form + ' .custom_tracking_url_field, #' + form + ' .custom_tracking_provider_name_field').hide();
 									} else {
-										jQuery('#' + form + ' #custom_tracking_link, #' + form + ' #custom_tracking_provider').show();
+										jQuery('#' + form + ' .custom_tracking_url_field, #' + form + ' .custom_tracking_provider_name_field').show();
 										link = jQuery('#' + form + ' input#custom_tracking_link').val();
 									}
 
@@ -149,6 +161,16 @@ global $woocommerce; ?>
 									}
 
 								});
+
+								jQuery('#custom_tracking_provider_name').unbind().click(function(){
+									
+									var form = jQuery(this).parent().parent().attr('id');
+
+									jQuery('#' + form + ' #tracking_number').prop('readonly',false);
+									jQuery('#' + form + ' #date_shipped').prop('readonly',false);
+								
+								});
+							
 							});
 						"; 
 

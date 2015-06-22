@@ -24,7 +24,7 @@
 	echo '</select> ';
 
 	woocommerce_wp_text_input( array(
-									'id'          => 'custom_tracking_provider',
+									'id'          => 'custom_tracking_provider_name',
 									'label'       => __( 'Provider Name:', 'wc_shipment_tracking' ),
 									'placeholder' => '',
 									'description' => '',
@@ -40,7 +40,7 @@
 							   ) );
 
 	woocommerce_wp_text_input( array(
-									'id'          => 'custom_tracking_link',
+									'id'          => 'custom_tracking_url',
 									'label'       => __( 'Tracking link:', 'wc_shipment_tracking' ),
 									'placeholder' => 'http://',
 									'description' => '',
@@ -58,7 +58,7 @@
 							   ) );
 
 	// Live preview
-	echo '<p class="preview_tracking_link">' . __( 'Preview:', 'wc_shipment_tracking' ) . ' <a href="" target="_blank">' . __( 'Click here to track your shipment', 'wc_shipment_tracking' ) . '</a></p>';
+	echo '<p class="preview_tracking_link" style="display:none;">' . __( 'Preview:', 'wc_shipment_tracking' ) . ' <a href="" target="_blank">' . __( 'Click here to track your shipment', 'wc_shipment_tracking' ) . '</a></p>';
 
 	?>
 
