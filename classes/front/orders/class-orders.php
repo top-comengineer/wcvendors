@@ -122,41 +122,6 @@ class WCV_Orders
 			exit;
 		}
 
-		if ( isset( $_POST[ 'update_tracking' ] ) ) {
-			$order_id   = (int) $_POST[ 'order_id' ];
-			$product_id = (int) $_POST[ 'product_id' ];
-
-			$tracking_provider        = woocommerce_clean( $_POST[ 'tracking_provider' ] );
-			$custom_tracking_provider = woocommerce_clean( $_POST[ 'custom_tracking_provider' ] );
-			$custom_tracking_link     = woocommerce_clean( $_POST[ 'custom_tracking_link' ] );
-			$tracking_number          = woocommerce_clean( $_POST[ 'tracking_number' ] );
-			$date_shipped             = woocommerce_clean( strtotime( $_POST[ 'date_shipped' ] ) );
-
-			$order    = new WC_Order( $order_id );
-			$products = $order->get_items();
-			foreach ( $products as $key => $value ) {
-				if ( $value[ 'product_id' ] == $product_id || $value[ 'variation_id' ] == $product_id ) {
-					$order_item_id = $key;
-					break;
-				}
-			}
-			if ( $order_item_id ) {
-				woocommerce_delete_order_item_meta( $order_item_id, __( 'Tracking number', 'wcvendors' ) );
-				woocommerce_add_order_item_meta( $order_item_id, __( 'Tracking number', 'wcvendors' ), $tracking_number );
-
-				$message = __( 'Success. Your tracking number has been updated.', 'wcvendors' );
-				wc_add_notice( $message, 'success' );
-
-				// Update order data
-				update_post_meta( $order_id, '_tracking_provider', $tracking_provider );
-				update_post_meta( $order_id, '_custom_tracking_provider', $custom_tracking_provider );
-				update_post_meta( $order_id, '_tracking_number', $tracking_number );
-				update_post_meta( $order_id, '_custom_tracking_link', $custom_tracking_link );
-				update_post_meta( $order_id, '_date_shipped', $date_shipped );
-			}
-
-		}
-
 		$headers = WCV_Orders::get_headers();
 		$all     = WCV_Orders::format_order_details( $this->orders, $this->product_id );
 
