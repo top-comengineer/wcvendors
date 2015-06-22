@@ -542,3 +542,4 @@ table [class*=span], .row-fluid table [class*=span] {
 .table-hover tbody tr.info:hover td {
     background-color: #c4e3f3;
 }
+.hidden {  display: none; }

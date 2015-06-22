@@ -116,13 +116,14 @@ global $woocommerce; ?>
 
 					<div class="order-tracking">
 						<?php 
+
 						$js = "
 							jQuery(function() {
 
 								var providers = jQuery.parseJSON( '" . json_encode( $provider_array ) . "' );
 
 								jQuery('#tracking_number').prop('readonly',true);
-								jQuery('#date_shipped').prop('readonly',true);
+								jQuery('#date_shipped').prop('readonly',true);	
 
 								function updatelink( tracking, provider ) { 
 

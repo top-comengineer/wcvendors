@@ -55,8 +55,8 @@ class WCV_Vendor_Dashboard
 			$product_id = (int) $_POST[ 'product_id' ];
 
 			$tracking_provider        = woocommerce_clean( $_POST[ 'tracking_provider' ] );
-			$custom_tracking_provider = woocommerce_clean( $_POST[ 'custom_tracking_provider' ] );
-			$custom_tracking_link     = woocommerce_clean( $_POST[ 'custom_tracking_link' ] );
+			$custom_tracking_provider = woocommerce_clean( $_POST[ 'custom_tracking_provider_name' ] );
+			$custom_tracking_link     = woocommerce_clean( $_POST[ 'custom_tracking_url' ] );
 			$tracking_number          = woocommerce_clean( $_POST[ 'tracking_number' ] );
 			$date_shipped             = woocommerce_clean( strtotime( $_POST[ 'date_shipped' ] ) );
 
