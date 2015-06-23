@@ -74,7 +74,7 @@ jQuery(function () {
 				<td>
 				<a href="#" class="view-items" id="<?php echo $order->id; ?>"><?php _e('View items', 'wcvendors'); ?></a>
 				<?php if ( $needs_shipping ) { ?> <a href="?wc_pv_mark_shipped=<?php echo $order->id; ?>" class="mark-shipped"><?php echo $shipped ? __('Unmark shipped', 'wcvendors') : __('Mark shipped', 'wcvendors'); ?></a> <?php } ?>
-				<?php if ( $providers && $needs_shipping ) : ?><a href="#" class="view-order-tracking" id="<?php echo $order->id; ?>"><?php _e( 'Tracking', 'wcvendors' ); ?></a><?php endif; ?>
+				<?php if ( $providers && $needs_shipping && class_exists( 'WC_Shipment_Tracking' ) ) : ?><a href="#" class="view-order-tracking" id="<?php echo $order->id; ?>"><?php _e( 'Tracking', 'wcvendors' ); ?></a><?php endif; ?>
 
 				
 				</td>
@@ -100,21 +100,26 @@ jQuery(function () {
 
 				</td>
 			</tr>
-			<?php if ( is_array( $providers ) ) : ?>
-			<tr id="view-tracking-<?php echo $order->id; ?>" style="display:none;"> 
-				<td colspan="5">
-					<div class="order-tracking">
-						<?php
-						wc_get_template( 'shipping-form.php', array(
-																			'order_id'       => $order->id,
-																			'product_id'     => $product_id,
-																			'providers'      => $providers,
-																	   ), 'wc-vendors/orders/shipping/', wcv_plugin_dir . 'templates/orders/shipping/' );
-						?>
-					</div>
 
-				</td>
-			</tr>
+			<?php if ( class_exists( 'WC_Shipment_Tracking' ) ) : ?>
+			
+				<?php if ( is_array( $providers ) ) : ?>
+				<tr id="view-tracking-<?php echo $order->id; ?>" style="display:none;"> 
+					<td colspan="5">
+						<div class="order-tracking">
+							<?php
+							wc_get_template( 'shipping-form.php', array(
+																				'order_id'       => $order->id,
+																				'product_id'     => $product_id,
+																				'providers'      => $providers,
+																		   ), 'wc-vendors/orders/shipping/', wcv_plugin_dir . 'templates/orders/shipping/' );
+							?>
+						</div>
+
+					</td>
+				</tr>
+				<?php endif; ?>
+				
 			<?php endif; ?>
 
 		<?php endforeach; ?>

@@ -106,31 +106,35 @@ global $woocommerce; ?>
 					?>
 				</div>
 
-				<?php if ( is_array( $providers ) ) : ?>
+				<?php if ( class_exists( 'WC_Shipment_Tracking' ) ) : ?>
 
-					<a href="#" class="order-tracking-link">
-						<p>
-							<?php _e( 'Shipping', 'wcvendors' ); ?>
-						</p>
-					</a>
+					<?php if ( is_array( $providers ) ) : ?>
 
-					<div class="order-tracking">
-						<?php 
-						if ( function_exists( 'wc_enqueue_js' ) ) {
-							wc_enqueue_js( WCV_Vendor_dashboard::wc_st_js( $provider_array ) );
-						} else {
-							$woocommerce->add_inline_js( $js );
-						}
+						<a href="#" class="order-tracking-link">
+							<p>
+								<?php _e( 'Shipping', 'wcvendors' ); ?>
+							</p>
+						</a>
 
-						wc_get_template( 'shipping-form.php', array(
-																			'order_id'       => $order_id,
-																			'product_id'     => $product_id,
-																			'providers'      => $providers,
-																			'provider_array' => $provider_array, 
-																	   ), 'wc-vendors/orders/shipping/', wcv_plugin_dir . 'templates/orders/shipping/' );
-						?>
-					</div>
+						<div class="order-tracking">
+							<?php 
+							if ( function_exists( 'wc_enqueue_js' ) ) {
+								wc_enqueue_js( WCV_Vendor_dashboard::wc_st_js( $provider_array ) );
+							} else {
+								$woocommerce->add_inline_js( $js );
+							}
 
+							wc_get_template( 'shipping-form.php', array(
+																				'order_id'       => $order_id,
+																				'product_id'     => $product_id,
+																				'providers'      => $providers,
+																				'provider_array' => $provider_array, 
+																		   ), 'wc-vendors/orders/shipping/', wcv_plugin_dir . 'templates/orders/shipping/' );
+							?>
+						</div>
+
+					<?php endif; ?>
+					
 				<?php endif; ?>
 
 			</td>

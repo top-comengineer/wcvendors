@@ -128,6 +128,9 @@ class WCV_Orders
 		wp_enqueue_style( 'pv_frontend_style', wcv_assets_url . 'css/wcv-frontend.css' );
 		wp_enqueue_script( 'pv_frontend_script', wcv_assets_url . 'js/front-orders.js' );
 
+		$providers 		= array(); 
+		$provider_array = array(); 
+
 		// WC Shipment Tracking Providers
 		if ( class_exists( 'WC_Shipment_Tracking' ) ) {
 			$WC_Shipment_Tracking 				= new WC_Shipment_Tracking(); 
@@ -152,7 +155,7 @@ class WCV_Orders
 													 'items'          => $all[ 'items' ],
 													 'product_id'     => $all[ 'product_id' ],
 													 'providers'      => $providers,
-													 'provider_array'=> $provider_array, 
+													 'provider_array' => $provider_array, 
 												), 'wc-vendors/orders/', wcv_plugin_dir . 'templates/orders/' );
 
 		return ob_get_clean();
