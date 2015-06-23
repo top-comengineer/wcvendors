@@ -316,7 +316,9 @@ class WCV_Admin_Users
 	 */
 	public function hide_nonvendor_products( $query_vars )
 	{
-		$query_vars[ 'author' ] = get_current_user_id();
+		if (array_key_exists('post_type', $query_vars) && ($query_vars['post_type'] == 'product')) {
+			$query_vars[ 'author' ] = get_current_user_id();
+		}
 
 		return $query_vars;
 	}
