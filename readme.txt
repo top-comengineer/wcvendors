@@ -60,6 +60,7 @@ No Upgrade required at this time.
 
 = Version 1.7.5 - 23rd June 2015 = 
 
+* Merged: Check product post type in vendor dashboard thanks simplementNat
 * Updated: Base language file
 * Updated: Compatibility for Shipment Tracking for v1.3.5 #167
 * Fixed: Shipping taxes 
