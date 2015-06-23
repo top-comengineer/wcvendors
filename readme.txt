@@ -6,7 +6,7 @@ Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.0
 Tested up to: 4.2.2
-Stable tag: 1.7.4
+Stable tag: 1.7.5
 License: GPLv2 or later
 
 The free multi-vendor plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
@@ -57,6 +57,23 @@ You can post a support question on the support tab, however you'll get more help
 No Upgrade required at this time.
 
 == Changelog ==
+
+= Version 1.7.5 - 23rd June 2015 = 
+
+* Updated: Base language file
+* Updated: Compatibility for Shipment Tracking for v1.3.5 #167
+* Fixed: Shipping taxes 
+* Fixed: Pending Products for Vendors #168
+* Added: Vendor shipping override #171 
+* Added: Give Tax Per Vendor Override #56
+* Added: Hide duplicate product option
+* Fixed: Email firing for pending status only
+* Updated: Unified vendor-main/mini-header variables
+* Fixed: Email template paths to woocommerce paths
+* Merged: Updated Brazilian Portuguese thanks carlosramosweb
+* Added: Seller Info to header #161
+* Updated: Spanish Translations #160
+* Updated: Brazilian Portuguese Language #156 
 
 = Version 1.7.4 - 26th May 2015 =
 
