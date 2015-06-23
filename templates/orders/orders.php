@@ -116,70 +116,11 @@ global $woocommerce; ?>
 
 					<div class="order-tracking">
 						<?php 
-
-						$js = "
-							jQuery(function() {
-
-								var providers = jQuery.parseJSON( '" . json_encode( $provider_array ) . "' );
-
-								jQuery('#tracking_number').prop('readonly',true);
-								jQuery('#date_shipped').prop('readonly',true);	
-
-								function updatelink( tracking, provider ) { 
-
-									var postcode = '32';
-									postcode = encodeURIComponent(postcode);
-
-									link = providers[provider];
-									link = link.replace('%251%24s', tracking);
-									link = link.replace('%252%24s', postcode);
-									link = decodeURIComponent(link);
-									return link; 
-								}
-
-								jQuery('.tracking_provider, #tracking_number').unbind().change(function(){
-									
-									var form = jQuery(this).parent().parent().attr('id');
-
-									var tracking = jQuery('#' + form + ' input#tracking_number').val();
-									var provider = jQuery('#' + form + ' #tracking_provider').val();
-									
-									if ( providers[ provider ]) {
-										link = updatelink(tracking, provider); 
-										jQuery('#' + form + ' #tracking_number').prop('readonly',false);
-										jQuery('#' + form + ' #date_shipped').prop('readonly',false);
-										jQuery('#' + form + ' .custom_tracking_url_field, #' + form + ' .custom_tracking_provider_name_field').hide();
-									} else {
-										jQuery('#' + form + ' .custom_tracking_url_field, #' + form + ' .custom_tracking_provider_name_field').show();
-										link = jQuery('#' + form + ' input#custom_tracking_link').val();
-									}
-
-									if (link) {
-										jQuery('#' + form + ' p.preview_tracking_link a').attr('href', link);
-										jQuery('#' + form + ' p.preview_tracking_link').show();
-									} else {
-										jQuery('#' + form + ' p.preview_tracking_link').hide();
-									}
-
-								});
-
-								jQuery('#custom_tracking_provider_name').unbind().click(function(){
-									
-									var form = jQuery(this).parent().parent().attr('id');
-
-									jQuery('#' + form + ' #tracking_number').prop('readonly',false);
-									jQuery('#' + form + ' #date_shipped').prop('readonly',false);
-								
-								});
-							
-							});
-						"; 
-
-							if ( function_exists( 'wc_enqueue_js' ) ) {
-								wc_enqueue_js( $js );
-							} else {
-								$woocommerce->add_inline_js( $js );
-							}
+						if ( function_exists( 'wc_enqueue_js' ) ) {
+							wc_enqueue_js( WCV_Vendor_dashboard::wc_st_js( $provider_array ) );
+						} else {
+							$woocommerce->add_inline_js( $js );
+						}
 
 						wc_get_template( 'shipping-form.php', array(
 																			'order_id'       => $order_id,

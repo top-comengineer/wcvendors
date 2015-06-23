@@ -187,16 +187,17 @@ class WCV_Vendor_Dashboard
 
 		wp_enqueue_style( 'wcv_frontend_style', wcv_assets_url . 'css/wcv-frontend.css' );
 
+		$providers = array(); 
+		$provider_array = array(); 
+
 		// WC Shipment Tracking Providers
-		global $WC_Shipment_Tracking;
-
-		$providers      = !empty( $WC_Shipment_Tracking->providers ) ? $WC_Shipment_Tracking->providers : false;
-		$provider_array = array();
-
-		if ( $providers ) {
-			foreach ( $providers as $providerss ) {
-				foreach ( $providerss as $provider => $format ) {
-					$provider_array[ sanitize_title( $provider ) ] = urlencode( $format );
+		if ( class_exists( 'WC_Shipment_Tracking' ) ) {
+			$WC_Shipment_Tracking 				= new WC_Shipment_Tracking(); 
+			$providers 							= $WC_Shipment_Tracking->get_providers();
+			$provider_array = array();
+			foreach ( $providers as $all_providers ) {
+				foreach ( $all_providers as $provider => $format ) {
+					$provider_array[sanitize_title( $provider )] = urlencode( $format );
 				}
 			}
 		}
@@ -236,6 +237,13 @@ class WCV_Vendor_Dashboard
 													  'can_view_orders' => $can_view_orders,
 												 ), 'wc-vendors/dashboard/', wcv_plugin_dir . 'templates/dashboard/' );
 		do_action( 'wcvendors_after_dashboard' );
+
+
+		if ( function_exists( 'wc_enqueue_js' ) ) {
+			wc_enqueue_js( WCV_Vendor_dashboard::wc_st_js( $provider_array ) );
+		} else {
+			$woocommerce->add_inline_js( $js );
+		}
 
 		return ob_get_clean();
 	}
@@ -376,5 +384,70 @@ class WCV_Vendor_Dashboard
 	private function sort_by_title( array $a, array $b )
 	{
 		return strcasecmp( $a[ 'title' ], $b[ 'title' ] );
+	}
+
+	/**
+	 *  Load the javascript for the WC Shipment Tracking form
+	 */
+	public static function wc_st_js( $provider_array ) { 
+		$js = "
+			jQuery(function() {
+
+				var providers = jQuery.parseJSON( '" . json_encode( $provider_array ) . "' );
+
+				jQuery('#tracking_number').prop('readonly',true);
+				jQuery('#date_shipped').prop('readonly',true);	
+
+				function updatelink( tracking, provider ) { 
+
+					var postcode = '32';
+					postcode = encodeURIComponent(postcode);
+
+					link = providers[provider];
+					link = link.replace('%251%24s', tracking);
+					link = link.replace('%252%24s', postcode);
+					link = decodeURIComponent(link);
+					return link; 
+				}
+
+				jQuery('.tracking_provider, #tracking_number').unbind().change(function(){
+					
+					var form = jQuery(this).parent().parent().attr('id');
+
+					var tracking = jQuery('#' + form + ' input#tracking_number').val();
+					var provider = jQuery('#' + form + ' #tracking_provider').val();
+					
+					if ( providers[ provider ]) {
+						link = updatelink(tracking, provider); 
+						jQuery('#' + form + ' #tracking_number').prop('readonly',false);
+						jQuery('#' + form + ' #date_shipped').prop('readonly',false);
+						jQuery('#' + form + ' .custom_tracking_url_field, #' + form + ' .custom_tracking_provider_name_field').hide();
+					} else {
+						jQuery('#' + form + ' .custom_tracking_url_field, #' + form + ' .custom_tracking_provider_name_field').show();
+						link = jQuery('#' + form + ' input#custom_tracking_link').val();
+					}
+
+					if (link) {
+						jQuery('#' + form + ' p.preview_tracking_link a').attr('href', link);
+						jQuery('#' + form + ' p.preview_tracking_link').show();
+					} else {
+						jQuery('#' + form + ' p.preview_tracking_link').hide();
+					}
+
+				});
+
+				jQuery('#custom_tracking_provider_name').unbind().click(function(){
+					
+					var form = jQuery(this).parent().parent().attr('id');
+
+					jQuery('#' + form + ' #tracking_number').prop('readonly',false);
+					jQuery('#' + form + ' #date_shipped').prop('readonly',false);
+				
+				});
+			
+			});
+		"; 
+
+		return $js; 
 	}
 }

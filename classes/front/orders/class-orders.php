@@ -151,7 +151,7 @@ class WCV_Orders
 													 'body'           => $all[ 'body' ],
 													 'items'          => $all[ 'items' ],
 													 'product_id'     => $all[ 'product_id' ],
-													 'providers'      => ( is_array( $providers ) ) ? $providers : null ,
+													 'providers'      => $providers,
 													 'provider_array'=> $provider_array, 
 												), 'wc-vendors/orders/', wcv_plugin_dir . 'templates/orders/' );
 

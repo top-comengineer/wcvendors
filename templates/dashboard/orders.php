@@ -50,6 +50,7 @@ jQuery(function () {
 			$needs_shipping = false; 
 
 			$items = $order->get_items();
+
 			foreach ($items as $key => $value) {
 				if ( in_array($value['variation_id'], $valid_items) || in_array($value['product_id'], $valid_items)) {
 					$valid[] = $value;
@@ -73,12 +74,18 @@ jQuery(function () {
 				<td>
 				<a href="#" class="view-items" id="<?php echo $order->id; ?>"><?php _e('View items', 'wcvendors'); ?></a>
 				<?php if ( $needs_shipping ) { ?> <a href="?wc_pv_mark_shipped=<?php echo $order->id; ?>" class="mark-shipped"><?php echo $shipped ? __('Unmark shipped', 'wcvendors') : __('Mark shipped', 'wcvendors'); ?></a> <?php } ?>
-				<?php if ( is_array( $providers ) ) : ?>  	 <a href="#" class="view-order-tracking" id="<?php echo $order->id; ?>"><?php _e( 'Tracking', 'wcvendors' ); ?></a><?php endif; ?></td>
+				<?php if ( $providers && $needs_shipping ) : ?><a href="#" class="view-order-tracking" id="<?php echo $order->id; ?>"><?php _e( 'Tracking', 'wcvendors' ); ?></a><?php endif; ?>
+
+				
+				</td>
 			</tr>
 
 			<tr id="view-items-<?php echo $order->id; ?>" style="display:none;">
 				<td colspan="5">
-					<?php foreach ($valid as $key => $item):
+					<?php 
+					$product_id = '';
+					foreach ($valid as $key => $item):
+						$product_id = $item['product_id']; 
 						$item_meta = new WC_Order_Item_Meta( $item[ 'item_meta' ] );
 						$item_meta = $item_meta->display( false, true ); ?>
 						<?php echo $item['qty'] . 'x ' . $item['name']; ?>
