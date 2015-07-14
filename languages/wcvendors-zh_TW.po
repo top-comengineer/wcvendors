@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WC Vendors\n"
 "POT-Creation-Date: 2015-07-08 10:24+0800\n"
-"PO-Revision-Date: 2015-07-08 11:14+0800\n"
+"PO-Revision-Date: 2015-07-14 11:11+0800\n"
 "Last-Translator: \n"
 "Language-Team: WC Vendors <support@wcvendors.com>\n"
 "Language: zh_TW\n"
@@ -55,7 +55,7 @@ msgid ""
 "WC Vendors requires the Vendor shop page value be set <a href=\"%s\">click "
 "here to set it.</a> | <a href=\"%s\">Hide Notice</a>"
 msgstr ""
-"WC 供應商必須完成設定方可使用，<a href=“%s”>請按此進行設置</a>。 | <a "
+"WC 供應商必須完成設定方可使用，請 <a href=“%s”>按此</a> 進行設置。 | <a "
 "href=“%s”>隱藏通知</a>"
 
 #: ../class-wc-vendors.php:317
@@ -64,8 +64,8 @@ msgid ""
 "You must save your permalinks once you have modified your vendor page. <a "
 "href=\"%s\">click here to save</a>.  | <a href=\"%s\">Hide Notice</a>"
 msgstr ""
-"當你修改了你個人的供應商版面設定後，必須儲存你的永久鏈接。<a href=“%s”>按此儲"
-"存資料</a> 。 | <a href=“%s”>隱藏通知</a>"
+"當你修改了你的供應商版面設定後，必須儲存你的永久鏈接。<a href=“%s”>按此</a> "
+"儲存資料 。 | <a href=“%s”>隱藏通知</a>"
 
 #: ../classes/admin/class-admin-page.php:27
 msgid "Vendors shipped"
@@ -82,7 +82,7 @@ msgstr "供應商已出貨"
 #: ../classes/admin/class-product-meta.php:165
 #: ../templates/dashboard/reports.php:19
 msgid "Commission"
-msgstr "手贖費"
+msgstr "佣金"
 
 #: ../classes/admin/class-admin-page.php:251
 #: ../classes/admin/class-admin-reports.php:168
@@ -91,7 +91,7 @@ msgstr "手贖費"
 #: ../templates/emails/notify-vendor-shipped.php:22
 #: ../templates/emails/vendor-new-order.php:22
 msgid "Product"
-msgstr "商品"
+msgstr "貨品"
 
 #: ../classes/admin/class-admin-page.php:252
 #: ../classes/admin/class-vendor-admin-dashboard.php:253
@@ -159,15 +159,15 @@ msgstr "顯示所有狀態"
 
 #: ../classes/admin/class-admin-page.php:412
 msgid "Commission marked paid."
-msgstr "手贖費標為已付。"
+msgstr "佣金標為已付。"
 
 #: ../classes/admin/class-admin-page.php:419
 msgid "Commission marked due."
-msgstr "手贖費標為已過期。"
+msgstr "佣金標為已過期。"
 
 #: ../classes/admin/class-admin-page.php:426
 msgid "Commission marked reversed."
-msgstr "手贖費標為已保留。"
+msgstr "佣金標為已保留。"
 
 #: ../classes/admin/class-admin-reports.php:44
 msgid "Overview"
@@ -179,7 +179,7 @@ msgstr "依供應商顯示"
 
 #: ../classes/admin/class-admin-reports.php:56
 msgid "Commission by product"
-msgstr "依商品顯示"
+msgstr "依貨品顯示"
 
 #: ../classes/admin/class-admin-reports.php:115
 #: ../templates/dashboard/date-picker.php:3
@@ -199,7 +199,7 @@ msgstr "顯示"
 
 #: ../classes/admin/class-admin-reports.php:125
 msgid "Total paid in range"
-msgstr "本期已付手贖費總額"
+msgstr "本期已付佣金總額"
 
 #: ../classes/admin/class-admin-reports.php:128
 #: ../classes/admin/class-admin-reports.php:135
@@ -209,15 +209,15 @@ msgstr "未有紀錄"
 
 #: ../classes/admin/class-admin-reports.php:132
 msgid "Total due in range"
-msgstr "本期未付手贖費總額"
+msgstr "本期未付佣金總額"
 
 #: ../classes/admin/class-admin-reports.php:139
 msgid "Total reversed in range"
-msgstr "本期保留手贖費總額"
+msgstr "本期保留佣金總額"
 
 #: ../classes/admin/class-admin-reports.php:149
 msgid "Recent Commission"
-msgstr "最新手贖費紀錄"
+msgstr "最新佣金紀錄"
 
 #: ../classes/admin/class-admin-reports.php:167
 #: ../classes/front/orders/class-orders.php:173
@@ -239,7 +239,7 @@ msgstr "D j M Y \\a\\t h:ia"
 
 #: ../classes/admin/class-admin-reports.php:194
 msgid "No commission yet"
-msgstr "未有手贖費紀錄"
+msgstr "未有佣金紀錄"
 
 #: ../classes/admin/class-admin-reports.php:228
 msgid "Show:"
@@ -247,7 +247,7 @@ msgstr "顯示："
 
 #: ../classes/admin/class-admin-reports.php:237
 msgid "Search for a product&hellip;"
-msgstr "搜尋商品..."
+msgstr "搜尋貨品..."
 
 #: ../classes/admin/class-admin-reports.php:240
 msgid "Type in a product name to start searching..."
@@ -298,7 +298,7 @@ msgstr "必須"
 
 #: ../classes/admin/class-admin-users.php:423
 msgid "Commission rate"
-msgstr "手贖費比例"
+msgstr "佣金比例"
 
 #: ../classes/admin/class-admin-users.php:424
 #: ../classes/admin/class-product-meta.php:172
@@ -315,11 +315,11 @@ msgstr "稅率由供應商覆寫"
 
 #: ../classes/admin/class-admin-users.php:441
 msgid "Give Shipping"
-msgstr "給予配送"
+msgstr "開始送貨"
 
 #: ../classes/admin/class-admin-users.php:446
 msgid "Shipping override for vendor"
-msgstr "配送方式由供應商覆寫"
+msgstr "送貨方式由供應商覆寫"
 
 #: ../classes/admin/class-admin-users.php:452
 #: ../classes/admin/views/html-vendor-settings-page.php:30
@@ -335,7 +335,7 @@ msgstr "店鋪簡介"
 #: ../classes/admin/class-vendor-admin-dashboard.php:19
 #: ../classes/class-install.php:166
 msgid "Shop Settings"
-msgstr "店鋪設家"
+msgstr "店鋪設定"
 
 #: ../classes/admin/class-vendor-admin-dashboard.php:20
 #: ../classes/admin/class-vendor-admin-dashboard.php:140
@@ -347,12 +347,12 @@ msgstr "訂單"
 #: ../classes/admin/class-vendor-admin-dashboard.php:52
 #: ../classes/front/dashboard/class-vendor-dashboard.php:101
 msgid "Your PayPal address is not a valid email address."
-msgstr "你的 Paypal 電郵不正確。"
+msgstr "Paypal 電郵不正確。"
 
 #: ../classes/admin/class-vendor-admin-dashboard.php:61
 #: ../classes/front/dashboard/class-vendor-dashboard.php:110
 msgid "That shop name is already taken. Your shop name must be unique."
-msgstr "此名稱已被使用，店鋪名稱不能重覆使用。"
+msgstr "此名稱已被使用，店鋪名稱不能重覆。"
 
 #: ../classes/admin/class-vendor-admin-dashboard.php:81
 #: ../classes/admin/settings/classes/sf-class-settings.php:366
@@ -368,7 +368,7 @@ msgstr "顧客"
 #: ../classes/admin/settings/sf-options.php:96
 #: ../classes/admin/settings/sf-options.php:223
 msgid "Products"
-msgstr "商品"
+msgstr "貨品"
 
 #: ../classes/admin/class-vendor-admin-dashboard.php:258
 msgid "Shipped"
@@ -389,7 +389,7 @@ msgstr "批准"
 
 #: ../classes/admin/class-vendor-applicants.php:27
 msgid "Deny"
-msgstr "否決"
+msgstr "拒絕"
 
 #: ../classes/admin/class-vendor-applicants.php:71
 msgid "Vendor has been <b>denied</b>."
@@ -397,16 +397,16 @@ msgstr "供應商的申請已被<b>拒絕</b>。"
 
 #: ../classes/admin/class-vendor-applicants.php:82
 msgid "Vendor has been <b>approved</b>."
-msgstr "供應商的申請已被<b>批准</b>。"
+msgstr "供應商的申請已<b>批准</b>。"
 
 #: ../classes/admin/class-vendor-applicants.php:96
 msgid "Pending Vendors"
-msgstr "供應商的申請正等待審批中。"
+msgstr "審批中的供應商申請"
 
 #: ../classes/admin/emails/class-emails.php:55
 #: ../classes/admin/emails/class-wc-approve-vendor.php:70
 msgid "pending"
-msgstr "未決定"
+msgstr "審批中"
 
 #: ../classes/admin/emails/class-emails.php:57
 msgid "approved"
@@ -538,19 +538,19 @@ msgstr "多種部分"
 
 #: ../classes/admin/emails/class-wc-notify-admin.php:28
 msgid "New Vendor Product"
-msgstr "新商品"
+msgstr "新貨品"
 
 #: ../classes/admin/emails/class-wc-notify-admin.php:29
 msgid "New order emails are sent when a new product is submitted by a vendor"
-msgstr "當供應商提交一個新商品後，新訂單的電子郵件將會被發送。"
+msgstr "當供應商提交一個新貨品後，新訂單的電子郵件將會被發送。"
 
 #: ../classes/admin/emails/class-wc-notify-admin.php:31
 msgid "New product submitted: {product_name}"
-msgstr "新提交的商品：{product_name}"
+msgstr "新提交的貨品：{product_name}"
 
 #: ../classes/admin/emails/class-wc-notify-admin.php:32
 msgid "[{blogname}] New product submitted by {vendor_name} - {product_name}"
-msgstr "[{blogname}] 供應商 - {vendor_name} 提交了一個新商品 - {product_name}"
+msgstr "[{blogname}] 供應商 - {vendor_name} 提交了一個新貨品 - {product_name}"
 
 #: ../classes/admin/emails/class-wc-notify-shipped.php:28
 msgid "Vendor has shipped"
@@ -592,7 +592,7 @@ msgstr "[{blogname}] 新客戶訂單 ({order_number}) - {order_date}"
 
 #: ../classes/admin/emails/class-wc-notify-vendor.php:103
 msgid "Commission Subtotal:"
-msgstr "手贖費小計："
+msgstr "佣金小計："
 
 #: ../classes/admin/emails/class-wc-notify-vendor.php:109
 msgid "Tax Subtotal:"
@@ -631,15 +631,15 @@ msgstr "一般選項"
 
 #: ../classes/admin/settings/sf-options.php:8
 msgid "Default commission (%)"
-msgstr "預設手贖費 (%)"
+msgstr "預設佣金 (%)"
 
 #: ../classes/admin/settings/sf-options.php:9
 msgid ""
 "The default rate you pay each vendor for a product sale. If a product has a "
 "commission rate already set, this value will be ignored for that product."
 msgstr ""
-"這是你支付每個供應商的預設手贖費。如某商品已設定其手贖費，該商品將會忽略這個"
-"預設值。"
+"這是你支付每個供應商的預設佣金。如某貨品已設定其佣金，該貨品將會忽略這個預設"
+"值。"
 
 #: ../classes/admin/settings/sf-options.php:20
 msgid "Registration"
@@ -655,8 +655,8 @@ msgid ""
 "if the user would like to apply to be a vendor. Also, on the Vendor "
 "Dashboard, users can still apply to become a vendor even if this is disabled."
 msgstr ""
-"這將會在我的帳戶頁面中顯示一個選擇框，讓一般用戶申請成為供應商。即使這是關閉"
-"狀態，一般用戶仍然於控制板面作出申請。"
+"這將會在我的帳戶中顯示一個選擇框，讓用戶申請成為供應商。即使關閉，一般用戶仍"
+"然可於控制板面作出申請。"
 
 #: ../classes/admin/settings/sf-options.php:29
 msgid "Approve vendor applications manually"
@@ -679,7 +679,7 @@ msgstr "供應商可提供任何以已含稅之產品"
 
 #: ../classes/admin/settings/sf-options.php:39
 msgid "The tax collected on a vendor's product will be given in its entirety"
-msgstr "商品所收之稅項將會全數發回給供應商"
+msgstr "貨品所收之稅項將會全數發回給供應商"
 
 #: ../classes/admin/settings/sf-options.php:47
 msgid "Give vendors any shipping collected per-product"
@@ -688,7 +688,7 @@ msgstr "供應商可提供任何以已包運費之產品"
 #: ../classes/admin/settings/sf-options.php:48
 msgid ""
 "The shipping collected on a vendor's product will be given in its entirety"
-msgstr "商品所收之運費將會全數發回給供應商"
+msgstr "貨品所收之運費將會全數發回給供應商"
 
 #: ../classes/admin/settings/sf-options.php:54
 msgid "Shop options"
@@ -762,11 +762,11 @@ msgstr "用戶電郵"
 
 #: ../classes/admin/settings/sf-options.php:97
 msgid "Product Add Page"
-msgstr "新增商品頁"
+msgstr "新增貨品頁"
 
 #: ../classes/admin/settings/sf-options.php:97
 msgid "Configure what to hide from all vendors when adding a product"
-msgstr "請選擇需隱藏的供應商「新增商品」設定項目"
+msgstr "請選擇需隱藏的供應商「新增貨品」設定項目"
 
 #: ../classes/admin/settings/sf-options.php:100
 msgid "Left side panel"
@@ -776,7 +776,7 @@ msgstr "左方次版面"
 msgid ""
 "CHECKING these boxes will HIDE these areas of the add product page for "
 "vendors"
-msgstr "選擇此選框會隱藏供應商「新增商品」相關的設定項目"
+msgstr "選擇此選框會隱藏供應商「新增貨品」相關的設定項目"
 
 #: ../classes/admin/settings/sf-options.php:104
 msgid "Inventory"
@@ -784,7 +784,7 @@ msgstr "庫存"
 
 #: ../classes/admin/settings/sf-options.php:106
 msgid "Linked Products"
-msgstr "連結商品"
+msgstr "連結貨品"
 
 #: ../classes/admin/settings/sf-options.php:107
 msgid "Attributes"
@@ -800,31 +800,31 @@ msgstr "類型"
 
 #: ../classes/admin/settings/sf-options.php:116
 msgid "CHECKING these boxes will HIDE these product types from the vendor"
-msgstr "選擇此選框會隱藏供應商可供選擇的「商品類別」"
+msgstr "選擇此選框會隱藏供應商可供選擇的「貨品類別」"
 
 #: ../classes/admin/settings/sf-options.php:119
 msgid "Simple"
-msgstr "簡單商品"
+msgstr "簡單貨品"
 
 #: ../classes/admin/settings/sf-options.php:120
 msgid "Variable"
-msgstr "可變商品"
+msgstr "可變貨品"
 
 #: ../classes/admin/settings/sf-options.php:121
 msgid "Grouped"
-msgstr "群組商品"
+msgstr "群組貨品"
 
 #: ../classes/admin/settings/sf-options.php:122
 msgid "External / affiliate"
-msgstr "外部/加盟商品"
+msgstr "外部/加盟貨品"
 
 #: ../classes/admin/settings/sf-options.php:129
 msgid "Type options"
-msgstr "商品類型"
+msgstr "貨品類型"
 
 #: ../classes/admin/settings/sf-options.php:130
 msgid "CHECKING these boxes will HIDE these product options from the vendor"
-msgstr "選擇此選框會隱藏供應商可供選擇的「商品選項」"
+msgstr "選擇此選框會隱藏供應商可供選擇的「貨品選項」"
 
 #: ../classes/admin/settings/sf-options.php:133
 msgid "Virtual"
@@ -844,11 +844,11 @@ msgstr "SKU"
 
 #: ../classes/admin/settings/sf-options.php:146
 msgid "Featured"
-msgstr "特色商品"
+msgstr "特色貨品"
 
 #: ../classes/admin/settings/sf-options.php:147
 msgid "Duplicate Product"
-msgstr "複製商品"
+msgstr "複製貨品"
 
 #: ../classes/admin/settings/sf-options.php:154
 msgid "Stylesheet"
@@ -859,7 +859,7 @@ msgid ""
 "You can add CSS in this textarea, which will be loaded on the product add/"
 "edit page for vendors."
 msgstr ""
-"你可於此文字框加入 CSS ，此 CSS 會加入到供應商的「新加/編輯商品」頁面。"
+"你可於此文字框加入 CSS ，此 CSS 會加入到供應商的「新加/編輯貨品」頁面。"
 
 #: ../classes/admin/settings/sf-options.php:162
 msgid "Permissions"
@@ -892,7 +892,7 @@ msgstr "提交評論"
 #: ../classes/admin/settings/sf-options.php:183
 msgid ""
 "Submit comments for an order on the frontend. Eg, tracking ID for a product"
-msgstr "於前台提交有關訂單上所有供應商的評論，例如：商品的 Tracking ID"
+msgstr "於前台提交有關訂單上所有供應商的評論，例如：貨品的 Tracking ID"
 
 #: ../classes/admin/settings/sf-options.php:190
 msgid "View email addresses"
@@ -906,11 +906,11 @@ msgstr "於前台檢視訂單的內容，你可以選擇隱藏電郵地址"
 
 #: ../classes/admin/settings/sf-options.php:198
 msgid "Export a CSV file of orders for a product"
-msgstr "以 CSV 檔輸出單一商品的訂單"
+msgstr "以 CSV 檔輸出單一貨品的訂單"
 
 #: ../classes/admin/settings/sf-options.php:199
 msgid "Vendors could export orders for a product on the frontend"
-msgstr "供應商可以於前台以 CSV 檔輸出單一商品的訂單"
+msgstr "供應商可以於前台以 CSV 檔輸出單一貨品的訂單"
 
 #: ../classes/admin/settings/sf-options.php:206
 msgid "Reports"
@@ -924,7 +924,7 @@ msgstr "於後台檢視銷售報表"
 msgid ""
 "Graphs and tables via the Reports page in backend. The reports will only "
 "display sales data that pertain to their products"
-msgstr "於後台檢視報表及圖表。該報告將只顯示涉及到他們的產品銷售數據"
+msgstr "於後台檢視報表及圖表。該報告將只顯示涉及到他們的貨品銷售數據"
 
 #: ../classes/admin/settings/sf-options.php:215
 msgid "View Frontend sales reports"
@@ -934,21 +934,21 @@ msgstr "於前台檢視銷售報表"
 msgid ""
 "Sales table on the frontend on the My Account page. The table will only "
 "display sales data that pertain to their products"
-msgstr "於前台檢視報表。該報表將只顯示涉及到他們的產品銷售數據"
+msgstr "於前台檢視報表。該報表將只顯示涉及到他們的貨品銷售數據"
 
 #: ../classes/admin/settings/sf-options.php:224
 msgid "Submit products"
-msgstr "提交商品"
+msgstr "提交貨品"
 
 #: ../classes/admin/settings/sf-options.php:225
 msgid ""
 "Vendors could submit a product through the backend, and an admin would "
 "approve or deny it"
-msgstr "供應商可於後台提交商品，管理員可會批准或回絕"
+msgstr "供應商可於後台提交貨品，管理員可會批准或回絕"
 
 #: ../classes/admin/settings/sf-options.php:232
 msgid "Edit live products"
-msgstr "修改在線商品"
+msgstr "修改在線貨品"
 
 #: ../classes/admin/settings/sf-options.php:233
 msgid ""
@@ -961,7 +961,7 @@ msgstr ""
 
 #: ../classes/admin/settings/sf-options.php:240
 msgid "Submit products live without requiring approval"
-msgstr "提交發將商品上架，無須審批"
+msgstr "提交發將貨品上架，無須審批"
 
 #: ../classes/admin/settings/sf-options.php:241
 msgid ""
@@ -1040,7 +1040,7 @@ msgstr "用戶的付款"
 #: ../classes/admin/settings/sf-options.php:297
 #, php-format
 msgid "Total commission currently due: %s. <a href=\"%s\">View details</a>."
-msgstr "未付的手贖費用總額：%s。 <a href=“%s”>查看詳細資料</a>。"
+msgstr "未付的佣金用總額：%s。 <a href=“%s”>查看詳細資料</a>。"
 
 #: ../classes/admin/settings/sf-options.php:298
 #, php-format
@@ -1057,7 +1057,7 @@ msgstr "立即付款"
 
 #: ../classes/admin/settings/sf-options.php:303
 msgid "Instantly pay vendors their commission when an order is made"
-msgstr "於訂單完成後立即向供應商付手贖費。"
+msgstr "於訂單完成後立即向供應商付佣金。"
 
 #: ../classes/admin/settings/sf-options.php:304
 msgid ""
@@ -1114,17 +1114,17 @@ msgstr "PayPal 電郵"
 #: ../classes/admin/views/html-vendor-settings-page.php:15
 #: ../templates/dashboard/settings/paypal-email-form.php:3
 msgid "Your PayPal address is used to send you your commission."
-msgstr "你所選用的 PayPal 電郵將用作發放手贖費之用。"
+msgstr "你所選用的 PayPal 電郵將用作發放佣金之用。"
 
 #: ../classes/admin/views/html-vendor-settings-page.php:24
 #: ../templates/dashboard/settings/shop-name.php:3
 msgid "Your shop name is public and must be unique."
-msgstr "你設家的店鋪名稱是公開以發必須是獨一無二的。"
+msgstr "你設定的店鋪名稱必須公開以及獨一無二。"
 
 #: ../classes/admin/views/html-vendor-settings-page.php:43
 #: ../templates/dashboard/settings/seller-info.php:4
 msgid "This is displayed on each of your products."
-msgstr "這將會顯示於你的每一件商品中。"
+msgstr "這將會顯示於你的每一件貨品中。"
 
 #: ../classes/admin/views/html-vendor-settings-page.php:49
 #: ../templates/dashboard/settings/shop-description.php:2
@@ -1204,7 +1204,7 @@ msgstr "未有訂單。"
 
 #: ../classes/front/orders/class-orders.php:174
 msgid "Product Title"
-msgstr "商品名稱"
+msgstr "貨品名稱"
 
 #: ../classes/front/orders/class-orders.php:175
 msgid "Full name"
@@ -1383,8 +1383,8 @@ msgid ""
 "due commission (if enabled). Also used to mass pay vendors on a schedule / "
 "manual method (if enabled)."
 msgstr ""
-"PayPal Adaptive Payments gateway 可以立即支付供應商應有的手贖費（如啟用）。也"
-"可使用時間表/手動方法以批量方式支付供應商的手贖費（如啟用）。"
+"PayPal Adaptive Payments gateway 可以立即支付供應商應有的佣金（如啟用）。也可"
+"使用時間表/手動方法以批量方式支付供應商的佣金（如啟用）。"
 
 #: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:280
 msgid "Gateway Disabled"
@@ -1414,7 +1414,7 @@ msgstr "未發現供應商需要支付。也許他們還未設定 PayPal 電郵�
 
 #: ../classes/gateways/PayPal_Masspay/class-paypal-masspay.php:167
 msgid "All due commission has been paid for."
-msgstr "所有的未付手贖費已經支付。"
+msgstr "所有的未付佣金已經支付。"
 
 #: ../classes/gateways/PayPal_Masspay/class-paypal-masspay.php:173
 msgid ""
@@ -1422,8 +1422,8 @@ msgid ""
 "profiles due to an internal error. Commission will still be listed as due. "
 "Please manually mark the commission as paid from the Commissions page."
 msgstr ""
-"所有的未付手贖費已經支付。但由於內部錯誤，系統未能更新他們的付費紀錄。他們的"
-"手贖費仍然被列為「未付」。請以手動標記的手贖費為「已付」。"
+"所有的未付佣金已經支付。但由於內部錯誤，系統未能更新他們的付費紀錄。他們的佣"
+"金仍然被列為「未付」。請以手動標記的佣金為「已付」。"
 
 #: ../classes/gateways/PayPal_Masspay/class-paypal-masspay.php:208
 msgid "WooCommerce: Mass payments for vendors update"
@@ -1433,7 +1433,7 @@ msgstr "WooCommerce: 以批量式付費給供應商已經更新。"
 msgid ""
 "Hello! A payment was just triggered to mass pay all vendors their due "
 "commission."
-msgstr "你好！系統剛啟動了以批次形式支付所有供應商應有的手贖費用。"
+msgstr "你好！系統剛啟動了以批次形式支付所有供應商應有的佣金用。"
 
 #: ../classes/gateways/PayPal_Masspay/class-paypal-masspay.php:211
 #, php-format
@@ -1550,7 +1550,7 @@ msgstr "銷售報表"
 
 #: ../templates/dashboard/reports.php:20
 msgid "Rate"
-msgstr "手贖費比例"
+msgstr "佣金比例"
 
 #: ../templates/dashboard/reports.php:47
 msgid "Show Orders"
@@ -1627,12 +1627,12 @@ msgstr "申請人用戶名稱：%s"
 #: ../templates/emails/new-product.php:5
 #, php-format
 msgid "Hi there. This is a notification about a new product on %s."
-msgstr "你好！有一個關於新加入商品的通知發出於 %s 。"
+msgstr "你好！有一個關於新加入貨品的通知發出於 %s 。"
 
 #: ../templates/emails/new-product.php:8
 #, php-format
 msgid "Product title: %s"
-msgstr "商品名稱：%s"
+msgstr "貨品名稱：%s"
 
 #: ../templates/emails/new-product.php:9
 #, php-format
@@ -1642,13 +1642,13 @@ msgstr "提交自：%s"
 #: ../templates/emails/new-product.php:10
 #, php-format
 msgid "Edit product: %s"
-msgstr "修改商品：%s"
+msgstr "修改貨品：%s"
 
 #: ../templates/emails/notify-vendor-shipped.php:13
 msgid ""
 "A vendor has marked part of your order as shipped. The items that are "
 "shipped are as follows:"
-msgstr "供應商已將你部分的訂單標作「已發貨」，已發貨的商品資料如下："
+msgstr "供應商已將你部分的訂單標作「已發貨」，已發貨的貨品資料如下："
 
 #: ../templates/orders/comments/add-new-comment.php:11
 msgid "Add comment"
