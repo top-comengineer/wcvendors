@@ -204,11 +204,11 @@ $options[ ] = array(
 
 $options[ ] = array(
 	'name' => __( 'Reports', 'wcvendors' ),
-	'desc' => __( 'View backend sales reports', 'wcvendors' ),
-	'tip'  => __( 'Graphs and tables via the Reports page in backend. The reports will only display sales data that pertain to their products', 'wcvendors' ),
+	'desc' => __( '<strike>View backend sales reports</strike>. <strong>Depreciated</strong>', 'wcvendors' ),
+	'tip'  => __( 'This option has been removed and will no longer function. It will be completely removed in future versions. Use front end reports if you require them. ', 'wcvendors' ),
 	'id'   => 'can_view_backend_reports',
 	'type' => 'checkbox',
-	'std'  => true,
+	'std'  => false,
 );
 
 $options[ ] = array(

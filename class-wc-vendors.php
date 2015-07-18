@@ -248,7 +248,7 @@ if ( is_woocommerce_activated() ) {
 					'read_products'             => $can_edit || $can_add,
 					'upload_files'              => true,
 					'import'                    => true,
-					'view_woocommerce_reports'  => $can_view_reports,
+					'view_woocommerce_reports'  => false,
 				);
 
 				remove_role( 'vendor' );
