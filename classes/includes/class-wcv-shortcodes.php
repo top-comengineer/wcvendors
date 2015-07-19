@@ -555,8 +555,10 @@ class WCV_Shortcodes {
 				'show_products'	=> 'yes' 
 			), $atts ) );
 
-	  	$paged      = (get_query_var('paged')) ? get_query_var('paged') : 1;   
-	  	$offset     = ($paged - 1) * $per_page;
+	  	$paged      = ( get_query_var('paged') ) ? get_query_var('paged') : 1;   
+	  	$offset     = ( $paged - 1 ) * $per_page;
+
+	  	error_log(print_r($atts, true)); 
 
 	  	// Hook into the user query to modify the query to return users that have at least one product 
 	  	if ($show_products == 'yes') add_action( 'pre_user_query', array( $this, 'vendors_with_products') );
@@ -591,12 +593,12 @@ class WCV_Shortcodes {
 	  	if ($show_products == 'yes' ) $vendor_total_args['query_id'] = 'vendors_with_products'; 
 
 	  	$vendor_paged_query = New WP_User_Query( $vendor_paged_args ); 
-	  	$paged_vendors = $vendor_query->get_results(); 
+	  	$paged_vendors = $vendor_paged_query->get_results(); 
 
 	  	// Pagination calcs 
 		$total_vendors = count($all_vendors);  
 		$total_vendors_paged = count($paged_vendors);  
-		$total_pages = intval($total_vendors / $per_page) + 1;
+		$total_pages = intval($total_vendors / $per_page);
 	    
 	   	ob_start();
 
