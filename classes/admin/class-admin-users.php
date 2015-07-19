@@ -478,7 +478,6 @@ class WCV_Admin_Users
 	 *     Hide the duplicate product link by removing it from the row actions 
 	 */
 	public function remove_dupe_link( $actions, $post ) { 
-		error_log(print_r($actions, true)); 
 		unset($actions['duplicate']); 
 		return $actions; 
 	}

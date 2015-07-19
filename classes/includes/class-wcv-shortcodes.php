@@ -558,8 +558,6 @@ class WCV_Shortcodes {
 	  	$paged      = ( get_query_var('paged') ) ? get_query_var('paged') : 1;   
 	  	$offset     = ( $paged - 1 ) * $per_page;
 
-	  	error_log(print_r($atts, true)); 
-
 	  	// Hook into the user query to modify the query to return users that have at least one product 
 	  	if ($show_products == 'yes') add_action( 'pre_user_query', array( $this, 'vendors_with_products') );
 

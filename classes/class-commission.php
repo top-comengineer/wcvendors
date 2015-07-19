@@ -360,7 +360,6 @@ class WCV_Commission
 	 */
 	public static function set_order_commission_paid( $order_id, $column_ids = false )
 	{
-		error_log('set commission paid called'); 
 		global $wpdb;
 
 		$table_name = $wpdb->prefix . "pv_commission";
