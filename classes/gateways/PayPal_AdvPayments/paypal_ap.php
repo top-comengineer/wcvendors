@@ -298,6 +298,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 	{
 		$response = array(); 
 
+		// Process the payment and split as required  
 		if ( $this->instapay ) { 
 
 			$receivers = WCV_Vendors::get_vendor_dues_from_order( $order );
@@ -313,14 +314,16 @@ class WC_PaypalAP extends WC_Payment_Gateway
 				$response[ $i ]->invoiceId = $order->id;
 				$i++;
 			}
-			
-		} else { 
 
-			$response[]            = new Receiver();
-			$response[]->email     = $this->main_paypal;
-			$response[]->amount    = $order->get_total(); 
-			$response[]->primary   = false;
-			$response[]->invoiceId = $order->id;
+		} else { 
+			// Send all monies to the site admin
+			$single_receiver            = new Receiver();
+			$single_receiver->email     = $this->main_paypal;
+			$single_receiver->amount    = $order->get_total(); 
+			$single_receiver->primary   = false;
+			$single_receiver->invoiceId = $order->id;
+
+			$response[] = $single_receiver; 
 		}
 
 		if ( $this->debug_me ) {
