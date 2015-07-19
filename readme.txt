@@ -21,6 +21,21 @@ Create your own marketplace and allow vendors to sell just like etsy, Envato, or
 * Vendors can view live sales and reports for their products
 * Vendors can comment on their orders (eg, to inform customers of a tracking number)
 * Vendors can export their orders to a CSV file
+* PayPal Adaptive Payments included for FREE ( Parallel & MassPay )
+
+= Translations =
+
+We currently ship WC Vendors free with the following language translations. If you would like translate WC Vendors into your language we would be more than happy to include it in our next release. You can submit a pull request on our github page or you can email your completed translation to translate@wcvendors.com. 
+
+* English
+* Austrian German
+* German
+* Chinese 
+* Brazilian Portuguese
+* Italian
+* Spanish
+* Persian
+* French
 
 == Installation ==
 1. Download and install from WordPress.org.
@@ -33,7 +48,7 @@ Create your own marketplace and allow vendors to sell just like etsy, Envato, or
 
 = What version of WooCommerce do you support ? =
 
-Woocommerce 2.1 or above is supported.
+Woocommerce 2.3 or above is supported.
 
 = What version of php has been tested ? =
 
@@ -67,6 +82,7 @@ No Upgrade required at this time.
 * Depreciated: Dashboard vendor reports
 * Added: Chinese Language files thanks to SundayLau
 * Fixed: Added support for WPML #177
+* Update: default pot language file
 
 = Version 1.7.5 - 23rd June 2015 = 
 

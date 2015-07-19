@@ -9,6 +9,7 @@ Version 1.7.6
 * Depreciated: Dashboard vendor reports
 * Added: Chinese Language files thanks to SundayLau
 * Fixed: Added support for WPML #177
+* Update: default pot language file
 
 Version 1.7.5
 
