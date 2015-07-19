@@ -24,6 +24,10 @@ class WCV_Emails
 		add_filter( 'woocommerce_order_product_title', array( 'WCV_Emails', 'show_vendor_in_email' ), 10, 2 );
 		add_action( 'set_user_role', array( $this, 'application_status_email' ), 10, 2 );
 		add_action( 'transition_post_status', array( $this, 'trigger_new_product' ), 10, 3 );
+
+		add_filter( 'woocommerce_email_recipient_low_stock', 	array( $this, 'vendor_stock_email'), 10, 2 ); 
+		add_filter( 'woocommerce_email_recipient_no_stock', 	array( $this, 'vendor_stock_email'), 10, 2 ); 
+		add_filter( 'woocommerce_email_recipient_backorder', 	array( $this, 'vendor_stock_email'), 10, 2 ); 
 	}
 
 	public function trigger_new_product( $from, $to, $post )
@@ -124,6 +128,21 @@ class WCV_Emails
 		$emails[ 'WC_Email_Notify_Shipped' ] = new WC_Email_Notify_Shipped();
 
 		return $emails;
+	}
+
+	/**
+	 *	 Add the vendor email to the low stock emails.  
+	 *
+	 */
+	public function vendor_stock_email( $emails, $product ) { 
+
+		if ( WCV_Vendors::is_vendor( $product->post_author ) { 
+			$vendor_email = get_user_meta( $product->post_author, 'user_email', true ); 
+			$emails .= ','.$vendor_email;  
+		}
+
+		return $emails; 
+
 	}
 
 
