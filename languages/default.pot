@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WC Vendors\n"
-"POT-Creation-Date: 2015-06-23 12:48+1000\n"
+"POT-Creation-Date: 2015-07-19 14:10+1000\n"
 "PO-Revision-Date: 2015-04-24 09:29+1000\n"
 "Last-Translator: \n"
 "Language-Team: WC Vendors <support@wcvendors.com>\n"
@@ -18,45 +18,53 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
 
-#: ../class-wc-vendors.php:72 ../classes/admin/class-admin-reports.php:41
-#: ../classes/admin/class-admin-users.php:390
+#: ../class-wc-vendors.php:61 ../classes/admin/class-admin-reports.php:41
+#: ../classes/admin/class-admin-users.php:392
 msgid "WC Vendors"
 msgstr ""
 
-#: ../class-wc-vendors.php:99
+#: ../class-wc-vendors.php:91
 msgid ""
 "<b>WC Vendors is disabled</b>. WC Vendors requires a minimum of WooCommerce "
 "v2.2.0."
 msgstr ""
 
-#: ../class-wc-vendors.php:226 ../classes/admin/settings/sf-options.php:161
+#: ../class-wc-vendors.php:233 ../classes/admin/settings/sf-options.php:161
 msgid "Capabilities"
 msgstr ""
 
-#: ../class-wc-vendors.php:250 ../classes/admin/settings/sf-options.php:4
+#: ../class-wc-vendors.php:256 ../classes/admin/class-admin-page.php:253
+#: ../classes/admin/class-admin-reports.php:169
+#: ../classes/admin/class-product-meta.php:44
+#: ../classes/admin/class-product-meta.php:185
+#: ../classes/admin/class-product-meta.php:221 ../classes/class-install.php:66
+msgid "Vendor"
+msgstr ""
+
+#: ../class-wc-vendors.php:258 ../classes/admin/settings/sf-options.php:4
 msgid "General"
 msgstr ""
 
-#: ../class-wc-vendors.php:285
+#: ../class-wc-vendors.php:293
 msgid "Documentation/KB"
 msgstr ""
 
-#: ../class-wc-vendors.php:286
+#: ../class-wc-vendors.php:294
 msgid "Help Forums"
 msgstr ""
 
-#: ../class-wc-vendors.php:287
+#: ../class-wc-vendors.php:295
 msgid "Paid Support"
 msgstr ""
 
-#: ../class-wc-vendors.php:309
+#: ../class-wc-vendors.php:317
 #, php-format
 msgid ""
 "WC Vendors requires the Vendor shop page value be set <a href=\"%s\">click "
 "here to set it.</a> | <a href=\"%s\">Hide Notice</a>"
 msgstr ""
 
-#: ../class-wc-vendors.php:317
+#: ../class-wc-vendors.php:325
 #, php-format
 msgid ""
 "You must save your permalinks once you have modified your vendor page. <a "
@@ -93,14 +101,6 @@ msgstr ""
 msgid "Order ID"
 msgstr ""
 
-#: ../classes/admin/class-admin-page.php:253
-#: ../classes/admin/class-admin-reports.php:169
-#: ../classes/admin/class-product-meta.php:44
-#: ../classes/admin/class-product-meta.php:185
-#: ../classes/admin/class-product-meta.php:221
-msgid "Vendor"
-msgstr ""
-
 #: ../classes/admin/class-admin-page.php:254
 #: ../classes/admin/class-admin-reports.php:170
 #: ../classes/admin/class-admin-reports.php:344
@@ -117,7 +117,7 @@ msgstr ""
 
 #: ../classes/admin/class-admin-page.php:256
 #: ../classes/admin/class-vendor-admin-dashboard.php:257
-#: ../classes/front/orders/class-orders.php:178
+#: ../classes/front/orders/class-orders.php:181
 #: ../templates/dashboard/orders.php:36
 msgid "Date"
 msgstr ""
@@ -215,7 +215,7 @@ msgid "Recent Commission"
 msgstr ""
 
 #: ../classes/admin/class-admin-reports.php:167
-#: ../classes/front/orders/class-orders.php:170
+#: ../classes/front/orders/class-orders.php:173
 #: ../templates/dashboard/orders.php:33
 msgid "Order"
 msgstr ""
@@ -263,7 +263,7 @@ msgstr ""
 #: ../classes/admin/class-admin-reports.php:341
 #: ../classes/admin/settings/sf-options.php:46
 #: ../classes/admin/settings/sf-options.php:105
-#: ../templates/dashboard/orders.php:34 ../templates/orders/orders.php:113
+#: ../templates/dashboard/orders.php:34 ../templates/orders/orders.php:115
 msgid "Shipping"
 msgstr ""
 
@@ -275,55 +275,55 @@ msgstr ""
 msgid "Paid"
 msgstr ""
 
-#: ../classes/admin/class-admin-users.php:400
+#: ../classes/admin/class-admin-users.php:402
 msgid "Enable HTML for the shop description"
 msgstr ""
 
-#: ../classes/admin/class-admin-users.php:406
+#: ../classes/admin/class-admin-users.php:408
 msgid "Shop name"
 msgstr ""
 
-#: ../classes/admin/class-admin-users.php:413
+#: ../classes/admin/class-admin-users.php:415
 msgid "PayPal E-mail"
 msgstr ""
 
-#: ../classes/admin/class-admin-users.php:414
+#: ../classes/admin/class-admin-users.php:416
 msgid "required"
 msgstr ""
 
-#: ../classes/admin/class-admin-users.php:421
+#: ../classes/admin/class-admin-users.php:423
 msgid "Commission rate"
 msgstr ""
 
-#: ../classes/admin/class-admin-users.php:422
+#: ../classes/admin/class-admin-users.php:424
 #: ../classes/admin/class-product-meta.php:172
 msgid "Leave blank for default"
 msgstr ""
 
-#: ../classes/admin/class-admin-users.php:428
+#: ../classes/admin/class-admin-users.php:430
 msgid "Give Tax"
 msgstr ""
 
-#: ../classes/admin/class-admin-users.php:433
+#: ../classes/admin/class-admin-users.php:435
 msgid "Tax override for vendor"
 msgstr ""
 
-#: ../classes/admin/class-admin-users.php:439
+#: ../classes/admin/class-admin-users.php:441
 msgid "Give Shipping"
 msgstr ""
 
-#: ../classes/admin/class-admin-users.php:444
+#: ../classes/admin/class-admin-users.php:446
 msgid "Shipping override for vendor"
 msgstr ""
 
-#: ../classes/admin/class-admin-users.php:450
+#: ../classes/admin/class-admin-users.php:452
 #: ../classes/admin/views/html-vendor-settings-page.php:30
 #: ../classes/front/class-vendor-shop.php:105
 #: ../templates/dashboard/settings/seller-info.php:3
 msgid "Seller info"
 msgstr ""
 
-#: ../classes/admin/class-admin-users.php:455
+#: ../classes/admin/class-admin-users.php:457
 msgid "Shop description"
 msgstr ""
 
@@ -398,20 +398,20 @@ msgstr ""
 msgid "Pending Vendors"
 msgstr ""
 
-#: ../classes/admin/emails/class-emails.php:55
+#: ../classes/admin/emails/class-emails.php:59
 #: ../classes/admin/emails/class-wc-approve-vendor.php:70
 msgid "pending"
 msgstr ""
 
-#: ../classes/admin/emails/class-emails.php:57
+#: ../classes/admin/emails/class-emails.php:61
 msgid "approved"
 msgstr ""
 
-#: ../classes/admin/emails/class-emails.php:59
+#: ../classes/admin/emails/class-emails.php:63
 msgid "denied"
 msgstr ""
 
-#: ../classes/admin/emails/class-emails.php:86
+#: ../classes/admin/emails/class-emails.php:90
 #: ../classes/front/class-vendor-cart.php:59
 #: ../classes/front/class-vendor-shop.php:180
 msgid "Sold by: "
@@ -900,13 +900,15 @@ msgid "Reports"
 msgstr ""
 
 #: ../classes/admin/settings/sf-options.php:207
-msgid "View backend sales reports"
+msgid ""
+"<strike>View backend sales reports</strike>. <strong>Depreciated</strong>"
 msgstr ""
 
 #: ../classes/admin/settings/sf-options.php:208
 msgid ""
-"Graphs and tables via the Reports page in backend. The reports will only "
-"display sales data that pertain to their products"
+"This option has been removed and will no longer function. It will be "
+"completely removed in future versions. Use front end reports if you require "
+"them. "
 msgstr ""
 
 #: ../classes/admin/settings/sf-options.php:215
@@ -1170,31 +1172,31 @@ msgstr ""
 msgid "No orders."
 msgstr ""
 
-#: ../classes/front/orders/class-orders.php:171
+#: ../classes/front/orders/class-orders.php:174
 msgid "Product Title"
 msgstr ""
 
-#: ../classes/front/orders/class-orders.php:172
+#: ../classes/front/orders/class-orders.php:175
 msgid "Full name"
 msgstr ""
 
-#: ../classes/front/orders/class-orders.php:173
+#: ../classes/front/orders/class-orders.php:176
 msgid "Address"
 msgstr ""
 
-#: ../classes/front/orders/class-orders.php:174
+#: ../classes/front/orders/class-orders.php:177
 msgid "City"
 msgstr ""
 
-#: ../classes/front/orders/class-orders.php:175
+#: ../classes/front/orders/class-orders.php:178
 msgid "State"
 msgstr ""
 
-#: ../classes/front/orders/class-orders.php:176
+#: ../classes/front/orders/class-orders.php:179
 msgid "Zip"
 msgstr ""
 
-#: ../classes/front/orders/class-orders.php:177
+#: ../classes/front/orders/class-orders.php:180
 msgid "Email address"
 msgstr ""
 
@@ -1357,15 +1359,15 @@ msgstr ""
 msgid "%s does not support your store currency."
 msgstr ""
 
-#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:369
-#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:483
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:384
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:498
 #: ../classes/gateways/PayPal_Masspay/class-paypal-masspay.php:153
 #, php-format
 msgid "Error: %s"
 msgstr ""
 
-#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:378
-#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:379
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:393
+#: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:394
 #, php-format
 msgid "Error ID: %s. %s"
 msgstr ""
@@ -1491,7 +1493,7 @@ msgstr ""
 msgid "Tracking"
 msgstr ""
 
-#: ../templates/dashboard/orders.php:131
+#: ../templates/dashboard/orders.php:136
 msgid "You have no orders during this period."
 msgstr ""
 
