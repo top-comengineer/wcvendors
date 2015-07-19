@@ -2,7 +2,7 @@
 /**
  * Cron class
  *
- * @package ProductVendor
+ * @package WC_Vendors
  */
 
 
