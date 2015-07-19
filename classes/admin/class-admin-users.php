@@ -4,7 +4,7 @@
  * WP-Admin users page
  *
  * @author  Matt Gates <http://mgates.me>
- * @package ProductVendor
+ * @package WC_Vendors
  */
 
 
