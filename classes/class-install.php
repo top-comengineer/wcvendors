@@ -63,7 +63,7 @@ class WCV_Install
 																				 ) );
 
 		remove_role( 'vendor' );
-		add_role( 'vendor', 'Vendor', array(
+		add_role( 'vendor', __('Vendor', 'wcvendors') , array(
 										   'assign_product_terms'     => true,
 										   'edit_products'            => true,
 										   'edit_published_products'  => false,

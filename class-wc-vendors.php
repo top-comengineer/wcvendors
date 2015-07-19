@@ -252,7 +252,8 @@ if ( is_woocommerce_activated() ) {
 				);
 
 				remove_role( 'vendor' );
-				add_role( 'vendor', 'Vendor', $args );
+				
+				add_role( 'vendor', __('Vendor', 'wcvendors'), $args );
 			} // Update permalinks
 			else if ( $tabname == sanitize_title(__( 'General', 'wcvendors' ) )) {
 				$old_permalink = WC_Vendors::$pv_options->get_option( 'vendor_shop_permalink' );
