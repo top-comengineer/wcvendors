@@ -137,10 +137,11 @@ class WCV_Emails
 	public function vendor_stock_email( $emails, $product ) { 
 
 		if ( WCV_Vendors::is_vendor( $product->post->post_author ) ) { 
-			$vendor_email = get_user_meta( $product->post_author, 'user_email', true ); 
+			$vendor_data = get_userdata( $product->post->post_author ); 
+			$vendor_email = $vendor_data->user_email; 
 			$emails .= ','.$vendor_email;  
 		}
-		
+
 		return $emails; 
 
 	}
