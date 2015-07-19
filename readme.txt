@@ -6,7 +6,7 @@ Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.0
 Tested up to: 4.2.2
-Stable tag: 1.7.5
+Stable tag: 1.7.6
 License: GPLv2 or later
 
 The free multi-vendor plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
@@ -57,6 +57,16 @@ You can post a support question on the support tab, however you'll get more help
 No Upgrade required at this time.
 
 == Changelog ==
+
+= Version 1.7.6 - 19th July 2015 = 
+
+* Added: Stock notifications go to vendors #114
+* Fixed: Instant Pay bug #174
+* Fixed: wcv_vendorslist paging #178
+* Added: Vendor display name now translatable
+* Depreciated: Dashboard vendor reports
+* Added: Chinese Language files thanks to SundayLau
+* Fixed: Added support for WPML #177
 
 = Version 1.7.5 - 23rd June 2015 = 
 
