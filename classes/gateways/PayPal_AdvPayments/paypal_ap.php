@@ -322,7 +322,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 			$single_receiver->amount    = $order->get_total(); 
 			$single_receiver->primary   = false;
 			$single_receiver->invoiceId = $order->id;
-
+			// Set a single reciever for the transaction 
 			$response[] = $single_receiver; 
 		}
 
