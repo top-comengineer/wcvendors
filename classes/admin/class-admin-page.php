@@ -199,14 +199,14 @@ class WCV_Admin_Page extends WP_List_Table
 				return $item->id;
 			case 'vendor_id' :
 				$user = get_userdata( $item->vendor_id );
-
 				return '<a href="' . admin_url( 'user-edit.php?user_id=' . $item->vendor_id ) . '">' . WCV_Vendors::get_vendor_shop_name( $item->vendor_id ) . '</a>';
 			case 'total_due' :
 				return woocommerce_price( $item->total_due + $item->total_shipping + $item->tax );
 			case 'product_id' :
 				$parent = get_post_ancestors( $item->product_id );
 				$product_id = $parent ? $parent[ 0 ] : $item->product_id;
-				return '<a href="' . admin_url( 'post.php?post=' . $product_id . '&action=edit' ) . '">' . get_the_title( $item->product_id ) . '</a>';
+				$wcv_total_sales = get_post_meta( $product_id, 'total_sales', true );
+                return '<a href="' . admin_url( 'post.php?post=' . $product_id . '&action=edit' ) . '">' . get_the_title( $item->product_id ) . '</a> (<span title="' . get_the_title( $item->product_id ) .' has sold ' . $wcv_total_sales . ' times total.">' . $wcv_total_sales  . '</span>)';
 			case 'order_id' :
 				return '<a href="' . admin_url( 'post.php?post=' . $item->order_id . '&action=edit' ) . '">' . $item->order_id . '</a>';
 			case 'status' :
