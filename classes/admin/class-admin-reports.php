@@ -336,12 +336,12 @@ class WCV_Admin_Reports
 					<thead>
 					<tr>
 						<th><?php _e( 'Month', 'wcvendors' ); ?></th>
-						<th class="total_row"><?php _e( 'Commission', 'wcvendors' ); ?></th>
+						<th class="total_row"><b><?php _e( 'Commission Totals', 'wcvendors' ); ?></th>
 						<th class="total_row"><?php _e( 'Tax', 'wcvendors' ); ?></th>
 						<th class="total_row"><?php _e( 'Shipping', 'wcvendors' ); ?></th>
 						<th class="total_row"><?php _e( 'Reversed', 'wcvendors' ); ?></th>
 						<th class="total_row"><?php _e( 'Paid', 'wcvendors' ); ?></th>
-						<th class="total_row"><b><?php _e( 'Total', 'wcvendors' ); ?></th>
+						<th class="total_row"><?php _e( 'Due', 'wcvendors' ); ?></th>
 					</tr>
 					</thead>
 					<tfoot>
