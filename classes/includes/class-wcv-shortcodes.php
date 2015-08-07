@@ -588,7 +588,7 @@ class WCV_Shortcodes {
 	  		'number' 			=> $per_page, 
 	  	);
 
-	  	if ($show_products == 'yes' ) $vendor_total_args['query_id'] = 'vendors_with_products'; 
+	  	if ($show_products == 'yes' ) $vendor_paged_args['query_id'] = 'vendors_with_products'; 
 
 	  	$vendor_paged_query = New WP_User_Query( $vendor_paged_args ); 
 	  	$paged_vendors = $vendor_paged_query->get_results(); 
