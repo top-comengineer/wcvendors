@@ -65,7 +65,7 @@ class WCV_Submit_Comment
 
 	}
 
-	public function filter_comment( $commentdata, $order )
+	public static function filter_comment( $commentdata, $order )
 	{
 		$user_id = get_current_user_id();
 
