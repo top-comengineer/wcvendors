@@ -13,6 +13,7 @@ Class WCV_Vendor_Admin_Dashboard {
 		add_action( 'admin_menu', array( $this, 'vendor_dashboard_pages') ); 
 		// Hook into init for form processing 
 		add_action( 'init', array( $this, 'save_shop_settings' ) );
+		add_action( 'admin_head', array( $this, 'admin_enqueue_order_style') ); 
 	}
 
 	function vendor_dashboard_pages(){
@@ -31,6 +32,11 @@ Class WCV_Vendor_Admin_Dashboard {
 		$shop_page   = WCV_Vendors::get_vendor_shop_page( wp_get_current_user()->user_login );
 		$global_html = WC_Vendors::$pv_options->get_option( 'shop_html_enabled' );
 		include('views/html-vendor-settings-page.php'); 
+	}
+
+	function admin_enqueue_order_style() { 
+		add_thickbox();
+		wp_enqueue_style( 'admin_order_styles', wcv_assets_url . 'css/admin-orders.css' );
 	}
 
 	/** 
@@ -167,6 +173,25 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 
 	public $index;
 
+	/**
+	 * can_view_comments
+	 *  
+	 * @since    1.0.0
+	 * @access   public
+	 * @var      string    $can_view_comments    permission check for view comments
+	 */
+	public $can_view_comments;
+
+
+	/**
+	 * can_add_comments
+	 *  
+	 * @since    1.0.0
+	 * @access   public
+	 * @var      string    $can_add_comments    permission check for add comments
+	 */
+	public $can_add_comments;
+
 
 	/**
 	 * __construct function.
@@ -185,6 +210,9 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 								  'plural'   => 'orders',
 								  'ajax'     => false
 							 ) );
+
+		$this->can_view_comments = WC_Vendors::$pv_options->get_option( 'can_view_order_comments' );
+		$this->can_add_comments = WC_Vendors::$pv_options->get_option( 'can_submit_order_comments' );
 	}
 
 
@@ -211,6 +239,8 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 				return $item->products; 
 			case 'total' : 
 				return $item->total; 
+			// case 'comments' : 
+			// 	return $item->comments; 
 			case 'date' : 
 				return $item->date; 
 			case 'status' : 
@@ -254,9 +284,12 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 			'customer'  => __( 'Customer', 'wcvendors' ),
 			'products'  => __( 'Products', 'wcvendors' ),
 			'total' 	=> __( 'Total', 'wcvendors' ),
+			// 'comments' 	=> __( 'Comments to Customer', 'wcvendors' ),
 			'date'      => __( 'Date', 'wcvendors' ),
 			'status'    => __( 'Shipped', 'wcvendors' ),
 		);
+
+		if ( !$this->can_view_comments ) unset( $columns['comments'] );
 
 		return $columns;
 	}
@@ -304,21 +337,30 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 	{
 		if ( !isset( $_GET[ 'order_id' ] ) ) return;
 
-		$items = array_map( 'intval', $_GET[ 'order_id' ] );
+		if (is_array(  $_GET[ 'order_id' ] ) ) { 
 
-		switch ( $this->current_action() ) {
-			case 'mark_shipped':
+			$items = array_map( 'intval', $_GET[ 'order_id' ] );
+			switch ( $this->current_action() ) {
+				case 'mark_shipped':
 
-				$result = $this->mark_shipped( $items );
+					$result = $this->mark_shipped( $items );
 
-				if ( $result )
-					echo '<div class="updated"><p>' . __( 'Orders marked shipped.', 'wcvendors' ) . '</p></div>';
-				break;
+					if ( $result )
+						echo '<div class="updated"><p>' . __( 'Orders marked shipped.', 'wcvendors' ) . '</p></div>';
+					break;
 
-			default:
-				// code...
-				break;
+				default:
+					// code...
+					break;
+			}
+
+		} else { 
+
+			if ( !isset( $_GET[ 'action' ] ) ) return;
+
+			error_log('Processing something else ' ); 
 		}
+		
 
 	}
 
@@ -355,22 +397,30 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 	}
 
 
+
+	/**
+	 *  Get Orders to display in admin 
+	 *
+	 * @return $orders
+	 */
 	function get_orders() { 
 
 		$user_id = get_current_user_id(); 
 
 		$orders = array(); 
 
+		$vendor_products = $this->get_vendor_products( $user_id );
 
-		$vendor_products = WCV_Queries::get_commission_products( $user_id );
 		$products = array();
 
 		foreach ($vendor_products as $_product) {
 			$products[] = $_product->ID;
 		}
 
-		$_orders   = WCV_Queries::get_orders_for_products( $products );
+		$_orders   = $this->get_orders_for_vendor_products( $products );
 		
+		$model_id = 0; 
+
 		if (!empty( $_orders ) ) { 
 			foreach ( $_orders as $order ) {
 
@@ -405,19 +455,148 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 				$sum = WCV_Queries::sum_for_orders( array( $order->id ), array('vendor_id' =>get_current_user_id() ) ); 
 				$total = $sum[0]->line_total; 
 
+				$comment_output = '';
+
+				//  Need to fix how form is submitted for adding comments if at all possible. 
+
+				if ( $this->can_view_comments) { 
+					
+					$order_notes = $order->get_customer_order_notes();			
+
+					$comment_output .= '<a href="#TB_inline?width=600&height=550&inlineId=order-comment-window-'.$model_id.'" class="thickbox">'; 
+					$comment_output .= sprintf( __( 'Comments (%s)', 'wcvendors' ), count( $order_notes ) );
+					$comment_output .= '</a>';	
+					$comment_output .= '<div id="order-comment-window-'.$model_id.'" style="display:none;">'; 
+					$comment_output .= '<h3>'.__('Comments to Customer', 'wcvendors' ). '</h3>';
+
+					if ( !empty( $order_notes ) ) { 
+
+						foreach ($order_notes as $order_note) {
+							$last_added = human_time_diff( strtotime( $order_note->comment_date_gmt ), current_time( 'timestamp', 1 ) );
+							$comment_output .= '<p>'; 
+							$comment_output .= $order_note->comment_content; 
+							$comment_output .= '<br />'; 
+						    $comment_output .= sprintf(__( 'added %s ago', 'wcvendors' ), $last_added ); 
+							$comment_output .= '<br />'; 
+							$comment_output .= '</p>';
+						}
+
+					} else { 
+						$comment_output .= '<p>'.__('No comments currently to customer.', 'wcvendors' ). '</p>';
+					}
+
+					if ( $this->can_add_comments ) { 
+						$comment_output .=  wp_nonce_field( 'add-comment' ); 
+						$comment_output .= '
+							<textarea name="comment_text" style="width:97%"></textarea>
+							<input type="hidden" name="order_id" value="'. $order->id .'">
+							<input type="hidden" name="action" value="add_comment">
+							<input class="btn btn-large btn-block" type="submit" name="submit_comment" value="'.__( 'Add comment', 'wcvendors' ).'">';
+					} 
+
+					$comment_output .= '</div>'; 
+
+				}
+
 				$order_items = array(); 
 				$order_items[ 'order_id' ] 	= $order->id;
 				$order_items[ 'customer' ] 	= $order->get_formatted_shipping_address();
 				$order_items[ 'products' ] 	= $products; 
 				$order_items[ 'total' ] 	= woocommerce_price( $total );
 				$order_items[ 'date' ] 		= date_i18n( wc_date_format(), strtotime( $order->order_date ) ); 
+				// $order_items[ 'comments' ]  = $comment_output; 
 				$order_items[ 'status' ] 	= $shipped;
 
 				$orders[] = (object) $order_items; 
+
+				$model_id++;
 			}
 		}
 		return $orders; 
 
+	}
+
+
+	/**
+	 *  Get the vendor products sold 
+	 *
+	 * @param $user_id  - the user_id to get the products of 
+	 *
+	 * @return unknown
+	 */
+	public function get_vendor_products( $user_id )
+	{
+		global $wpdb;
+
+		$vendor_products = array();
+		$sql = '';
+
+		$sql .= "SELECT product_id FROM {$wpdb->prefix}pv_commission WHERE vendor_id = {$user_id} AND status != 'reversed' GROUP BY product_id"; 
+
+		$results = $wpdb->get_results( $sql );
+
+		foreach ( $results as $value ) {
+			$ids[ ] = $value->product_id;
+		}
+
+		if ( !empty( $ids ) ) {
+			$vendor_products = get_posts( 
+				array(
+				   'numberposts' => -1,
+				   'orderby'     => 'post_date',
+				   'post_type'   => array( 'product', 'product_variation' ),
+				   'order'       => 'DESC',
+				   'include'     => $ids
+			  	)
+			);
+		}
+
+		return $vendor_products;
+	}
+
+
+	/**
+	 * All orders for a specific product
+	 *
+	 * @param array $product_ids
+	 * @param array $args (optional)
+	 *
+	 * @return object
+	 */
+	public function get_orders_for_vendor_products( array $product_ids, array $args = array() )
+	{
+		global $wpdb;
+
+		if ( empty( $product_ids ) ) return false;
+
+		$defaults = array(
+			'status' => apply_filters( 'wcvendors_completed_statuses', array( 'completed', 'processing' ) ),
+		);
+
+		$args = wp_parse_args( $args, $defaults );
+
+
+		$sql = "
+			SELECT order_id
+			FROM {$wpdb->prefix}pv_commission as order_items
+			WHERE   product_id IN ('" . implode( "','", $product_ids ) . "')
+			AND     status != 'reversed'
+		";
+
+		if ( !empty( $args[ 'vendor_id' ] ) ) {
+			$sql .= "
+				AND vendor_id = {$args['vendor_id']}
+			";
+		}
+
+		$sql .= "
+			GROUP BY order_id
+			ORDER BY time DESC
+		";
+
+		$orders = $wpdb->get_results( $sql );
+
+		return $orders;
 	}
 
 
