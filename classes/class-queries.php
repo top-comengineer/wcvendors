@@ -18,15 +18,17 @@ class WCV_Queries
 
 		$dates           = WCV_Queries::orders_within_range();
 		$vendor_products = array();
+		$sql = '';
 
-		$results = $wpdb->get_results( "
-			SELECT product_id
-			FROM {$wpdb->prefix}pv_commission
-			WHERE vendor_id = {$user_id}
-			AND 	time >= '" . $dates[ 'after' ] . "'
-			AND 	time <= '" . $dates[ 'before' ] . "'
-			AND     status != 'reversed'
-			GROUP BY product_id" );
+		$sql .= "SELECT product_id FROM {$wpdb->prefix}pv_commission WHERE vendor_id = {$user_id} "; 
+
+		if ( !empty( $dates ) ) { 
+			$sql .= "AND time >= '" . $dates[ 'after' ] . "' AND time <= '" . $dates[ 'before' ] . "'"; 
+		}
+
+		$sql .= " AND status != 'reversed' GROUP BY product_id"; 
+
+		$results = $wpdb->get_results( $sql );
 
 		foreach ( $results as $value ) {
 			$ids[ ] = $value->product_id;
