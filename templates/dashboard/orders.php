@@ -52,7 +52,6 @@ jQuery(function () {
 			$items = $order->get_items();
 
 			foreach ($items as $key => $value) {
-				echo 'running'; 
 				if ( in_array( $value['variation_id'], $valid_items) || in_array( $value['product_id'], $valid_items ) ) {
 					$valid[] = $value;
 				}
