@@ -32,7 +32,7 @@ class WCV_Vendor_Dashboard
 		$user_id = get_current_user_id();
 
 		if ( !empty( $_GET['wc_pv_mark_shipped'] ) ) {
-			$vendor = WCV_Vendors::get_vendor_shop_name( $user_id );
+			$shop_name = WCV_Vendors::get_vendor_shop_name( $user_id );
 			$order_id = $_GET['wc_pv_mark_shipped'];
 			$shippers = (array) get_post_meta( $order_id, 'wc_pv_shipped', true );
 			$order = new WC_Order( $order_id ); 
@@ -46,7 +46,7 @@ class WCV_Vendor_Dashboard
 				}
 				do_action('wcvendors_vendor_ship', $order_id, $user_id);
 				wc_add_notice( __( 'Order marked shipped.', 'wcvendors' ), 'success' );
-				$order->add_order_note( __( $vendor . ' has marked as shipped. ', 'wcvendors') ); 
+				$order->add_order_note( apply_filters( 'wcvendors_vendor_shipped_note', __( $shop_name . ' has marked as shipped. ', 'wcvendors') ), $user_id ) ; 
 			}
 
 			update_post_meta( $order_id, 'wc_pv_shipped', $shippers );
