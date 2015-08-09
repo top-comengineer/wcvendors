@@ -73,6 +73,18 @@ No Upgrade required at this time.
 
 == Changelog ==
 
+= Version 1.7.7 - 10th August 2015 = 
+
+* Fixed: Terms and conditions processing #182
+* Added: filter to order note for overrides
+* Added: Order note for marked shipped #187
+* Fixed order retrieval for wp-admin orders table for vendors
+* Fixed:  pagination bug #179
+* Updated: styles for orders table in admin for vendors
+* Fixed: Vendor displaying issue #180
+* Updated: Admin Commission Report Column Names #183 
+* Updated: Admin Commissions Page now shows times a product has sold in total #184 
+
 = Version 1.7.6 - 19th July 2015 = 
 
 * Added: Stock notifications go to vendors #114

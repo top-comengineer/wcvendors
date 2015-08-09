@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WC Vendors\n"
-"POT-Creation-Date: 2015-07-19 14:10+1000\n"
+"POT-Creation-Date: 2015-08-09 17:15+1000\n"
 "PO-Revision-Date: 2015-04-24 09:29+1000\n"
 "Last-Translator: \n"
 "Language-Team: WC Vendors <support@wcvendors.com>\n"
@@ -81,7 +81,6 @@ msgstr ""
 
 #: ../classes/admin/class-admin-page.php:72
 #: ../classes/admin/class-admin-page.php:132
-#: ../classes/admin/class-admin-reports.php:339
 #: ../classes/admin/class-product-meta.php:149
 #: ../classes/admin/class-product-meta.php:165
 #: ../templates/dashboard/reports.php:19
@@ -97,15 +96,14 @@ msgid "Product"
 msgstr ""
 
 #: ../classes/admin/class-admin-page.php:252
-#: ../classes/admin/class-vendor-admin-dashboard.php:253
+#: ../classes/admin/class-vendor-admin-dashboard.php:283
 msgid "Order ID"
 msgstr ""
 
 #: ../classes/admin/class-admin-page.php:254
 #: ../classes/admin/class-admin-reports.php:170
-#: ../classes/admin/class-admin-reports.php:344
 #: ../classes/admin/class-admin-reports.php:368
-#: ../classes/admin/class-vendor-admin-dashboard.php:256
+#: ../classes/admin/class-vendor-admin-dashboard.php:286
 #: ../templates/dashboard/orders.php:35
 msgid "Total"
 msgstr ""
@@ -116,7 +114,7 @@ msgid "Status"
 msgstr ""
 
 #: ../classes/admin/class-admin-page.php:256
-#: ../classes/admin/class-vendor-admin-dashboard.php:257
+#: ../classes/admin/class-vendor-admin-dashboard.php:288
 #: ../classes/front/orders/class-orders.php:181
 #: ../templates/dashboard/orders.php:36
 msgid "Date"
@@ -256,6 +254,10 @@ msgstr ""
 msgid "Month"
 msgstr ""
 
+#: ../classes/admin/class-admin-reports.php:339
+msgid "Commission Totals"
+msgstr ""
+
 #: ../classes/admin/class-admin-reports.php:340
 msgid "Tax"
 msgstr ""
@@ -273,6 +275,10 @@ msgstr ""
 
 #: ../classes/admin/class-admin-reports.php:343
 msgid "Paid"
+msgstr ""
+
+#: ../classes/admin/class-admin-reports.php:344
+msgid "Due"
 msgstr ""
 
 #: ../classes/admin/class-admin-users.php:402
@@ -327,55 +333,80 @@ msgstr ""
 msgid "Shop description"
 msgstr ""
 
-#: ../classes/admin/class-vendor-admin-dashboard.php:19
+#: ../classes/admin/class-vendor-admin-dashboard.php:20
 #: ../classes/class-install.php:166
 msgid "Shop Settings"
 msgstr ""
 
-#: ../classes/admin/class-vendor-admin-dashboard.php:20
-#: ../classes/admin/class-vendor-admin-dashboard.php:140
+#: ../classes/admin/class-vendor-admin-dashboard.php:21
+#: ../classes/admin/class-vendor-admin-dashboard.php:146
 #: ../classes/admin/settings/sf-options.php:165
 #: ../classes/class-install.php:165 ../templates/dashboard/orders.php:24
 msgid "Orders"
 msgstr ""
 
-#: ../classes/admin/class-vendor-admin-dashboard.php:52
-#: ../classes/front/dashboard/class-vendor-dashboard.php:101
+#: ../classes/admin/class-vendor-admin-dashboard.php:58
+#: ../classes/front/dashboard/class-vendor-dashboard.php:104
 msgid "Your PayPal address is not a valid email address."
 msgstr ""
 
-#: ../classes/admin/class-vendor-admin-dashboard.php:61
-#: ../classes/front/dashboard/class-vendor-dashboard.php:110
+#: ../classes/admin/class-vendor-admin-dashboard.php:67
+#: ../classes/front/dashboard/class-vendor-dashboard.php:113
 msgid "That shop name is already taken. Your shop name must be unique."
 msgstr ""
 
-#: ../classes/admin/class-vendor-admin-dashboard.php:81
+#: ../classes/admin/class-vendor-admin-dashboard.php:87
 #: ../classes/admin/settings/classes/sf-class-settings.php:366
-#: ../classes/front/dashboard/class-vendor-dashboard.php:128
+#: ../classes/front/dashboard/class-vendor-dashboard.php:131
 msgid "Settings saved."
 msgstr ""
 
-#: ../classes/admin/class-vendor-admin-dashboard.php:254
+#: ../classes/admin/class-vendor-admin-dashboard.php:284
 msgid "Customer"
 msgstr ""
 
-#: ../classes/admin/class-vendor-admin-dashboard.php:255
+#: ../classes/admin/class-vendor-admin-dashboard.php:285
 #: ../classes/admin/settings/sf-options.php:96
 #: ../classes/admin/settings/sf-options.php:223
 msgid "Products"
 msgstr ""
 
-#: ../classes/admin/class-vendor-admin-dashboard.php:258
+#: ../classes/admin/class-vendor-admin-dashboard.php:289
 msgid "Shipped"
 msgstr ""
 
-#: ../classes/admin/class-vendor-admin-dashboard.php:291
+#: ../classes/admin/class-vendor-admin-dashboard.php:324
 #: ../templates/dashboard/orders.php:76
 msgid "Mark shipped"
 msgstr ""
 
-#: ../classes/admin/class-vendor-admin-dashboard.php:315
+#: ../classes/admin/class-vendor-admin-dashboard.php:349
 msgid "Orders marked shipped."
+msgstr ""
+
+#: ../classes/admin/class-vendor-admin-dashboard.php:467
+#: ../templates/orders/orders.php:84
+#, php-format
+msgid "Comments (%s)"
+msgstr ""
+
+#: ../classes/admin/class-vendor-admin-dashboard.php:470
+msgid "Comments to Customer"
+msgstr ""
+
+#: ../classes/admin/class-vendor-admin-dashboard.php:479
+#: ../templates/orders/comments/existing-comments.php:9
+#, php-format
+msgid "added %s ago"
+msgstr ""
+
+#: ../classes/admin/class-vendor-admin-dashboard.php:485
+msgid "No comments currently to customer."
+msgstr ""
+
+#: ../classes/admin/class-vendor-admin-dashboard.php:494
+#: ../templates/orders/comments/add-new-comment.php:11
+msgid "Add comment"
 msgstr ""
 
 #: ../classes/admin/class-vendor-applicants.php:26
@@ -1142,16 +1173,20 @@ msgstr ""
 msgid "Sold by"
 msgstr ""
 
-#: ../classes/front/dashboard/class-vendor-dashboard.php:46
+#: ../classes/front/dashboard/class-vendor-dashboard.php:48
 msgid "Order marked shipped."
 msgstr ""
 
-#: ../classes/front/dashboard/class-vendor-dashboard.php:72
-#: ../classes/front/dashboard/class-vendor-dashboard.php:73
-msgid "Tracking number"
+#: ../classes/front/dashboard/class-vendor-dashboard.php:49
+msgid " has marked as shipped. "
 msgstr ""
 
 #: ../classes/front/dashboard/class-vendor-dashboard.php:75
+#: ../classes/front/dashboard/class-vendor-dashboard.php:76
+msgid "Tracking number"
+msgstr ""
+
+#: ../classes/front/dashboard/class-vendor-dashboard.php:78
 msgid "Success. Your tracking number has been updated."
 msgstr ""
 
@@ -1208,26 +1243,27 @@ msgstr ""
 msgid "Success. The customer has been notified of your comment."
 msgstr ""
 
-#: ../classes/front/signup/class-vendor-signup.php:44
+#: ../classes/front/signup/class-vendor-signup.php:45
 #: ../templates/dashboard/denied.php:22
 msgid "Apply to become a vendor? "
 msgstr ""
 
-#: ../classes/front/signup/class-vendor-signup.php:53
+#: ../classes/front/signup/class-vendor-signup.php:54
 #: ../templates/dashboard/denied.php:33
 #, php-format
 msgid "I have read and accepted the <a href=\"%s\">terms and conditions</a>"
 msgstr ""
 
-#: ../classes/front/signup/class-vendor-signup.php:87
+#: ../classes/front/signup/class-vendor-signup.php:88
 msgid "Application denied. You are an administrator."
 msgstr ""
 
-#: ../classes/front/signup/class-vendor-signup.php:89
+#: ../classes/front/signup/class-vendor-signup.php:90
 msgid "Your application has been submitted."
 msgstr ""
 
-#: ../classes/front/signup/class-vendor-signup.php:125
+#: ../classes/front/signup/class-vendor-signup.php:129
+#: ../classes/front/signup/class-vendor-signup.php:138
 msgid "You must accept the terms and conditions to become a vendor."
 msgstr ""
 
@@ -1597,15 +1633,6 @@ msgstr ""
 msgid "You have received an order from %s. Their order is as follows:"
 msgstr ""
 
-#: ../templates/orders/comments/add-new-comment.php:11
-msgid "Add comment"
-msgstr ""
-
-#: ../templates/orders/comments/existing-comments.php:9
-#, php-format
-msgid "added %s ago"
-msgstr ""
-
 #: ../templates/orders/csv-export.php:6
 msgid "Export orders"
 msgstr ""
@@ -1616,11 +1643,6 @@ msgstr ""
 
 #: ../templates/orders/customer-note/customer-note.php:8
 msgid "No customer note."
-msgstr ""
-
-#: ../templates/orders/orders.php:84
-#, php-format
-msgid "Comments (%s)"
 msgstr ""
 
 #: ../templates/orders/shipping/shipping-form.php:6
