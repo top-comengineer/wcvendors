@@ -23,8 +23,9 @@ class WCV_Vendor_Signup
 
 		add_action( 'register_form', array( $this, 'vendor_option' ) );
 		add_action( 'woocommerce_created_customer', array( $this, 'save_pending' ), 10, 2 );
-		add_action( 'register_post', array( $this, 'apply_form' ), 10 );
-		add_action( 'init', array( $this, 'apply_form' ), 10 );
+		// add_action( 'register_post', array( $this, 'apply_form' ), 10 );
+		add_action( 'template_redirect', array( $this, 'apply_form_dashboard' ), 10 );
+		add_action( 'woocommerce_register_post', array( $this, 'validate_vendor_registration' ), 10, 3 ); 
 	}
 
 
@@ -78,8 +79,8 @@ class WCV_Vendor_Signup
 	 */
 	public function save_pending( $user_id )
 	{
+
 		if ( isset( $_POST[ 'apply_for_vendor' ] ) ) {
-			global $woocommerce;
 
 			wc_clear_notices(); 
 
@@ -96,7 +97,7 @@ class WCV_Vendor_Signup
 
 				do_action( 'wcvendors_application_submited', $user_id );
 
-				add_filter( 'woocommerce_registration_redirect', array( 'WCV_Vendor_Signup', 'redirect_to_vendor_dash' ) );
+				add_filter( 'woocommerce_registration_redirect', array( $this, 'redirect_to_vendor_dash' ) );
 			}
 		}
 	}
@@ -114,19 +115,29 @@ class WCV_Vendor_Signup
 	 *
 	 * @return unknown
 	 */
-	public function apply_form()
+	public function apply_form_dashboard()
 	{
-		global $woocommerce;
-
 		if ( !isset( $_POST[ 'apply_for_vendor' ] ) ) return false;
 
-		if ( $this->terms_page && !isset( $_POST[ 'agree_to_terms' ] ) ) {
-			wc_clear_notices(); 
-			wc_add_notice( __( 'You must accept the terms and conditions to become a vendor.', 'wcvendors' ), 'error' ); 
-		} else if ( isset( $_POST[ 'apply_for_vendor_submit' ] ) ) {
-			self::save_pending( get_current_user_id() );
-		}
+		$vendor_dashboard_page = WC_Vendors::$pv_options->get_option( 'vendor_dashboard_page' );
+		$page_id     = get_queried_object_id();
 
+		if ( $page_id == $vendor_dashboard_page ) { 
+			if ( $this->terms_page && isset( $_POST[ 'agree_to_terms' ] ) ) {
+				self::save_pending( get_current_user_id() );
+			} else { 
+				wc_add_notice( __( 'You must accept the terms and conditions to become a vendor.', 'wcvendors' ), 'error' ); 
+			}
+		} 
+	}
+
+	public function validate_vendor_registration( $username, $email, $validation_errors ) { 
+
+		if ( isset( $_POST[ 'apply_for_vendor' ] ) ) { 
+			if ( !isset( $_POST[ 'agree_to_terms' ] ) ) { 
+				$validation_errors->add(  'agree_to_terms_error', __( 'You must accept the terms and conditions to become a vendor.', 'wcvendors' ) ); 
+			}
+		}
 	}
 
 
