@@ -101,7 +101,7 @@ No Upgrade required at this time.
 * Fixed: Terms and conditions processing #182
 * Added: filter to order note for overrides
 * Added: Order note for marked shipped #187
-* Fixed order retrieval for wp-admin orders table for vendors
+* Fixed: order retrieval for wp-admin orders table for vendors
 * Fixed:  pagination bug #179
 * Updated: styles for orders table in admin for vendors
 * Fixed: Vendor displaying issue #180
