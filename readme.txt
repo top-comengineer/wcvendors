@@ -1,27 +1,50 @@
 === WC Vendors ===
 Contributors: wcvendors, digitalchild
-Tags: woocommerce, vendor, shops, product vendor, product vendors, seller
+Tags: commission rate, dc multi vendor, dc multi vendors, dc product vendor, dc product vendors, dc vendor, dc vendors, e-commerce, ecommerce, ebay, free, marketplace, multi seller, multi store, multi vendor, multistore, multivendor, multivendors, product vendor, product vendors, seller, shops, store, vendor, vendor shop, vendor system, vendors, wc multivendor, wc vendors, woo vendors, woocommerce, woocommerce marketplace, woocommerce multi vendor, WooCommerce multivendor, woocommerce product vendors, WooCommerce vedors, yit, yith, yithemes
 Donate link: http://www.wcvendors.com/
 Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.0
-Tested up to: 4.2.2
+Tested up to: 4.3
 Stable tag: 1.7.6
 License: GPLv2 or later
 
 The free multi-vendor plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
 
 == Description ==
-Create your own marketplace and allow vendors to sell just like etsy, Envato, or Amazon type sites! This allows other users to sell tangible products, virtual products, or downloads on your site. With this plugin, your vendors receive commissions you set on products they sell from your store.
+Create your own marketplace and allow vendors to sell just like etsy, Envato, eBay, or Amazon type sites! This allows other sellers/vendors to sell tangible products, virtual products, or downloads on your site. With this plugin, your vendors receive commissions you set on products they sell from your store.
+
+This plugin has been around since 2011 and remains still the #1 multi vendor plugin on the market.  It is the most feature packed free plugin available for operating a multi vendor store.  Many have tried to imitate, only to put all the useful features in their paid versions.  Don't fall for that trick!  Our support is top notch, check out our <a href="https://www.wcvendors.com/help/">free Help Forums</a> and notice that when you ask a question, it doesnt take a week to reply, we offer our support incredibly fast.  We are an American (Ben) and Australian (Jamie) based team of developers, and this plugin is all we do.  Give it a try!  After all, the price is right and we're here when you need us.
 
 = Features =
-* Instantly pay vendors their commission as soon as an order is placed
-* Or, pay commission on a schedule. Weekly, biweekly, monthly, or manually.
-* Vendors can submit products for admin review
+* ALL FEATURES LISTED HERE ARE INCLUDED IN THE FREE PLUGIN!
+* Instantly pay vendors their commission as soon as an order is placed using PayPal Adaptive Payments or <a href="https://www.wcvendors.com/product/stripe-commissions-gateway/">Stripe</a>.
+* Or, pay commission on a schedule. Weekly, biweekly, monthly, or manually using any payment provider you choose.
+* Vendors can submit products for admin review, or send new products live to the site immediately.
 * Vendors can view live sales and reports for their products
 * Vendors can comment on their orders (eg, to inform customers of a tracking number)
 * Vendors can export their orders to a CSV file
-* PayPal Adaptive Payments included for FREE ( Parallel & MassPay )
+* PayPal Adaptive Payments gateway included for FREE ( Parallel & MassPay )
+* WPML Compatible
+* Vendors can sell all product types
+* Vendors manage their own media gallery/library
+* Customizable Vendor Pages
+* Global, Per Vendor, or Per product Commission Rates
+* Notification to Vendors of new orders
+* Vendors have their own individual storefronts, and blend in with the site through your categories
+* Advanced Product Management
+* Customizable Vendor Headers
+* Front-End Vendor Registration and Back-End Vendor Registration
+* Vendors have their own user accounts and a Vendor Role
+* Tons of shortcodes
+* Translated in over 10 languages
+* Shipping Management through Per Product Shipping and Multiple Packages (and more coming soon!)
+* Tax Management to give or not give vendors tax for each order
+* Test Checkout Gateway included for testing your store before it goes live
+* Free technical support around the clock @ <a href="https://www.wcvendors.com/help/">www.wcvendors.com/help/</A>
+* Knowledgebase full of great articles on all the hooks, actions, filters, shortcodes, neat tricks, etc, @ <a href="https://www.wcvendors.com/knowledgebase/">www.wcvendors.com/knowledgebase/</A>
+* ....and much more!
+* Pro version coming October 1st with a full featured front end product editor/adder and an eBay style feedback system plus more!
 
 = Translations =
 
