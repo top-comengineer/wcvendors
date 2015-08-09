@@ -9,7 +9,7 @@
  *
  * Version:             1.7.6
  * Requires at least:   4.0.0
- * Tested up to:        4.2.2
+ * Tested up to:        4.3.0
  *
  * Text Domain:         wcvendors
  * Domain Path:         /languages/
