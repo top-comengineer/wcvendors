@@ -37,7 +37,7 @@ This plugin has been around since 2011 and remains still the #1 multi vendor plu
 * Front-End Vendor Registration and Back-End Vendor Registration
 * Vendors have their own user accounts and a Vendor Role
 * Tons of shortcodes
-* Translated in over 10 languages
+* Translated in over 9 languages and growing!
 * Shipping Management through Per Product Shipping and Multiple Packages (and more coming soon!)
 * Tax Management to give or not give vendors tax for each order
 * Test Checkout Gateway included for testing your store before it goes live
