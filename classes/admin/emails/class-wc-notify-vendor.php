@@ -141,6 +141,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 	public function get_vendors( $order )
 	{
 		$items = $order->get_items();
+		$vendors = array(); 
 
 		foreach ( $items as $key => $product ) {
 
