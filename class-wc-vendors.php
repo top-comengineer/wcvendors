@@ -38,7 +38,6 @@ if ( is_woocommerce_activated() ) {
 	if ( !defined( 'wcv_plugin_base' ) ) 		define( 'wcv_plugin_base', plugin_basename( __FILE__ ) );
 	if ( !defined( 'wcv_plugin_dir_path' ) )	define(  'wcv_plugin_dir_path', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 
-
 	/**
 	 * Main Product Vendor class
 	 *
@@ -58,10 +57,11 @@ if ( is_woocommerce_activated() ) {
 		 */
 		public function __construct()
 		{
-			$this->title = __( 'WC Vendors', 'wcvendors' );
-
+			
 			// Load text domain 
-			add_action( 'init', array( $this, 'load_il8n' ) );
+			add_action( 'plugins_loaded', array( $this, 'load_il8n' ) );
+
+			$this->title = __( 'WC Vendors', 'wcvendors' );
 
 			// Install & upgrade
 			add_action( 'admin_init', array( $this, 'check_install' ) );
@@ -137,12 +137,18 @@ if ( is_woocommerce_activated() ) {
 
 		    // The "plugin_locale" filter is also used in load_plugin_textdomain()
 		    
-		    $locale = apply_filters('plugin_locale', get_locale(), $domain);
+		    $locale = apply_filters( 'plugin_locale', get_locale(), $domain );
+
+		    error_log( $locale ); 
 
 		    //Place your custom translations into wp-content/languages/wc-vendors to be upgrade safe 
 		    load_textdomain($domain, WP_LANG_DIR.'/wc-vendors/'.$domain.'-'.$locale.'.mo');
+
+		    error_log( WP_LANG_DIR.'/wc-vendors/'.$domain.'-'.$locale.'.mo' ); 
 			
 			load_plugin_textdomain( 'wcvendors', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+
+			error_log( dirname( plugin_basename( __FILE__ ) ) . '/languages/' ); 
 
 		}
 
