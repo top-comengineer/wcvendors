@@ -66,6 +66,7 @@ class WCV_Install
 		add_role( 'vendor', __('Vendor', 'wcvendors') , array(
 										   'assign_product_terms'     => true,
 										   'edit_products'            => true,
+										   'edit_product'             => true,
 										   'edit_published_products'  => false,
 										   'manage_product'           => true,
 										   'publish_products'         => false,
