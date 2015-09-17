@@ -96,6 +96,19 @@ No Upgrade required at this time.
 
 == Changelog ==
 
+= Version 1.7.8 - 18th September 2015 =
+
+* Fixed: Vendors can not register #193
+* Fixed: Variation product image upload #194
+* Added: Order actions thanks GoTeamScotch
+* Updated: New item meta in WC 2.4+ 
+* Updated: WooCommerce Shipment Tracking v1.2.7+ 
+* Fixed: Paypal Logging thanks to GoTeamScotch
+* Updated: Templates now fully translatable #195 
+* Fixed: Translations not loading bug
+* Fixed: vendors not defined error
+* Updated: Base translation files
+
 = Version 1.7.7 - 10th August 2015 = 
 
 * Fixed: Terms and conditions processing #182
