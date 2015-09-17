@@ -123,10 +123,14 @@ class WCV_Vendor_Signup
 		$page_id     = get_queried_object_id();
 
 		if ( $page_id == $vendor_dashboard_page ) { 
-			if ( $this->terms_page && isset( $_POST[ 'agree_to_terms' ] ) ) {
-				self::save_pending( get_current_user_id() );
+			if ( $this->terms_page ) { 
+				if ( isset( $_POST[ 'agree_to_terms' ] ) ) {
+					self::save_pending( get_current_user_id() );
+				} else { 
+					wc_add_notice( __( 'You must accept the terms and conditions to become a vendor.', 'wcvendors' ), 'error' ); 
+				}
 			} else { 
-				wc_add_notice( __( 'You must accept the terms and conditions to become a vendor.', 'wcvendors' ), 'error' ); 
+				self::save_pending( get_current_user_id() );	
 			}
 		} 
 	}
@@ -134,7 +138,7 @@ class WCV_Vendor_Signup
 	public function validate_vendor_registration( $username, $email, $validation_errors ) { 
 
 		if ( isset( $_POST[ 'apply_for_vendor' ] ) ) { 
-			if ( !isset( $_POST[ 'agree_to_terms' ] ) ) { 
+			if ( $this->terms_page && !isset( $_POST[ 'agree_to_terms' ] ) ) { 
 				$validation_errors->add(  'agree_to_terms_error', __( 'You must accept the terms and conditions to become a vendor.', 'wcvendors' ) ); 
 			}
 		}
