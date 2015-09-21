@@ -373,7 +373,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 			'order_id'         	=> $order_id,
 		);
 
-		$payRequest->ipnNotificationUrl                = str_replace( 'https:', 'http:', add_query_arg( $args, home_url( '/' ) ) );
+		$payRequest->ipnNotificationUrl                = add_query_arg( $args, home_url( '/' ) );
 		$payRequest->memo                              = !empty( $order->customer_note ) ? $order->customer_note : '';
 		$payRequest->reverseAllParallelPaymentsOnError = true;
 
