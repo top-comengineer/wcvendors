@@ -96,6 +96,10 @@ No Upgrade required at this time.
 
 == Changelog ==
 
+= Version 1.7.9 - 30th September 2015 =
+
+* Fixed: woocommerce filter and action issues on product edit page 
+
 = Version 1.7.8 - 18th September 2015 =
 
 * Fixed: Vendors can not register #193
