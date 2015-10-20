@@ -44,7 +44,23 @@ This plugin has been around since 2011 and remains still the #1 multi vendor plu
 * Free technical support around the clock @ <a href="https://www.wcvendors.com/help/">www.wcvendors.com/help/</A>
 * Knowledgebase full of great articles on all the hooks, actions, filters, shortcodes, neat tricks, etc, @ <a href="https://www.wcvendors.com/knowledgebase/">www.wcvendors.com/knowledgebase/</A>
 * ....and much more!
-* Pro version coming October 1st with a full featured front end product editor/adder and an eBay style feedback system plus more!
+
+
+The following features are part of <a href="https://www.wcvendors.com/product/wc-vendors-pro/">WC Vendors Pro</a>
+*<strong>Pro Dashboard</strong> making your vendors sales reports a piece of cake</li>
+*<strong>Fully featured front-end product add/edit capabilities</strong></li>
+*<strong>eBay style feedback</strong> system for Vendor Ratings</li>
+*<strong>Shipment Tracking</strong> for Vendors to enter tracking numbers</li>
+*<strong>Multiple commission types</strong> such as percentage, percentage + fee, fixed fee, and even fixed fee + fee.</li>
+*<strong>Vendor-Only coupons</strong> that vendors can create to make their own coupons for only their products</li>
+*<strong>Vendor Stores</strong> post types, which give Vendors their own true actual store</li>
+*Vendor <strong>store banners, avatars/icons</strong> and extra information fully customizable</li>
+*<strong>Social module</strong> for adding facebook/twitter/google+ and many more</li>
+*Extended <strong>Order Notes</strong></li>
+*<strong>Insanely customizable template system</strong> to configure, tweak and style your store and dashboard any way you see fit.</li>
+*MUCH MORE TO COME including <strong>WooThemes Bookings</strong> support, <strong>Shipping Modules</strong> so vendors can configure shipping prices, <strong>Variable Product</strong> support, integration with even more Woo plugins, and good features that you, the customer, ask us to code! <strong>Pro will always be continually updated with new features</strong>, just as you have grown to expect from WC Vendors Free</li>
+*<strong>INSANELY FAST SUPPORT</strong> on our <a href="https://www.wcvendors.com/help/forum/wc-vendors-pro-support/">Pro Help Forum</a></li>
+
 
 = Translations =
 
@@ -57,6 +73,7 @@ We currently ship WC Vendors free with the following language translations. If y
 * Brazilian Portuguese
 * Italian
 * Spanish
+* Portuguese
 * Persian
 * French
 
