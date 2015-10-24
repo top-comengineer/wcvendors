@@ -323,7 +323,7 @@ class WCV_Commission
 		// Insert the time and default status 'due'
 		foreach ( $orders as $key => $order ) {
 			$orders[ $key ][ 'time' ]   = $order['time'];
-			$orders[ $key ][ 'status' ] = 'due';
+			$orders[ $key ][ 'status' ] = ( $order['total_due'] == 0 ) ? 'paid' : 'due';
 		}
 
 		foreach ( $orders as $key => $order ) {
