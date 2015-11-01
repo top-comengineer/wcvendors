@@ -6,7 +6,7 @@ Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.0
 Tested up to: 4.3.1
-Stable tag: 1.7.9
+Stable tag: 1.8.0
 License: GPLv2 or later
 
 The free multi-vendor plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
@@ -112,6 +112,14 @@ You can post a support question on the support tab, however you'll get more help
 No Upgrade required at this time.
 
 == Changelog ==
+
+= Version 1.8.0 - 31st October 2015 = 
+
+* Fixed: Mark $0.00 commissions as paid instead of due #205
+* Fixed: Email trigger should be filter not action - Thanks ontiuk #215
+* Updated: Read me with link to Pro and Updated Language List
+* Added: Portuguese Language (Thanks Renato) #212 
+* Remove Forced HTTP Protocol on Sent IPN URL #207 from GoTeamScotch
 
 = Version 1.7.9 - 30th September 2015 =
 

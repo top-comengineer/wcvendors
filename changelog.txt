@@ -1,5 +1,13 @@
 Changelog for WC Vendors
 
+Version 1.8.0 
+
+* Fixed: Mark $0.00 commissions as paid instead of due #205
+* Fixed: Email trigger should be filter not action - Thanks ontiuk #215
+* Updated: Read me with link to Pro and Updated Language List
+* Added: Portuguese Language (Thanks Renato) #212 
+* Remove Forced HTTP Protocol on Sent IPN URL #207 from GoTeamScotch
+
 Version 1.7.9 
 
 * Fixed: woocommerce filter and action issues on product edit page 
