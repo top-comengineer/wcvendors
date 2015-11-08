@@ -23,7 +23,7 @@ class WCV_Vendor_Cart
 
 
 	/**
-	 *
+	 * Sold by in cart item 
 	 *
 	 * @param unknown $values
 	 * @param unknown $cart_item
@@ -47,7 +47,7 @@ class WCV_Vendor_Cart
 
 
 	/**
-	 *
+	 * Single product meta 
 	 */
 	public static function sold_by_meta()
 	{
