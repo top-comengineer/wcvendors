@@ -16,6 +16,12 @@ $options[ ] = array(
 	)
 );
 
+/* Customize registration message depending on if they have registration enabled on the my account page */
+$registration_message = __( 'Allow users or guests to apply to become a vendor', 'wcvendors' );
+if ( get_option( 'woocommerce_enable_myaccount_registration' ) === 'no' ) {
+        $registration_message = __( 'Allow users or guests to apply to become a vendor.  <br><br><strong>WARNING:</strong>  You MUST "<strong>Enable registration on the "My Account" page</strong>" in your <strong>WooCommerce > Settings > Accounts</strong> page for this option to work.  Currently, you have registration disabled.', 'wcvendors' );
+}
+
 $options[ ] = array(
 	'name' => __( 'Registration', 'wcvendors' ),
 	'desc' => __( 'Allow users or guests to apply to become a vendor', 'wcvendors' ),
