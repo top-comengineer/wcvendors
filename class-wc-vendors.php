@@ -23,6 +23,23 @@
 
 
 /**
+ *   Plugin activation hook 
+ */
+function wcvendors_activate() {
+
+	/**
+	 *  Requires woocommerce to be installed and active 
+	 */
+	if ( !class_exists( 'WooCommerce' ) ) { 
+		deactivate_plugins( plugin_basename( __FILE__ ) );
+		wp_die( __( 'WC Vendors requires WooCommerce to run. Please install WooCommerce and activate before attempting to activate again.', 'wcvendors' ) );
+	}
+} // wcvendors_activate()
+
+register_activation_hook( __FILE__, 'wcvendors_activate' );
+
+
+/**
  * Required functions
  */
 require_once trailingslashit( dirname( __FILE__ ) ) . 'classes/includes/class-functions.php';
@@ -88,7 +105,7 @@ if ( is_woocommerce_activated() ) {
 		 */
 		public function invalid_wc_version()
 		{
-			echo '<div class="error"><p>' . __( '<b>WC Vendors is disabled</b>. WC Vendors requires a minimum of WooCommerce v2.2.0.', 'wcvendors' ) . '</p></div>';
+			echo '<div class="error"><p>' . __( '<b>WC Vendors is disabled</b>. WC Vendors requires a minimum of WooCommerce v2.4.0.', 'wcvendors' ) . '</p></div>';
 		}
 
 
@@ -104,10 +121,9 @@ if ( is_woocommerce_activated() ) {
 			global $woocommerce;
 
 			// WC 2.0.1 is required
-			if ( version_compare( $woocommerce->version, '2.2', '<' ) ) {
+			if ( version_compare( $woocommerce->version, '2.4', '<' ) ) {
 				add_action( 'admin_notices', array( $this, 'invalid_wc_version' ) );
 				deactivate_plugins( plugin_basename( __FILE__ ) );
-
 				return false;
 			}
 
