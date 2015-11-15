@@ -277,6 +277,9 @@ if ( is_woocommerce_activated() ) {
 					update_option( WC_Vendors::$id . '_flush_rules', true );
 				}
 			}
+
+			do_action( 'wcvendors_option_updates', $options, $tabname ); 
+
 		}
 
 
