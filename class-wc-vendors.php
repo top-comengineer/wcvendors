@@ -96,7 +96,8 @@ if ( is_woocommerce_activated() ) {
 			add_action( self::$id . '_options_updated', array( $this, 'option_updates' ), 10, 2 );
 
 			// Start a PHP session, if not yet started
-			if ( !session_id() ) session_start();
+			/* this line will initialize session to early and for each page
+			if ( !session_id() ) session_start();*/
 		}
 
 
