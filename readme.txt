@@ -6,7 +6,7 @@ Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.0
 Tested up to: 4.3.1
-Stable tag: 1.8.0
+Stable tag: 1.8.1
 License: GPLv2 or later
 
 The free multi-vendor plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
@@ -112,6 +112,14 @@ You can post a support question on the support tab, however you'll get more help
 No Upgrade required at this time.
 
 == Changelog ==
+
+= Version 1.8.1 - 17th November 2015 = 
+
+* Added: New options updated action for settings
+* Added: New plugin activation hook for testing woocommerce active 
+* Added: vendor id to get shipping due  filter
+* Added: Warning on settings page if user registration in WooCommerce is not enabled
+* Added: Russian Translations thanks Natalia
 
 = Version 1.8.0 - 31st October 2015 = 
 
