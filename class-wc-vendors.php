@@ -47,7 +47,7 @@ require_once trailingslashit( dirname( __FILE__ ) ) . 'classes/includes/class-fu
 /**
  * Check if WooCommerce is active
  */
-if ( is_woocommerce_activated() ) {
+if ( wcv_is_woocommerce_activated() ) {
 
 	/* Define an absolute path to our plugin directory. */
 	if ( !defined( 'wcv_plugin_dir' ) ) 		define( 'wcv_plugin_dir', trailingslashit( dirname( __FILE__ ) ) . '/' );
