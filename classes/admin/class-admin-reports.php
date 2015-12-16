@@ -60,7 +60,7 @@ class WCV_Admin_Reports
 				),
 				array(
 					'title'       => __( 'Commission Totals', 'wcvendors' ),
-					'description' => 'Commission totals for all vendors',
+					'description' => __( 'Commission totals for all vendors. By default no date range is used and all due commissions are returned. Use the date range to filter.', 'wcvendors' ),
 					'hide_title'  => true,
 					'function'    => array( $this, 'commission_totals' ),
 				),
@@ -415,9 +415,8 @@ class WCV_Admin_Reports
 		$total_start_date 	= !empty( $_POST[ 'total_start_date' ] ) ? $_POST[ 'total_start_date' ] : strtotime( date( 'Ymd', strtotime( date( 'Ym', current_time( 'timestamp' ) ) . '01' ) ) );
 		$total_end_date  	= !empty( $_POST[ 'total_end_date' ] ) ? $_POST[ 'total_end_date' ] : strtotime( date( 'Ymd', current_time( 'timestamp' ) ) );
 		$commission_status  = !empty( $_POST[ 'commission_status' ] ) ? $_POST[ 'commission_status' ] : 'due';
-		$vendors         	= get_users( array( 'role' => 'vendor', 'fields' => array( 'ID', 'display_name' ) ) );
-		$vendor_names 		= wp_list_pluck( $vendors, 'display_name', 'id' ); 
-
+		$vendors         	= get_users( array( 'role' => 'vendor', 'fields' => array( 'ID', 'user_login' ) ) );
+		$vendor_names 		= wp_list_pluck( $vendors, 'user_login', 'ID' ); 
 		$date_sql = ( !empty( $_POST[ 'total_start_date' ] ) && !empty( $_POST[ 'total_end_date' ] ) ) ? " time >= '$total_start_date' AND time <= '$total_end_date' AND" : ""; 
 
 		$status_sql = " status='$commission_status'"; 
