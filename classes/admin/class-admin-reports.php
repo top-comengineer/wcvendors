@@ -454,6 +454,7 @@ class WCV_Admin_Reports
 				<table class="widefat">
 					<thead>
 						<tr>
+							<th class="total_row"><?php _e( 'Vendor ID', 'wcvendors' ); ?></th>
 							<th class="total_row"><?php _e( 'Vendor', 'wcvendors' ); ?></th>
 							<th class="total_row"><?php _e( 'Tax Total', 'wcvendors' ); ?></th>
 							<th class="total_row"><?php _e( 'Shipping Total', 'wcvendors' ); ?></th>
@@ -469,6 +470,7 @@ class WCV_Admin_Reports
 						foreach ($totals as $vendor_id => $totals ) {
 
 							echo '<tr>'; 
+							echo '<td>' . $vendor_id . '</td>'; 
 							echo '<td>' . $vendor_names[ $vendor_id ]. '</td>'; 
 							echo '<td>' . $totals[ 'tax' ] . '</td>'; 
 							echo '<td>' . $totals[ 'total_shipping' ] . '</td>'; 
