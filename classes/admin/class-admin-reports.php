@@ -465,18 +465,26 @@ class WCV_Admin_Reports
 					<tbody>
 					<?php 
 
-					foreach ($totals as $vendor_id => $totals ) {
+					if ( !empty( $commissions ) ){ 
 
-						echo '<tr>'; 
-						echo '<td>' . $vendor_names[ $vendor_id ]. '</td>'; 
-						echo '<td>' . $totals[ 'tax' ] . '</td>'; 
-						echo '<td>' . $totals[ 'total_shipping' ] . '</td>'; 
-						echo '<td>' . $totals[ 'status' ] . '</td>'; 
-						echo '<td>' . $totals[ 'total_due' ] . '</td>'; 
-						echo '</tr>'; 						
+						foreach ($totals as $vendor_id => $totals ) {
+
+							echo '<tr>'; 
+							echo '<td>' . $vendor_names[ $vendor_id ]. '</td>'; 
+							echo '<td>' . $totals[ 'tax' ] . '</td>'; 
+							echo '<td>' . $totals[ 'total_shipping' ] . '</td>'; 
+							echo '<td>' . $totals[ 'status' ] . '</td>'; 
+							echo '<td>' . $totals[ 'total_due' ] . '</td>'; 
+							echo '</tr>'; 						
 						
-					}
+						}
 
+					} else { 
+						echo '<tr>'; 
+						echo '<td colspan="5">'. __( 'No commissions found.', 'wcvendors' ) . '</td>'; 
+						echo '</tr>'; 						
+
+					}
 					?>
 					</tbody>
 				</table>
