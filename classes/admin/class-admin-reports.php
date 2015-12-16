@@ -516,21 +516,23 @@ class WCV_Admin_Reports
 
 			} else { 
 
-				$temp_array = array( 
-					'user_login' 		=> $vendor_names[ $commission->vendor_id ], 
-					'total_due' 		=> $commission->total_due, 
-					'tax'				=> $commission->tax,
-					'total_shipping'	=> $commission->total_shipping, 
-					'status'			=> $commission->status, 
-				); 
+				if ( array_key_exists( $commission->vendor_id, $vendor_names) ){ 
 
-				$totals[ $commission->vendor_id ] = $temp_array ; 
+					$temp_array = array( 
+						'user_login' 		=> $vendor_names[ $commission->vendor_id ], 
+						'total_due' 		=> $commission->total_due, 
+						'tax'				=> $commission->tax,
+						'total_shipping'	=> $commission->total_shipping, 
+						'status'			=> $commission->status, 
+					); 
+
+					$totals[ $commission->vendor_id ] = $temp_array ; 
+
+				}
 
 			} 
 			
 		} 
-
-		$totals = ( sizeof( $totals) > 1 ) ? usort( $totals, function ($a, $b) { return strcasecmp( $a[ 'user_login' ], $b[ 'user_login' ] ); } ) : $totals;
 
 		return $totals; 
 
