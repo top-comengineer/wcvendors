@@ -174,10 +174,11 @@ class WCV_Vendor_Shop
 	*/
 	public static function template_loop_sold_by($product_id) { 
 		$vendor_id     = WCV_Vendors::get_vendor_from_product( $product_id );
+		$sold_by_label = WC_Vendors::$pv_options->get_option( 'sold_by_label' ); 
 		$sold_by = WCV_Vendors::is_vendor( $vendor_id )
 			? sprintf( '<a href="%s">%s</a>', WCV_Vendors::get_vendor_shop_page( $vendor_id ), WCV_Vendors::get_vendor_sold_by( $vendor_id ) )
 			: get_bloginfo( 'name' );
-		echo '<small class="wcvendors_sold_by_in_loop">' . apply_filters('wcvendors_sold_by_in_loop', __( 'Sold by: ', 'wcvendors' )). $sold_by . '</small> <br />';
+		echo '<small class="wcvendors_sold_by_in_loop">' . apply_filters('wcvendors_sold_by_in_loop', $sold_by_label ). $sold_by . '</small> <br />';
 	}
 
 

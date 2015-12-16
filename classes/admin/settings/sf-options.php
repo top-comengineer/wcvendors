@@ -99,6 +99,14 @@ $options[ ] = array(
 
 );
 
+$options[ ] = array(
+	'name' => __( 'Sold By Label', 'wcvendors' ),
+	'desc' => __( 'The sold by label used on the site and emails.', 'wcvendors' ),
+	'id'   => 'sold_by_label',
+	'type' => 'text',
+	'std'  => __( 'Sold By: ', 'wcvendors' ),
+);
+
 $options[ ] = array( 'name' => __( 'Products', 'wcvendors' ), 'type' => 'heading' );
 $options[ ] = array( 'name' => __( 'Product Add Page', 'wcvendors' ), 'type' => 'title', 'desc' => __( 'Configure what to hide from all vendors when adding a product', 'wcvendors' ) );
 
