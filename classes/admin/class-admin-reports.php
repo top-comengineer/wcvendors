@@ -60,7 +60,7 @@ class WCV_Admin_Reports
 				),
 				array(
 					'title'       => __( 'Commission Totals', 'wcvendors' ),
-					'description' => __( 'Commission totals for all vendors. By default no date range is used and all due commissions are returned. Use the date range to filter.', 'wcvendors' ),
+					'description' => __( 'Commission totals for all vendors includes shipping and taxes. By default no date range is used and all due commissions are returned. Use the date range to filter.', 'wcvendors' ),
 					'hide_title'  => true,
 					'function'    => array( $this, 'commission_totals' ),
 				),
@@ -452,7 +452,6 @@ class WCV_Admin_Reports
 				<table class="widefat">
 					<thead>
 						<tr>
-							<th class="total_row"><?php _e( 'Vendor ID', 'wcvendors' ); ?></th>
 							<th class="total_row"><?php _e( 'Vendor', 'wcvendors' ); ?></th>
 							<th class="total_row"><?php _e( 'Tax Total', 'wcvendors' ); ?></th>
 							<th class="total_row"><?php _e( 'Shipping Total', 'wcvendors' ); ?></th>
@@ -465,15 +464,14 @@ class WCV_Admin_Reports
 
 					if ( !empty( $commissions ) ){ 
 
-						foreach ( $totals as $vendor_id => $totals ) {
+						foreach ( $totals as $totals ) {
 
 							echo '<tr>'; 
-							echo '<td>' . $vendor_id . '</td>'; 
 							echo '<td>' . $totals[ 'user_login' ]. '</td>'; 
-							echo '<td>' . $totals[ 'tax' ] . '</td>'; 
-							echo '<td>' . $totals[ 'total_shipping' ] . '</td>'; 
+							echo '<td>' . woocommerce_price( $totals[ 'tax' ] ). '</td>'; 
+							echo '<td>' . woocommerce_price( $totals[ 'total_shipping' ] ). '</td>'; 
 							echo '<td>' . $totals[ 'status' ] . '</td>'; 
-							echo '<td>' . $totals[ 'total_due' ] . '</td>'; 
+							echo '<td>' . woocommerce_price( $totals[ 'total_due' ] ). '</td>'; 
 							echo '</tr>'; 						
 						
 						}
@@ -533,6 +531,16 @@ class WCV_Admin_Reports
 			} 
 			
 		} 
+
+		usort( $totals, function( $a, $b ) {
+			  if ($a['user_login'] < $b['user_login']) {
+			        return -1;
+			    } else if ($a['user_login'] > $b['user_login']) {
+			        return 1;
+			    } else {
+			        return 0;
+			    }
+		}); 
 
 		return $totals; 
 
