@@ -415,8 +415,6 @@ class WCV_Admin_Reports
 		$total_start_date 	= !empty( $_POST[ 'total_start_date' ] ) ? $_POST[ 'total_start_date' ] : strtotime( date( 'Ymd', strtotime( date( 'Ym', current_time( 'timestamp' ) ) . '01' ) ) );
 		$total_end_date  	= !empty( $_POST[ 'total_end_date' ] ) ? $_POST[ 'total_end_date' ] : strtotime( date( 'Ymd', current_time( 'timestamp' ) ) );
 		$commission_status  = !empty( $_POST[ 'commission_status' ] ) ? $_POST[ 'commission_status' ] : 'due';
-		$vendors         	= get_users( array( 'role' => 'vendor', 'fields' => array( 'ID', 'user_login' ) ) );
-		$vendor_names 		= wp_list_pluck( $vendors, 'user_login', 'ID' ); 
 		$date_sql = ( !empty( $_POST[ 'total_start_date' ] ) && !empty( $_POST[ 'total_end_date' ] ) ) ? " time >= '$total_start_date' AND time <= '$total_end_date' AND" : ""; 
 
 		$status_sql = " status='$commission_status'"; 
@@ -467,11 +465,11 @@ class WCV_Admin_Reports
 
 					if ( !empty( $commissions ) ){ 
 
-						foreach ($totals as $vendor_id => $totals ) {
+						foreach ( $totals as $vendor_id => $totals ) {
 
 							echo '<tr>'; 
 							echo '<td>' . $vendor_id . '</td>'; 
-							echo '<td>' . $vendor_names[ $vendor_id ]. '</td>'; 
+							echo '<td>' . $totals[ 'user_login' ]. '</td>'; 
 							echo '<td>' . $totals[ 'tax' ] . '</td>'; 
 							echo '<td>' . $totals[ 'total_shipping' ] . '</td>'; 
 							echo '<td>' . $totals[ 'status' ] . '</td>'; 
@@ -505,6 +503,9 @@ class WCV_Admin_Reports
 
 		$totals = array(); 
 
+		$vendors         	= get_users( array( 'role' => 'vendor', 'fields' => array( 'ID', 'user_login' ) ) );
+		$vendor_names 		= wp_list_pluck( $vendors, 'user_login', 'ID' ); 
+	
 		foreach ($commissions as $commission ) { 
 
 			if ( array_key_exists( $commission->vendor_id, $totals ) ){ 
@@ -512,11 +513,11 @@ class WCV_Admin_Reports
 				$totals[ $commission->vendor_id ][ 'total_due' ] 		+= $commission->total_due + $commission->tax + $commission->total_shipping; 
 				$totals[ $commission->vendor_id ][ 'tax' ] 				+= $commission->tax;  
 				$totals[ $commission->vendor_id ][ 'total_shipping' ]	+= $commission->total_shipping; 
-				$totals[ $commission->vendor_id ][ 'status' ]			= $commission->status; 
 
 			} else { 
 
 				$temp_array = array( 
+					'user_login' 		=> $vendor_names[ $commission->vendor_id ], 
 					'total_due' 		=> $commission->total_due, 
 					'tax'				=> $commission->tax,
 					'total_shipping'	=> $commission->total_shipping, 
@@ -528,6 +529,8 @@ class WCV_Admin_Reports
 			} 
 			
 		} 
+
+		$totals = ( sizeof( $totals) > 1 ) ? usort( $totals, function ($a, $b) { return strcasecmp( $a[ 'user_login' ], $b[ 'user_login' ] ); } ) : $totals;
 
 		return $totals; 
 
