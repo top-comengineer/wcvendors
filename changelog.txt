@@ -4,7 +4,7 @@ Version 1.8.2
 
 * Added: Sold By label option
 * Added: New Vendor Commission Totals Report #234
-* Fixed: Added 'Shipped' if marked as shipped #233
+* Fixed: Added 'Shipped' if marked as shipped #233 can be found on WooCommerce > Reports > WC Vendors > Commission Totals
 * Fixed: Renamed internal function to stop theme and plugin clash
 
 Version 1.8.1 
