@@ -107,6 +107,14 @@ $options[ ] = array(
 	'std'  => __( 'Sold By: ', 'wcvendors' ),
 );
 
+$options[ ] = array(
+	'name' => __( 'Vendor Info Label', 'wcvendors' ),
+	'desc' => __( 'The seller info tab title on the single product page.', 'wcvendors' ),
+	'id'   => 'seller_info_label',
+	'type' => 'text',
+	'std'  => __( 'Seller Info', 'wcvendors' ),
+);
+
 $options[ ] = array( 'name' => __( 'Products', 'wcvendors' ), 'type' => 'heading' );
 $options[ ] = array( 'name' => __( 'Product Add Page', 'wcvendors' ), 'type' => 'title', 'desc' => __( 'Configure what to hide from all vendors when adding a product', 'wcvendors' ) );
 

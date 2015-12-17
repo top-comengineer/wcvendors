@@ -92,6 +92,8 @@ class WCV_Vendor_Shop
 			$has_html    = get_user_meta( $post->post_author, 'pv_shop_html_enabled', true );
 			$global_html = WC_Vendors::$pv_options->get_option( 'shop_html_enabled' );
 
+			$seller_info_label = WC_Vendors::$pv_options->get_option( 'seller_info_label' ); 
+
 			if ( !empty( $seller_info ) ) {
 
 				$seller_info = do_shortcode( $seller_info );
@@ -102,7 +104,7 @@ class WCV_Vendor_Shop
 				self::$seller_info .= '</div>';
 
 				$tabs[ 'seller_info' ] = array(
-					'title'    => apply_filters( 'wcvendors_seller_info_label', __( 'Seller info', 'wcvendors' ) ),
+					'title'    => apply_filters( 'wcvendors_seller_info_label', $seller_info_label ),
 					'priority' => 50,
 					'callback' => array( 'WCV_Vendor_Shop', 'seller_info_tab_panel' ),
 				);
