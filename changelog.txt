@@ -1,5 +1,10 @@
 Changelog for WC Vendors
 
+Version 1.8.3 
+
+* Fixed: Fatal Error on activation Merge pull request #235 from oleggen/patch-1
+* Added: Seller info label option
+
 Version 1.8.2
 
 * Added: Sold By label option

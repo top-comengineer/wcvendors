@@ -5,8 +5,8 @@ Donate link: http://www.wcvendors.com/
 Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.0
-Tested up to: 4.3.1
-Stable tag: 1.8.2
+Tested up to: 4.4.0
+Stable tag: 1.8.3
 License: GPLv2 or later
 
 The free multi-vendor plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
@@ -112,6 +112,12 @@ You can post a support question on the support tab, however you'll get more help
 No Upgrade required at this time.
 
 == Changelog ==
+
+= Version 1.8.3 - 18th December 2015 = 
+
+* Fixed: Fatal Error on activation Merge pull request #235 from oleggen/patch-1
+* Added: Seller info label option
+
 
 = Version 1.8.2 - 17th December 2015 = 
 
