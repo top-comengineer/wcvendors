@@ -146,7 +146,7 @@ class WCV_Vendor_Dashboard
 
 		if ( is_page( $vendor_dashboard_page ) || is_page( $shop_settings_page ) ) {
 			if ( !is_user_logged_in() ) {
-				wp_redirect( get_permalink( woocommerce_get_page_id( 'myaccount' ) ) );
+				wp_redirect( get_permalink( woocommerce_get_page_id( 'myaccount' ) ), 303 );
 				exit;
 			}
 			// user is logged, start session only if it's vendor dashboard
