@@ -39,7 +39,8 @@ class WC_Email_Notify_Vendor extends WC_Email
 		add_action( 'woocommerce_order_status_pending_to_completed_notification', array( $this, 'trigger' ) );
 		add_action( 'woocommerce_order_status_failed_to_processing_notification', array( $this, 'trigger' ) );
 		add_action( 'woocommerce_order_status_failed_to_completed_notification', array( $this, 'trigger' ) );
-
+		add_action( 'woocommerce_order_status_on-hold_to_processing_notification', array( $this, 'trigger' ) ); // Added in 1.8.4
+		add_action( 'woocommerce_order_status_on-hold_to_completed_notification', array( $this, 'trigger' ) ); // Added in 1.8.4
 		$this->recipient = get_option( 'admin_email' );
 
 		// Call parent constuctor
