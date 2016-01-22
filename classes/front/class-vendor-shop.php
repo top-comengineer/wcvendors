@@ -187,11 +187,12 @@ class WCV_Vendor_Shop
 	/* 
 	* Remove the Page title from Archive-Product while on a vendor Page
 	*/ 
-	public static function remove_vendor_title() { 
+	public static function remove_vendor_title( $b ) { 
 		if ( WCV_Vendors::is_vendor_page() ) { 
 			return false; 
 		}
-	}
+			return $b;
+		}
 
 	/* 
 	* 	Display a vendor header at the top of the vendors product archive page
