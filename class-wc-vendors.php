@@ -2,10 +2,10 @@
 
 /**
  * Plugin Name:         WC Vendors
- * Plugin URI:          http://wcvendors.com
+ * Plugin URI:          https://www.wcvendors.com
  * Description:         Allow vendors to sell their own products and receive a commission for each sale. 
  * Author:              WC Vendors
- * Author URI:          http://wcvendors.com
+ * Author URI:          https://www.wcvendors.com
  *
  * Version:             1.8.4
  * Requires at least:   4.0.0
@@ -308,7 +308,7 @@ if ( wcv_is_woocommerce_activated() ) {
 			if ( $file == wcv_plugin_base ) {
 
 				$row_meta = array(
-	                            'docs' 		=> '<a href="http://www.wcvendors.com/knowledgebase/" target="_blank">'.__( 'Documentation/KB', 'wcvendors' ).'</a>',
+	                            'docs' 		=> '<a href="http://www.wcvendors.com/kb/" target="_blank">'.__( 'Documentation/KB', 'wcvendors' ).'</a>',
 	                            'help' 		=> '<a href="http://www.wcvendors.com/help/" target="_blank">'.__( 'Help Forums', 'wcvendors').'</a>',
 	                            'support' 	=> '<a href="http://www.wcvendors.com/contact-us/" target="_blank">'.__( 'Paid Support', 'wcvendors' ).'</a>'
 	                        );
