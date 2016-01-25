@@ -35,7 +35,7 @@ class WCV_Vendor_Cart
 		$vendor_id = $cart_item[ 'data' ]->post->post_author;
 		$sold_by_label = WC_Vendors::$pv_options->get_option( 'sold_by_label' ); 
 		$sold_by   = WCV_Vendors::is_vendor( $vendor_id )
-			? sprintf( '<a href="%s" target="_TOP">%s</a>', WCV_Vendors::get_vendor_shop_page( $vendor_id ), WCV_Vendors::get_vendor_sold_by( $vendor_id ) )
+			? sprintf( '<a href="%s" target="_TOP">%s </a>', WCV_Vendors::get_vendor_shop_page( $vendor_id ), WCV_Vendors::get_vendor_sold_by( $vendor_id ) )
 			: get_bloginfo( 'name' );
 
 		$values[ ] = array(
