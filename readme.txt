@@ -118,19 +118,18 @@ No Upgrade required at this time.
 
 = Version 1.8.4 - 25th January 2016 = 
 
-Version 1.8.4 
-
 * Added: Removed fields from users that aren't vendors
 * Added: actions to hook into approve/deny vendor
 * Added: Ability to integrate with any order status for emails #216
 * Added: Terms & Conditions Opens in New Tab #246
 * Updated: Added trigger for on-hold to processing/completed for Notify Vendor Email #238
 * Updated: Settings page helper text and clarifications
-* Fixed: wp_redirect caches with W3 Total Cache #237 - 
+* Fixed: Sold by formatting issue #248
+* Fixed: wp_redirect caches with W3 Total Cache #237
 * Fixed: Bug in single page settings generator
 * Fixed: Category title missing bug #213
 * Fixed: Undefined index for non vendor users
-* Merge:  pull request #247 from archonic/hotfix/oauth-class-exists
+* Merge: pull request #247 from archonic/hotfix/oauth-class-exists
 
 = Version 1.8.3 - 18th December 2015 = 
 
