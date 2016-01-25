@@ -7,16 +7,16 @@
  * Author:              WC Vendors
  * Author URI:          http://wcvendors.com
  *
- * Version:             1.8.3
+ * Version:             1.8.4
  * Requires at least:   4.0.0
- * Tested up to:        4.4.0
+ * Tested up to:        4.4.1
  *
  * Text Domain:         wcvendors
  * Domain Path:         /languages/
  *
  * @category            Plugin
  * @copyright           Copyright © 2012 Matt Gates
- * @copyright           Copyright © 2015 WC Vendors
+ * @copyright           Copyright © 2016 WC Vendors
  * @author              Matt Gates, WC Vendors
  * @package             WCVendors
  */
