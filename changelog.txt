@@ -1,5 +1,10 @@
 Changelog for WC Vendors
 
+Version 1.8.5 
+
+* Fixed: Reverted ticket #216 for email conflicts
+* Added: New KnowledgeBase URL
+
 Version 1.8.4 
 
 * Added: Removed fields from users that aren't vendors
