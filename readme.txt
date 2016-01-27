@@ -118,6 +118,7 @@ No Upgrade required at this time.
 
 = Version 1.8.5 - 26th January 2016 = 
 
+* Fixed: Issue with PayPal on some sites - Rolled back issue #247
 * Fixed: Reverted ticket #216 for email conflicts
 * Added: New KnowledgeBase URL
 
