@@ -854,7 +854,8 @@ if ( !class_exists( 'OAuthServer' ) ) {
 	}
 }
 
-if ( !class_exists( 'OAuthDataStore' ) ) {
+// if ( !class_exists( 'OAuthDataStore' ) ) { // If you experience clashes with other OAuthDataStore classes, uncommenting this line and the closing curly brace
+// at the end of the class declaration MAY help you.
 	class OAuthDataStore
 	{
 		function lookup_consumer( $consumer_key )
@@ -886,7 +887,7 @@ if ( !class_exists( 'OAuthDataStore' ) ) {
 		}
 
 	}
-}
+// }  // This is the curly brace to uncomment
 
 if ( !class_exists( 'OAuthUtil' ) ) {
 	class OAuthUtil
