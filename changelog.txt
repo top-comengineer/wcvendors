@@ -1,5 +1,9 @@
 Changelog for WC Vendors
 
+Version 1.8.6 
+
+* Fixed: Critical issue with paypal loading classes incorrectly
+
 Version 1.8.5 
 
 * Fixed: Issue with PayPal on some sites - Rolled back issue #247
