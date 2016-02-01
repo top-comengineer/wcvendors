@@ -106,7 +106,7 @@ class WCV_Vendors
 			}
 
 			// Add line item tax and shipping taxes together 
-			$total_tax = (float) $tax + (float) $shipping_tax; 
+			$total_tax = ( $product->is_taxable() ) ? (float) $tax + (float) $shipping_tax : 0; 
 
 			// Tax override on a per vendor basis
 			if ( $give_tax_override ) $give_tax = true; 
