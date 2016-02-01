@@ -104,7 +104,7 @@ $options[ ] = array(
 	'desc' => __( 'The sold by label used on the site and emails.', 'wcvendors' ),
 	'id'   => 'sold_by_label',
 	'type' => 'text',
-	'std'  => __( 'Sold By: ', 'wcvendors' ),
+	'std'  => __( 'Sold By', 'wcvendors' ),
 );
 
 $options[ ] = array(
