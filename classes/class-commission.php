@@ -326,6 +326,8 @@ class WCV_Commission
 			$orders[ $key ][ 'status' ] = ( $order['total_due'] == 0 ) ? 'paid' : 'due';
 		}
 
+		error_log( print_r( $orders, true ) ); 
+
 		foreach ( $orders as $key => $order ) {
 			$where  = array(
 				'order_id'   => $order[ 'order_id' ],
@@ -394,6 +396,34 @@ class WCV_Commission
 			$vendors = implode( ',', $vendors );
 
 		$query  = "UPDATE `{$table_name}` SET `status` = 'paid' WHERE vendor_id IN ($vendors)";
+		$result = $wpdb->query( $query );
+
+		return $result;
+	}
+
+
+	/**
+	 * Set commission to 'paid' for a specifc vendor
+	 *
+	 *
+	 * @access public
+	 *
+	 * @param int   $vendor_id 		the vendor id
+	 * @param int   $product_id  	the product id
+	 * @param int   $order_id  		the order id
+	 *
+	 * @return bool.
+	 */
+	public static function set_vendor_product_commission_paid( $vendor_id, $product_id, $order_id )
+	{
+		global $wpdb;
+
+		$table_name = $wpdb->prefix . "pv_commission";
+
+		if ( is_array( $vendors ) )
+			$vendors = implode( ',', $vendors );
+
+		$query  = "UPDATE `{$table_name}` SET `status` = 'paid' WHERE vendor_id = $vendor_id AND order_id = $order_id AND product_id = $product_id";
 		$result = $wpdb->query( $query );
 
 		return $result;
