@@ -391,7 +391,9 @@ class WCV_Admin_Users
 	public function show_extra_profile_fields( $user )
 	{
 
-		if ( ! WCV_Vendors::is_vendor( $user->ID ) ) { return; } 
+		if ( ! WCV_Vendors::is_vendor( $user->ID ) && ! WCV_Vendors::is_pending( $user->ID ) ) { 
+			return; 
+		} 
 
 		?>
 		<h3><?php _e( 'WC Vendors', 'wcvendors' ); ?></h3>

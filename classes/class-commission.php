@@ -326,8 +326,6 @@ class WCV_Commission
 			$orders[ $key ][ 'status' ] = ( $order['total_due'] == 0 ) ? 'paid' : 'due';
 		}
 
-		error_log( print_r( $orders, true ) ); 
-
 		foreach ( $orders as $key => $order ) {
 			$where  = array(
 				'order_id'   => $order[ 'order_id' ],
