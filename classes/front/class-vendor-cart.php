@@ -58,7 +58,7 @@ class WCV_Vendor_Cart
 			? sprintf( '<a href="%s" class="wcvendors_cart_sold_by_meta">%s</a>', WCV_Vendors::get_vendor_shop_page( $vendor_id ), WCV_Vendors::get_vendor_sold_by( $vendor_id ) )
 			: get_bloginfo( 'name' );
 
-		echo apply_filters('wcvendors_cart_sold_by_meta', $sold_by_label ) . $sold_by . '<br/>';
+		echo apply_filters('wcvendors_cart_sold_by_meta', $sold_by_label ) .'&nbsp;'. $sold_by . '<br/>';
 	}
 
 }
