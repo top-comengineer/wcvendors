@@ -1,5 +1,5 @@
 === WC Vendors ===
-Contributors: wcvendors, digitalchild
+Contributors: wcvendors, digitalchild, bentasm1
 Tags: commission rate,  e-commerce, ecommerce, ebay, free, marketplace, multi seller, multi store, multi vendor, multistore, multivendor, multivendors, product vendor, product vendors, seller, shops, store, vendor, vendor shop, vendor system, vendors, wc multivendor, wc vendors, wc marketplace, wc market, woo vendors, woocommerce, woocommerce marketplace, woocommerce multi vendor, WooCommerce multivendor, woocommerce product vendors, WooCommerce vendors, yit, yith, yithemes
 Donate link: http://www.wcvendors.com/
 Author URI: http://www.wcvendors.com/
@@ -91,15 +91,17 @@ We currently ship WC Vendors free with the following language translations. If y
 
 = What version of WooCommerce do you support ? =
 
-Woocommerce 2.3 or above is supported.
+The latest version of WooCommerce.  We don't provide support for old versions of WooCommerce.  Whatever version is current, WC Vendors will work with.  If you have an old version of WooCommerce, this probably will work still, but we won't guarantee it. :-)
 
 = What version of php has been tested ? =
 
-PHP 5.4 has been tested. 
+PHP 5.4 and above is required.  Tested all the way to the latest PHP 7!
 
 = Where do I get help ? =
 
-You can post a support question on the support tab, however you'll get more help over at our community forums (http://www.wcvendors.com)
+You can post a support question on the support tab, however you'll get more help over at our community forums - https://www.wcvendors.com/help/
+
+Also be sure to visit our KnowledgeBase at https://www.wcvendors.com/kb/
 
 == Screenshots ==
 
