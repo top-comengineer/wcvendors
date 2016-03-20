@@ -596,7 +596,7 @@ class WCV_Shortcodes {
 	  	// Pagination calcs 
 		$total_vendors = count( $all_vendors );  
 		$total_vendors_paged = count($paged_vendors);  
-		$total_pages = intval( $total_vendors / $per_page ) + ( $total_vendors % $per_page );
+		$total_pages = ceil( $total_vendors / $per_page );
 	    
 	   	ob_start();
 
