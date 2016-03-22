@@ -1,5 +1,10 @@
 Changelog for WC Vendors
 
+Version 1.8.8 
+
+* Fixed: Undefined variable error in commission class
+* Fixed: Pagination bug in wcv_vendorslist shortcode 
+
 Version 1.8.7
 
 * Added: New qty argument to commission calculations
