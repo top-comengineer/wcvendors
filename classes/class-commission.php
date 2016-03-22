@@ -418,9 +418,6 @@ class WCV_Commission
 
 		$table_name = $wpdb->prefix . "pv_commission";
 
-		if ( is_array( $vendors ) )
-			$vendors = implode( ',', $vendors );
-
 		$query  = "UPDATE `{$table_name}` SET `status` = 'paid' WHERE vendor_id = $vendor_id AND order_id = $order_id AND product_id = $product_id";
 		$result = $wpdb->query( $query );
 
