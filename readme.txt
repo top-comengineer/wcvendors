@@ -78,6 +78,7 @@ We currently ship WC Vendors free with the following language translations. If y
 * Portuguese
 * Persian
 * French
+* Swedish
 * ...and more
 
 == Installation ==
