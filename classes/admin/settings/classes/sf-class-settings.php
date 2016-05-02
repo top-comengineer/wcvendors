@@ -493,7 +493,13 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 		 */
 		private function template_footer()
 		{
+
+			$message = apply_filters( 'wcvendors_footer_msg', __( 'Do you like our plugin? Why not give us a rating over on the <a href="https://wordpress.org/support/view/plugin-reviews/wc-vendors?rate=5#postform"> WordPress.org Repository?</a>', 'wc-vendors' ) ); 
+
+			echo '<div><p>' . $message . '</a></p>'; 
 			echo '</div>';
+
+
 		}
 
 

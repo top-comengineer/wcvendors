@@ -448,7 +448,10 @@ class WCV_Admin_Reports
 				<option value="reversed"><?php _e( 'Reversed', 'wcvendors' ); ?></option>
 			</select>
 
-			<input type="submit" class="button" value="<?php _e( 'Show', 'wcvendors' ); ?>"/></p>
+			<input type="submit" class="button" value="<?php _e( 'Show', 'wcvendors' ); ?>"/>
+
+			<?php do_action( 'wcvendors_after_commission_reports', $commissions ); ?>
+			</p>
 		</form>
 
 		<div class="woocommerce-reports-main">
