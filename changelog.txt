@@ -1,5 +1,10 @@
 Changelog for WC Vendors
 
+Version 1.8.9 
+
+* Fixed: Commission Totals Report Inaccurate #267
+* Added: Swedish Translation Thanks Arvid!
+
 Version 1.8.8 
 
 * Fixed: Undefined variable error in commission class

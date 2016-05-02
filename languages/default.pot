@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WC Vendors\n"
-"POT-Creation-Date: 2016-03-14 16:10+1000\n"
+"POT-Creation-Date: 2016-05-02 11:07+1000\n"
 "PO-Revision-Date: 2015-04-24 09:29+1000\n"
 "Last-Translator: \n"
 "Language-Team: WC Vendors <support@wcvendors.com>\n"
@@ -41,7 +41,7 @@ msgstr ""
 
 #: ../class-wc-vendors.php:271 ../classes/admin/class-admin-page.php:253
 #: ../classes/admin/class-admin-reports.php:175
-#: ../classes/admin/class-admin-reports.php:455
+#: ../classes/admin/class-admin-reports.php:461
 #: ../classes/admin/class-product-meta.php:46
 #: ../classes/admin/class-product-meta.php:187
 #: ../classes/admin/class-product-meta.php:223 ../classes/class-install.php:66
@@ -117,7 +117,7 @@ msgstr ""
 
 #: ../classes/admin/class-admin-page.php:255
 #: ../classes/admin/class-admin-reports.php:178
-#: ../classes/admin/class-admin-reports.php:458
+#: ../classes/admin/class-admin-reports.php:464
 msgid "Status"
 msgstr ""
 
@@ -195,20 +195,20 @@ msgid ""
 msgstr ""
 
 #: ../classes/admin/class-admin-reports.php:121
-#: ../classes/admin/class-admin-reports.php:437
+#: ../classes/admin/class-admin-reports.php:440
 #: ../templates/dashboard/date-picker.php:3
 msgid "From:"
 msgstr ""
 
 #: ../classes/admin/class-admin-reports.php:123
-#: ../classes/admin/class-admin-reports.php:439
+#: ../classes/admin/class-admin-reports.php:442
 #: ../templates/dashboard/date-picker.php:7
 msgid "To:"
 msgstr ""
 
 #: ../classes/admin/class-admin-reports.php:125
 #: ../classes/admin/class-admin-reports.php:283
-#: ../classes/admin/class-admin-reports.php:448
+#: ../classes/admin/class-admin-reports.php:451
 #: ../templates/dashboard/date-picker.php:12
 msgid "Show"
 msgstr ""
@@ -289,33 +289,33 @@ msgid "Shipping"
 msgstr ""
 
 #: ../classes/admin/class-admin-reports.php:348
-#: ../classes/admin/class-admin-reports.php:445
+#: ../classes/admin/class-admin-reports.php:448
 msgid "Reversed"
 msgstr ""
 
 #: ../classes/admin/class-admin-reports.php:349
-#: ../classes/admin/class-admin-reports.php:444
+#: ../classes/admin/class-admin-reports.php:447
 msgid "Paid"
 msgstr ""
 
 #: ../classes/admin/class-admin-reports.php:350
-#: ../classes/admin/class-admin-reports.php:443
+#: ../classes/admin/class-admin-reports.php:446
 msgid "Due"
 msgstr ""
 
-#: ../classes/admin/class-admin-reports.php:456
+#: ../classes/admin/class-admin-reports.php:462
 msgid "Tax Total"
 msgstr ""
 
-#: ../classes/admin/class-admin-reports.php:457
+#: ../classes/admin/class-admin-reports.php:463
 msgid "Shipping Total"
 msgstr ""
 
-#: ../classes/admin/class-admin-reports.php:459
+#: ../classes/admin/class-admin-reports.php:465
 msgid "Commission Total"
 msgstr ""
 
-#: ../classes/admin/class-admin-reports.php:481
+#: ../classes/admin/class-admin-reports.php:487
 msgid "No commissions found."
 msgstr ""
 
@@ -660,7 +660,7 @@ msgid "Shipping Subtotal:"
 msgstr ""
 
 #: ../classes/admin/settings/classes/sf-class-format-options.php:211
-#: ../classes/admin/settings/classes/sf-class-settings.php:780
+#: ../classes/admin/settings/classes/sf-class-settings.php:786
 msgid "Select a page..."
 msgstr ""
 
@@ -682,17 +682,28 @@ msgstr ""
 msgid "Save %s changes"
 msgstr ""
 
-#: ../classes/admin/settings/classes/sf-class-settings.php:837
+#: ../classes/admin/settings/classes/sf-class-settings.php:497
+msgid ""
+"Please help with a <a href=\"https://wordpress.org/support/view/plugin-"
+"reviews/wc-vendors?rate=5#postform\" target=\"top\">High Five!</a> | <a href="
+"\"https://www.wcvendors.com/product/wc-vendors-pro/\" target=\"top\">WC "
+"Vendors Pro</a> | <a href=\"https://www.wcvendors.com/product/stripe-"
+"commissions-gateway/\" target=\"top\">Stripe Commissions & Gateway</a> | <a "
+"href=\"https://www.wcvendors.com/kb/\" target=\"top\">KnowledgeBase</a> | <a "
+"href=\"https://www.wcvendors.com/help/\" target=\"top\">Help Forums</a>"
+msgstr ""
+
+#: ../classes/admin/settings/classes/sf-class-settings.php:843
 #, php-format
 msgid "Update %s"
 msgstr ""
 
-#: ../classes/admin/settings/classes/sf-class-settings.php:837
+#: ../classes/admin/settings/classes/sf-class-settings.php:843
 #, php-format
 msgid "Add %s"
 msgstr ""
 
-#: ../classes/admin/settings/classes/sf-class-settings.php:837
+#: ../classes/admin/settings/classes/sf-class-settings.php:843
 #, php-format
 msgid "Upload an image for the %s"
 msgstr ""

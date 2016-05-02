@@ -6,7 +6,7 @@ Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.0
 Tested up to: 4.5.0
-Stable tag: 1.8.8
+Stable tag: 1.8.9
 License: GPLv2 or later
 
 The free multi-vendor plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
@@ -118,6 +118,11 @@ Also be sure to visit our KnowledgeBase at https://www.wcvendors.com/kb/
 No Upgrade required at this time.
 
 == Changelog ==
+
+= Version 1.8.9  - 1st May 2016 = 
+
+* Fixed: Commission Totals Report Inaccurate #267
+* Added: Swedish Translation Thanks Arvid!
 
 = Version 1.8.8 - 22nd March 2016 = 
 
