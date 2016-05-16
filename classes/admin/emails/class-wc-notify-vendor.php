@@ -41,7 +41,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 		//add_action( 'woocommerce_order_status_failed_to_{$status}_notification', array( $this, 'trigger' ) );
 		//add_action( 'woocommerce_order_status_on-hold_to_{$status}_notification', array( $this, 'trigger' ) );
 		//}
-		// end #216
+		// end #216		
 		
 		// Triggers for this email
 		add_action( 'woocommerce_order_status_pending_to_processing_notification', array( $this, 'trigger' ) );
@@ -89,13 +89,17 @@ class WC_Email_Notify_Vendor extends WC_Email
 
 		add_filter( 'woocommerce_order_get_items', array( $this, 'check_items' ), 10, 2 );
 		add_filter( 'woocommerce_get_order_item_totals', array( $this, 'check_order_totals' ), 10, 2 );
+		add_filter( 'woocommerce_order_formatted_line_subtotal', array( $this, 'check_order_formatted_line_subtotal' ), 10, 3 ); 
+		add_filter( 'woocommerce_order_subtotal_to_display', array( $this, 'check_order_subtotal_to_display'), 10, 3 ); 
 		foreach ( $vendors as $user_id => $user_email ) {
 			$this->current_vendor = $user_id;
 			$this->send( $user_email, $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );
+			error_log( print_r( $this->get_content(), true ) ); 
 		}
 		remove_filter( 'woocommerce_get_order_item_totals', array( $this, 'check_order_totals' ), 10, 2 );
 		remove_filter( 'woocommerce_order_get_items', array( $this, 'check_items' ), 10, 2 );
-
+		remove_filter( 'woocommerce_order_formatted_line_subtotal', array( $this, 'check_order_formatted_line_subtotal' ), 10, 3 ); 
+		remove_filter( 'woocommerce_order_subtotal_to_display', array( $this, 'check_order_subtotal_to_display'), 10, 3 ); 
 	}
 
 
@@ -134,7 +138,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 		}
 		// Format tax price 
 		if ( WC_Vendors::$pv_options->get_option( 'give_tax' ) ) { 
-			$return[ 'tax_subtotal']['value'] = woocommerce_price( $return[ 'tax_subtotal']['value'] ); 
+			$return[ 'tax_subtotal']['value'] = woocommerce_price( $return[ 'tax_subtotal'] ['value'] ); 
 		} 
 
 		return $return;
@@ -195,16 +199,15 @@ class WC_Email_Notify_Vendor extends WC_Email
 
 					$items[ $key ][ 'line_subtotal' ] = $commission_due;
 					$items[ $key ][ 'line_total' ]    = $commission_due;
+
 					// Don't display tax if give tax is not enabled. 
-					// if ( !WC_Vendors::$pv_options->get_option( 'give_tax' ) ) { 
-					// 	unset($items[ $key ][ 'line_tax' ]) ; 
-					// }
+					if ( !WC_Vendors::$pv_options->get_option( 'give_tax' ) ) { 
+						unset($items[ $key ][ 'line_tax' ]) ; 
+					}
 				}
 			}
 
 		}
-
-
 		return $items;
 	}
 
@@ -288,6 +291,34 @@ class WC_Email_Notify_Vendor extends WC_Email
 			)
 		);
 	}
+
+
+	/**
+	 *  check the order line item sub total to ensure that the tax is shown correctly on the vendor emails 
+	 */
+	function check_order_formatted_line_subtotal( $subtotal, $item, $order ){ 
+
+		$subtotal = wc_price( $order->get_line_subtotal( $item ), array( 'currency' => $order->get_order_currency() ) );
+
+		return $subtotal; 
+
+	} // check_order_formatted_line_subtotal() 
+
+
+	function check_order_subtotal_to_display( $subtotal, $compound, $order ){ 
+
+		$new_subtotal = 0; 
+
+		foreach ( $order->get_items() as $key => $product ) {
+
+				$new_subtotal += $product[ 'line_subtotal' ];
+
+		}
+
+		return woocommerce_price( $new_subtotal ); 
+
+
+	} // check_order_subtotal_to_display() 
 
 
 }
