@@ -22,8 +22,11 @@ class WCV_Vendor_Signup
 		$this->terms_page = WC_Vendors::$pv_options->get_option( 'terms_to_apply_page' );
 
 		add_action( 'register_form', array( $this, 'vendor_option' ) );
-		add_action( 'woocommerce_created_customer', array( $this, 'save_pending' ), 10, 2 );
-		// add_action( 'register_post', array( $this, 'apply_form' ), 10 );
+
+		if ( ! class_exists( 'WCVendors_Pro' ) ) { 
+			add_action( 'woocommerce_created_customer', array( $this, 'save_pending' ), 10, 2 );
+		}
+		
 		add_action( 'template_redirect', array( $this, 'apply_form_dashboard' ), 10 );
 		add_action( 'woocommerce_register_post', array( $this, 'validate_vendor_registration' ), 10, 3 ); 
 	}

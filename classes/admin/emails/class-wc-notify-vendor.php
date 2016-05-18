@@ -94,7 +94,6 @@ class WC_Email_Notify_Vendor extends WC_Email
 		foreach ( $vendors as $user_id => $user_email ) {
 			$this->current_vendor = $user_id;
 			$this->send( $user_email, $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );
-			error_log( print_r( $this->get_content(), true ) ); 
 		}
 		remove_filter( 'woocommerce_get_order_item_totals', array( $this, 'check_order_totals' ), 10, 2 );
 		remove_filter( 'woocommerce_order_get_items', array( $this, 'check_items' ), 10, 2 );

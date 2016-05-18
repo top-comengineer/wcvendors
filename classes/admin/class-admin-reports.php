@@ -417,9 +417,6 @@ class WCV_Admin_Reports
 		$commission_status  = !empty( $_POST[ 'commission_status' ] ) ? $_POST[ 'commission_status' ] : 'due';
 		$date_sql = ( !empty( $_POST[ 'total_start_date' ] ) && !empty( $_POST[ 'total_end_date' ] ) ) ? " time BETWEEN '$total_start_date 00:00:00' AND '$total_end_date 23:59:59' AND" : ""; 
 
-		error_log( $total_start_date ); 
-		error_log( $total_end_date ); 
-
 		$status_sql = " status='$commission_status'"; 
 
 		$sql = "SELECT vendor_id, total_due, total_shipping, tax, status FROM {$wpdb->prefix}pv_commission WHERE"; 
