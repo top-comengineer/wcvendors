@@ -88,7 +88,7 @@ class WCV_Emails
 			? sprintf( '<a href="%s">%s</a>', WCV_Vendors::get_vendor_shop_page( $product->post_author ), WCV_Vendors::get_vendor_sold_by( $product->post_author ) )
 			: get_bloginfo( 'name' );
 
-		$name .= '<small class="wcvendors_sold_by_in_email"><br />' . apply_filters('wcvendors_sold_by_in_email', $sold_by_label ). $sold_by . '</small><br />';
+		$name .= '<small class="wcvendors_sold_by_in_email"><br />' . apply_filters('wcvendors_sold_by_in_email', $sold_by_label, $_product->id, $product->post_author ). $sold_by . '</small><br />';
 
 		return $name;
 	}
