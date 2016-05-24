@@ -23,6 +23,7 @@ class WCV_Orders
 
 		add_action( 'template_redirect', array( $this, 'check_access' ) );
 		add_action( 'wp', array( $this, 'display_shortcodes' ) );
+		add_shortcode( 'wcv_orders', array( $this, 'display_product_orders' ) );
 	}
 
 
@@ -43,6 +44,7 @@ class WCV_Orders
 	 */
 	public function display_shortcodes()
 	{
+
 		if ( is_page( WC_Vendors::$pv_options->get_option( 'orders_page' ) ) && $this->can_view_orders ) {
 
 			wp_enqueue_script( 'jquery' );
@@ -96,6 +98,7 @@ class WCV_Orders
 	 */
 	public function display_product_orders()
 	{
+
 		if ( !WCV_Vendors::is_vendor( get_current_user_id() ) ) {
 			ob_start();
 			wc_get_template( 'denied.php', array(), 'wc-vendors/dashboard/', wcv_plugin_dir . 'templates/dashboard/' );
@@ -144,6 +147,7 @@ class WCV_Orders
 		}
 		
 		ob_start();
+
 		// Show the Export CSV button
 		if ( $this->can_export_csv ) {
 			wc_get_template( 'csv-export.php', array(), 'wc-vendors/orders/', wcv_plugin_dir . 'templates/orders/' );

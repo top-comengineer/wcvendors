@@ -21,9 +21,30 @@ class WCV_Install
 
 		// Initial Install 
 		if ( version_compare( $db_version, '1.0', '<' ) ) {
+			
 			$this->install_wcvendor();
 			WC_Vendors::$pv_options->update_option( 'db_version', '1.5.0' );
-		}
+
+		} else if ( version_compare( $db_version, '1.9.0', '<' ) ) {
+
+			$orders_page = get_post( WC_Vendors::$pv_options->get_option( 'orders_page' ) ); 
+
+			// Only update the page slug for orders if it is called orders 
+			if ( $orders_page->post_name === 'orders' ) { 
+
+				wp_update_post(
+		            array (
+		                'ID'        => $orders_page->ID,
+		                'post_name' => 'product_orders'
+		            )
+		        );
+				
+				WC_Vendors::$pv_options->update_option( 'db_version', '1.9.0' );	
+			}
+
+			
+
+		} 
 
 	}
 
@@ -163,7 +184,7 @@ class WCV_Install
 		global $wpdb;
 
 		$vendor_page_id = $this->create_page( 'vendor_dashboard', __( 'Vendor Dashboard', 'wcvendors' ), '[wcv_vendor_dashboard]' );
-		$this->create_page( 'orders', __( 'Orders', 'wcvendors' ), '[wcv_orders]', $vendor_page_id );
+		$this->create_page( 'product_orders', __( 'Orders', 'wcvendors' ), '[wcv_orders]', $vendor_page_id );
 		$this->create_page( 'shop_settings', __( 'Shop Settings', 'wcvendors' ), '[wcv_shop_settings]', $vendor_page_id );
 	}
 
