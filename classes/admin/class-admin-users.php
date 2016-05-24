@@ -48,6 +48,7 @@ class WCV_Admin_Users
 			add_action( 'add_meta_boxes', array( $this, 'remove_meta_boxes' ), 99 );
 			add_filter( 'product_type_selector', array( $this, 'filter_product_types' ), 99, 2 );
 			add_filter( 'product_type_options', array( $this, 'filter_product_type_options' ), 99 );
+			add_filter( 'woocommerce_product_data_tabs', array( $this, 'filter_product_data_tabs' ), 99, 2 ); 
 
 			add_filter( 'woocommerce_duplicate_product_capability', array( $this, 'add_duplicate_capability' ) );
 
@@ -155,7 +156,6 @@ class WCV_Admin_Users
 		return $menu;
 	}
 
-
 	/**
 	 *
 	 *
@@ -166,15 +166,11 @@ class WCV_Admin_Users
 	 */
 	function filter_product_types( $types, $product_type )
 	{
-		$product_panel = (array) WC_Vendors::$pv_options->get_option( 'hide_product_panel' );
-		$product_misc  = (array) WC_Vendors::$pv_options->get_option( 'hide_product_misc' );
-		$product_types = (array) WC_Vendors::$pv_options->get_option( 'hide_product_types' );
-		$css           = WC_Vendors::$pv_options->get_option( 'product_page_css' );
-		$count         = 0;
 
-		foreach ( $product_panel as $key => $value ) {
-			if ( $value ) $css .= sprintf( '.%s_tab{display:none !important;}', $key );
-		}
+		$product_types = (array) WC_Vendors::$pv_options->get_option( 'hide_product_types' );
+		$product_misc  = (array) WC_Vendors::$pv_options->get_option( 'hide_product_misc' );
+		$css           = WC_Vendors::$pv_options->get_option( 'product_page_css' );
+
 
 		if ( !empty( $product_misc[ 'taxes' ] ) ) {
 			$css .= '.form-field._tax_status_field, .form-field._tax_class_field{display:none !important;}';
@@ -184,14 +180,6 @@ class WCV_Admin_Users
 
 		foreach ( $product_misc as $key => $value ) {
 			if ( $value ) $css .= sprintf( '._%s_field{display:none !important;}', $key );
-		}
-
-		foreach ( $product_types as $value ) {
-			if ( !$value ) $count++;
-		}
-
-		if ( $count === 1 ) {
-			$css .= '#product-type{display:none !important;}';
 		}
 
 		echo '<style>';
@@ -206,6 +194,27 @@ class WCV_Admin_Users
 
 		return $types;
 	}
+
+	/**
+	 * Filter the product meta tabs in wp-admin 
+	 * @since 1.9.0
+	 */
+	function filter_product_data_tabs( $tabs ){ 
+
+		$product_panel = (array) WC_Vendors::$pv_options->get_option( 'hide_product_panel' );
+
+		if ( !$product_panel ) return $tabs; 
+
+		foreach ( $tabs as $key => $value ){ 
+			if ( !empty( $product_panel[ $key ] ) ) {
+				unset( $tabs[ $key ] );
+			}
+
+		}
+
+		return $tabs; 
+
+	} // filter_product_data_tabs() 
 
 
 	/**
