@@ -14,7 +14,7 @@ if ($count > 1) : ?>
 		<?php echo $item_meta; ?>
 	</td>
 
-<td colspan="2">
+<td colspan="3">
 
 <?php else : ?>
 
