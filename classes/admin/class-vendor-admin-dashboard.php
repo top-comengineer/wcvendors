@@ -428,23 +428,56 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 
 				$items = $order->get_items();
 
-				foreach ($items as $key => $value) {
-					if ( in_array($value['variation_id'], $valid_items) || in_array($value['product_id'], $valid_items)) {
-						$valid[] = $value;
+				foreach ( $items as $key => $item) {
+					if ( in_array( $item[ 'variation_id' ], $valid_items) || in_array( $item[ 'product_id' ], $valid_items ) ) {
+						$valid[ ] = $item;
 					}
 				}
 
 				$products = ''; 
 
-				foreach ($valid as $key => $item) { 
-							$item_meta = new WC_Order_Item_Meta( $item[ 'item_meta' ] );
-							// $item_meta = $item_meta->display( false, true ); 
-							$item_meta = $item_meta->get_formatted( ); 
-							$products .= '<strong>'. $item['qty'] . ' x ' . $item['name'] . '</strong><br />'; 
-							foreach ($item_meta as $key => $meta) {
-								// Remove the sold by meta key for display 
-								if (strtolower($key) != 'sold by' ) $products .= $meta[ 'label' ] .' : ' . $meta[ 'value' ]. '<br />'; 
+				foreach ( $valid as $key => $item ) { 
+
+					$products .= '<strong>'. $item['qty'] . ' x ' . $item['name'] . '</strong><br />'; 
+
+					if ( $metadata = $order->has_meta( $item['product_id'] ) ) {
+						echo '<table cellspacing="0" class="wcv_display_meta">';
+						foreach ( $metadata as $meta ) {
+
+							// Skip hidden core fields
+							if ( in_array( $meta['meta_key'], apply_filters( 'woocommerce_hidden_order_itemmeta', array(
+								'_qty',
+								'_tax_class',
+								'_product_id',
+								'_variation_id',
+								'_line_subtotal',
+								'_line_subtotal_tax',
+								'_line_total',
+								'_line_tax',
+								'Sold By'
+							) ) ) ) {
+								continue;
 							}
+
+							// Skip serialised meta
+							if ( is_serialized( $meta['meta_value'] ) ) {
+								continue;
+							}
+
+							// Get attribute data
+							if ( taxonomy_exists( wc_sanitize_taxonomy_name( $meta['meta_key'] ) ) ) {
+								$term               = get_term_by( 'slug', $meta['meta_value'], wc_sanitize_taxonomy_name( $meta['meta_key'] ) );
+								$meta['meta_key']   = wc_attribute_label( wc_sanitize_taxonomy_name( $meta['meta_key'] ) );
+								$meta['meta_value'] = isset( $term->name ) ? $term->name : $meta['meta_value'];
+							} else {
+								$meta['meta_key']   = apply_filters( 'woocommerce_attribute_label', wc_attribute_label( $meta['meta_key'], $_product ), $meta['meta_key'] );
+							}
+
+							echo '<tr><th>' . wp_kses_post( rawurldecode( $meta['meta_key'] ) ) . ':</th><td>' . wp_kses_post( wpautop( make_clickable( rawurldecode( $meta['meta_value'] ) ) ) ) . '</td></tr>';
+						}
+						echo '</table>';
+					}
+													
 				}
 
 				$shippers = (array) get_post_meta( $order->id, 'wc_pv_shipped', true );
@@ -457,44 +490,44 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 
 				//  Need to fix how form is submitted for adding comments if at all possible. 
 
-				if ( $this->can_view_comments) { 
+				// if ( $this->can_view_comments) { 
 					
-					$order_notes = $order->get_customer_order_notes();			
+				// 	$order_notes = $order->get_customer_order_notes();			
 
-					$comment_output .= '<a href="#TB_inline?width=600&height=550&inlineId=order-comment-window-'.$model_id.'" class="thickbox">'; 
-					$comment_output .= sprintf( __( 'Comments (%s)', 'wcvendors' ), count( $order_notes ) );
-					$comment_output .= '</a>';	
-					$comment_output .= '<div id="order-comment-window-'.$model_id.'" style="display:none;">'; 
-					$comment_output .= '<h3>'.__('Comments to Customer', 'wcvendors' ). '</h3>';
+				// 	$comment_output .= '<a href="#TB_inline?width=600&height=550&inlineId=order-comment-window-'.$model_id.'" class="thickbox">'; 
+				// 	$comment_output .= sprintf( __( 'Comments (%s)', 'wcvendors' ), count( $order_notes ) );
+				// 	$comment_output .= '</a>';	
+				// 	$comment_output .= '<div id="order-comment-window-'.$model_id.'" style="display:none;">'; 
+				// 	$comment_output .= '<h3>'.__('Comments to Customer', 'wcvendors' ). '</h3>';
 
-					if ( !empty( $order_notes ) ) { 
+				// 	if ( !empty( $order_notes ) ) { 
 
-						foreach ($order_notes as $order_note) {
-							$last_added = human_time_diff( strtotime( $order_note->comment_date_gmt ), current_time( 'timestamp', 1 ) );
-							$comment_output .= '<p>'; 
-							$comment_output .= $order_note->comment_content; 
-							$comment_output .= '<br />'; 
-						    $comment_output .= sprintf(__( 'added %s ago', 'wcvendors' ), $last_added ); 
-							$comment_output .= '<br />'; 
-							$comment_output .= '</p>';
-						}
+				// 		foreach ($order_notes as $order_note) {
+				// 			$last_added = human_time_diff( strtotime( $order_note->comment_date_gmt ), current_time( 'timestamp', 1 ) );
+				// 			$comment_output .= '<p>'; 
+				// 			$comment_output .= $order_note->comment_content; 
+				// 			$comment_output .= '<br />'; 
+				// 		    $comment_output .= sprintf(__( 'added %s ago', 'wcvendors' ), $last_added ); 
+				// 			$comment_output .= '<br />'; 
+				// 			$comment_output .= '</p>';
+				// 		}
 
-					} else { 
-						$comment_output .= '<p>'.__('No comments currently to customer.', 'wcvendors' ). '</p>';
-					}
+				// 	} else { 
+				// 		$comment_output .= '<p>'.__('No comments currently to customer.', 'wcvendors' ). '</p>';
+				// 	}
 
-					if ( $this->can_add_comments ) { 
-						$comment_output .=  wp_nonce_field( 'add-comment' ); 
-						$comment_output .= '
-							<textarea name="comment_text" style="width:97%"></textarea>
-							<input type="hidden" name="order_id" value="'. $order->id .'">
-							<input type="hidden" name="action" value="add_comment">
-							<input class="btn btn-large btn-block" type="submit" name="submit_comment" value="'.__( 'Add comment', 'wcvendors' ).'">';
-					} 
+				// 	if ( $this->can_add_comments ) { 
+				// 		$comment_output .=  wp_nonce_field( 'add-comment' ); 
+				// 		$comment_output .= '
+				// 			<textarea name="comment_text" style="width:97%"></textarea>
+				// 			<input type="hidden" name="order_id" value="'. $order->id .'">
+				// 			<input type="hidden" name="action" value="add_comment">
+				// 			<input class="btn btn-large btn-block" type="submit" name="submit_comment" value="'.__( 'Add comment', 'wcvendors' ).'">';
+				// 	} 
 
-					$comment_output .= '</div>'; 
+				// 	$comment_output .= '</div>'; 
 
-				}
+				// }
 
 				$order_items = array(); 
 				$order_items[ 'order_id' ] 	= $order->id;
