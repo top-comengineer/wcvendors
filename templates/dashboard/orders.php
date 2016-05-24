@@ -125,14 +125,51 @@ jQuery(function () {
 					<?php 
 					$product_id = '';
 					foreach ($valid as $key => $item):
-						$product_id = $item['product_id']; 
+						
+						$product_id = !empty( $item['variation_id'] ) ? $item['variation_id'] : $item['product_id']; 
 						$item_meta = new WC_Order_Item_Meta( $item );
 						$item_meta = $item_meta->display( false, true ); ?>
 						<?php echo $item['qty'] . 'x ' . $item['name']; ?>
 
-						<?php if (!empty( $item_meta ) && $item_meta != '<dl class="variation"></dl>') : ?>
-							<?php echo $item_meta; ?>
-						<?php endif; ?>
+						<?php 
+							if ( $metadata = $order->has_meta( $item['product_id'] ) ) {
+								echo '<table cellspacing="1" class="wcv_display_meta">';
+								foreach ( $metadata as $meta ) {
+
+									// Skip hidden core fields
+									if ( in_array( $meta['meta_key'], apply_filters( 'woocommerce_hidden_order_itemmeta', array(
+										'_qty',
+										'_tax_class',
+										'_product_id',
+										'_variation_id',
+										'_line_subtotal',
+										'_line_subtotal_tax',
+										'_line_total',
+										'_line_tax',
+										'Sold By'
+									) ) ) ) {
+										continue;
+									}
+
+									// Skip serialised meta
+									if ( is_serialized( $meta['meta_value'] ) ) {
+										continue;
+									}
+
+									// Get attribute data
+									if ( taxonomy_exists( wc_sanitize_taxonomy_name( $meta['meta_key'] ) ) ) {
+										$term               = get_term_by( 'slug', $meta['meta_value'], wc_sanitize_taxonomy_name( $meta['meta_key'] ) );
+										$meta['meta_key']   = wc_attribute_label( wc_sanitize_taxonomy_name( $meta['meta_key'] ) );
+										$meta['meta_value'] = isset( $term->name ) ? $term->name : $meta['meta_value'];
+									} else {
+										$meta['meta_key']   = apply_filters( 'woocommerce_attribute_label', wc_attribute_label( $meta['meta_key'], $_product ), $meta['meta_key'] );
+									}
+
+									echo '<tr><th>' . wp_kses_post( rawurldecode( $meta['meta_key'] ) ) . ':</th><td>' . wp_kses_post( wpautop( make_clickable( rawurldecode( $meta['meta_value'] ) ) ) ) . '</td></tr>';
+								}
+								echo '</table>';
+							} 
+						?>
 
 						<br/>
 
