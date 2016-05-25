@@ -22,6 +22,7 @@ class WCV_Vendor_Signup
 		$this->terms_page = WC_Vendors::$pv_options->get_option( 'terms_to_apply_page' );
 
 		add_action( 'register_form', array( $this, 'vendor_option' ) );
+		add_action( 'login_form', array( $this, 'login_apply_vendor_option' ) );
 
 		if ( ! class_exists( 'WCVendors_Pro' ) ) { 
 			add_action( 'woocommerce_created_customer', array( $this, 'save_pending' ), 10, 2 );
@@ -29,6 +30,13 @@ class WCV_Vendor_Signup
 		
 		add_action( 'template_redirect', array( $this, 'apply_form_dashboard' ), 10 );
 		add_action( 'woocommerce_register_post', array( $this, 'validate_vendor_registration' ), 10, 3 ); 
+
+		// Load the javascript only if the terms page is set. 
+		if ( $this->terms_page ){ 
+
+			add_action( 'login_enqueue_scripts', array( $this, 'load_scripts' ), 1 ); 
+
+		}
 	}
 
 
@@ -74,6 +82,31 @@ class WCV_Vendor_Signup
 	<?php
 	}
 
+
+	/**
+	 * Show apply to be vendor on the wp-login screen 
+	 * 
+	 * @since 1.9.0 
+	 * @version 1.0.0 
+	 */
+	public function login_apply_vendor_option(){ 
+
+		include_once('views/html-vendor-signup.php'); 
+
+	} // login_apply_vendor_option
+
+
+	/**
+	 * Load the javascript for the terms page 
+	 * 
+	 * @since 1.9.0 
+	 * @version 1.0.0 
+	 */
+	public function load_scripts(){ 
+
+		wp_enqueue_script( 'wcv-admin-login', wcv_assets_url . 'js/wcv-admin-login.js', array( 'jquery' ), WCV_VERSION, true );
+
+	} // load_scripts() 
 
 	/**
 	 *
