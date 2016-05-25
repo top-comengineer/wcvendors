@@ -26,6 +26,7 @@ class WCV_Vendor_Signup
 
 		if ( ! class_exists( 'WCVendors_Pro' ) ) { 
 			add_action( 'woocommerce_created_customer', array( $this, 'save_pending' ), 10, 2 );
+			add_action( 'wp_authenticate_user', array( $this, 'login_save_pending' ), 10, 2 );
 		}
 		
 		add_action( 'template_redirect', array( $this, 'apply_form_dashboard' ), 10 );
@@ -137,6 +138,43 @@ class WCV_Vendor_Signup
 			}
 		}
 	}
+
+
+	/**
+	 * Save the pending vendor from the login screen 
+	 * 
+	 * @since 1.9.0 
+	 * @version 1.0.0 
+	 */
+	public function login_save_pending( $user ){ 
+
+		if ( isset( $_POST[ 'apply_for_vendor' ] ) ) {
+
+			wc_clear_notices(); 
+
+			$user_id = $user->ID; 
+
+			if ( user_can( $user_id, 'manage_options' ) ) {
+				wc_add_notice( __( 'Application denied. You are an administrator.', 'wcvendors' ), 'error' );
+			} else {
+				wc_add_notice( __( 'Your application has been submitted.', 'wcvendors' ), 'notice' );
+
+				$manual = WC_Vendors::$pv_options->get_option( 'manual_vendor_registration' );
+				$role   = apply_filters( 'wcvendors_pending_role', ( $manual ? 'pending_vendor' : 'vendor' ) );
+
+				$wp_user_object = new WP_User( $user_id );
+				$wp_user_object->set_role( $role );
+
+				do_action( 'wcvendors_application_submited', $user_id );
+
+				add_filter( 'woocommerce_registration_redirect', array( $this, 'redirect_to_vendor_dash' ) );
+			}
+		}
+
+		return $user; 
+
+	} // login_save_pending() 
+
 
 	public function redirect_to_vendor_dash( $redirect )
 	{
