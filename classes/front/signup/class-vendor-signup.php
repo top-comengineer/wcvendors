@@ -49,6 +49,8 @@ class WCV_Vendor_Signup
 		?>
 		<div class="clear"></div>
 
+		<?php do_action( 'wcvendors_apply_for_vendor_before' ); ?> 
+
 		<p class="form-row">
 			<input class="input-checkbox"
 				   id="apply_for_vendor" <?php checked( isset( $_POST[ 'apply_for_vendor' ] ), true ) ?> type="checkbox"
@@ -57,14 +59,21 @@ class WCV_Vendor_Signup
 				   class="checkbox"><?php echo apply_filters('wcvendors_vendor_registration_checkbox', __( 'Apply to become a vendor? ', 'wcvendors' )); ?></label>
 		</p>
 
+		<?php do_action( 'wcvendors_apply_for_vendor_after' ); ?> 
+
 		<?php if ( $this->terms_page ) { ?>
+
+		<?php do_action( 'wcvendors_agree_to_terms_before' ); ?> 
+			
 		<p class="form-row agree-to-terms-container" style="display:none">
 			<input class="input-checkbox"
 				   id="agree_to_terms" <?php checked( isset( $_POST[ 'agree_to_terms' ] ), true ) ?> type="checkbox"
 				   name="agree_to_terms" value="1"/>
 			<label for="agree_to_terms"
-				   class="checkbox"><?php printf( __( 'I have read and accepted the <a target="top" href="%s">terms and conditions</a>', 'wcvendors' ), get_permalink( $this->terms_page ) ); ?></label>
+				   class="checkbox"><?php apply_filters( 'wcvendors_vendor_registration_terms', printf(  __( 'I have read and accepted the <a target="top" href="%s">terms and conditions</a>', 'wcvendors' ), get_permalink( $this->terms_page ) ) ); ?></label>
 		</p>
+
+		<?php do_action( 'wcvendors_agree_to_terms_after' ); ?> 
 
 		<script type="text/javascript">
 			jQuery(function () {
@@ -148,30 +157,41 @@ class WCV_Vendor_Signup
 	 */
 	public function login_save_pending( $user ){ 
 
-		if ( isset( $_POST[ 'apply_for_vendor' ] ) ) {
+		if ( isset( $_POST[ 'agree_to_terms' ] ) ) {
 
-			wc_clear_notices(); 
+			if ( isset( $_POST[ 'apply_for_vendor' ] ) ) {
 
-			$user_id = $user->ID; 
+				wc_clear_notices(); 
 
-			if ( user_can( $user_id, 'manage_options' ) ) {
-				wc_add_notice( __( 'Application denied. You are an administrator.', 'wcvendors' ), 'error' );
-			} else {
-				wc_add_notice( __( 'Your application has been submitted.', 'wcvendors' ), 'notice' );
+				$user_id = $user->ID; 
 
-				$manual = WC_Vendors::$pv_options->get_option( 'manual_vendor_registration' );
-				$role   = apply_filters( 'wcvendors_pending_role', ( $manual ? 'pending_vendor' : 'vendor' ) );
+				if ( user_can( $user_id, 'manage_options' ) ) {
+					wc_add_notice( __( 'Application denied. You are an administrator.', 'wcvendors' ), 'error' );
+				} else {
+					wc_add_notice( __( 'Your application has been submitted.', 'wcvendors' ), 'notice' );
 
-				$wp_user_object = new WP_User( $user_id );
-				$wp_user_object->set_role( $role );
+					$manual = WC_Vendors::$pv_options->get_option( 'manual_vendor_registration' );
+					$role   = apply_filters( 'wcvendors_pending_role', ( $manual ? 'pending_vendor' : 'vendor' ) );
 
-				do_action( 'wcvendors_application_submited', $user_id );
+					$wp_user_object = new WP_User( $user_id );
+					$wp_user_object->set_role( $role );
 
-				add_filter( 'woocommerce_registration_redirect', array( $this, 'redirect_to_vendor_dash' ) );
+					do_action( 'wcvendors_application_submited', $user_id );
+
+					add_filter( 'woocommerce_registration_redirect', array( $this, 'redirect_to_vendor_dash' ) );
+				}
 			}
+
+			return $user; 
+
+		} else { 
+			$error = new WP_Error();
+			$error->add( 'did_not_accept_terms', apply_filters( 'wcvendors_agree_to_terms_error', __( 'You must accept the terms and conditions to become a vendor.', 'wcvendors' ) ) );
+			return $error;
+
 		}
 
-		return $user; 
+		
 
 	} // login_save_pending() 
 
@@ -201,7 +221,7 @@ class WCV_Vendor_Signup
 				if ( isset( $_POST[ 'agree_to_terms' ] ) ) {
 					self::save_pending( get_current_user_id() );
 				} else { 
-					wc_add_notice( __( 'You must accept the terms and conditions to become a vendor.', 'wcvendors' ), 'error' ); 
+					wc_add_notice( apply_filters( 'wcvendors_agree_to_terms_error', __( 'You must accept the terms and conditions to become a vendor.', 'wcvendors' ), 'error' ) ); 
 				}
 			} else { 
 				self::save_pending( get_current_user_id() );	
@@ -213,7 +233,7 @@ class WCV_Vendor_Signup
 
 		if ( isset( $_POST[ 'apply_for_vendor' ] ) ) { 
 			if ( $this->terms_page && !isset( $_POST[ 'agree_to_terms' ] ) ) { 
-				$validation_errors->add(  'agree_to_terms_error', __( 'You must accept the terms and conditions to become a vendor.', 'wcvendors' ) ); 
+				$validation_errors->add(  'agree_to_terms_error', apply_filters( 'wcvendors_agree_to_terms_error', __( 'You must accept the terms and conditions to become a vendor.', 'wcvendors' ) ) ); 
 			}
 		}
 	}
