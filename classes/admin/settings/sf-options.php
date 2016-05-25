@@ -100,6 +100,15 @@ $options[ ] = array(
 );
 
 $options[ ] = array(
+	'name' => __( 'Sold By', 'wcvendors' ),
+	'desc' => __( 'Enable sold by labels', 'wcvendors' ),
+	'tip'  => __( 'This will enable or disable the sold by labels.', 'wcvendors' ),
+	'id'   => 'sold_by',
+	'type' => 'checkbox',
+	'std'  => true,
+);
+
+$options[ ] = array(
 	'name' => __( 'Sold By Label', 'wcvendors' ),
 	'desc' => __( 'The sold by label used on the site and emails.', 'wcvendors' ),
 	'id'   => 'sold_by_label',

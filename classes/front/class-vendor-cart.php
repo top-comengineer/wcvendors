@@ -17,8 +17,12 @@ class WCV_Vendor_Cart
 	 */
 	function __construct()
 	{
-		add_filter( 'woocommerce_get_item_data', array( 'WCV_Vendor_Cart', 'sold_by' ), 10, 2 );
-		add_action( 'woocommerce_product_meta_start', array( 'WCV_Vendor_Cart', 'sold_by_meta' ), 10, 2 );
+
+		if ( WC_Vendors::$pv_options->get_option( 'sold_by' ) ) { 
+			add_filter( 'woocommerce_get_item_data', array( 'WCV_Vendor_Cart', 'sold_by' ), 10, 2 );
+			add_action( 'woocommerce_product_meta_start', array( 'WCV_Vendor_Cart', 'sold_by_meta' ), 10, 2 );
+		}
+		
 	}
 
 

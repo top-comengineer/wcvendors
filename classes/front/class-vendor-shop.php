@@ -29,7 +29,9 @@ class WCV_Vendor_Shop
 		add_filter( 'post_type_archive_link', array( 'WCV_Vendor_Shop', 'change_archive_link' ) );
 
 		// Add sold by to product loop before add to cart
-		add_action( 'woocommerce_after_shop_loop_item', array('WCV_Vendor_Shop', 'template_loop_sold_by'), 9 );
+		if ( WC_Vendors::$pv_options->get_option( 'sold_by' ) ) { 
+			add_action( 'woocommerce_after_shop_loop_item', array('WCV_Vendor_Shop', 'template_loop_sold_by'), 9 );
+		} 
 
 		// Remove Page Title if on Vendor Shop 
 		add_filter ( 'woocommerce_show_page_title', array('WCV_Vendor_Shop', 'remove_vendor_title') ); 
