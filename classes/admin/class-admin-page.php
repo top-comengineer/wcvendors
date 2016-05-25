@@ -208,7 +208,8 @@ class WCV_Admin_Page extends WP_List_Table
 				$wcv_total_sales = get_post_meta( $product_id, 'total_sales', true );
                 return '<a href="' . admin_url( 'post.php?post=' . $product_id . '&action=edit' ) . '">' . get_the_title( $item->product_id ) . '</a> (<span title="' . get_the_title( $item->product_id ) .' has sold ' . $wcv_total_sales . ' times total.">' . $wcv_total_sales  . '</span>)';
 			case 'order_id' :
-				return '<a href="' . admin_url( 'post.php?post=' . $item->order_id . '&action=edit' ) . '">' . $item->order_id . '</a>';
+				$order 	= new WC_Order( $item->order_id ); 
+				return '<a href="' . admin_url( 'post.php?post=' . $item->order_id . '&action=edit' ) . '">' . $order->get_order_number() . '</a>';
 			case 'status' :
 				return $item->status;
 			case 'time' :
