@@ -126,7 +126,7 @@ class WC_Email_Notify_Shipped extends WC_Email
 		wc_get_template( $this->template_html, array(
 															 'order'         => $this->object,
 															 'email_heading' => $this->get_heading()
-														), 'woocommerce/emails', $this->template_base );
+														), 'woocommerce', $this->template_base );
 
 		return ob_get_clean();
 	}
@@ -144,7 +144,7 @@ class WC_Email_Notify_Shipped extends WC_Email
 		wc_get_template( $this->template_plain, array(
 															  'order'         => $this->object,
 															  'email_heading' => $this->get_heading()
-														 ), 'woocommerce/emails', $this->template_base );
+														 ), 'woocommerce', $this->template_base );
 
 		return ob_get_clean();
 	}

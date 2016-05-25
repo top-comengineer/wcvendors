@@ -535,16 +535,6 @@ class WCV_Admin_Reports
 			
 		} 
 
-		// usort( $totals, function( $a, $b ) {
-		// 	  if ( $a['user_login'] < $b['user_login']) {
-		// 	        return -1;
-		// 	    } else if ( $a['user_login'] > $b['user_login'] ) {
-		// 	        return 1;
-		// 	    } else {
-		// 	        return 0;
-		// 	    }
-		// }); 
-
 		usort( $totals, function( $a, $b ) {
 			return strcmp( strtolower( $a[ 'user_login' ] ), strtolower( $b[ 'user_login' ] ) ); 
 		}); 

@@ -85,7 +85,7 @@ class WC_Email_Approve_Vendor extends WC_Email
 															 'status'        => $this->status,
 															 'user'          => $this->user,
 															 'email_heading' => $this->get_heading()
-														), 'woocommerce/emails', $this->template_base );
+														), 'woocommerce', $this->template_base );
 
 		return ob_get_clean();
 	}
@@ -104,7 +104,7 @@ class WC_Email_Approve_Vendor extends WC_Email
 															  'status'        => $this->status,
 															  'user'          => $this->user,
 															  'email_heading' => $this->get_heading()
-														 ), 'woocommerce/emails', $this->template_base );
+														 ), 'woocommerce', $this->template_base );
 
 		return ob_get_clean();
 	}

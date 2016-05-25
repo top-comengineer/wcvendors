@@ -95,7 +95,7 @@ class WC_Email_Notify_Admin extends WC_Email
 															 'vendor_name'   => $this->vendor_name,
 															 'post_id'       => $this->post_id,
 															 'email_heading' => $this->get_heading()
-														), 'woocommerce/emails', $this->template_base );
+														), 'woocommerce', $this->template_base );
 
 		return ob_get_clean();
 	}
@@ -115,7 +115,7 @@ class WC_Email_Notify_Admin extends WC_Email
 															  'vendor_name'   => $this->vendor_name,
 															  'post_id'       => $this->post_id,
 															  'email_heading' => $this->get_heading()
-														 ), 'woocommerce/emails', $this->template_base );
+														 ), 'woocommerce', $this->template_base );
 
 		return ob_get_clean();
 	}
