@@ -107,7 +107,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 		$return[ 'cart_subtotal' ][ 'label' ] = $commission_label; 
 
 		if ( WC_Vendors::$pv_options->get_option( 'give_tax' ) ) {
-			$return['tax_subtotal'] = array( 'label' => '', 'value' => ''); 
+			$return[ 'tax_subtotal'] = array( 'label' => '', 'value' => ''); 
 			$return[ 'tax_subtotal']['label'] = apply_filters('wcv_notify_vendor_tax_label', __( 'Tax Subtotal:', 'wcvendors' ) ) ;
 		} 
 

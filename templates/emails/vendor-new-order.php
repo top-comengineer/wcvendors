@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly ?>
 	</thead>
 	<tbody>
 		<?php echo $order->email_order_items_table( array(
-			'show_sku'      => false,
+			'show_sku'      => true,
 			'show_image'    => false,
 			'image_size'    => array( 32, 32 ),
 			'plain_text'    => false,
