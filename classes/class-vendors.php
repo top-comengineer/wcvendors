@@ -6,10 +6,18 @@
  * @author  Matt Gates <http://mgates.me>, WC Vendors <http://wcvendors.com>
  * @package WCVendors
  */
-
+	
 
 class WCV_Vendors
 {
+
+	/**
+	 * Constructor
+	 */
+	function __construct()
+	{
+		add_action( 'woocommerce_checkout_order_processed',  array( __CLASS__, 'create_child_orders' ), 10, 1 );
+	}
 
 	/**
 	 * Retrieve all products for a vendor
@@ -423,7 +431,7 @@ class WCV_Vendors
 
 		return $vendor_id ? true : false; 
 
-	}
+	} // is_vendor_page()
 
 	/* 
 	*	Is this a vendor single product page ? 
@@ -433,7 +441,7 @@ class WCV_Vendors
 		$vendor_product = WCV_Vendors::is_vendor_product( wcv_get_user_role($vendor_id) ); 
 		return $vendor_product ? true : false; 
 
-	}
+	} // is_vendor_product_page()
 
 	public static function get_vendor_sold_by( $vendor_id ){ 
 
@@ -456,7 +464,198 @@ class WCV_Vendors
 				break;
 		}
 
-		return $display_name; 
+		return $display_name;
+
+	} // get_vendor_sold_by()
+
+	/**
+	 * Split order into vendor orders (when applicable) after checkout
+	 *
+	 * @since 
+	 * @param int $order_id
+	 * @return void
+	 */
+	public static function create_child_orders ( $order_id ) {
+		$order = wc_get_order( $order_id );
+		$items = $order->get_items();
+		$vendor_items = array();
+
+		foreach ($items as $item_id => $item) {
+			if ( isset($item['product_id']) && $item['product_id'] !== 0 ) {
+				// check if product is from vendor
+				$product_author = get_post_field( 'post_author', $item['product_id'] );
+				if (WCV_Vendors::is_vendor( $product_author ) ) {
+					$vendor_items[ $product_author ][ $item_id ] = array (
+						'item_id'		=> $item_id,
+						'qty'			=> $item['qty'],
+						'total'			=> $item['line_total'],
+						'subtotal'		=> $item['line_subtotal'],
+						'tax'			=> $item['line_tax'],
+						'subtotal_tax'	=> $item['line_subtotal_tax'],
+						'tax_data'		=> maybe_unserialize( $item['line_tax_data'] ),
+						'commission'	=> WCV_Commission::calculate_commission( $item['line_subtotal'], $item['product_id'], $order ),
+					);
+				}
+			}
+		}
+
+		foreach ($vendor_items as $vendor_id => $items) {
+			if (!empty($items)) {
+				$vendor_order = WCV_Vendors::create_vendor_order( array(
+					'order_id'   => $order_id,
+					'vendor_id'  => $vendor_id,
+					'line_items' => $items
+				) );
+			}
+		}
 	}
 
-}
+	/**
+	 * Create a new vendor order programmatically
+	 *
+	 * Returns a new vendor_order object on success which can then be used to add additional data.
+	 *
+	 * @since 
+	 * @param array $args
+	 * @return WC_Order_Vendor|WP_Error
+	 */
+	public static function create_vendor_order( $args = array() ) {
+		$default_args = array(
+			'vendor_id'       => null,
+			'order_id'        => 0,
+			'vendor_order_id' => 0,
+			'line_items'      => array(),
+			'date'            => current_time( 'mysql', 0 )
+		);
+
+		$args              = wp_parse_args( $args, $default_args );
+		$vendor_order_data = array();
+
+		if ( $args['vendor_order_id'] > 0 ) {
+			$updating                = true;
+			$vendor_order_data['ID'] = $args['vendor_order_id'];
+		} else {
+			$updating                           = false;
+			$vendor_order_data['post_type']     = 'shop_order_vendor';
+			$vendor_order_data['post_status']   = 'wc-completed';
+			$vendor_order_data['ping_status']   = 'closed';
+			$vendor_order_data['post_author']   = get_current_user_id();
+			$vendor_order_data['post_password'] = uniqid( 'vendor_' ); // password = 20 char max! (uniqid = 13)
+			$vendor_order_data['post_parent']   = absint( $args['order_id'] );
+			$vendor_order_data['post_title']    = sprintf( __( 'Vendor Order &ndash; %s', 'woocommerce' ), strftime( _x( '%b %d, %Y @ %I:%M %p', 'Order date parsed by strftime', 'woocommerce' ) ) );
+			$vendor_order_data['post_date']     = $args['date'];
+		}
+
+		if ( $updating ) {
+			$vendor_order_id = wp_update_post( $vendor_order_data );
+		} else {
+			$vendor_order_id = wp_insert_post( apply_filters( 'woocommerce_new_vendor_order_data', $vendor_order_data ), true );
+		}
+
+		if ( is_wp_error( $vendor_order_id ) ) {
+			return $vendor_order_id;
+		}
+
+		if ( ! $updating ) {
+			// Get vendor order object
+			$vendor_order = wc_get_order( $vendor_order_id );
+			$order        = wc_get_order( $args['order_id'] );
+
+			// Order currency is the same used for the parent order
+			update_post_meta( $vendor_order_id, '_order_currency', $order->get_order_currency() );
+
+			if ( sizeof( $args['line_items'] ) > 0 ) {
+				$order_items = $order->get_items( array( 'line_item', 'fee', 'shipping' ) );
+
+				foreach ( $args['line_items'] as $vendor_order_item_id => $vendor_order_item ) {
+					if ( isset( $order_items[ $vendor_order_item_id ] ) ) {
+						if ( empty( $vendor_order_item['qty'] ) && empty( $vendor_order_item['total'] ) && empty( $vendor_order_item['tax'] ) ) {
+							continue;
+						}
+
+						// Prevents errors when the order has no taxes
+						if ( ! isset( $vendor_order_item['tax'] ) ) {
+							$vendor_order_item['tax'] = array();
+						}
+
+						switch ( $order_items[ $vendor_order_item_id ]['type'] ) {
+							case 'line_item' :
+								$line_item_args = array(
+									'totals' => array(
+										'subtotal'     => $vendor_order_item['subtotal'],
+										'total'        => $vendor_order_item['total'],
+										'subtotal_tax' => $vendor_order_item['subtotal_tax'],
+										'tax'          => $vendor_order_item['tax'],
+										'tax_data'     => $vendor_order_item['tax_data'],
+									)
+								);
+								$new_item_id = $vendor_order->add_product( $order->get_product_from_item( $order_items[ $vendor_order_item_id ] ), isset( $vendor_order_item['qty'] ) ? $vendor_order_item['qty'] : 0, $line_item_args );
+								wc_add_order_item_meta( $new_item_id, '_vendor_order_item_id', $vendor_order_item_id );
+								wc_add_order_item_meta( $new_item_id, '_vendor_commission', $vendor_order_item['commission'] );
+							break;
+							case 'shipping' :
+								$shipping        = new stdClass();
+								$shipping->label = $order_items[ $vendor_order_item_id ]['name'];
+								$shipping->id    = $order_items[ $vendor_order_item_id ]['method_id'];
+								$shipping->cost  = $vendor_order_item['total'];
+								$shipping->taxes = $vendor_order_item['tax'];
+
+								$new_item_id = $vendor_order->add_shipping( $shipping );
+								wc_add_order_item_meta( $new_item_id, '_vendor_order_item_id', $vendor_order_item_id );
+							break;
+							case 'fee' :
+								$fee            = new stdClass();
+								$fee->name      = $order_items[ $vendor_order_item_id ]['name'];
+								$fee->tax_class = $order_items[ $vendor_order_item_id ]['tax_class'];
+								$fee->taxable   = $fee->tax_class !== '0';
+								$fee->amount    = $vendor_order_item['total'];
+								$fee->tax       = array_sum( $vendor_order_item['tax'] );
+								$fee->tax_data  = $vendor_order_item['tax'];
+
+								$new_item_id = $vendor_order->add_fee( $fee );
+								wc_add_order_item_meta( $new_item_id, '_vendor_order_item_id', $vendor_order_item_id );
+							break;
+						}
+					}
+				}
+				$vendor_order->update_taxes();
+			}
+
+			$vendor_order->calculate_totals( false );
+
+			do_action( 'woocommerce_vendor_order_created', $vendor_order_id, $args );
+		}
+
+		// Clear transients
+		wc_delete_shop_order_transients( $args['order_id'] );
+
+		return new WC_Order_Vendor( $vendor_order_id );
+	}
+
+
+	/**
+	 * Get vendor orders
+	 *
+	 * @return array
+	 */
+	public static function get_vendor_orders( $order_id ) {
+		$vendor_orders    = array();
+		$vendor_order_ids = get_posts(
+			array(
+				'post_type'      => 'shop_order_vendor',
+				'post_parent'    => $order_id,
+				'posts_per_page' => -1,
+				'post_status'    => 'any',
+				'fields'         => 'ids'
+			)
+		);
+
+		foreach ( $vendor_order_ids as $vendor_order_id ) {
+			$vendor_orders[] = new WC_Order_Vendor( $vendor_order_id );
+		}
+
+		return $vendor_orders;
+
+	} // get_vendor_orders()
+
+} // WCV_Vendors 

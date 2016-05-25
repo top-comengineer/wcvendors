@@ -7,9 +7,9 @@
  * Author:              WC Vendors
  * Author URI:          https://www.wcvendors.com
  *
- * Version:             1.8.9
+ * Version:             1.9.0
  * Requires at least:   4.0.0
- * Tested up to:        4.5.1
+ * Tested up to:        4.5.2
  *
  * Text Domain:         wcvendors
  * Domain Path:         /languages/
@@ -175,6 +175,8 @@ if ( wcv_is_woocommerce_activated() ) {
 			require_once wcv_plugin_dir . 'classes/class-cron.php';
 			require_once wcv_plugin_dir . 'classes/class-commission.php';
 			require_once wcv_plugin_dir . 'classes/class-shipping.php';
+			require_once wcv_plugin_dir . 'classes/class-vendor-order.php';
+			require_once wcv_plugin_dir . 'classes/class-vendor-post-types.php'; 
 			require_once wcv_plugin_dir . 'classes/front/class-vendor-cart.php';
 			require_once wcv_plugin_dir . 'classes/front/dashboard/class-vendor-dashboard.php';
 			require_once wcv_plugin_dir . 'classes/front/class-vendor-shop.php';
@@ -195,6 +197,7 @@ if ( wcv_is_woocommerce_activated() ) {
 				include_once(WC()->plugin_path() . '/includes/admin/wc-meta-box-functions.php');
 			}
 
+			new WCV_Vendors;
 			new WCV_Vendor_Shop;
 			new WCV_Vendor_Cart;
 			new WCV_Commission;

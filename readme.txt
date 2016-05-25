@@ -5,8 +5,8 @@ Donate link: http://www.wcvendors.com/
 Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.0
-Tested up to: 4.5.0
-Stable tag: 1.8.9
+Tested up to: 4.5.2
+Stable tag: 1.9.0
 License: GPLv2 or later
 
 The free multi-vendor plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
@@ -118,6 +118,29 @@ Also be sure to visit our KnowledgeBase at https://www.wcvendors.com/kb/
 No Upgrade required at this time.
 
 == Changelog ==
+
+= Version 1.9.0 - 25th of May 2016 
+
+* Added: Support for WooCommerce 2.6
+* Added: Product and Vendor id's to sold_by filters
+* Added: Vendor Signup Filters #269
+* Added: Notify Vendors Email - Add Product SKU, if set #263
+* Added: New Option: Notify Vendors show Purchase Price or Commissions #253
+* Added: Hook into wp-login.php for Apply to become a vendor #245
+* Added: Option to disable sold by #236
+* Added: Initial sub order management code #196 thanks Spreeuw 
+* Fixed: Sequential Orders Support Commissions table #270
+* Fixed: Notify Vendors Email Customizer Not Working #240
+* Fixed: Commissions Total Report a-z sorting #239
+* Fixed: need to agree to terms for this to process correctly
+* Fixed: save pending vendor for login screen
+* Fixed: Notify Vendors Email in WC 2.5+ #265
+* Fixed: Order table layout
+* Fixed: Orders screen for vendors in admin #231
+* Fixed: product management in WC 2.6
+* Fixed: Duplicate application emails firing in free and pro
+* Fixed: Commission display issue in notify vendor email
+* Fixed: New ítem meta compatability with WC 2.5 and above
 
 = Version 1.8.9  - 1st May 2016 = 
 
