@@ -275,7 +275,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 			'commission_display'    => array(
 				'title'   => __( 'Product Totals', 'wcvendors' ),
 				'type'    => 'checkbox',
-				'label'   => __( 'Show thecommission due/paid as the product totals instead of the product prices.', 'wcvendors' ),
+				'label'   => __( 'Show the commission due/paid as the product totals instead of the product prices.', 'wcvendors' ),
 				'default' => 'yes'
 			),
 			'email_type' => array(
