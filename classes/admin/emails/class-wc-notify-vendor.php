@@ -44,7 +44,6 @@ class WC_Email_Notify_Vendor extends WC_Email
 
 		// Call parent constuctor
 		parent::__construct();
-
 	}
 
 
@@ -173,6 +172,9 @@ class WC_Email_Notify_Vendor extends WC_Email
 	 */
 	function check_items( $items, $order )
 	{	
+
+		$settings = get_option( 'woocommerce_vendor_new_order_settings' ); 
+
 		foreach ( $items as $key => $product ) {
 
 			//  If this is a line item 
@@ -184,15 +186,19 @@ class WC_Email_Notify_Vendor extends WC_Email
 					unset( $items[ $key ] );
 					continue;
 				} else {
-					$commission_due = WCV_Commission::calculate_commission( $product[ 'line_subtotal' ], $product[ 'product_id' ], $order, $product[ 'qty' ] );
 
-					$items[ $key ][ 'line_subtotal' ] = $commission_due;
-					$items[ $key ][ 'line_total' ]    = $commission_due;
+					// If display commission is ticked show this otherwise show the full price. 
+					if ( 'yes' == $settings['commission_display'] ){ 
+						$commission_due = WCV_Commission::calculate_commission( $product[ 'line_subtotal' ], $product[ 'product_id' ], $order, $product[ 'qty' ] );
 
-					// Don't display tax if give tax is not enabled. 
-					if ( !WC_Vendors::$pv_options->get_option( 'give_tax' ) ) { 
-						unset($items[ $key ][ 'line_tax' ]) ; 
-					}
+						$items[ $key ][ 'line_subtotal' ] = $commission_due;
+						$items[ $key ][ 'line_total' ]    = $commission_due;
+
+						// Don't display tax if give tax is not enabled. 
+						if ( !WC_Vendors::$pv_options->get_option( 'give_tax' ) ) { 
+							unset($items[ $key ][ 'line_tax' ]) ; 
+						}
+					} 
 				}
 			}
 
@@ -265,6 +271,12 @@ class WC_Email_Notify_Vendor extends WC_Email
 				'description' => sprintf( __( 'This controls the main heading contained within the email notification. Leave blank to use the default heading: <code>%s</code>.', 'wcvendors' ), $this->heading ),
 				'placeholder' => '',
 				'default'     => ''
+			),
+			'commission_display'    => array(
+				'title'   => __( 'Product Totals', 'wcvendors' ),
+				'type'    => 'checkbox',
+				'label'   => __( 'Show thecommission due/paid as the product totals instead of the product prices.', 'wcvendors' ),
+				'default' => 'yes'
 			),
 			'email_type' => array(
 				'title'       => __( 'Email type', 'wcvendors' ),
