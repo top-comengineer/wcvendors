@@ -185,9 +185,13 @@ class WCV_Vendor_Signup
 			return $user; 
 
 		} else { 
-			$error = new WP_Error();
-			$error->add( 'did_not_accept_terms', apply_filters( 'wcvendors_agree_to_terms_error', __( 'You must accept the terms and conditions to become a vendor.', 'wcvendors' ) ) );
-			return $error;
+			if ( isset( $_POST[ 'apply_for_vendor' ] ) ) {
+				$error = new WP_Error();
+				$error->add( 'did_not_accept_terms', apply_filters( 'wcvendors_agree_to_terms_error', __( 'You must accept the terms and conditions to become a vendor.', 'wcvendors' ) ) );
+				return $error;
+			} else { 
+				return $user; 
+			}
 
 		}
 
