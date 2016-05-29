@@ -47,20 +47,21 @@ This plugin has been around since 2011 and remains still the #1 multi vendor plu
 
 = WC Vendors Pro =
 * The following features are part of <a href="https://www.wcvendors.com/product/wc-vendors-pro/">WC Vendors Pro</a>
-* <strong>Pro Dashboard</strong> making your vendors sales reports a piece of cake</li>
-* <strong>Fully featured front-end product add/edit capabilities</strong></li>
-* <strong>eBay style feedback</strong> system for Vendor Ratings</li>
-* <strong>Shipment Tracking</strong> for Vendors to enter tracking numbers</li>
+* <strong>Pro Dashboard</strong> making your vendors sales reports a piece of cake
+* <strong>Fully featured front-end product add/edit capabilities</strong>
+* <strong>eBay style feedback</strong> system for Vendor Ratings
+* <strong>Shipment Tracking</strong> for Vendors to enter tracking numbers
 * <strong>Vendor Shipping</strong> so vendors can enter flat rates for national/shipping, or country/state table rate shipping and receive the shipping fees from each sale.
-* <strong>Multiple commission types</strong> such as percentage, percentage + fee, fixed fee, and even fixed fee + fee.</li>
-* <strong>Vendor-Only coupons</strong> that vendors can create to make their own coupons for only their products</li>
-* <strong>Vendor Stores</strong> post types, which give Vendors their own true actual store</li>
-* Vendor <strong>store banners, avatars/icons</strong> and extra information fully customizable</li>
-* <strong>Social module</strong> for adding facebook/twitter/google+ and many more</li>
-* Extended <strong>Order Notes</strong></li>
-* <strong>Insanely customizable template system</strong> to configure, tweak and style your store and dashboard any way you see fit.</li>
-* MUCH MORE TO COME including <strong>WooThemes Bookings</strong> support, <strong>Variable Product</strong> support, integration with even more Woo plugins, and good features that you, the customer, ask us to code! <strong>Pro will always be continually updated with new features</strong>, just as you have grown to expect from WC Vendors Free</li>
-* <strong>INSANELY FAST SUPPORT</strong> on our <a href="https://www.wcvendors.com/help/forum/wc-vendors-pro-support/">Pro Help Forum</a></li>
+* <strong>Multiple commission types</strong> such as percentage, percentage + fee, fixed fee, and even fixed fee + fee.
+* <strong>Vendor-Only coupons</strong> that vendors can create to make their own coupons for only their products
+* <strong>Vendor Stores</strong>, which give Vendors their own true actual store
+* Vendor <strong>store banners, avatars/icons</strong> and extra information fully customizable
+* <strong>Social module</strong> for adding facebook/twitter/google+ and many more
+* Vacation Mode - So your vendors can go away for a while and not worry about losing sales
+* Extended <strong>Order Notes</strong>
+* <strong>Insanely customizable template system</strong> to configure, tweak and style your store and dashboard any way you see fit.
+* MUCH MORE TO COME including <strong>WooThemes Bookings</strong> support, integration with even more Woo plugins, and good features that you, the customer, ask us to code! <strong>Pro will always be continually updated with new features</strong>, just as you have grown to expect from WC Vendors Free
+* <strong>INSANELY FAST SUPPORT</strong> on our <a href="https://www.wcvendors.com/help/forum/wc-vendors-pro-support/">Pro Help Forum</a>
 * There's more features to Pro than listed here!
 
 
