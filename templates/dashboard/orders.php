@@ -146,7 +146,7 @@ jQuery(function () {
 										'_line_subtotal_tax',
 										'_line_total',
 										'_line_tax',
-										'Sold By'
+										WC_Vendors::$pv_options->get_option( 'sold_by_label' ), 
 									) ) ) ) {
 										continue;
 									}
