@@ -31,7 +31,7 @@ This plugin has been around since 2011 and remains still the #1 multi vendor plu
 * Customizable Vendor Pages
 * Global, Per Vendor, or Per product Commission Rates
 * Notification to Vendors of new orders
-* Vendors have their own individual storefronts, and blend in with the site through your categories
+* Vendors have their own individual storefronts, and blend in with the site through your regular shop pages too
 * Advanced Product Management
 * Customizable Vendor Headers
 * Front-End Vendor Registration and Back-End Vendor Registration
