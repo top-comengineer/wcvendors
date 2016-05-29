@@ -22,30 +22,35 @@ class WCV_Vendor_Signup
 		$this->terms_page = WC_Vendors::$pv_options->get_option( 'terms_to_apply_page' );
 
 		add_action( 'register_form', array( $this, 'vendor_option' ) );
-		add_action( 'login_form', array( $this, 'login_apply_vendor_option' ) );
+		// add_action( 'login_form', array( $this, 'login_apply_vendor_option' ) );
 
 		if ( ! class_exists( 'WCVendors_Pro' ) ) { 
 			add_action( 'woocommerce_created_customer', array( $this, 'save_pending' ), 10, 2 );
-			add_action( 'wp_authenticate_user', array( $this, 'login_save_pending' ), 10, 2 );
 		}
+
+		// add_action( 'register_new_user', array( $this, 'login_save_pending' ), 10, 2 );
 		
 		add_action( 'template_redirect', array( $this, 'apply_form_dashboard' ), 10 );
 		add_action( 'woocommerce_register_post', array( $this, 'validate_vendor_registration' ), 10, 3 ); 
 
 		// Load the javascript only if the terms page is set. 
-		if ( $this->terms_page ){ 
-
-			add_action( 'login_enqueue_scripts', array( $this, 'load_scripts' ), 1 ); 
-
-		}
+		// if ( $this->terms_page ){ 
+		// 	add_action( 'login_enqueue_scripts', array( $this, 'load_scripts' ), 1 ); 
+		// }
 	}
-
 
 	/**
 	 *
 	 */
 	public function vendor_option()
 	{
+
+		if ( isset( $_GET[ 'action'] ) && 'register' == $_GET[ 'action'] ) { 
+
+			// include_once('views/html-vendor-signup.php'); 
+
+		} else { 
+
 		?>
 		<div class="clear"></div>
 
@@ -90,6 +95,8 @@ class WCV_Vendor_Signup
 
 		<div class="clear"></div>
 	<?php
+		}
+
 	}
 
 
@@ -101,7 +108,7 @@ class WCV_Vendor_Signup
 	 */
 	public function login_apply_vendor_option(){ 
 
-		include_once('views/html-vendor-signup.php'); 
+		
 
 	} // login_apply_vendor_option
 
@@ -113,8 +120,8 @@ class WCV_Vendor_Signup
 	 * @version 1.0.0 
 	 */
 	public function load_scripts(){ 
-
 		wp_enqueue_script( 'wcv-admin-login', wcv_assets_url . 'js/wcv-admin-login.js', array( 'jquery' ), WCV_VERSION, true );
+		wp_localize_script( 'wcv-admin-login', 'wcv_admin_login_params', array('terms_msg' =>  __( 'You must accept the terms and conditions to become a vendor.', 'wcvendors' ) ) ); 
 
 	} // load_scripts() 
 
@@ -155,49 +162,43 @@ class WCV_Vendor_Signup
 	 * @since 1.9.0 
 	 * @version 1.0.0 
 	 */
-	public function login_save_pending( $user ){ 
+	public function login_save_pending( $user_id ){ 
 
-		if ( isset( $_POST[ 'agree_to_terms' ] ) ) {
+		if ( isset( $_POST[ 'apply_for_vendor' ] ) ) {
 
-			if ( isset( $_POST[ 'apply_for_vendor' ] ) ) {
+			$manual = WC_Vendors::$pv_options->get_option( 'manual_vendor_registration' );
+			$role   = apply_filters( 'wcvendors_pending_role', ( $manual ? 'pending_vendor' : 'vendor' ) );
 
-				wc_clear_notices(); 
+			$wp_user_object = new WP_User( $user_id );
+			$wp_user_object->set_role( $role );
 
-				$user_id = $user->ID; 
+			do_action( 'wcvendors_application_submited', $user_id );
+			
+		}
 
-				if ( user_can( $user_id, 'manage_options' ) ) {
-					wc_add_notice( __( 'Application denied. You are an administrator.', 'wcvendors' ), 'error' );
-				} else {
-					wc_add_notice( __( 'Your application has been submitted.', 'wcvendors' ), 'notice' );
+	} // login_save_pending() 
 
-					$manual = WC_Vendors::$pv_options->get_option( 'manual_vendor_registration' );
-					$role   = apply_filters( 'wcvendors_pending_role', ( $manual ? 'pending_vendor' : 'vendor' ) );
+	/**
+	 *  Login authentication check code for vendors 
+	 */
+	public function login_vendor_check( $user, $password ){ 
 
-					$wp_user_object = new WP_User( $user_id );
-					$wp_user_object->set_role( $role );
+		error_log('getting here..'); 
 
-					do_action( 'wcvendors_application_submited', $user_id );
+		if ( isset( $_POST[ 'apply_for_vendor' ] ) ) {
 
-					add_filter( 'woocommerce_registration_redirect', array( $this, 'redirect_to_vendor_dash' ) );
-				}
-			}
-
-			return $user; 
-
-		} else { 
-			if ( isset( $_POST[ 'apply_for_vendor' ] ) ) {
+			if ( $this->terms_page && ! isset( $_POST[ 'agree_to_terms' ] ) ) { 
 				$error = new WP_Error();
-				$error->add( 'did_not_accept_terms', apply_filters( 'wcvendors_agree_to_terms_error', __( 'You must accept the terms and conditions to become a vendor.', 'wcvendors' ) ) );
+				$error->add( 'no_terms', apply_filters( 'wcvendors_agree_to_terms_error', __( 'You must accept the terms and conditions to become a vendor.', 'wcvendors' ) ) );
 				return $error;
 			} else { 
 				return $user; 
 			}
+		} 
 
-		}
+		return $user; 
 
-		
-
-	} // login_save_pending() 
+	}
 
 
 	public function redirect_to_vendor_dash( $redirect )

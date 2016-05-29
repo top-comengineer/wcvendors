@@ -38,4 +38,20 @@
 
 	<?php do_action( 'wcvendors_login_agree_to_terms_after' ); ?> 
 
+
+	<script type="text/javascript">
+			jQuery(function () {
+				if (jQuery('#apply_for_vendor').is(':checked')) {
+					jQuery('.agree-to-terms-container').show();
+				}
+
+				jQuery( '#wp-submit' ).on( 'click', function( e ) {
+					alert('something here..'); 
+					e.preventDefault(); 
+				})
+			})
+	</script>
+
 <?php endif; ?>
+
+<div class="clear"></div>
