@@ -127,7 +127,6 @@ No Upgrade required at this time.
 * Added: Vendor Signup Filters #269
 * Added: Notify Vendors Email - Add Product SKU, if set #263
 * Added: New Option: Notify Vendors show Purchase Price or Commissions #253
-* Added: Hook into wp-login.php for Apply to become a vendor #245
 * Added: Option to disable sold by #236
 * Added: Initial sub order management code #196 thanks Spreeuw 
 * Fixed: Sequential Orders Support Commissions table #270

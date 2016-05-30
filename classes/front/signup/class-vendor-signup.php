@@ -28,15 +28,9 @@ class WCV_Vendor_Signup
 			add_action( 'woocommerce_created_customer', array( $this, 'save_pending' ), 10, 2 );
 		}
 
-		// add_action( 'register_new_user', array( $this, 'login_save_pending' ), 10, 2 );
-		
 		add_action( 'template_redirect', array( $this, 'apply_form_dashboard' ), 10 );
 		add_action( 'woocommerce_register_post', array( $this, 'validate_vendor_registration' ), 10, 3 ); 
 
-		// Load the javascript only if the terms page is set. 
-		// if ( $this->terms_page ){ 
-		// 	add_action( 'login_enqueue_scripts', array( $this, 'load_scripts' ), 1 ); 
-		// }
 	}
 
 	/**
@@ -182,8 +176,6 @@ class WCV_Vendor_Signup
 	 *  Login authentication check code for vendors 
 	 */
 	public function login_vendor_check( $user, $password ){ 
-
-		error_log('getting here..'); 
 
 		if ( isset( $_POST[ 'apply_for_vendor' ] ) ) {
 
