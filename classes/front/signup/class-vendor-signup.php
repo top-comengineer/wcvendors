@@ -106,19 +106,6 @@ class WCV_Vendor_Signup
 
 	} // login_apply_vendor_option
 
-
-	/**
-	 * Load the javascript for the terms page 
-	 * 
-	 * @since 1.9.0 
-	 * @version 1.0.0 
-	 */
-	public function load_scripts(){ 
-		wp_enqueue_script( 'wcv-admin-login', wcv_assets_url . 'js/wcv-admin-login.js', array( 'jquery' ), WCV_VERSION, true );
-		wp_localize_script( 'wcv-admin-login', 'wcv_admin_login_params', array('terms_msg' =>  __( 'You must accept the terms and conditions to become a vendor.', 'wcvendors' ) ) ); 
-
-	} // load_scripts() 
-
 	/**
 	 *
 	 *
@@ -132,9 +119,9 @@ class WCV_Vendor_Signup
 			wc_clear_notices(); 
 
 			if ( user_can( $user_id, 'manage_options' ) ) {
-				wc_add_notice( __( 'Application denied. You are an administrator.', 'wcvendors' ), 'error' );
+				wc_add_notice( apply_filters( 'wcvendors_application_denied_msg', __( 'Application denied. You are an administrator.', 'wcvendors' ) ), 'error' );
 			} else {
-				wc_add_notice( __( 'Your application has been submitted.', 'wcvendors' ), 'notice' );
+				wc_add_notice( apply_filters( 'wcvendors_application_submitted_msg', __( 'Your application has been submitted.', 'wcvendors' ) ), 'notice' );
 
 				$manual = WC_Vendors::$pv_options->get_option( 'manual_vendor_registration' );
 				$role   = apply_filters( 'wcvendors_pending_role', ( $manual ? 'pending_vendor' : 'vendor' ) );
