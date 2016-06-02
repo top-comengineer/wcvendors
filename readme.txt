@@ -5,7 +5,7 @@ Donate link: http://www.wcvendors.com/
 Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.0
-Tested up to: 4.5.99
+Tested up to: 4.5.2
 Stable tag: 1.9.0
 License: GPLv2 or later
 
@@ -123,12 +123,14 @@ No Upgrade required at this time.
 = Version 1.9.0 - 25th of May 2016 
 
 * Added: Support for WooCommerce 2.6
+* Added: Vendor roles filter wcvendors_vendor_roles
 * Added: Product and Vendor id's to sold_by filters
 * Added: Vendor Signup Filters #269
 * Added: Notify Vendors Email - Add Product SKU, if set #263
 * Added: New Option: Notify Vendors show Purchase Price or Commissions #253
 * Added: Option to disable sold by #236
 * Added: Initial sub order management code #196 thanks Spreeuw 
+* Fixed: Sold by meta removal
 * Fixed: Sequential Orders Support Commissions table #270
 * Fixed: Notify Vendors Email Customizer Not Working #240
 * Fixed: Commissions Total Report a-z sorting #239
