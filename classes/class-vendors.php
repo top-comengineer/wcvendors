@@ -499,7 +499,7 @@ class WCV_Vendors
 						'tax'			=> $item['line_tax'],
 						'subtotal_tax'	=> $item['line_subtotal_tax'],
 						'tax_data'		=> maybe_unserialize( $item['line_tax_data'] ),
-						'commission'	=> WCV_Commission::calculate_commission( $item['line_subtotal'], $item['product_id'], $order ),
+						'commission'	=> WCV_Commission::calculate_commission( $item['line_subtotal'], $item['product_id'], $order, $item['qty'] ),
 					);
 				}
 			}
