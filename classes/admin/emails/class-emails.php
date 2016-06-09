@@ -34,7 +34,7 @@ class WCV_Emails
 	{
 		global $woocommerce;
 
-		if ( $from != $to && $post->post_status == 'pending' && WCV_Vendors::is_vendor( $post->post_author ) ) {
+		if ( $from != $to && $post->post_status == 'pending' && WCV_Vendors::is_vendor( $post->post_author ) && $post->post_type == 'product' ) {
 			$mails = $woocommerce->mailer()->get_emails();
 			if ( !empty( $mails ) ) {
 				$mails[ 'WC_Email_Notify_Admin' ]->trigger( $post->post_id, $post );
