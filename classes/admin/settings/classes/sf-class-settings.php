@@ -779,8 +779,6 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 
 				echo str_replace( "'>", "'><option></option>", wp_dropdown_pages( $args ) );
 
-				error_log( $selected ); 
-
 				echo '<a href="post.php?post='.$selected.'&action=edit" class="button">'.__( 'Edit Page', 'wcvendors' ).'</a>'; 
 				echo '<a href="'.get_permalink( $selected ). '" class="button">'.__( 'View Page', 'wcvendors' ).'</a>'; 
 
