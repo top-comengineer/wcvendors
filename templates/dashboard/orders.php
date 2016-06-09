@@ -127,6 +127,9 @@ jQuery(function () {
 					foreach ($valid as $key => $item):
 						
 						$product_id = !empty( $item['variation_id'] ) ? $item['variation_id'] : $item['product_id']; 
+
+						$_product  = $order->get_product_from_item( $item );
+						
 						$item_meta = new WC_Order_Item_Meta( $item );
 						$item_meta = $item_meta->display( false, true ); ?>
 						<?php echo $item['qty'] . 'x ' . $item['name']; ?>

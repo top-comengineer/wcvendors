@@ -111,7 +111,7 @@ class WCV_Orders
 		}
 
 		if ( !$this->orders ) {
-			return __( 'No orders.', 'wcvendors' );;
+			return __( 'No orders.', 'wcvendors' );
 		}
 
 		if ( !empty( $_POST[ 'submit_comment' ] ) ) {
