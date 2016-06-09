@@ -378,6 +378,12 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 
 		if ( !empty( $ids ) ) {
 			foreach ($ids as $order_id ) {
+				$order = wc_get_order( $order_id );
+				$vendors = WCV_Vendors::get_vendors_from_order( $order );
+				$vendor_ids = array_keys( $vendors );
+				if ( !in_array( $user_id, $vendor_ids ) ) {
+					wp_die( __( 'You are not allowed to modify this order.', 'wcvendors' ) );
+				}
 				$shippers = (array) get_post_meta( $order_id, 'wc_pv_shipped', true );
 				if( !in_array($user_id, $shippers)) {
 					$shippers[] = $user_id;
