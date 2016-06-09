@@ -6,6 +6,7 @@
  * Description:         Allow vendors to sell their own products and receive a commission for each sale. 
  * Author:              WC Vendors
  * Author URI:          https://www.wcvendors.com
+ * GitHub Plugin URI:   https://github.com/wcvendors/wcvendors
  *
  * Version:             1.9.0
  * Requires at least:   4.0.0
