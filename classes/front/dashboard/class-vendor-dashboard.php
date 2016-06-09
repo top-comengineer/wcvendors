@@ -37,7 +37,8 @@ class WCV_Vendor_Dashboard
 			$vendors = WCV_Vendors::get_vendors_from_order( $order );
 			$vendor_ids = array_keys( $vendors );
 			if ( !in_array( $user_id, $vendor_ids ) ) {
-				wp_die( __( 'You are not allowed to modify this order.', 'wcvendors' ) );
+				wc_add_notice( __( 'You are not allowed to modify this order.', 'wcvendors' ) );
+				return null; 
 			}
 			$shippers = (array) get_post_meta( $order_id, 'wc_pv_shipped', true );
 
