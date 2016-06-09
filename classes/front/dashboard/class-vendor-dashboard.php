@@ -32,10 +32,14 @@ class WCV_Vendor_Dashboard
 		$user_id = get_current_user_id();
 
 		if ( !empty( $_GET['wc_pv_mark_shipped'] ) ) {
-			$shop_name = WCV_Vendors::get_vendor_shop_name( $user_id );
 			$order_id = $_GET['wc_pv_mark_shipped'];
+			$order = wc_get_order( $order_id );
+			$vendors = WCV_Vendors::get_vendors_from_order( $order );
+			$vendor_ids = array_keys( $vendors );
+			if ( !in_array( $user_id, $vendor_ids ) ) {
+				wp_die( __( 'You are not allowed to modify this order.', 'wcvendors' ) );
+			}
 			$shippers = (array) get_post_meta( $order_id, 'wc_pv_shipped', true );
-			$order = new WC_Order( $order_id ); 
 
 			// If not in the shippers array mark as shipped otherwise do nothing. 
 			if( !in_array($user_id, $shippers)) {
@@ -46,6 +50,7 @@ class WCV_Vendor_Dashboard
 				}
 				do_action('wcvendors_vendor_ship', $order_id, $user_id);
 				wc_add_notice( __( 'Order marked shipped.', 'wcvendors' ), 'success' );
+				$shop_name = WCV_Vendors::get_vendor_shop_name( $user_id );
 				$order->add_order_note( apply_filters( 'wcvendors_vendor_shipped_note', __( $shop_name . ' has marked as shipped. ', 'wcvendors') ), $user_id ) ; 
 			} elseif ( false != ( $key = array_search( $user_id, $shippers) ) ) {
 				unset( $shippers[$key] ); // Remove user from the shippers array
