@@ -296,14 +296,14 @@ class WC_PaypalAP extends WC_Payment_Gateway
 	 */
 	private function get_receivers( $order )
 	{
-		$response = array(); 
+		$response = array();
 
-		// Process the payment and split as required  
-		if ( $this->instapay ) { 
+		// Process the payment and split as required
+		if ( $this->instapay ) {
 
 			$receivers = WCV_Vendors::get_vendor_dues_from_order( $order );
 			$i        = 0;
-			
+
 			foreach ( $receivers as $author => $values ) {
 				if ( empty( $values[ 'total' ] ) ) continue;
 
@@ -315,15 +315,15 @@ class WC_PaypalAP extends WC_Payment_Gateway
 				$i++;
 			}
 
-		} else { 
+		} else {
 			// Send all monies to the site admin
 			$single_receiver            = new Receiver();
 			$single_receiver->email     = $this->main_paypal;
-			$single_receiver->amount    = $order->get_total(); 
+			$single_receiver->amount    = $order->get_total();
 			$single_receiver->primary   = false;
 			$single_receiver->invoiceId = $order->id;
-			// Set a single reciever for the transaction 
-			$response[] = $single_receiver; 
+			// Set a single reciever for the transaction
+			$response[] = $single_receiver;
 		}
 
 		if ( $this->debug_me ) {
@@ -353,9 +353,9 @@ class WC_PaypalAP extends WC_Payment_Gateway
 		$receiverList = new ReceiverList( $receivers );
 
 		$actionType   = 'CREATE';
-		$cancelUrl    = $order->get_cancel_order_url();
+		$cancelUrl    = str_replace('&amp;', '&', $order->get_cancel_order_url());
 		$currencyCode = get_woocommerce_currency();
-		$returnUrl    = esc_url( add_query_arg( 'key', $order->order_key, add_query_arg( 'order-received', $order->id, $order->get_checkout_order_received_url() ) ) );
+		$returnUrl    = esc_url_raw( add_query_arg( 'key', $order->order_key, add_query_arg( 'order-received', $order->id, $order->get_checkout_order_received_url() ) ) );
 
 		$payRequest = new PayRequest( new RequestEnvelope( "en_US" ), $actionType, $cancelUrl, $currencyCode, $receiverList, $returnUrl );
 
@@ -424,6 +424,8 @@ class WC_PaypalAP extends WC_Payment_Gateway
 				$product_id = $product[ 'product_id' ];
 				$shipping_given += $product[ 'shipping' ];
 				$tax_given += $product[ 'tax' ];
+
+				$product[ 'commission' ] = round( $product[ 'commission' ] , 2);
 
 				if ( !empty( $product[ 'commission' ] ) ) {
 					$item             = new InvoiceItem();
