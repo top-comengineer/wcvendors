@@ -779,11 +779,16 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 
 				echo str_replace( "'>", "'><option></option>", wp_dropdown_pages( $args ) );
 
+				error_log( $selected ); 
+
+				echo '<a href="post.php?post='.$selected.'&action=edit" class="button">'.__( 'Edit Page', 'wcvendors' ).'</a>'; 
+				echo '<a href="'.get_permalink( $selected ). '" class="button">'.__( 'View Page', 'wcvendors' ).'</a>'; 
+
 				echo $description;
 
 				if ( $select2 ) : ?>
 					<script type="text/javascript">jQuery(function () {
-							jQuery("#<?php echo $id; ?>").select2({ allowClear: true, placeholder: "<?php _e( 'Select a page...', 'geczy' ); ?>", width: '350px' });
+							jQuery("#<?php echo $id; ?>").select2({ allowClear: true, placeholder: "<?php _e( 'Select a page...', 'wcvendors' ); ?>", width: '350px' });
 						});</script>
 				<?php endif;
 
