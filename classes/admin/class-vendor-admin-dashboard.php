@@ -437,11 +437,13 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 				$products = ''; 
 
 				foreach ( $valid as $key => $item ) { 
+					
+					$wc_product = new WC_Product( $item['product_id'] );
 
 					$products .= '<strong>'. $item['qty'] . ' x ' . $item['name'] . '</strong><br />'; 
 
 					if ( $metadata = $order->has_meta( $item['product_id'] ) ) {
-						echo '<table cellspacing="0" class="wcv_display_meta">';
+						$products .= '<table cellspacing="0" class="wcv_display_meta">';
 						foreach ( $metadata as $meta ) {
 
 							// Skip hidden core fields
@@ -470,12 +472,12 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 								$meta['meta_key']   = wc_attribute_label( wc_sanitize_taxonomy_name( $meta['meta_key'] ) );
 								$meta['meta_value'] = isset( $term->name ) ? $term->name : $meta['meta_value'];
 							} else {
-								$meta['meta_key']   = apply_filters( 'woocommerce_attribute_label', wc_attribute_label( $meta['meta_key'], $_product ), $meta['meta_key'] );
+								$meta['meta_key']   = apply_filters( 'woocommerce_attribute_label', wc_attribute_label( $meta['meta_key'], $wc_product ), $meta['meta_key'] );
 							}
 
-							echo '<tr><th>' . wp_kses_post( rawurldecode( $meta['meta_key'] ) ) . ':</th><td>' . wp_kses_post( wpautop( make_clickable( rawurldecode( $meta['meta_value'] ) ) ) ) . '</td></tr>';
+							$products .= '<tr><th>' . wp_kses_post( rawurldecode( $meta['meta_key'] ) ) . ':</th><td>' . wp_kses_post( wpautop( make_clickable( rawurldecode( $meta['meta_value'] ) ) ) ) . '</td></tr>';
 						}
-						echo '</table>';
+						$products .= '</table>';
 					}
 													
 				}
