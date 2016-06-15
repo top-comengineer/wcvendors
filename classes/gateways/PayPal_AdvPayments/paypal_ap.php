@@ -353,7 +353,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 		$receiverList = new ReceiverList( $receivers );
 
 		$actionType   = 'CREATE';
-		$cancelUrl    = str_replace('&amp;', '&', $order->get_cancel_order_url());
+		$cancelUrl    = $order->get_cancel_order_url_raw();
 		$currencyCode = get_woocommerce_currency();
 		$returnUrl    = esc_url_raw( add_query_arg( 'key', $order->order_key, add_query_arg( 'order-received', $order->id, $order->get_checkout_order_received_url() ) ) );
 
