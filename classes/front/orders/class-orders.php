@@ -53,11 +53,17 @@ class WCV_Orders
 			$products = array( $this->product_id );
 
 			$_product = get_product( $this->product_id );
-			$children = $_product->get_children();
-			if ( !empty( $children ) ) {
-				$products = array_merge($products, $children);
-				$products = array_unique($products);
-			}
+			
+
+			if  ( is_object( $_product ) ) { 
+
+				$children = $_product->get_children();
+
+				if ( !empty( $children ) ) {
+					$products = array_merge($products, $children);
+					$products = array_unique($products);
+				}
+			} 
 
 			$this->orders = WCV_Queries::get_orders_for_products( $products, array( 'vendor_id' => get_current_user_id() ) );
 
