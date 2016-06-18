@@ -46,7 +46,7 @@ class WCV_Admin_Users
 
 			add_action( 'admin_menu', array( $this, 'remove_menu_page' ), 99 );
 			add_action( 'add_meta_boxes', array( $this, 'remove_meta_boxes' ), 99 );
-			add_filter( 'product_type_selector', array( $this, 'filter_product_types' ), 99, 2 );
+			add_filter( 'product_type_selector', array( $this, 'filter_product_types' ), 99 );
 			add_filter( 'product_type_options', array( $this, 'filter_product_type_options' ), 99 );
 			add_filter( 'woocommerce_product_data_tabs', array( $this, 'filter_product_data_tabs' ), 99, 2 ); 
 
@@ -164,7 +164,7 @@ class WCV_Admin_Users
 	 *
 	 * @return unknown
 	 */
-	function filter_product_types( $types, $product_type )
+	function filter_product_types( $types )
 	{
 
 		$product_types = (array) WC_Vendors::$pv_options->get_option( 'hide_product_types' );
