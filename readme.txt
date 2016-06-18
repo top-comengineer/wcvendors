@@ -6,7 +6,7 @@ Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.0
 Tested up to: 4.5.2
-Stable tag: 1.9.0
+Stable tag: 1.9.1
 License: GPLv2 or later
 
 The free multi-vendor plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
@@ -119,6 +119,21 @@ Also be sure to visit our KnowledgeBase at https://www.wcvendors.com/kb/
 No Upgrade required at this time.
 
 == Changelog ==
+
+= Version 1.9.1 - 17th of June 2016 
+
+* Added: GitHub Plugin URI for afragen/github-updater #282 thanks Agoruh 
+* Added: Edit and View page settings options
+* Fixed: Missing Argument WCV_Admin_Users::filter_product_types() #288
+* Fixed: Critical: PHP Fatal error: Call to a member function get_children() #287
+* Fixed: Date range session data is not working #285
+* Fixed  HTML escaped characters in PaypalAP Cancel and Return URLs: #286 thanks Nicolas
+* Fixed: Post type check to trigger_new_product() function #276
+* Fixed: Updated to notices instead of wordpress errors
+* Fixed: Product attribute fetch and returning HTML #283 thanks Mikko
+* Fixed: Vendor Mark Shipped Security Fix #280 thanks Agoruh
+* Fixed: Missing argument in Vendors Class
+* Fixed: Rounded product commission to avoid error 589023 when submitting to PayPal #275 thanks Nicolas
 
 = Version 1.9.0 - 25th of May 2016 
 
