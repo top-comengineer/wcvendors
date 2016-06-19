@@ -121,13 +121,15 @@ if ( wcv_is_woocommerce_activated() ) {
 			
 			 if ( !session_id() ) {
         		session_start();
-    		}
+    		 }
 
 		} //init_session() 
 
 		public function destroy_session(){ 
 
-			session_destroy(); 
+			 if ( session_id() ) {
+        		session_destroy(); 
+    		 }
 
 		} // destroy_session()
 
