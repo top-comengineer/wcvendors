@@ -273,7 +273,7 @@ class WCV_Queries
 		$after  = date( 'Y-m-d', $start_date );
 		$before = date( 'Y-m-d', strtotime( '+1 day', $end_date ) );
 
-		return array( 'after' => $after, 'before' => $before );
+		return apply_filters( 'wcvendors_orders_date_range', array( 'after' => $after, 'before' => $before ) );
 	}
 
 
