@@ -1,9 +1,11 @@
-jQuery( function( $ ){	
+jQuery( function( $ ){
+
+	var id; 	
 
 	// Iterate over all instances of the uploader on the page 
 	$('.wcv-img-id').each( function () {
 	    
-	    var id = $('.wcv-img-id').data( 'id' ); 
+	    id = $( this ).data( 'id' ); 
 
 	    // Handle Add banner
 		$( '#wcv-add-' + id ).on( 'click', function(e) { 
