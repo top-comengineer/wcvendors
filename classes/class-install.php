@@ -30,7 +30,7 @@ class WCV_Install
 			$orders_page = get_post( WC_Vendors::$pv_options->get_option( 'orders_page' ) ); 
 
 			// Only update the page slug for orders if it is called orders 
-			if ( $orders_page->post_name === 'orders' ) { 
+			if ( is_object( $orders_page ) && $orders_page->post_name === 'orders' ) { 
 
 				wp_update_post(
 		            array (
