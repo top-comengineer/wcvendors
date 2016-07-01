@@ -119,7 +119,7 @@ if ( wcv_is_woocommerce_activated() ) {
 		 */
 		public function init_session(){ 
 			
-			 if ( !session_id() ) {
+			 if ( !session_id() && is_user_logged_in() ) {
         		session_start();
     		 }
 
