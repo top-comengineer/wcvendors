@@ -9,7 +9,7 @@ Tested up to: 4.5.2
 Stable tag: 1.9.1
 License: GPLv2 or later
 
-The free multi-vendor plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
+The free marketplace plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
 
 == Description ==
 Create your own marketplace and allow vendors to sell just like etsy, Envato, eBay, or Amazon type sites! This allows other sellers/vendors to sell tangible products, virtual products, or downloads on your site. With this plugin, your vendors receive commissions you set on products they sell from your store.
