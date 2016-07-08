@@ -57,7 +57,7 @@ if ( wcv_is_woocommerce_activated() ) {
 	if ( !defined( 'wcv_plugin_dir_path' ) )	define( 'wcv_plugin_dir_path', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 
 
-	define('WCV_VERSION', '1.9.0' ); 
+	define('WCV_VERSION', '1.9.1' ); 
 
 	/**
 	 * Main Product Vendor class
