@@ -22,8 +22,8 @@ class WCV_Orders
 		$this->can_view_emails = WC_Vendors::$pv_options->get_option( 'can_view_order_emails' );
 
 		add_action( 'template_redirect', array( $this, 'check_access' ) );
-		add_action( 'wp', array( $this, 'display_shortcodes' ) );
-		add_shortcode( 'wcv_orders', array( $this, 'display_product_orders' ) );
+		// add_action( 'wp', array( $this, 'display_shortcodes' ) );
+		// add_shortcode( 'wcv_orders', array( $this, 'display_product_orders' ) );
 	}
 
 
@@ -32,11 +32,15 @@ class WCV_Orders
 	 */
 	public function check_access()
 	{
-		if ( is_page( WC_Vendors::$pv_options->get_option( 'orders_page' ) ) && !is_user_logged_in() ) {
+
+		$orders_page = WC_Vendors::$pv_options->get_option( 'orders_page' ); 
+		// Only if the orders page is set should we check access 
+		if ( $orders_page && is_page( $orders_page ) && !is_user_logged_in() ) {
 			wp_redirect( get_permalink( woocommerce_get_page_id( 'myaccount' ) ), 303 );
 			exit;
 		}
-	}
+		
+	} // check_access() 
 
 
 	/**

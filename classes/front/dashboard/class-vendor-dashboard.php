@@ -150,15 +150,14 @@ class WCV_Vendor_Dashboard
 		$vendor_dashboard_page = WC_Vendors::$pv_options->get_option( 'vendor_dashboard_page' );
 		$shop_settings_page    = WC_Vendors::$pv_options->get_option( 'shop_settings_page' );
 
-		if ( is_page( $vendor_dashboard_page ) || is_page( $shop_settings_page ) ) {
+		if ( $vendor_dashboard_page && is_page( $vendor_dashboard_page ) || $shop_settings_page && is_page( $shop_settings_page ) ) {
 			if ( !is_user_logged_in() ) {
 				wp_redirect( get_permalink( woocommerce_get_page_id( 'myaccount' ) ), 303 );
 				exit;
 			}
-			// user is logged, start session only if it's vendor dashboard
-			if ( !session_id() ) session_start();
 		}
-	}
+		
+	} //check_access() 
 
 
 	/**
