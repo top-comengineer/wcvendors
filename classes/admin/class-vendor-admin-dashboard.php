@@ -434,21 +434,21 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 
 				$items = $order->get_items();
 
-				foreach ( $items as $key => $item) {
+				foreach ( $items as $order_item_id => $item) {
 					if ( in_array( $item[ 'variation_id' ], $valid_items) || in_array( $item[ 'product_id' ], $valid_items ) ) {
-						$valid[ ] = $item;
+						$valid[ $order_item_id ] = $item;
 					}
 				}
 
 				$products = ''; 
 
-				foreach ( $valid as $key => $item ) { 
+				foreach ( $valid as $order_item_id => $item ) {
 					
 					$wc_product = new WC_Product( $item['product_id'] );
 
 					$products .= '<strong>'. $item['qty'] . ' x ' . $item['name'] . '</strong><br />'; 
 
-					if ( $metadata = $order->has_meta( $item['product_id'] ) ) {
+					if ( $metadata = $order->has_meta( $order_item_id ) ) {
 						$products .= '<table cellspacing="0" class="wcv_display_meta">';
 						foreach ( $metadata as $meta ) {
 
