@@ -44,6 +44,7 @@ This plugin has been around since 2011 and remains still the #1 multi vendor plu
 * Free technical support around the clock @ <a href="https://www.wcvendors.com/help/">www.wcvendors.com/help/</A>
 * Knowledgebase full of great articles on all the hooks, actions, filters, shortcodes, neat tricks, etc, @ <a href="https://www.wcvendors.com/knowledgebase/">www.wcvendors.com/knowledgebase/</A>
 * ....and much more!
+* We are NOT compatible with WordPress MultiSite. We have no intentions of supporting this feature any time soon. 
 
 = WC Vendors Pro =
 * The following features are part of <a href="https://www.wcvendors.com/product/wc-vendors-pro/">WC Vendors Pro</a>

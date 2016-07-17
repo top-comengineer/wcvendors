@@ -666,7 +666,7 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 
 			</th>
 			<td <?php echo $grouped; ?> >
-		<?php endif; ?>
+			<?php endif; ?>
 
 			<?php foreach ( $header_types as $header ) :
 			if ( $type != $header ) continue; ?>
