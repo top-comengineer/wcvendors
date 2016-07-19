@@ -395,6 +395,6 @@ if ( wcv_is_woocommerce_activated() ) {
 	}
 
 
-	new WC_Vendors;
+	$wc_vendors = new WC_Vendors;
 
 }
