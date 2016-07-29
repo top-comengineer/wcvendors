@@ -139,6 +139,7 @@ No Upgrade required at this time.
 * Fixed: Don't start session if user isn't logged
 * Fixed: Session error on log out if session doesn't exist
 * Fixed: Settings image selector bug
+* Merged pull request #302 from NicolasBernier - Completed French Translations, Thanks!
 * Merged: pull request #293 from stodorovic/fix_init_sessions
 
 = Version 1.9.1 - 17th of June 2016 
