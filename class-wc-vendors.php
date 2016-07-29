@@ -10,7 +10,7 @@
  *
  * Version:             1.9.2
  * Requires at least:   4.0.0
- * Tested up to:        4.5.2
+ * Tested up to:        4.6.0
  *
  * Text Domain:         wcvendors
  * Domain Path:         /languages/
@@ -369,6 +369,7 @@ if ( wcv_is_woocommerce_activated() ) {
 				global $current_user;
 
 			if ( current_user_can( 'manage_options' ) ) {
+
 	        		$current_user_id = $current_user->ID;
 
 					if ( WC_Vendors::$pv_options->get_option( 'vendor_shop_permalink' ) == null  && ! get_user_meta( $current_user_id, 'wcv_shop_ignore_notice' ) ) {
@@ -376,8 +377,6 @@ if ( wcv_is_woocommerce_activated() ) {
 					   	<p>'.sprintf (__('WC Vendors requires the Vendor shop page value be set <a href="%s">click here to set it.</a> | <a href="%s">Hide Notice</a>','wcvendors'), 'admin.php?page=wc_prd_vendor', esc_url( add_query_arg( 'wcv_shop_ignore_notice', '0' ) ) ).'</p>
 						</div>';
 					}
-
-					$general_tab = ( isset( $_GET['tab'] ) && 'general' == $_GET['tab'] ) || !isset( $_GET['tab'] ) ? true : false; 
 
 					if ( isset( $_GET['page'] ) && 'wc_prd_vendor' == $_GET['page'] && isset( $_GET[ 'settings-updated' ] ) && $general_tab == true && ! get_user_meta( $current_user_id, 'wcv_pl_ignore_notice' ) ) {
 						echo '<div class="updated">
