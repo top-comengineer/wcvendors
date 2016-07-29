@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WC Vendors\n"
 "POT-Creation-Date: 2016-07-26 13:00+0300\n"
-"PO-Revision-Date: 2016-07-26 13:51+0300\n"
+"PO-Revision-Date: 2016-07-27 11:36+0300\n"
 "Language-Team: WC Vendors <support@wcvendors.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,6 +22,8 @@ msgid ""
 "WC Vendors requires WooCommerce to run. Please install WooCommerce and "
 "activate before attempting to activate again."
 msgstr ""
+"Pazaryeri eklentisini çalıştırmak için WooCommerce gereklidir. Lütfen "
+"yeniden etkinleştirmeyi denemeden önce WooCommerce yükleyin."
 
 #: ../class-wc-vendors.php:84 ../classes/admin/class-admin-reports.php:41
 #: ../classes/admin/class-admin-users.php:408
@@ -33,6 +35,8 @@ msgid ""
 "<b>WC Vendors is disabled</b>. WC Vendors requires a minimum of WooCommerce "
 "v2.4.0."
 msgstr ""
+"<b>Pazaryeri devre dışı bırakılır.</b>. Pazaryeri eklentisi için en az "
+"WooCommerce v2.4.0 gerektirir."
 
 #: ../class-wc-vendors.php:251 ../classes/admin/settings/sf-options.php:192
 msgid "Capabilities"
@@ -53,15 +57,15 @@ msgstr "Genel"
 
 #: ../class-wc-vendors.php:314
 msgid "Documentation/KB"
-msgstr ""
+msgstr "Belgeler/KB"
 
 #: ../class-wc-vendors.php:315
 msgid "Help Forums"
-msgstr ""
+msgstr "Yardım Forumları"
 
 #: ../class-wc-vendors.php:316
 msgid "Paid Support"
-msgstr ""
+msgstr "Ücretli Destek"
 
 #: ../class-wc-vendors.php:338
 #, php-format
@@ -69,6 +73,9 @@ msgid ""
 "WC Vendors requires the Vendor shop page value be set <a href=\"%s\">click "
 "here to set it.</a> | <a href=\"%s\">Hide Notice</a>"
 msgstr ""
+"WC Satıcıları Satıcı dükkanı sayfası değerini ayarlamak gerektirir <a href="
+"\"%s\">Ayarlamak için burayı tıklayın.</a> | <a href=\"%s\">Bildirimi Gizle</"
+"a>"
 
 #: ../class-wc-vendors.php:346
 #, php-format
@@ -76,14 +83,17 @@ msgid ""
 "You must save your permalinks once you have modified your vendor page. <a "
 "href=\"%s\">click here to save</a>.  | <a href=\"%s\">Hide Notice</a>"
 msgstr ""
+"Satıcı sayfanızdaki değişiklikleri bir kere kalıcı olarak kaydetmek gerekir."
+"<a href=\"%s\">Kaydetmek için burayı tıklayın.</a> | <a href=\"%s"
+"\">Bildirimi Gizle</a>"
 
 #: ../classes/admin/class-admin-page.php:27
 msgid "Vendors shipped"
-msgstr ""
+msgstr "Satıcı gönderdi"
 
 #: ../classes/admin/class-admin-page.php:50
 msgid "Vendors Shipped"
-msgstr ""
+msgstr "Satıcı Gönderdi"
 
 #: ../classes/admin/class-admin-page.php:72
 #: ../classes/admin/class-admin-page.php:132
@@ -129,15 +139,15 @@ msgstr "Tarih"
 
 #: ../classes/admin/class-admin-page.php:294
 msgid "Mark paid"
-msgstr ""
+msgstr "Ödendi olarak işaretle"
 
 #: ../classes/admin/class-admin-page.php:295
 msgid "Mark due"
-msgstr ""
+msgstr "Ödenmesi gerekli olarak işaretle"
 
 #: ../classes/admin/class-admin-page.php:296
 msgid "Mark reversed"
-msgstr ""
+msgstr "İade edildi olarak işaretle"
 
 #: ../classes/admin/class-admin-page.php:313
 #: ../classes/admin/class-admin-page.php:317
@@ -146,28 +156,28 @@ msgstr "Filtre"
 
 #: ../classes/admin/class-admin-page.php:352
 msgid "Show all dates"
-msgstr ""
+msgstr "Tüm tarihleri göster"
 
 #: ../classes/admin/class-admin-page.php:365
 #, php-format
 msgid "%1$s %2$d"
-msgstr ""
+msgstr "%1$s %2$d"
 
 #: ../classes/admin/class-admin-page.php:387
 msgid "Show all Statuses"
-msgstr ""
+msgstr "Tüm Durumları göster"
 
 #: ../classes/admin/class-admin-page.php:413
 msgid "Commission marked paid."
-msgstr ""
+msgstr "Kazanç ödendi olarak işaretlendi."
 
 #: ../classes/admin/class-admin-page.php:420
 msgid "Commission marked due."
-msgstr ""
+msgstr "Ödenmesi gerekli kazanç olarak işaretle."
 
 #: ../classes/admin/class-admin-page.php:427
 msgid "Commission marked reversed."
-msgstr ""
+msgstr "Kazanç iade olarak işaretlendi."
 
 #: ../classes/admin/class-admin-reports.php:44
 msgid "Overview"
@@ -175,16 +185,16 @@ msgstr "Genel Bakış"
 
 #: ../classes/admin/class-admin-reports.php:50
 msgid "Commission by vendor"
-msgstr ""
+msgstr "Mağaza kazancı"
 
 #: ../classes/admin/class-admin-reports.php:56
 msgid "Commission by product"
-msgstr ""
+msgstr "Ürün kazancı"
 
 #: ../classes/admin/class-admin-reports.php:62
 #: ../classes/admin/class-admin-reports.php:345
 msgid "Commission Totals"
-msgstr ""
+msgstr "Kazanç Toplamları"
 
 #: ../classes/admin/class-admin-reports.php:63
 msgid ""
@@ -192,6 +202,9 @@ msgid ""
 "date range is used and all due commissions are returned. Use the date range "
 "to filter."
 msgstr ""
+"Tüm satıcılar için komisyon toplamları nakliye ve vergiler dahildir. "
+"Varsayılan olarak hiçbir tarih aralığı kullanılmaz ve tüm gereken "
+"komisyonlar iade edilir. filtrelemek için tarih aralığını kullanın."
 
 #: ../classes/admin/class-admin-reports.php:121
 #: ../classes/admin/class-admin-reports.php:437
@@ -214,7 +227,7 @@ msgstr "Göster"
 
 #: ../classes/admin/class-admin-reports.php:131
 msgid "Total paid in range"
-msgstr ""
+msgstr "Aralıkta toplam ödenen"
 
 #: ../classes/admin/class-admin-reports.php:134
 #: ../classes/admin/class-admin-reports.php:141
@@ -224,11 +237,11 @@ msgstr "n/a"
 
 #: ../classes/admin/class-admin-reports.php:138
 msgid "Total due in range"
-msgstr ""
+msgstr "Aralığındaki vadesi gelmiş"
 
 #: ../classes/admin/class-admin-reports.php:145
 msgid "Total reversed in range"
-msgstr ""
+msgstr "Aralığındaki toplam iade"
 
 #: ../classes/admin/class-admin-reports.php:155
 msgid "Recent Commission"
@@ -242,7 +255,7 @@ msgstr "Sipariş"
 
 #: ../classes/admin/class-admin-reports.php:177
 msgid "Date &amp; Time"
-msgstr ""
+msgstr "Tarih &amp; Zaman"
 
 #: ../classes/admin/class-admin-reports.php:186
 msgid "N/A"
@@ -250,11 +263,11 @@ msgstr "N/A"
 
 #: ../classes/admin/class-admin-reports.php:191
 msgid "D j M Y \\a\\t h:ia"
-msgstr ""
+msgstr "D j M Y \a\\t h:ia"
 
 #: ../classes/admin/class-admin-reports.php:200
 msgid "No commission yet"
-msgstr ""
+msgstr "Henüz kazanç yok"
 
 #: ../classes/admin/class-admin-reports.php:234
 msgid "Show:"
@@ -262,15 +275,15 @@ msgstr "Göster:"
 
 #: ../classes/admin/class-admin-reports.php:243
 msgid "Search for a product&hellip;"
-msgstr ""
+msgstr "Bir ürün&hellip ara;"
 
 #: ../classes/admin/class-admin-reports.php:246
 msgid "Type in a product name to start searching..."
-msgstr ""
+msgstr "Aramaya başlamak için ürün adını yazınız..."
 
 #: ../classes/admin/class-admin-reports.php:278
 msgid "Select a vendor&hellip;"
-msgstr ""
+msgstr "Bir satıcı&hellip seç;"
 
 #: ../classes/admin/class-admin-reports.php:344
 msgid "Month"
@@ -345,19 +358,19 @@ msgstr "Varsayılan için boş bırakın"
 
 #: ../classes/admin/class-admin-users.php:446
 msgid "Give Tax"
-msgstr ""
+msgstr "Vergi ata"
 
 #: ../classes/admin/class-admin-users.php:451
 msgid "Tax override for vendor"
-msgstr ""
+msgstr "Satıcı için vergi geçersiz kılma"
 
 #: ../classes/admin/class-admin-users.php:457
 msgid "Give Shipping"
-msgstr ""
+msgstr "Gönderim ata"
 
 #: ../classes/admin/class-admin-users.php:462
 msgid "Shipping override for vendor"
-msgstr ""
+msgstr "Satıcı için gönderim geçersiz kılma"
 
 #: ../classes/admin/class-admin-users.php:468
 #: ../classes/admin/views/html-vendor-settings-page.php:30
@@ -464,11 +477,11 @@ msgstr "Mağaza başvurusu onaylandı,reddedildi veya bekliyor."
 
 #: ../classes/admin/emails/class-wc-approve-vendor.php:31
 msgid "Application {status}"
-msgstr "Başvuru {durum}"
+msgstr "Başvuru {status}"
 
 #: ../classes/admin/emails/class-wc-approve-vendor.php:32
 msgid "[{blogname}] Your vendor application has been {status}"
-msgstr ""
+msgstr "[{blogname}] Mağaza başvurunuz {status}"
 
 #: ../classes/admin/emails/class-wc-approve-vendor.php:123
 #: ../classes/admin/emails/class-wc-notify-admin.php:134
@@ -544,7 +557,7 @@ msgstr "Eposta türü"
 #: ../classes/admin/emails/class-wc-notify-shipped.php:185
 #: ../classes/admin/emails/class-wc-notify-vendor.php:284
 msgid "Choose which format of email to send."
-msgstr ""
+msgstr "Gönderilecek eposta biçimini seçiniz."
 
 #: ../classes/admin/emails/class-wc-approve-vendor.php:156
 #: ../classes/admin/emails/class-wc-notify-admin.php:167
@@ -565,7 +578,7 @@ msgstr "HTML"
 #: ../classes/admin/emails/class-wc-notify-shipped.php:191
 #: ../classes/admin/emails/class-wc-notify-vendor.php:290
 msgid "Multipart"
-msgstr ""
+msgstr "Çok parçalı"
 
 #: ../classes/admin/emails/class-wc-notify-admin.php:28
 msgid "New Vendor Product"
@@ -574,14 +587,15 @@ msgstr "Yeni Mağaza Ürünü"
 #: ../classes/admin/emails/class-wc-notify-admin.php:29
 msgid "New order emails are sent when a new product is submitted by a vendor"
 msgstr ""
+"Satıcı tarafından bir ürün gönderildiğinde yeni sipariş epostaları gönderildi"
 
 #: ../classes/admin/emails/class-wc-notify-admin.php:31
 msgid "New product submitted: {product_name}"
-msgstr ""
+msgstr "Yeni ürün gönderildi: {product_name}"
 
 #: ../classes/admin/emails/class-wc-notify-admin.php:32
 msgid "[{blogname}] New product submitted by {vendor_name} - {product_name}"
-msgstr ""
+msgstr "[{blogname}] {vendor_name} Yeni ürün ekledi - {product_name}"
 
 #: ../classes/admin/emails/class-wc-notify-shipped.php:28
 msgid "Vendor has shipped"
@@ -599,7 +613,7 @@ msgstr "Siparişiniz gönderildi"
 #: ../classes/admin/emails/class-wc-notify-shipped.php:32
 msgid ""
 "[{blogname}] Your order has been shipped ({order_number}) - {order_date}"
-msgstr ""
+msgstr "[{blogname}] Siparişiniz kargolandı ({order_number}) - {order_date}"
 
 #: ../classes/admin/emails/class-wc-notify-shipped.php:112
 msgid "Subtotal:"
@@ -619,7 +633,7 @@ msgstr "Yeni müşteri siparişi"
 
 #: ../classes/admin/emails/class-wc-notify-vendor.php:31
 msgid "[{blogname}] New customer order ({order_number}) - {order_date}"
-msgstr ""
+msgstr "[{blogname}] Yeni müşteri siparişi ({order_number}) - {order_date}"
 
 #: ../classes/admin/emails/class-wc-notify-vendor.php:105
 msgid "Commission Subtotal:"
@@ -711,7 +725,7 @@ msgstr ""
 #: ../classes/admin/settings/sf-options.php:20
 #: ../classes/admin/settings/sf-options.php:27
 msgid "Allow users or guests to apply to become a vendor"
-msgstr ""
+msgstr "Ziyaretçilerin veya kullanıcıların mağaza açmasına izin ver"
 
 #: ../classes/admin/settings/sf-options.php:22
 msgid ""
@@ -839,11 +853,11 @@ msgstr "Satan"
 
 #: ../classes/admin/settings/sf-options.php:104
 msgid "Enable sold by labels"
-msgstr ""
+msgstr "Etiketli satışı etkinleştir"
 
 #: ../classes/admin/settings/sf-options.php:105
 msgid "This will enable or disable the sold by labels."
-msgstr ""
+msgstr "Bu etiketle satışı etkinleştirecek veya devre dışı bırakacak."
 
 #: ../classes/admin/settings/sf-options.php:112
 msgid "Sold By Label"
@@ -851,7 +865,7 @@ msgstr "Etiketli Satış"
 
 #: ../classes/admin/settings/sf-options.php:113
 msgid "The sold by label used on the site and emails."
-msgstr ""
+msgstr "Etiketle satış epostalarda ve sitede kullanılır."
 
 #: ../classes/admin/settings/sf-options.php:120
 msgid "Seller Info Label"
@@ -897,7 +911,7 @@ msgstr "Nitelikler"
 
 #: ../classes/admin/settings/sf-options.php:139
 msgid "Advanced"
-msgstr ""
+msgstr "Gelişmiş"
 
 #: ../classes/admin/settings/sf-options.php:146
 msgid "Types"
@@ -972,7 +986,7 @@ msgstr "İzinler"
 
 #: ../classes/admin/settings/sf-options.php:193
 msgid "General permissions used around the shop"
-msgstr ""
+msgstr "Mağazaya tanınan genel izinler"
 
 #: ../classes/admin/settings/sf-options.php:197
 msgid "View orders"
@@ -1067,7 +1081,7 @@ msgstr ""
 
 #: ../classes/admin/settings/sf-options.php:271
 msgid "Submit products live without requiring approval"
-msgstr ""
+msgstr "Onay gerekmeden satıştaki ürünleri gönder"
 
 #: ../classes/admin/settings/sf-options.php:272
 msgid ""
@@ -1222,7 +1236,7 @@ msgstr "PayPal Adresi"
 #: ../classes/admin/views/html-vendor-settings-page.php:15
 #: ../templates/dashboard/settings/paypal-email-form.php:3
 msgid "Your PayPal address is used to send you your commission."
-msgstr ""
+msgstr "PayPal adresiniz kazançlarınızı göndermek için kullanılır."
 
 #: ../classes/admin/views/html-vendor-settings-page.php:24
 #: ../templates/dashboard/settings/shop-name.php:3
@@ -1243,7 +1257,7 @@ msgstr "Mağaza Tanımı"
 #: ../templates/dashboard/settings/shop-description.php:3
 #, php-format
 msgid "This is displayed on your <a href=\"%s\">shop page</a>."
-msgstr ""
+msgstr "Bu <a href=\"%s\">mağaza sayfanız</a> da görüntülenir."
 
 #: ../classes/admin/views/html-vendor-settings-page.php:70
 msgid "Save Shop Settings"
@@ -1289,7 +1303,7 @@ msgstr "Kargo no"
 
 #: ../classes/front/dashboard/class-vendor-dashboard.php:80
 msgid "Success. Your tracking number has been updated."
-msgstr ""
+msgstr "Kargo numaranız güncellendi."
 
 #: ../classes/front/orders/class-export-csv.php:19
 #: ../templates/dashboard/reports.php:18
@@ -1376,7 +1390,7 @@ msgstr ""
 
 #: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:43
 msgid "PayPal Adaptive Payments"
-msgstr ""
+msgstr "PayPal Adapteli Ödemeler"
 
 #: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:119
 #, php-format
@@ -1391,7 +1405,7 @@ msgstr "IPN ödeme tamamlandı"
 
 #: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:146
 msgid "Enable PayPal Adaptive Payments"
-msgstr ""
+msgstr "PayPal Adapteli Ödemeleri etkinleştir"
 
 #: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:152
 msgid "Method Title"
@@ -1500,7 +1514,7 @@ msgstr "Ağ geçidi Engellendi"
 #: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:280
 #, php-format
 msgid "%s does not support your store currency."
-msgstr ""
+msgstr "%s mağaza para biriminizi desteklemiyor."
 
 #: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:384
 #: ../classes/gateways/PayPal_AdvPayments/paypal_ap.php:498
