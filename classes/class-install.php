@@ -30,16 +30,20 @@ class WCV_Install
 			$orders_page = get_post( WC_Vendors::$pv_options->get_option( 'orders_page' ) ); 
 
 			// Only update the page slug for orders if it is called orders 
-			if ( is_object( $orders_page ) && $orders_page->post_name === 'orders' ) { 
+			// This is due to WC 2.6 api changes 
+			if ( is_object( $orders_page ) ) { 
 
-				wp_update_post(
-		            array (
-		                'ID'        => $orders_page->ID,
-		                'post_name' => 'product_orders'
-		            )
-		        );
-				
-				WC_Vendors::$pv_options->update_option( 'db_version', '1.9.0' );	
+				if ( $orders_page->post_name === 'orders' ){ 
+
+					wp_update_post(
+			            array (
+			                'ID'        => $orders_page->ID,
+			                'post_name' => 'product_orders'
+			            )
+			        );
+					
+					WC_Vendors::$pv_options->update_option( 'db_version', '1.9.0' );	
+				} 
 			}
 
 			
