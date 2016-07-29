@@ -8,7 +8,7 @@
  * Author URI:          https://www.wcvendors.com
  * GitHub Plugin URI:   https://github.com/wcvendors/wcvendors
  *
- * Version:             1.9.1
+ * Version:             1.9.2
  * Requires at least:   4.0.0
  * Tested up to:        4.5.2
  *
@@ -20,7 +20,21 @@
  * @copyright           Copyright © 2016 WC Vendors
  * @author              Matt Gates, WC Vendors
  * @package             WCVendors
- */
+ * @license     		GPL2
+
+WC Vendors is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or
+any later version.
+ 
+WC Vendors is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+ 
+You should have received a copy of the GNU General Public License
+along with WC Vendors. If not, see http://www.gnu.org/licenses/gpl-2.0.txt.
+*/
 
 
 /**
@@ -57,7 +71,7 @@ if ( wcv_is_woocommerce_activated() ) {
 	if ( !defined( 'wcv_plugin_dir_path' ) )	define( 'wcv_plugin_dir_path', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 
 
-	define('WCV_VERSION', '1.9.1' ); 
+	define('WCV_VERSION', '1.9.2' ); 
 
 	/**
 	 * Main Product Vendor class

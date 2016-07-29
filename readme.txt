@@ -6,7 +6,7 @@ Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.0
 Tested up to: 4.5.2
-Stable tag: 1.9.1
+Stable tag: 1.9.2
 License: GPLv2 or later
 
 The free marketplace plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
@@ -120,6 +120,25 @@ Also be sure to visit our KnowledgeBase at https://www.wcvendors.com/kb/
 No Upgrade required at this time.
 
 == Changelog ==
+
+= Verion 1.9.2 - 29th of July 2016 
+
+* Added: Dutch Translation, thanks @jjclinton
+* Added: Date filter for order queries
+* Added: Turkish translations thanks Hakan
+* Added: $wc_vendors object variable
+* Added: Action to fire after dashboard links (wcvendors_after_links)
+* Updated: Support for woo commerce minimum and readme
+* Fixed: Property of non object #300
+* Fixed: Translation for Mark Shipped #296
+* Fixed: Too many redirect loops if pages not set #290
+* Fixed: Non-Object Notice in install #289
+* Fixed: Rounding error with 100% commission thanks Brett!
+* Fixed: text domain for email templates
+* Fixed: Don't start session if user isn't logged
+* Fixed: Session error on log out if session doesn't exist
+* Fixed: Settings image selector bug
+* Merged: pull request #293 from stodorovic/fix_init_sessions
 
 = Version 1.9.1 - 17th of June 2016 
 

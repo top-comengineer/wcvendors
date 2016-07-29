@@ -1,5 +1,24 @@
 Changelog for WC Vendors
 
+Version 1.9.2 
+
+* Added: Dutch Translation, thanks @jjclinton
+* Added: Date filter for order queries
+* Added: Turkish translations thanks Hakan
+* Added: $wc_vendors object variable
+* Added: Action to fire after dashboard links (wcvendors_after_links)
+* Updated: Support for woo commerce minimum and readme
+* Fixed: Property of non object #300
+* Fixed: Translation for Mark Shipped #296
+* Fixed: Too many redirect loops if pages not set #290
+* Fixed: Non-Object Notice in install #289
+* Fixed: Rounding error with 100% commission thanks Brett!
+* Fixed: text domain for email templates
+* Fixed: Don't start session if user isn't logged
+* Fixed: Session error on log out if session doesn't exist
+* Fixed: Settings image selector bug
+* Merged: pull request #293 from stodorovic/fix_init_sessions
+
 Version 1.9.1 
 
 * Added: GitHub Plugin URI for afragen/github-updater #282 thanks Agoruh 
