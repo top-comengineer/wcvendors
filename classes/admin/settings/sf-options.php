@@ -297,7 +297,7 @@ $options[ ] = array(
 $options[ ] = array(
 	'name'    => __( 'Orders page', 'wcvendors' ),
 	'desc'    => __( 'Choose the page that has the shortcode <code>[wcv_orders]</code><br/>By default, Vendor Dashboard > Orders should have the shortcode.', 'wcvendors' ),
-	'id'      => 'orders_page',
+	'id'      => 'product_orders_page',
 	'type'    => 'single_select_page',
 	'select2' => true,
 );
