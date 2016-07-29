@@ -129,6 +129,7 @@ No Upgrade required at this time.
 * Added: $wc_vendors object variable
 * Added: Action to fire after dashboard links (wcvendors_after_links)
 * Updated: Support for woo commerce minimum and readme
+* Fixed: Orders page not set on fresh install
 * Fixed: Property of non object #300
 * Fixed: Translation for Mark Shipped #296
 * Fixed: Too many redirect loops if pages not set #290
