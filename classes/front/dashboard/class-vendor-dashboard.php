@@ -463,5 +463,44 @@ class WCV_Vendor_Dashboard
 		"; 
 
 		return $js; 
-	}
+	} // wc_st_js() 
+
+
+	/**
+	 * Add custom wcvendors pro css classes 
+	 *
+	 * @since    1.0.0
+	 * @access public 
+	 * 
+	 * @param array $classes - body css classes 
+	 * @return array $classes - body css classes 
+	 */
+	public function body_class( $classes ){ 
+
+		$dashboard_page 	= WC_Vendors::$pv_options->get_option( 'vendor_dashboard_page' ); 
+		$orders_page 		= WC_Vendors::$pv_options->get_option( 'orders_page' ); 
+		$shop_settings 		= WC_Vendors::$pv_options->get_option( 'shop_settings_page' ); 
+		$terms_page 		= WC_Vendors::$pv_options->get_option( 'terms_to_apply_page' ); 
+
+		if ( is_page( $dashboard_page ) ){ 
+			$classes[] = 'wcvendors wcv-vendor-dashboard-page'; 
+		}
+
+		if ( is_page( $orders_page ) ){ 
+			$classes[] = 'wcvendors wcv-orders-page'; 
+		}
+
+		if ( is_page( $shop_settings ) ){ 
+			$classes[] = 'wcvendors wcv-shop-settings-page'; 
+		}
+
+		if ( is_page( $terms_page ) ){ 
+			$classes[] = 'wcvendors wcv-terms-page'; 
+		}
+
+
+		return $classes; 
+
+
+	} // body_class() 
 }
