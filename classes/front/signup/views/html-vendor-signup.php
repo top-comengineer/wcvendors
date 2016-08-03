@@ -23,7 +23,7 @@
 
 </p>
 
-<?php do_action( 'wcvendors_login_apply_for_vendor_before' ); ?> 
+<?php do_action( 'wcvendors_login_apply_for_vendor_after' ); ?> 
 
 <?php if ( $this->terms_page ) : ?>
 
