@@ -13,6 +13,8 @@ class WCV_Admin_Setup
 
 		add_action( 'woocommerce_admin_order_data_after_shipping_address', array( $this, 'add_vendor_details' ), 10, 2 );
 		add_action( 'woocommerce_admin_order_actions_end', array( $this, 'append_actions' ), 10, 1 );
+
+		add_filter( 'woocommerce_debug_tools', array( $this, 'wcvendors_tools' ) ); 
 	}
 
 
@@ -85,7 +87,92 @@ class WCV_Admin_Setup
 		add_action( "admin_print_scripts-$hook", 	array( 'WCV_Admin_Setup', 'commission_my_enqueue_script' ) );
 
 
+
 	} // menu() 
+
+
+	/**
+	 * Add tools to the woocommerce status tools page 
+	 * 
+	 * @since 1.9.2
+	 * @access public 
+	 */
+	public function wcvendors_tools( $tools ){ 
+
+		$tools[ 'reset_wcvendor_roles' ] = array(
+				'name'    => __( 'Reset WC Vendors roles ', 'wcvendors' ),
+				'button'  => __( 'Reset WC Vendor Roles', 'wcvendors' ),
+				'desc'    => __( 'This will reset the wcvendors roles ( vendor & pending_vendor ), back to the default capabilities.', 'wcvendors' ),
+				'callback' => array( 'WCV_Admin_Setup', 'reset_vendor_roles' )
+			); 
+
+		$tools[ 'reset_wcvendors' ] = array(
+				'name'    => __( 'Reset WC Vendors ', 'wcvendors' ),
+				'button'  => __( 'Reset WC Vendors Settings', 'wcvendors' ),
+				'desc'    => __( 'This will reset wcvendors back to defaults. This DELETES ALL YOUR Settings.', 'wcvendors' ),
+				'callback' => array( 'WCV_Admin_Setup', 'reset_wcvendors' )
+			); 
+
+		return $tools; 
+
+	} // wcvendors_tools() 
+
+	/**
+	 * Reset the vendor roles 
+	 * 
+	 * @since 1.9.2 
+	 * @access public
+	 */
+	public static function reset_vendor_roles(){ 
+
+		$can_add          = WC_Vendors::$pv_options->get_option( 'can_submit_products' );
+		$can_edit         = WC_Vendors::$pv_options->get_option( 'can_edit_published_products' );
+		$can_submit_live  = WC_Vendors::$pv_options->get_option( 'can_submit_live_products' );
+		$can_view_reports = WC_Vendors::$pv_options->get_option( 'can_view_backend_reports' );
+
+		$args = array(
+			'assign_product_terms'      => $can_add,
+			'edit_products'             => $can_add || $can_edit,
+			'edit_published_products'   => $can_edit,
+			'delete_published_products' => $can_edit,
+			'delete_products'           => $can_edit,
+			'manage_product'            => $can_add,
+			'publish_products'          => $can_submit_live,
+			'read'                      => true,
+			'read_products'             => $can_edit || $can_add,
+			'upload_files'              => true,
+			'import'                    => true,
+			'view_woocommerce_reports'  => false,
+		);
+
+		remove_role( 'vendor' );
+		add_role( 'vendor', __('Vendor', 'wcvendors'), $args );
+
+		remove_role( 'pending_vendor'); 
+		add_role( 'pending_vendor', __( 'Pending Vendor', 'wcvendors' ), array(
+																							  'read'         => true,
+																							  'edit_posts'   => false,
+																							  'delete_posts' => false
+																						 ) );
+
+		echo '<div class="updated inline"><p>' . __( 'WC Vendor roles successfully reset.', 'wcvendors' ) . '</p></div>';
+
+	} // reset_vendor_roles() 
+
+
+	/**
+	 * Reset wcvendors
+	 * 
+	 * @since 1.9.2 
+	 * @access public
+	 */	
+	public static function reset_wcvendors(){ 
+
+		delete_option( WC_Vendors::$id . '_options' ); 
+
+		echo '<div class="updated inline"><p>' . __( 'WC Vendors was successfully reset. All settings have been reset.', 'wcvendors' ) . '</p></div>';
+
+	} // reset_wcvendors() 
 
 
 	public static function commission_enqueue_style(){ 

@@ -103,8 +103,6 @@ if ( wcv_is_woocommerce_activated() ) {
 			add_action( 'admin_init', array( $this, 'check_install' ) );
 			add_action( 'admin_init', array( $this, 'maybe_flush_permalinks' ), 99 );
 			add_action( 'admin_init', array( $this, 'wcv_required_ignore_notices' ) );
-			add_action( 'admin_notices', array( $this, 'wcv_required_admin_notice') );
-
 
 			add_action( 'plugins_loaded', array( $this, 'load_settings' ) );
 			add_action( 'plugins_loaded', array( $this, 'include_gateways' ) );
@@ -361,27 +359,6 @@ if ( wcv_is_woocommerce_activated() ) {
 			return (array) $links;
 		}
 
-		/**
-		 *  Add admin notices to ensure users are saving the settings correctly 
-		 * 	@access public 
-		 * 
-		*/
-		public function wcv_required_admin_notice(){
-				global $current_user;
-
-			if ( current_user_can( 'manage_options' ) ) {
-
-	        		$current_user_id = $current_user->ID;
-
-					if ( WC_Vendors::$pv_options->get_option( 'vendor_shop_permalink' ) == null  && ! get_user_meta( $current_user_id, 'wcv_shop_ignore_notice' ) ) {
-						echo '<div class="updated">
-					   	<p>'.sprintf (__('WC Vendors requires the Vendor shop page value be set <a href="%s">click here to set it.</a> | <a href="%s">Hide Notice</a>','wcvendors'), 'admin.php?page=wc_prd_vendor', esc_url( add_query_arg( 'wcv_shop_ignore_notice', '0' ) ) ).'</p>
-						</div>';
-					}
-
-			}	
-		}			
-            
 		/**
 		 * Add user meta to remember ignore notices 
 		 * @access public
