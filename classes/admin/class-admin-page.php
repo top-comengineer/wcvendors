@@ -467,11 +467,11 @@ class WCV_Admin_Page extends WP_List_Table
 		global $wpdb;
 
 		$table_name = $wpdb->prefix . "pv_commission";
-
-		$query  = "UPDATE `{$table_name}` SET `status` = 'reversed' WHERE id IN ($ids) AND `status` = 'due'";
+		$query  = "UPDATE `{$table_name}` SET `status` = 'reversed' WHERE id IN ($ids)";
 		$result = $wpdb->query( $query );
 
-		return $result;
+		return $result; 
+
 	}
 
 
