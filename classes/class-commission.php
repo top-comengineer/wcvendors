@@ -31,6 +31,9 @@ class WCV_Commission
 
 		$this->check_order_reverse();
 		$this->check_order_complete();
+
+		// Reverse the commission if the order is deleted 
+		add_action( 'delete_post', array( $this, 'commissions_table_sync' ), 10 ); 
 	}
 
 
@@ -423,6 +426,31 @@ class WCV_Commission
 
 		return $result;
 	}
+
+	/**
+	 * If an order is deleted reverse the commissions rows 
+	 *
+	 * @since 1.9.2
+	 * @access public
+	 * @param int   $order_id  		the order id
+	 *
+	 * @return bool.
+	 */
+	public function commissions_table_sync( $order_id ){ 
+
+	    global $wpdb;
+
+		// Check if this order exists in the commissions table 
+		$count = WCV_Commission::count_commission_by_order( $order_id );
+		if ( !$count ) return false;
+
+		$table_name = $wpdb->prefix . "pv_commission";
+
+		$query   = "UPDATE `{$table_name}` SET `status` = '%s' WHERE order_id = '%d'";
+		$results = $wpdb->query( $wpdb->prepare( $query, 'reversed', $order_id ) );
+
+
+	} // commissions_table_sync() 
 
 
 }
