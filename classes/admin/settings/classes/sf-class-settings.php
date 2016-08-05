@@ -367,6 +367,8 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 			do_action( $this->id . '_options_updated', $clean, $tabname );
 			add_settings_error( $this->id, 'save_options', __( 'Settings saved.', 'geczy' ), 'updated' );
 
+			update_option( WC_Vendors::$id . '_flush_rules', true ); 
+
 			return apply_filters( $this->id . '_options_on_update', $clean, $tabname );
 		}
 
