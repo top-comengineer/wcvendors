@@ -143,6 +143,12 @@ class WCV_Cron
 	 */
 	public static function custom_cron_intervals( $schedules )
 	{
+		
+		$schedules[ 'daily' ] = array(
+			'interval' => 86400,
+			'display'  => __( 'Once Daily' )
+		);
+
 		$schedules[ 'weekly' ] = array(
 			'interval' => 604800,
 			'display'  => __( 'Once Weekly' )

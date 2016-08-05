@@ -345,6 +345,7 @@ $options[ ] = array(
 	'type'    => 'radio',
 	'std'     => 'manual',
 	'options' => array(
+		'daily'    => __( 'Daily', 'wcvendors' ),
 		'weekly'   => __( 'Weekly', 'wcvendors' ),
 		'biweekly' => __( 'Biweekly', 'wcvendors' ),
 		'monthly'  => __( 'Monthly', 'wcvendors' ),
