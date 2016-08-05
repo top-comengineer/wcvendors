@@ -381,7 +381,7 @@ if ( wcv_is_woocommerce_activated() ) {
 
 					$tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : ''; 
 
-					if ( isset( $_GET['page'] ) && 'wc_prd_vendor' == $_GET['page'] && isset( $_GET[ 'settings-updated' ] ) && $tag === 'general' && ! get_user_meta( $current_user_id, 'wcv_pl_ignore_notice' ) ) {
+					if ( isset( $_GET['page'] ) && 'wc_prd_vendor' == $_GET['page'] && isset( $_GET[ 'settings-updated' ] ) && $tab === 'general' && ! get_user_meta( $current_user_id, 'wcv_pl_ignore_notice' ) ) {
 						echo '<div class="updated">
 					   	<p>'.sprintf (__('You must save your permalinks once you have modified your vendor page. <a href="%s">click here to save</a>.  | <a href="%s">Hide Notice</a>','wcvendors'), 'options-permalink.php', esc_url( add_query_arg( 'wcv_pl_ignore_notice', '0' ) ) ).'</p>
 						</div>';
