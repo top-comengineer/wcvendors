@@ -169,7 +169,6 @@ class WCV_Admin_Setup
 	public static function reset_wcvendors(){ 
 
 		delete_option( WC_Vendors::$id . '_options' ); 
-
 		echo '<div class="updated inline"><p>' . __( 'WC Vendors was successfully reset. All settings have been reset.', 'wcvendors' ) . '</p></div>';
 
 	} // reset_wcvendors() 

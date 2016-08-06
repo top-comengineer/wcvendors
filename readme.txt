@@ -121,14 +121,21 @@ No Upgrade required at this time.
 
 == Changelog ==
 
-= Verion 1.9.2 - 29th of July 2016 
+= Verion 1.9.2 - 6th of August 2016 
 
+* Added: Reverse commission when order emptied from trash #277
+* Added: Daily Payout option for PayPal Cron #297
+* Added: Vendor select2 on the commissions page #284
+* Added: Button to reset vendor roles & WC Vendors settings to WooCoomerce system status tools page #230
 * Added: Dutch Translation, thanks @jjclinton
 * Added: Date filter for order queries
 * Added: Turkish translations thanks Hakan
 * Added: $wc_vendors object variable
 * Added: Action to fire after dashboard links (wcvendors_after_links)
+* Added: Body css classes to set pages
 * Updated: Support for woo commerce minimum and readme
+* Fixed: Mark commission reversed bulk action on commissions table
+* Fixed: No longer have to save permalink settings when updating WC Vendors options
 * Fixed: Orders page not set on fresh install
 * Fixed: Property of non object #300
 * Fixed: Translation for Mark Shipped #296
