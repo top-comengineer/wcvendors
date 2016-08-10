@@ -204,15 +204,14 @@ class WCV_Queries
 	 *
 	 * @return object
 	 */
-	public static function sum_for_orders( array $order_ids, array $args = array() )
+	public static function sum_for_orders( array $order_ids, array $args = array(), $date_range = true )
 	{
 		global $wpdb;
 
-		$dates = WCV_Queries::orders_within_range();
+		$dates = ( $date_range ) ? WCV_Queries::orders_within_range() : array();
 
 		$defaults = array(
 			'status' => apply_filters( 'wcvendors_completed_statuses', array( 'completed', 'processing' ) ),
-			'dates'  => array( 'before' => $dates[ 'before' ], 'after' => $dates[ 'after' ] ),
 		);
 
 		$args = wp_parse_args( $args, $defaults );
@@ -226,10 +225,15 @@ class WCV_Queries
 			FROM {$wpdb->prefix}pv_commission
 
 			WHERE   order_id IN ('" . implode( "','", $order_ids ) . "')
-			AND     time >= '" . $args[ 'dates' ][ 'after' ] . "'
-			AND     time <= '" . $args[ 'dates' ][ 'before' ] . "'
 			AND     status != 'reversed'
 		";
+
+		if ( !empty ( $dates ) ){ 
+			$sql .= "
+				AND     time >= '" . $dates[ 'after' ] . "'
+				AND     time <= '" . $dates[ 'before' ] . "'
+			"; 
+		}
 
 		if ( !empty( $args[ 'vendor_id' ] ) ) {
 			$sql .= "
@@ -272,7 +276,7 @@ class WCV_Queries
 
 		$after  = date( 'Y-m-d', $start_date );
 		$before = date( 'Y-m-d', strtotime( '+1 day', $end_date ) );
-
+		
 		return apply_filters( 'wcvendors_orders_date_range', array( 'after' => $after, 'before' => $before ) );
 	}
 
