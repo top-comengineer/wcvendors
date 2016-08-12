@@ -1,5 +1,10 @@
 Changelog for WC Vendors
 
+Version 1.9.3 
+
+* Fixed: Not showing orders on vendor dashboard for new installations 
+* Updated: Persian translations thanks to Alireza
+
 Version 1.9.2 
 
 * Added: Reverse commission when order emptied from trash #277

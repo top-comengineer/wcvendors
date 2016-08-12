@@ -8,7 +8,7 @@
  * Author URI:          https://www.wcvendors.com
  * GitHub Plugin URI:   https://github.com/wcvendors/wcvendors
  *
- * Version:             1.9.2
+ * Version:             1.9.3
  * Requires at least:   4.0.0
  * Tested up to:        4.6.0
  *

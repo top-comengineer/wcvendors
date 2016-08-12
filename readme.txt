@@ -6,7 +6,7 @@ Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.0
 Tested up to: 4.6.0
-Stable tag: 1.9.2
+Stable tag: 1.9.3
 License: GPLv2 or later
 
 The free marketplace plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
@@ -120,6 +120,11 @@ Also be sure to visit our KnowledgeBase at https://www.wcvendors.com/kb/
 No Upgrade required at this time.
 
 == Changelog ==
+
+= Version 1.9.3 - 11th of August 2016 
+
+* Fixed: Not showing orders on vendor dashboard for new installations 
+* Updated: Persian translations thanks to Alireza
 
 = Verion 1.9.2 - 6th of August 2016 
 
