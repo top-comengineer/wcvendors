@@ -340,7 +340,11 @@ class WCV_Vendor_Dashboard
 	{
 		if ( empty( $products ) ) return false;
 
-		$orders_page        = get_permalink( WC_Vendors::$pv_options->get_option( 'product_orders_page' ) );
+		// This is required to support existing installations after WC 2.6 
+		$orders_page_id 	= WC_Vendors::$pv_options->get_option( 'orders_page' ); 
+		$orders_page_id 	= isset( $orders_page_id ) ? $orders_page_id : WC_Vendors::$pv_options->get_option( 'product_orders_page' ); 
+
+		$orders_page        = get_permalink( $orders_page_id );
 		$default_commission = WC_Vendors::$pv_options->get_option( 'default_commission' );
 		$total_qty          = $total_cost = 0;
 		$data               = array(
@@ -478,7 +482,12 @@ class WCV_Vendor_Dashboard
 	public function body_class( $classes ){ 
 
 		$dashboard_page 	= WC_Vendors::$pv_options->get_option( 'vendor_dashboard_page' ); 
-		$orders_page 		= WC_Vendors::$pv_options->get_option( 'product_orders_page' ); 
+
+		// This is required to support existing installations after WC 2.6 
+		$orders_page_id 	= WC_Vendors::$pv_options->get_option( 'orders_page' ); 
+		$orders_page_id 	= isset( $orders_page_id ) ? $orders_page_id : WC_Vendors::$pv_options->get_option( 'product_orders_page' ); 
+
+		$orders_page 		= $orders_page_id; 
 		$shop_settings 		= WC_Vendors::$pv_options->get_option( 'shop_settings_page' ); 
 		$terms_page 		= WC_Vendors::$pv_options->get_option( 'terms_to_apply_page' ); 
 

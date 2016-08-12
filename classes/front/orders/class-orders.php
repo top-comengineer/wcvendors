@@ -34,7 +34,11 @@ class WCV_Orders
 	public function check_access()
 	{
 
-		$orders_page = WC_Vendors::$pv_options->get_option( 'product_orders_page' ); 
+		// This is required to support existing installations after WC 2.6 
+		$orders_page_id 	= WC_Vendors::$pv_options->get_option( 'orders_page' ); 
+		$orders_page_id 	= isset( $orders_page_id ) ? $orders_page_id : WC_Vendors::$pv_options->get_option( 'product_orders_page' ); 
+
+		$orders_page = $orders_page_id; 
 		// Only if the orders page is set should we check access 
 		if ( $orders_page && is_page( $orders_page ) && !is_user_logged_in() ) {
 			wp_redirect( get_permalink( woocommerce_get_page_id( 'myaccount' ) ), 303 );
