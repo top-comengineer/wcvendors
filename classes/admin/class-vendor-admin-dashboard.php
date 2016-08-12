@@ -35,8 +35,15 @@ Class WCV_Vendor_Admin_Dashboard {
 	}
 
 	function admin_enqueue_order_style() { 
-		add_thickbox();
-		wp_enqueue_style( 'admin_order_styles', wcv_assets_url . 'css/admin-orders.css' );
+
+		$screen 	= get_current_screen(); 
+		$screen_id 	= $screen->id; 
+
+		if ( 'wcv-vendor-orders' === $screen_id ){ 
+
+			add_thickbox();
+			wp_enqueue_style( 'admin_order_styles', wcv_assets_url . 'css/admin-orders.css' );
+		}	
 	}
 
 	/** 
