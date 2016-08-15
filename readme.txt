@@ -123,6 +123,7 @@ No Upgrade required at this time.
 
 = Version 1.9.3 - 11th of August 2016 
 
+* Fixed: Only load asset on orders page in admin
 * Fixed: Not showing orders on vendor dashboard for new installations 
 * Updated: Persian translations thanks to Alireza
 

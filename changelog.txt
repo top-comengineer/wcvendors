@@ -2,6 +2,7 @@ Changelog for WC Vendors
 
 Version 1.9.3 
 
+* Fixed: Only load asset on orders page in admin
 * Fixed: Not showing orders on vendor dashboard for new installations 
 * Updated: Persian translations thanks to Alireza
 
