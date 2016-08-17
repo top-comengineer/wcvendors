@@ -372,7 +372,7 @@ class WCV_Admin_Users
 	{
 		if ( !current_user_can( 'edit_user', $vendor_id ) ) return false;
 
-		if ( ! WCV_Vendors::is_vendor(  $vendor_id ) ) { return; } 
+		if ( ! WCV_Vendors::is_pending( $vendor_id ) && ! WCV_Vendors::is_vendor(  $vendor_id ) ) { return; }
 
 		$users = get_users( array( 'meta_key' => 'pv_shop_slug', 'meta_value' => sanitize_title( $_POST[ 'pv_shop_name' ] ) ) );
 		if ( empty( $users ) || $users[ 0 ]->ID == $vendor_id ) {
