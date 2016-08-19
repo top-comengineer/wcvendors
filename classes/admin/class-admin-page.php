@@ -532,6 +532,7 @@ class WCV_Admin_Page extends WP_List_Table
 
 		// Generate the drop down 
 		$output = '<select style="width: 30%;" name="vendor_id" id="vendor_id" class="select2">'; 
+		$output .= "<option value=></option>";
 		foreach ( (array) $users as $user ) {
 			$select = selected( $user->ID, $vendor_id, false );
 			$output .= "<option value='$user->ID' $select>$user->display_name</option>";
