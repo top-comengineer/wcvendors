@@ -469,6 +469,8 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 								'_line_subtotal_tax',
 								'_line_total',
 								'_line_tax',
+								'_vendor_order_item_id', 
+								'_vendor_commission', 
 								WC_Vendors::$pv_options->get_option( 'sold_by_label' ), 
 							) ) ) ) {
 								continue;
@@ -488,7 +490,7 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 								$meta['meta_key']   = apply_filters( 'woocommerce_attribute_label', wc_attribute_label( $meta['meta_key'], $wc_product ), $meta['meta_key'] );
 							}
 
-							$products .= '<tr><th>' . wp_kses_post( rawurldecode( $meta['meta_key'] ) ) . ':</th><td>' . wp_kses_post( wpautop( make_clickable( rawurldecode( $meta['meta_value'] ) ) ) ) . '</td></tr>';
+							$products .= '<tr><th>' . wp_kses_post( rawurldecode( $meta['meta_key'] ) ) . ':</th><td>' . rawurldecode( $meta['meta_value'] ) . '</td></tr>';
 						}
 						$products .= '</table>';
 					}
