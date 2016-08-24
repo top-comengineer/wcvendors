@@ -33,7 +33,7 @@ class WCV_Install
 			// This is due to WC 2.6 api changes 
 			if ( is_object( $orders_page ) ) { 
 
-				if ( $orders_page->post_name === 'orders' ){ 
+				if ( $orders_page && $orders_page->post_name === 'orders' ){ 
 
 					wp_update_post(
 			            array (
