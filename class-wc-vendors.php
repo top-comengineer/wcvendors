@@ -107,6 +107,7 @@ if ( wcv_is_woocommerce_activated() ) {
 			add_action( 'plugins_loaded', array( $this, 'load_settings' ) );
 			add_action( 'plugins_loaded', array( $this, 'include_gateways' ) );
 			add_action( 'plugins_loaded', array( $this, 'include_core' ) ); 
+			add_action( 'init', 		  array( $this, 'include_init' ) ); 
 			add_action( 'current_screen', array( $this, 'include_assets' ) ); 
 
 			add_filter( 'plugin_row_meta', array($this, 'plugin_row_meta'), 10, 2 );
@@ -239,17 +240,29 @@ if ( wcv_is_woocommerce_activated() ) {
 			new WCV_Cron;
 			new WCV_Orders;
 			new WCV_Vendor_Dashboard;
-			new WCV_Product_Meta;
-			new WCV_Vendor_Reports;
 			new WCV_Admin_Setup;
 			new WCV_Vendor_Admin_Dashboard; 
 			new WCV_Admin_Reports;
 			new WCV_Vendor_Applicants;
-			new WCV_Admin_Users;
 			new WCV_Emails;
 			new WCV_Vendor_Signup;
 			new WCV_Shortcodes; 
 		}
+
+
+		/**
+		 * These need to be initlized later in loading to fix interaction with other plugins that call current_user_can at the right time. 
+		 * 
+		 * @since 1.9.4 
+		 * @access public 
+		 */
+		public function include_init(){ 
+
+			new WCV_Vendor_Reports;
+			new WCV_Product_Meta;
+			new WCV_Admin_Users;
+
+		} // include_init() 
 
 		/** 
 		*	Load plugin assets 
