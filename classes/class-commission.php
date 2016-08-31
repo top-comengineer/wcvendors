@@ -146,7 +146,7 @@ class WCV_Commission
 	 *
 	 * @return array
 	 */
-	public function sum_total_due_for_order( $order_id )
+	public function sum_total_due_for_order( $order_id, $status = 'due' )
 	{
 		global $wpdb;
 
@@ -171,7 +171,7 @@ class WCV_Commission
 			'ids'     => $commission_ids,
 		);
 
-		return $return;
+		return $return; 
 	}
 
 
@@ -185,10 +185,11 @@ class WCV_Commission
 		global $wpdb;
 
 		$table_name = $wpdb->prefix . "pv_commission";
-		$query      = "SELECT id, vendor_id, total_due
-					FROM `{$table_name}`
-					WHERE status = %s";
-		$results    = $wpdb->get_results( $wpdb->prepare( $query, 'due' ) );
+		$where      = $wpdb->prepare( 'WHERE status = %s', 'due' );
+		$where 		= apply_filters( 'wcvendors_commission_all_due_where', $query ); 
+		$query      = "SELECT id, vendor_id, total_due FROM `{$table_name}` $where";  
+		$query 		= apply_filters( 'wcvendors_commission_all_due_sql', $wpdb->prepare( $query ) ); 
+		$results    = $wpdb->get_results(  $query ) );
 
 		return $results;
 	}
