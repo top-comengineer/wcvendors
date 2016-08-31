@@ -17,6 +17,8 @@ class WCV_Export_CSV
 	{
 
 		$headers[ 'quantity' ] = __( 'Quantity', 'wcvendors' );
+		$headers[ 'item_meta' ] = __( 'Item Meta', 'wcvendors' );
+
 		$new_body = array(); 
 
 		foreach ( $body as $i => $order ) {
@@ -40,51 +42,18 @@ class WCV_Export_CSV
 
 				$product_id = !empty( $item['variation_id'] ) ? $item['variation_id'] : $item['product_id']; 
 
+				$_product  = $order->get_product_from_item( $item );
+
 				$new_row_with_meta = $new_row; 
 
 				// Add the qty row 
 				$new_row_with_meta[] = $item[ 'qty' ];
+				// Add the new item meta row 
 				
-				$item_meta = $item[ 'name' ]; 
+				$variation_detail = !empty( $item['variation_id'] ) ? WCV_Orders::get_variation_data( $item[ 'variation_id' ] ) : ''; 
 
-				if ( $metadata = $order->has_meta( $item['product_id'] ) ) {
-					foreach ( $metadata as $meta ) {
-
-						// Skip hidden core fields
-						if ( in_array( $meta['meta_key'], apply_filters( 'woocommerce_hidden_order_itemmeta', array(
-							'_qty',
-							'_tax_class',
-							'_product_id',
-							'_variation_id',
-							'_line_subtotal',
-							'_line_subtotal_tax',
-							'_line_total',
-							'_line_tax',
-							WC_Vendors::$pv_options->get_option( 'sold_by_label' ), 
-						) ) ) ) {
-							continue;
-						}
-
-						// Skip serialised meta
-						if ( is_serialized( $meta['meta_value'] ) ) {
-							continue;
-						}
-
-						// Get attribute data
-						if ( taxonomy_exists( wc_sanitize_taxonomy_name( $meta['meta_key'] ) ) ) {
-							$term               = get_term_by( 'slug', $meta['meta_value'], wc_sanitize_taxonomy_name( $meta['meta_key'] ) );
-							$meta['meta_key']   = wc_attribute_label( wc_sanitize_taxonomy_name( $meta['meta_key'] ) );
-							$meta['meta_value'] = isset( $term->name ) ? $term->name : $meta['meta_value'];
-						} else {
-							$meta['meta_key']   = apply_filters( 'woocommerce_attribute_label', wc_attribute_label( $meta['meta_key'], $_product ), $meta['meta_key'] );
-						}
-
-						$item_meta .= wp_kses_post( rawurldecode( $meta['meta_key'] ) ) . ':' . wp_kses_post( wpautop( make_clickable( rawurldecode( $meta['meta_value'] ) ) ) );
-					}
-				} 
-
-				$new_row_with_meta['product'] = $item_meta;
-
+				$new_row_with_meta[] = $variation_detail; 
+				$new_row_with_meta['product'] =  $item[ 'name' ]; 
 				$new_body[] = $new_row_with_meta; 
 			}
 		}		
