@@ -182,8 +182,16 @@ class WCV_Admin_Setup
 
 	public static function commission_my_enqueue_script(){ 
 
+		$select2_args = apply_filters( 'wcvendors_select2_commission_args', array( 
+			'placeholder' => __( 'Select a Vendor', 'wcvendors' ), 
+			'allowclear' => true, 
+		) ); 
+
 		wp_enqueue_script( 'commissions_select2_styles_js', wcv_assets_url. 'js/select2.min.js', array('jquery') );
-		wp_enqueue_script( 'commissions_select2_load_js', wcv_assets_url. 'js/wcv-commissions.js', array('jquery') );
+		
+		wp_register_script( 'commissions_select2_load_js', wcv_assets_url. 'js/wcv-commissions.js', array('jquery') );
+		wp_localize_script( 'commissions_select2_load_js', 'wcv_commissions_select', $select2_args ); 
+		wp_enqueue_script( 'commissions_select2_load_js' );
 
 	}
 
@@ -532,7 +540,7 @@ class WCV_Admin_Page extends WP_List_Table
 
 		// Generate the drop down 
 		$output = '<select style="width: 30%;" name="vendor_id" id="vendor_id" class="select2">'; 
-		$output .= "<option value=></option>";
+		$output .= "<option></option>";
 		foreach ( (array) $users as $user ) {
 			$select = selected( $user->ID, $vendor_id, false );
 			$output .= "<option value='$user->ID' $select>$user->display_name</option>";
