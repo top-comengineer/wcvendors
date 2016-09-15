@@ -496,7 +496,7 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 		private function template_footer()
 		{
 
-			$message = apply_filters( 'wcvendors_footer_msg', __( 'Please help with a <a href="https://wordpress.org/support/view/plugin-reviews/wc-vendors?rate=5#postform" target="top">High Five!</a> | <a href="https://www.wcvendors.com/product/wc-vendors-pro/" target="top">WC Vendors Pro</a> | <a href="https://www.wcvendors.com/product/stripe-commissions-gateway/" target="top">Stripe Commissions & Gateway</a> | <a href="https://www.wcvendors.com/kb/" target="top">KnowledgeBase</a> | <a href="https://www.wcvendors.com/help/" target="top">Help Forums</a>', 'wc-vendors' ) ); 
+			$message = apply_filters( 'wcvendors_footer_msg', __( 'Please help with a <a href="https://wordpress.org/support/view/plugin-reviews/wc-vendors?rate=5#postform" target="top">High Five!</a> | <a href="https://www.wcvendors.com/product/wc-vendors-pro/" target="top">WC Vendors Pro</a> | <a href="https://www.wcvendors.com/product/stripe-commissions-gateway/" target="top">Stripe Commissions & Gateway</a> | <a href="https://www.wcvendors.com/kb/" target="top">KnowledgeBase</a> | <a href="https://www.wcvendors.com/help/" target="top">Help Forums</a>', 'wcvendors' ) ); 
 
 			echo '<div><p>' . $message . '</a></p>'; 
 			echo '</div>';
