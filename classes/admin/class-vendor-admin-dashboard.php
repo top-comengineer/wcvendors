@@ -213,8 +213,8 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 
 		//Set parent defaults
 		parent::__construct( array(
-								  'singular' => 'order',
-								  'plural'   => 'orders',
+								  'singular' => __( 'order', 'wcvendors' ),
+								  'plural'   => __( 'orders', 'wcvendors' ), 
 								  'ajax'     => false
 							 ) );
 
@@ -498,7 +498,7 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 				}
 
 				$shippers = (array) get_post_meta( $order->id, 'wc_pv_shipped', true );
-				$shipped = in_array($user_id, $shippers) ? 'Yes' : 'No' ; 
+				$shipped = in_array($user_id, $shippers) ? __( 'Yes', 'wcvendors' ) : __( 'No', 'wcvendors' ) ; 
 
 				$sum = WCV_Queries::sum_for_orders( array( $order->id ), array('vendor_id' =>get_current_user_id() ), false ); 
 				$sum = reset( $sum ); 
