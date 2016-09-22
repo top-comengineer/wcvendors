@@ -479,7 +479,7 @@ class WCV_Admin_Page extends WP_List_Table
 		$m = isset( $_GET[ 'm' ] ) ? (int) $_GET[ 'm' ] : 0;
 		?>
 		<select name="m" id="filter-by-date">
-			<option<?php selected( $m, 0 ); ?> value='0'><?php _e( 'Show all dates' ); ?></option>
+			<option<?php selected( $m, 0 ); ?> value='0'><?php _e( 'Show all dates', 'wcvendors' ); ?></option>
 			<?php
 			foreach ( $months as $arc_row ) {
 				if ( 0 == $arc_row->year )
@@ -515,9 +515,9 @@ class WCV_Admin_Page extends WP_List_Table
 		?>
 		<select name="com_status">
 			<option<?php selected( $com_status, '' ); ?> value=''><?php _e( 'Show all Statuses', 'wcvendors' ); ?></option>
-			<option<?php selected( $com_status, 'due' ); ?> value="due">Due</option>
-			<option<?php selected( $com_status, 'paid' ); ?> value="paid">Paid</option>
-			<option<?php selected( $com_status, 'reversed' ); ?> value="reversed">Reversed</option>
+			<option<?php selected( $com_status, 'due' ); ?> value="due"><?php _e( 'Due', 'wcvendors' ); ?></option>
+			<option<?php selected( $com_status, 'paid' ); ?> value="paid"><?php _e( 'Paid', 'wcvendors' ); ?></option>
+			<option<?php selected( $com_status, 'reversed' ); ?> value="reversed"><?php _e( 'Reversed', 'wcvendors' ); ?></option>
 		</select>
 	<?php
 	}
