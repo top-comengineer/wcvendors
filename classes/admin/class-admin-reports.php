@@ -191,7 +191,7 @@ class WCV_Admin_Reports
 											<td><?php echo get_the_title( $row->product_id ); ?></td>
 											<td><?php echo WCV_Vendors::get_vendor_shop_name( $row->vendor_id ); ?></td>
 											<td><?php echo woocommerce_price( $row->total_due + $row->total_shipping + $row->tax ) ?></td>
-											<td><?php echo date( __( 'D j M Y \a\t h:ia', 'wcvendors' ), strtotime( $row->time ) ) ?></td>
+											<td><?php echo date_i18n( __( 'D j M Y \a\t h:ia', 'wcvendors' ), strtotime( $row->time ) ) ?></td>
 											<td><?php echo $commission_status_labels[ $row->status ]; ?></td>
 										</tr>
 									<?php endforeach; ?>
