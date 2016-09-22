@@ -208,7 +208,7 @@ if ( !class_exists( 'SF_Format_Options' ) ) {
 
 				if ( $select2 ) : ?>
 					<script type="text/javascript">jQuery(function () {
-							jQuery("#<?php echo $id; ?>").select2({ allowClear: true, placeholder: "<?php _e( 'Select a page...', 'geczy' ); ?>", width: '350px' });
+							jQuery("#<?php echo $id; ?>").select2({ allowClear: true, placeholder: "<?php _e( 'Select a page...', 'wcvendors' ); ?>", width: '350px' });
 						});</script>
 				<?php endif;
 
