@@ -81,7 +81,10 @@ class WCV_Admin_Reports
 	 */
 	function sales()
 	{
+
 		global $start_date, $end_date, $woocommerce, $wpdb;
+
+		$commission_status_labels = WCV_Commission::commission_status(); 
 
 		$start_date = !empty( $_POST[ 'start_date' ] ) ? $_POST[ 'start_date' ] : strtotime( date( 'Ymd', strtotime( date( 'Ym', current_time( 'timestamp' ) ) . '01' ) ) );
 		$end_date   = !empty( $_POST[ 'end_date' ] ) ? $_POST[ 'end_date' ] : strtotime( date( 'Ymd', current_time( 'timestamp' ) ) );
@@ -189,7 +192,7 @@ class WCV_Admin_Reports
 											<td><?php echo WCV_Vendors::get_vendor_shop_name( $row->vendor_id ); ?></td>
 											<td><?php echo woocommerce_price( $row->total_due + $row->total_shipping + $row->tax ) ?></td>
 											<td><?php echo date( __( 'D j M Y \a\t h:ia', 'wcvendors' ), strtotime( $row->time ) ) ?></td>
-											<td><?php echo $row->status ?></td>
+											<td><?php echo $commission_status_labels[ $row->status ]; ?></td>
 										</tr>
 									<?php endforeach; ?>
 									</tbody>

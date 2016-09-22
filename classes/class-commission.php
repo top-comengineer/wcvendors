@@ -60,6 +60,17 @@ class WCV_Commission
 		}
 	}
 
+	public static function commission_status(){ 
+
+		return apply_filters( 'wcvendors_commission_status', array(
+				'due' 		=> __( 'Due', 'wcvendors' ), 
+				'paid'		=> __( 'Paid', 'wcvendors' ), 
+				'reversed'	=> __( 'Reversed', 'wcvendors' )
+			)
+		); 
+
+	}
+
 
 	/**
 	 * Reverse commission for an entire order
