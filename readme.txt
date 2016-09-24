@@ -5,8 +5,8 @@ Donate link: http://www.wcvendors.com/
 Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.0
-Tested up to: 4.6.0
-Stable tag: 1.9.3
+Tested up to: 4.6.1
+Stable tag: 1.9.4
 License: GPLv2 or later
 
 The free marketplace plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
@@ -120,6 +120,30 @@ Also be sure to visit our KnowledgeBase at https://www.wcvendors.com/kb/
 No Upgrade required at this time.
 
 == Changelog ==
+
+= Version 1.9.4 - 24th September 2016 = 
+
+* Added: Filter to add delayed payment possibility #309
+* Added: WPML support configuration file
+* Updated: Brazilian translation files thanks Luis!
+* Fixed: Using "date_i18n" instead of just "date"  #316 from CasperBraske
+* Fixed: Geczy text domain in the settings file #314
+* Fixed: Commissions lock on one vendor after some actions are made #311
+* Fixed: Vendor dashboard Orders Export link is dead #306
+* Fixed: Vendor sorting in commissions - no option to NOT choose a vendor #305
+* Fixed: vendor order admin product metadata loading #298 from mikko-niemikorpi
+* Fixed: Commission status translatable in reports thanks CasperBraske
+* Fixed: Translatable strings thanks CasperBraske
+* Fixed: Issues with translation strings
+* Fixed: Incorrect variable reference
+* Fixed: bp_setup_current_user was called incorrectly
+* Fixed: Display of variations on main dashboard
+* Fixed: Trying to get property of non-object
+* Fixed: Variation data styles in order display in wp-admin
+* Fixed: Save user meta fields when pending vendor
+* Fixed: Incorrect url string format in french translation
+* Templates Updated: 
+	templates/dashboard/orders.php	
 
 = Version 1.9.3 - 11th of August 2016 
 
