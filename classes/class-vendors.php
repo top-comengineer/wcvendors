@@ -186,20 +186,22 @@ class WCV_Vendors
 		
 		// Add remainders on end to admin
 		$discount = $order->get_total_discount();
-		$shipping = round( ( $order->order_shipping - $shipping_given ), 2 );
-		$tax = round(( $order->order_tax + $order->order_shipping_tax ) - $tax_given, 2); 
-		$total    = ( $tax + $shipping ) - $discount;
+		$shipping 	= round( ( $order->order_shipping - $shipping_given ), 2 );
+		$tax 		= round(( $order->order_tax + $order->order_shipping_tax ) - $tax_given, 2); 
+		$total    	= ( $tax + $shipping ) - $discount;
 
 		if ( $group ) {
-			$receiver[ 1 ][ 'commission' ] = $receiver[ 1 ][ 'commission' ] - $discount;
+			$r_total = round( $receiver[ 1 ][ 'total' ], 2 ) ; 
+			$receiver[ 1 ][ 'commission' ] = round( $receiver[ 1 ][ 'commission' ], 2 )  - round( $discount, 2 );
 			$receiver[ 1 ][ 'shipping' ]   = $shipping;
 			$receiver[ 1 ][ 'tax' ]        = $tax;
-			$receiver[ 1 ][ 'total' ] += $total;
+			$receiver[ 1 ][ 'total' ] 	   = $r_total + round( $total, 2 );
 		} else {
-			$receiver[ 1 ][ $key ][ 'commission' ] = $receiver[ 1 ][ $key ][ 'commission' ] - $discount;
+			$r_total = round( $receiver[ 1 ][ $key ][ 'total' ], 2 ); 
+			$receiver[ 1 ][ $key ][ 'commission' ] = round( $receiver[ 1 ][ $key ][ 'commission' ], 2 ) - round( $discount, 2 );
 			$receiver[ 1 ][ $key ][ 'shipping' ]   = ( $order->order_shipping - $shipping_given );
 			$receiver[ 1 ][ $key ][ 'tax' ]        = $tax;
-			$receiver[ 1 ][ $key ][ 'total' ] += $total;
+			$receiver[ 1 ][ $key ][ 'total' ] 	   = $r_total + round( $total, 2 );
 		}
 
 		// Reset the array keys
