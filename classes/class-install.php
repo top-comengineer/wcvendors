@@ -46,11 +46,25 @@ class WCV_Install
 				} 
 			}
 
-			
+		} else if ( version_compare( $db_version, '1.9.1', '<' ) ) { 
+			remove_role( 'vendor' );
+			add_role( 'vendor', __('Vendor', 'wcvendors') , array(
+											   'assign_product_terms'     => true,
+											   'edit_products'            => true,
+											   'edit_product'             => true,
+											   'edit_published_products'  => false,
+											   'manage_product'           => true,
+											   'publish_products'         => false,
+											   'delete_posts'			  => true, 
+											   'read'                     => true,
+											   'upload_files'             => true,
+											   'view_woocommerce_reports' => true,
+										  ) );
 
-		} 
+			WC_Vendors::$pv_options->update_option( 'db_version', '1.9.1' );	
+		}
 
-	}
+	} // init()
 
 
 	/**
@@ -95,6 +109,7 @@ class WCV_Install
 										   'edit_published_products'  => false,
 										   'manage_product'           => true,
 										   'publish_products'         => false,
+										   'delete_posts'			  => true, 
 										   'read'                     => true,
 										   'upload_files'             => true,
 										   'view_woocommerce_reports' => true,
