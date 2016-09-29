@@ -58,13 +58,9 @@ class WCV_Shipping
 					$method = $shipping_method['method_id'];
 					break;
 			}
-						
-			// Table Rate Shipping 2
-			if ( strstr( $method, 'table_rate' ) !== false ) {
-				// $shipping_due = WCV_Shipping::trs2_get_due( $order_id, $product[ 'product_id' ] );
-
-				// Per Product Shipping 2
-			} else if ( ( class_exists('WC_Shipping_Per_Product_Init') || function_exists( 'woocommerce_per_product_shipping' ) ) && $method == 'per_product' ) {
+			
+			// Per Product Shipping
+			if ( ( class_exists('WC_Shipping_Per_Product_Init') || function_exists( 'woocommerce_per_product_shipping' ) ) && $method == 'per_product' ) {
 				$shipping_costs = WCV_Shipping::pps_get_due( $order_id, $product );
 
 				// Local Delivery
