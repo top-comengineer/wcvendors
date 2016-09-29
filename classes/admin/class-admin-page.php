@@ -15,6 +15,8 @@ class WCV_Admin_Setup
 		add_action( 'woocommerce_admin_order_actions_end', array( $this, 'append_actions' ), 10, 1 );
 
 		add_filter( 'woocommerce_debug_tools', array( $this, 'wcvendors_tools' ) ); 
+
+		add_action( 'admin_head', array( $this, 'commission_table_header_styles' ) ); 
 	}
 
 
@@ -196,6 +198,31 @@ class WCV_Admin_Setup
 	}
 
 	/**
+	 * Load styles for the commissions table page 
+	 */
+	public function commission_table_header_styles() { 
+
+	    $page = ( isset( $_GET[ 'page' ] ) ) ? esc_attr( $_GET[ 'page' ] ) : false;
+
+	    // Only load the styles on the license table page 
+	   
+	    if ( 'pv_admin_commissions' !== $page ) return;
+
+	    echo '<style type="text/css">';
+	    echo '.wp-list-table .column-product_id { width: 20%; }';
+	    echo '.wp-list-table .column-vendor_id { width: 15%; }';
+	    echo '.wp-list-table .column-order_id { width: 8%; }';
+	    echo '.wp-list-table .column-total_due { width: 10%;}';
+	    echo '.wp-list-table .column-total_shipping { width: 10%;}';
+	    echo '.wp-list-table .column-tax { width: 10%;}';
+	    echo '.wp-list-table .column-totals { width: 10%;}';
+	    echo '.wp-list-table .column-status { width: 5%;}';
+	    echo '.wp-list-table .column-time { width: 10%;}';
+	    echo '</style>';
+	  
+	} //table_header_styles()
+
+	/**
 	 *
 	 *
 	 * @param unknown $status
@@ -327,6 +354,12 @@ class WCV_Admin_Page extends WP_List_Table
 				$user = get_userdata( $item->vendor_id );
 				return '<a href="' . admin_url( 'user-edit.php?user_id=' . $item->vendor_id ) . '">' . WCV_Vendors::get_vendor_shop_name( $item->vendor_id ) . '</a>';
 			case 'total_due' :
+				return woocommerce_price( $item->total_due );
+			case 'total_shipping': 
+				return woocommerce_price($item->total_shipping );
+			case 'tax': 
+				return woocommerce_price( $item->tax );
+			case 'totals' :
 				return woocommerce_price( $item->total_due + $item->total_shipping + $item->tax );
 			case 'product_id' :
 				$parent = get_post_ancestors( $item->product_id );
@@ -374,14 +407,19 @@ class WCV_Admin_Page extends WP_List_Table
 	function get_columns()
 	{
 		$columns = array(
-			'cb'         => '<input type="checkbox" />',
-			'product_id' => __( 'Product', 'wcvendors' ),
-			'order_id'   => __( 'Order ID', 'wcvendors' ),
-			'vendor_id'  => __( 'Vendor', 'wcvendors' ),
-			'total_due'  => __( 'Total', 'wcvendors' ),
-			'status'     => __( 'Status', 'wcvendors' ),
-			'time'       => __( 'Date', 'wcvendors' ),
+			'cb'         		=> '<input type="checkbox" />',
+			'product_id' 		=> __( 'Product', 'wcvendors' ),
+			'order_id'   		=> __( 'Order ID', 'wcvendors' ),
+			'vendor_id' 	    => __( 'Vendor', 'wcvendors' ),
+			'total_due'  		=> __( 'Commission', 'wcvendors' ),
+			'total_shipping'  	=> __( 'Shipping', 'wcvendors' ),
+			'tax'  				=> __( 'Tax', 'wcvendors' ),
+			'totals'  			=> __( 'Total', 'wcvendors' ),
+			'status'     		=> __( 'Status', 'wcvendors' ),
+			'time'       		=> __( 'Date', 'wcvendors' ),
 		);
+
+		if ( ! wc_tax_enabled() ) unset( $columns[ 'tax'] ); 
 
 		return $columns;
 	}
@@ -396,14 +434,19 @@ class WCV_Admin_Page extends WP_List_Table
 	function get_sortable_columns()
 	{
 		$sortable_columns = array(
-			'time'       => array( 'time', true ),
-			'product_id' => array( 'product_id', false ),
-			'order_id'   => array( 'order_id', false ),
-			'total_due'  => array( 'total_due', false ),
-			'status'     => array( 'status', false ),
-			'vendor_id'  => array( 'vendor_id', false ),
-			'status'     => array( 'status', false ),
+			'time'       		=> array( 'time', true ),
+			'product_id' 		=> array( 'product_id', false ),
+			'order_id'   		=> array( 'order_id', false ),
+			'total_due' 		=> array( 'total_due', false ),
+			'total_shipping'	=> array( 'total_shipping', false ), 
+			'tax'				=> array( 'tax', false ), 
+			'totals' 			=> array( 'totals', false ),
+			'status'    		=> array( 'status', false ),
+			'vendor_id' 		=> array( 'vendor_id', false ),
+			'status'    		=> array( 'status', false ),
 		);
+
+		if ( ! wc_tax_enabled() ) unset( $sortable_columns[ 'tax'] ); 
 
 		return $sortable_columns;
 	}
