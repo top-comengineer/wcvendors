@@ -125,6 +125,7 @@ No Upgrade required at this time.
 
 * Added: Automated language file builds
 * Added: Vendors can now delete media in the media uploader
+* Updated: Commissions table in backend now shows cost breakdowns
 * Fixed: Removed legacy code for unsupported shipping methods
 * Fixed: Rounding issue with 100% commission and coupons in pro
 
