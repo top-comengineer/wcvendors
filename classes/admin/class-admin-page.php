@@ -360,7 +360,8 @@ class WCV_Admin_Page extends WP_List_Table
 			case 'tax': 
 				return woocommerce_price( $item->tax );
 			case 'totals' :
-				return woocommerce_price( $item->total_due + $item->total_shipping + $item->tax );
+				$totals = ( wc_tax_enabled() ) ? $item->total_due + $item->total_shipping + $item->tax :  $item->total_due + $item->total_shipping; 
+				return woocommerce_price( $totals );
 			case 'product_id' :
 				$parent = get_post_ancestors( $item->product_id );
 				$product_id = $parent ? $parent[ 0 ] : $item->product_id;
