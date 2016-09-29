@@ -1,0 +1,26 @@
+{
+  "name": "wcvendors",
+  "version": "1.9.5",
+  "private": true, 
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "latest",
+    "gulp-autoprefixer": "latest",
+    "gulp-cache": "latest",
+    "gulp-concat": "latest",
+    "gulp-imagemin": "latest",
+    "gulp-jshint": "latest",
+    "gulp-ignore": "latest",
+    "gulp-livereload": "latest",
+    "gulp-load-plugins": "latest",
+    "gulp-clean-css": "latest",
+    "gulp-notify": "latest",
+    "gulp-rename": "latest",
+    "gulp-ruby-sass": "latest",
+    "gulp-sort": "latest",
+    "gulp-uglify": "latest",
+    "gulp-wp-pot" : "latest", 
+    "tiny-lr": "latest", 
+    "del": "latest"
+  }
+}
