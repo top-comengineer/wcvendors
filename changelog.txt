@@ -1,5 +1,12 @@
 Changelog for WC Vendors
 
+Version 1.9.5 
+
+* Added: Automated language file builds
+* Added: Vendors can now delete media in the media uploader
+* Fixed: Removed legacy code for unsupported shipping methods
+* Fixed: Rounding issue with 100% commission and coupons in pro
+
 Version 1.9.4 
 
 * Added: Filter to add delayed payment possibility #309

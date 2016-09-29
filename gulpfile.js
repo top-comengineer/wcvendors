@@ -5,7 +5,7 @@ var gulp = require('gulp'),
 
 // i18n files 
 gulp.task('build-i18n-pot', function () {
-    return gulp.src([ '*.php' ] )
+    return gulp.src([ 'classes/**/*.php', 'templates/**/*.php', '*.php' ] )
         .pipe( sort() )
         .pipe( wpPot( {
             domain: 'wcvendors',

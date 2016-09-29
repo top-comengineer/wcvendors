@@ -6,7 +6,7 @@ Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.0
 Tested up to: 4.6.1
-Stable tag: 1.9.4
+Stable tag: 1.9.5
 License: GPLv2 or later
 
 The free marketplace plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
@@ -120,6 +120,13 @@ Also be sure to visit our KnowledgeBase at https://www.wcvendors.com/kb/
 No Upgrade required at this time.
 
 == Changelog ==
+
+= Version 1.9.5 - 29th September 2016 = 
+
+* Added: Automated language file builds
+* Added: Vendors can now delete media in the media uploader
+* Fixed: Removed legacy code for unsupported shipping methods
+* Fixed: Rounding issue with 100% commission and coupons in pro
 
 = Version 1.9.4 - 24th September 2016 = 
 
