@@ -466,6 +466,8 @@ class WCV_Admin_Page extends WP_List_Table
 			'mark_reversed' => __( 'Mark reversed', 'wcvendors' ),
 			// 'delete' => __('Delete', 'wcvendors'),
 		);
+		
+		$actions = apply_filters('wcv_edit_bulk_actions', $actions);
 
 		return $actions;
 	}
@@ -633,6 +635,7 @@ class WCV_Admin_Page extends WP_List_Table
 
 			default:
 				// code...
+				do_action('wcv_edit_process_bulk_actions', $this->current_action(), $ids);
 				break;
 		}
 
