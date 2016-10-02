@@ -29,6 +29,7 @@ if ( !class_exists( 'SF_Sanitize' ) ) {
 			add_filter( 'geczy_sanitize_select', array( 'SF_Sanitize', 'sanitize_enum' ), 10, 2 );
 			add_filter( 'geczy_sanitize_image', array( 'SF_Sanitize', 'sanitize_image_url' ), 10, 2 );
 			add_filter( 'geczy_sanitize_single_select_page', array( 'SF_Sanitize', 'sanitize_select_pages' ), 10, 2 );
+			add_filter( 'geczy_sanitize_multi_select_page', array( 'SF_Sanitize', 'sanitize_multi_pages' ), 10, 2 );
 		}
 
 
@@ -150,6 +151,27 @@ if ( !class_exists( 'SF_Sanitize' ) ) {
 		public static function sanitize_select_pages( $input, $option )
 		{
 			$output = get_page( $input ) ? (int) $input : 0;
+
+			return $output;
+		}
+
+		/**
+		 * Select box for pages sanitize
+		 *
+		 * @param int $input
+		 * @param int $option
+		 *
+		 * @return int
+		 */
+		public static function sanitize_multi_pages( $input, $option )
+		{
+			
+			foreach ( $input as $value ){ 
+				$output[ $value ] = get_page( $value ) ? (int) $value : 0;
+			}
+			
+			// $output = serialize( $output );
+				
 
 			return $output;
 		}

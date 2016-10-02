@@ -788,11 +788,46 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 
 				if ( $select2 ) : ?>
 					<script type="text/javascript">jQuery(function () {
-							jQuery("#<?php echo $id; ?>").select2({ allowClear: true, placeholder: "<?php _e( 'Select a page...', 'wcvendors' ); ?>", width: '350px' });
+							jQuery("#<?php echo $id; ?>").select2({ allowClear: true, placeholder: "<?php _e( 'Select a page...', 'wcvendors' ); ?>", width: '350px', allowMultiple: true });
 						});</script>
 				<?php endif;
 
 				break;
+
+			case 'multi_select_page':
+
+				// TODO get this working with multiple page selection 
+
+				$selected = ( $value !== false ) ? $value : $std;
+				$selected  = implode( ',', array_keys( $selected ) ); 
+
+				if ( $value == 0 ) $selected = $std; 
+
+				$name = $name . '[]'; 
+
+				$args = array(
+					'name'       => $name,
+					'id'         => $id,
+					'sort_order' => 'ASC',
+					'echo'       => 0,
+					'selected'   => $selected
+				);
+
+				echo str_replace( "'>", "' multiple=\"multiple\"><option></option>", wp_dropdown_pages( $args ) );
+
+				echo '<a href="post.php?post='.$selected.'&action=edit" class="button">'.__( 'Edit Page', 'wcvendors' ).'</a>'; 
+				echo '<a href="'.get_permalink( $selected ). '" class="button">'.__( 'View Page', 'wcvendors' ).'</a>'; 
+
+				echo $description;
+
+				if ( $select2 ) : ?>
+					<script type="text/javascript">jQuery(function () {
+							jQuery("#<?php echo $id; ?>").select2({ allowClear: true, placeholder: "<?php _e( 'Select a page...', 'wcvendors' ); ?>", width: '350px', allowMultiple: true });
+						});</script>
+				<?php endif;
+
+				break;
+
 
 			case 'select':
 
