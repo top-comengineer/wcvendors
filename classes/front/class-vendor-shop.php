@@ -34,7 +34,7 @@ class WCV_Vendor_Shop
 		} 
 
 		// Remove Page Title if on Vendor Shop 
-		add_filter ( 'woocommerce_show_page_title', array('WCV_Vendor_Shop', 'remove_vendor_title') ); 
+		add_filter ( 'woocommerce_show_page_title', array( 'WCV_Vendor_Shop', 'remove_vendor_title' ) ); 
 
 		// Show vendor on all sales related invoices 
 		add_action( 'woocommerce_add_order_item_meta', array('WCV_Vendor_Shop', 'add_vendor_to_order_item_meta'), 10, 2 );
@@ -197,6 +197,7 @@ class WCV_Vendor_Shop
 	* Remove the Page title from Archive-Product while on a vendor Page
 	*/ 
 	public static function remove_vendor_title( $b ) { 
+		
 		if ( WCV_Vendors::is_vendor_page() ) { 
 			return false; 
 		}

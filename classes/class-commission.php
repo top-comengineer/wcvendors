@@ -465,4 +465,41 @@ class WCV_Commission
 	} // commissions_table_sync() 
 
 
+	/**
+	 * Get the commission total for a specific vendor. 
+	 * 
+	 * @since 1.9.6 
+	 * @access public
+	 * @param int $vendor_id the vendor id to search for 
+	 * @param string $status the status to look for 
+	 * @return object $totals as an object 
+	 */
+	public static function commissions_now( $vendor_id, $status = 'due', $inc_shipping = false, $inc_tax = false ){ 
+
+		global $wpdb;
+
+		$table_name = $wpdb->prefix . "pv_commission";
+
+		$sql = "SELECT sum( `total_due` ) as total_due"; 
+
+		if ( $inc_shipping ) $sql .= ", sum( `total_shipping` ) as total_shipping"; 
+		if ( $inc_tax )	$sql .= ", sum( `tax` ) as total_tax "; 
+		
+		$sql .= " 
+				FROM `{$table_name}`
+				WHERE vendor_id = {$vendor_id} 
+				AND status = '{$status}' 
+			"; 
+
+		$results = $wpdb->get_row( $sql, ARRAY_A ); 
+
+		$commissions_now = array_filter( get_object_vars( $results ) );
+
+		if ( empty( $commissions_now ) ) $results = false; 
+
+		return $results; 
+
+	} // commissions_now() 
+
+
 }
