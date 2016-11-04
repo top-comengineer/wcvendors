@@ -1,5 +1,14 @@
 Changelog for WC Vendors
 
+Version 1.9.6 
+
+* Added: Commission Query Functions #321
+* Added: Template for sold by in shop loop #324
+* Merged: Extended commissions management #319 from MounirHamani
+* Updated: Brazilian Portuguese translation
+* Template Added: 
+	templates/front/vendor-sold-by.php	
+
 Version 1.9.5 
 
 * Added: Automated language file builds

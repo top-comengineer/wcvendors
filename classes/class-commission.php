@@ -491,7 +491,7 @@ class WCV_Commission
 				AND status = '{$status}' 
 			"; 
 
-		$results = $wpdb->get_row( $sql, ARRAY_A ); 
+		$results = $wpdb->get_row( $sql ); 
 
 		$commissions_now = array_filter( get_object_vars( $results ) );
 

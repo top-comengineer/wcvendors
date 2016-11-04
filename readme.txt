@@ -6,7 +6,7 @@ Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.0
 Tested up to: 4.6.1
-Stable tag: 1.9.5
+Stable tag: 1.9.6
 License: GPLv2 or later
 
 The free marketplace plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
@@ -120,6 +120,15 @@ Also be sure to visit our KnowledgeBase at https://www.wcvendors.com/kb/
 No Upgrade required at this time.
 
 == Changelog ==
+
+= Version 1.9.6 - 4th November 2016 = 
+
+* Added: Commission Query Functions #321
+* Added: Template for sold by in shop loop #324
+* Merged: Extended commissions management #319 from MounirHamani
+* Updated: Brazilian Portuguese translation
+* Template Added: 
+	templates/front/vendor-sold-by.php	
 
 = Version 1.9.5 - 29th September 2016 = 
 
