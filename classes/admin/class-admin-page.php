@@ -154,7 +154,7 @@ class WCV_Admin_Setup
 		add_role( 'pending_vendor', __( 'Pending Vendor', 'wcvendors' ), array(
 																							  'read'         => true,
 																							  'edit_posts'   => false,
-																							  'delete_posts' => false
+																							  'delete_posts' => true
 																						 ) );
 
 		echo '<div class="updated inline"><p>' . __( 'WC Vendor roles successfully reset.', 'wcvendors' ) . '</p></div>';
