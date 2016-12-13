@@ -8,8 +8,8 @@
  * Author URI:          https://www.wcvendors.com
  * GitHub Plugin URI:   https://github.com/wcvendors/wcvendors
  *
- * Version:             1.9.6
- * Requires at least:   4.0.0
+ * Version:             1.9.7
+ * Requires at least:   4.4.0
  * Tested up to:        4.7.0
  *
  * Text Domain:         wcvendors
@@ -72,7 +72,7 @@ if ( wcv_is_woocommerce_activated() ) {
 	if ( !defined( 'wcv_plugin_dir_path' ) )	define( 'wcv_plugin_dir_path', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 
 
-	define('WCV_VERSION', '1.9.6' ); 
+	define('WCV_VERSION', '1.9.7' ); 
 
 	/**
 	 * Main Product Vendor class

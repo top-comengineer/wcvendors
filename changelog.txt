@@ -1,5 +1,9 @@
 Changelog for WC Vendors
 
+Version 1.9.7
+
+* Fixed: Capabilities Fix for Resetting Roles #329
+
 Version 1.9.6 
 
 * Added: Commission Query Functions #321

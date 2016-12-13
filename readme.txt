@@ -4,9 +4,9 @@ Tags: commission rate,  e-commerce, ecommerce, ebay, free, marketplace, multi se
 Donate link: http://www.wcvendors.com/
 Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
-Requires at least: 4.0
-Tested up to: 4.6.1
-Stable tag: 1.9.6
+Requires at least: 4.4.0
+Tested up to: 4.7.0
+Stable tag: 1.9.7
 License: GPLv2 or later
 
 The free marketplace plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
