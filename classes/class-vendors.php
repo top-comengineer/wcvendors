@@ -565,6 +565,9 @@ class WCV_Vendors
 		}
 
 		if ( ! $updating ) {
+			// Store vendor ID
+			update_post_meta( $vendor_order_id, '_vendor_id', $args['vendor_id'] );
+
 			// Get vendor order object
 			$vendor_order = wc_get_order( $vendor_order_id );
 			$order        = wc_get_order( $args['order_id'] );
