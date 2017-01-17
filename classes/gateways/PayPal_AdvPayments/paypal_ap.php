@@ -545,7 +545,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 			if ( !empty( $woocommerce->errors ) ) return false;
 		}
 
-		$paypal_redirect_url = $this->sandbox == 'yes' ? 'https://www.sandbox.paypal.com/webscr&cmd=' : 'https://www.paypal.com/webscr&cmd=';
+		$paypal_redirect_url = $this->sandbox == 'yes' ? 'https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=' : 'https://www.paypal.com/cgi-bin/webscr?cmd=';
 		$pay_url             = $paypal_redirect_url . '_ap-payment&paykey=' . $pay_key;
 
 		return array(

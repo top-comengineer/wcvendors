@@ -5,7 +5,7 @@ Donate link: http://www.wcvendors.com/
 Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.4.0
-Tested up to: 4.7.0
+Tested up to: 4.7.1
 Stable tag: 1.9.7
 License: GPLv2 or later
 
@@ -74,6 +74,7 @@ We currently ship WC Vendors free with the following language translations. If y
 * Austrian German
 * German
 * Chinese 
+* Japanese (thanks Shohei Tanaka)
 * Brazilian Portuguese
 * Italian
 * Spanish
