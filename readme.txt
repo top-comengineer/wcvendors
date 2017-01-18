@@ -132,6 +132,8 @@ No Upgrade required at this time.
 
 = Version 1.9.7 - 13 December 2016 =
 
+* Fixed: Capabilities Fix for Resetting Roles #329
+
 = Version 1.9.6 - 4th November 2016 = 
 
 * Added: Commission Query Functions #321
