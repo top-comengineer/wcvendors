@@ -8,16 +8,16 @@
  * Author URI:          https://www.wcvendors.com
  * GitHub Plugin URI:   https://github.com/wcvendors/wcvendors
  *
- * Version:             1.9.7
+ * Version:             1.9.8
  * Requires at least:   4.4.0
- * Tested up to:        4.7.0
+ * Tested up to:        4.7.1
  *
  * Text Domain:         wcvendors
  * Domain Path:         /languages/
  *
  * @category            Plugin
  * @copyright           Copyright © 2012 Matt Gates
- * @copyright           Copyright © 2016 WC Vendors
+ * @copyright           Copyright © 2017 WC Vendors
  * @author              Matt Gates, WC Vendors
  * @package             WCVendors
  * @license     		GPL2

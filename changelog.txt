@@ -1,5 +1,11 @@
 Changelog for WC Vendors
 
+Version 1.9.8 
+
+* Fixed: Paypal adaptive payments url changes 
+* Added: Store Vendor ID in vendor child order #326
+* Added: 100% Japanese translations thanks to Shohei Tanaka 
+
 Version 1.9.7
 
 * Fixed: Capabilities Fix for Resetting Roles #329
