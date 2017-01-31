@@ -38,59 +38,7 @@ class WCV_Vendor_Signup
 	 */
 	public function vendor_option()
 	{
-
-		if ( isset( $_GET[ 'action'] ) && 'register' == $_GET[ 'action'] ) { 
-
-			// include_once('views/html-vendor-signup.php'); 
-
-		} else { 
-
-		?>
-		<div class="clear"></div>
-
-		<?php do_action( 'wcvendors_apply_for_vendor_before' ); ?> 
-
-		<p class="form-row">
-			<input class="input-checkbox"
-				   id="apply_for_vendor" <?php checked( isset( $_POST[ 'apply_for_vendor' ] ), true ) ?> type="checkbox"
-				   name="apply_for_vendor" value="1"/>
-			<label for="apply_for_vendor"
-				   class="checkbox"><?php echo apply_filters('wcvendors_vendor_registration_checkbox', __( 'Apply to become a vendor? ', 'wcvendors' )); ?></label>
-		</p>
-
-		<?php do_action( 'wcvendors_apply_for_vendor_after' ); ?> 
-
-		<?php if ( $this->terms_page ) { ?>
-
-		<?php do_action( 'wcvendors_agree_to_terms_before' ); ?> 
-			
-		<p class="form-row agree-to-terms-container" style="display:none">
-			<input class="input-checkbox"
-				   id="agree_to_terms" <?php checked( isset( $_POST[ 'agree_to_terms' ] ), true ) ?> type="checkbox"
-				   name="agree_to_terms" value="1"/>
-			<label for="agree_to_terms"
-				   class="checkbox"><?php apply_filters( 'wcvendors_vendor_registration_terms', printf(  __( 'I have read and accepted the <a target="top" href="%s">terms and conditions</a>', 'wcvendors' ), get_permalink( $this->terms_page ) ) ); ?></label>
-		</p>
-
-		<?php do_action( 'wcvendors_agree_to_terms_after' ); ?> 
-
-		<script type="text/javascript">
-			jQuery(function () {
-				if (jQuery('#apply_for_vendor').is(':checked')) {
-					jQuery('.agree-to-terms-container').show();
-				}
-
-				jQuery('#apply_for_vendor').on('click', function () {
-					jQuery('.agree-to-terms-container').slideToggle();
-				});
-			})
-		</script>
-	<?php } ?>
-
-		<div class="clear"></div>
-	<?php
-		}
-
+		include_once('views/html-vendor-signup.php'); 
 	}
 
 
