@@ -192,8 +192,11 @@ if ( !class_exists( 'SF_Settings_API' ) ) {
 		 */
 		public function admin_enqueue_scripts()
 		{
-			global $pagenow; 
-			if (is_admin() || $pagenow === 'wc_prd_vendor') { 
+			
+			$screen 	= get_current_screen();
+			$screen_id  = $screen->id; 
+
+			if ( $screen_id === 'woocommerce_page_wc_prd_vendor') { 
 				wp_register_script( 'bootstrap-tooltip', $this->assets_url . 'js/bootstrap-tooltip.js', array( 'jquery' ), '1.0' );
 				wp_register_script( 'select2', $this->assets_url . 'js/select2/select2.min.js', array( 'jquery' ), '3.5.2' );
 				wp_register_script( 'wcvendors-media', $this->assets_url . 'js/wcvendors-media.js', array( 'jquery' ), '1.0' );
