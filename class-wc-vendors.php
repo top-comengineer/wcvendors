@@ -187,13 +187,11 @@ if ( wcv_is_woocommerce_activated() ) {
 		}
 
 		public function load_il8n() { 
-
-			$domain = 'wcvendors';
 		    
-		    $locale = apply_filters( 'plugin_locale', get_locale(), $domain );
+		    $locale = apply_filters( 'plugin_locale', get_locale(), 'wcvendors' );
 
 		    //Place your custom translations into wp-content/languages/wc-vendors to be upgrade safe 
-		    load_textdomain($domain, WP_LANG_DIR.'/wc-vendors/'.$domain.'-'.$locale.'.mo');
+		    load_textdomain($domain, WP_LANG_DIR.'/wc-vendors/wcvendors-'.$locale.'.mo');
 			
 			load_plugin_textdomain( 'wcvendors', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
