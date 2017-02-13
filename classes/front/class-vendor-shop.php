@@ -45,6 +45,8 @@ class WCV_Vendor_Shop
 			add_action( 'woocommerce_before_single_product', array('WCV_Vendor_Shop', 'vendor_mini_header')); 
 		}
 
+		add_filter( 'pre_get_document_title', array( $this, 'vendor_page_title' ), 999, 1 );  
+
 	}
 
 	public static function change_archive_link( $link )
@@ -253,7 +255,7 @@ class WCV_Vendor_Shop
 
 		global $product; 
 
-		if (WCV_Vendors::is_vendor_product_page($product->post->post_author)) { 
+		if ( WCV_Vendors::is_vendor_product_page($product->post->post_author)) { 
 			
 			$vendor 			= get_userdata( $product->post->post_author ); 
 			$vendor_id   		= $product->post->post_author;
@@ -298,5 +300,21 @@ class WCV_Vendor_Shop
 
         wc_add_order_item_meta( $item_id, apply_filters( 'wcvendors_sold_by_in_email', $sold_by_label ), $sold_by ); 
 	}
+
+	/**
+	 * Add the Vendor shop name to the <title> tag 
+	 * 
+	 * @since 1.9.9 
+	 */
+	public function vendor_page_title( $title ){ 
+
+		if ( WCV_Vendors::is_vendor_page() || $vendor_page ) { 
+			return sprintf( '%s - %s', __( 'Products', 'wc-vendors'), self::page_title() ); 
+		} else { 
+			return $title; 
+		}
+
+	} // vendor_page_title
+
 
 }
