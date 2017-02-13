@@ -191,7 +191,7 @@ if ( wcv_is_woocommerce_activated() ) {
 		    $locale = apply_filters( 'plugin_locale', get_locale(), 'wcvendors' );
 
 		    //Place your custom translations into wp-content/languages/wc-vendors to be upgrade safe 
-		    load_textdomain($domain, WP_LANG_DIR.'/wc-vendors/wcvendors-'.$locale.'.mo');
+		    load_textdomain( 'wcvendors', WP_LANG_DIR.'/wc-vendors/wcvendors-'.$locale.'.mo');
 			
 			load_plugin_textdomain( 'wcvendors', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
