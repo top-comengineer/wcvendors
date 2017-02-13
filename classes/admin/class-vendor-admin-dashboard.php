@@ -252,6 +252,8 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 				return $item->date; 
 			case 'status' : 
 				return $item->status;
+			default: 
+				return apply_filters( 'wcvendors_vendor_order_page_column_default', '', $item, $column_name );
 		}
 	}
 
@@ -298,7 +300,8 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 
 		if ( !$this->can_view_comments ) unset( $columns['comments'] );
 
-		return $columns;
+		return apply_filters( 'wcvendors_vendor_order_page_get_columns', $columns );
+
 	}
 
 
