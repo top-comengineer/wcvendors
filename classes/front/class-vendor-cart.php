@@ -36,14 +36,17 @@ class WCV_Vendor_Cart
 	 */
 	public static function sold_by( $values, $cart_item )
 	{
-		$vendor_id = $cart_item[ 'data' ]->post->post_author;
-		$sold_by_label = WC_Vendors::$pv_options->get_option( 'sold_by_label' ); 
-		$sold_by   = WCV_Vendors::is_vendor( $vendor_id )
+
+		$product_id 	= $cart_item['data']->get_id();
+		$post 			= get_post( $product_id ); 
+		$vendor_id 		= $post->post_author; 
+		$sold_by_label 	= WC_Vendors::$pv_options->get_option( 'sold_by_label' ); 
+		$sold_by   		= WCV_Vendors::is_vendor( $vendor_id )
 			? sprintf( '<a href="%s" target="_TOP">%s </a>', WCV_Vendors::get_vendor_shop_page( $vendor_id ), WCV_Vendors::get_vendor_sold_by( $vendor_id ) )
 			: get_bloginfo( 'name' );
 
 		$values[ ] = array(
-			'name'    => apply_filters('wcvendors_cart_sold_by', $sold_by_label, $cart_item[ 'data' ]->post->ID, $cart_item[ 'data' ]->post->post_author ),
+			'name'    => apply_filters( 'wcvendors_cart_sold_by', $sold_by_label, $product_id, $vendor_id ),
 			'display' => $sold_by,
 		);
 
