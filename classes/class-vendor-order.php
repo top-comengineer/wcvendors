@@ -4,7 +4,7 @@
  *
  * @class    WC_Order_Vendor
  */
-class WC_Order_Vendor extends WC_Abstract_Order {
+class WC_Order_Vendor extends WC_Order {
 
 	/** @public string Order type */
 	public $order_type = 'vendor_order';

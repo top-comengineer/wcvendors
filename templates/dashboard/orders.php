@@ -56,7 +56,7 @@ jQuery(function () {
 		<?php foreach ( $order_summary as $order ) :
 
 			$order = new WC_Order( $order->order_id );
-			$valid_items = WCV_Queries::get_products_for_order( $order->id );
+			$valid_items = WCV_Queries::get_products_for_order( $order->get_id() );
 			$valid = array();
 			$needs_shipping = false; 
 
@@ -72,16 +72,16 @@ jQuery(function () {
 
 			}
 
-			$shippers = (array) get_post_meta( $order->id, 'wc_pv_shipped', true );
+			$shippers = (array) get_post_meta( $order->get_id(), 'wc_pv_shipped', true );
 			$shipped = in_array($user_id, $shippers);
 			
 			?>
 
-			<tr id="order-<?php echo $order->id; ?>" data-order-id="<?php echo $order->id; ?>">
+			<tr id="order-<?php echo $order->get_id(); ?>" data-order-id="<?php echo $order->get_id(); ?>">
 				<td><?php echo $order->get_order_number(); ?></td>
 				<td><?php echo apply_filters( 'wcvendors_dashboard_google_maps_link', '<a target="_blank" href="' . esc_url( 'http://maps.google.com/maps?&q=' . urlencode( esc_html( preg_replace( '#<br\s*/?>#i', ', ', $order->get_formatted_shipping_address() ) ) ) . '&z=16' ) . '">'. esc_html( preg_replace( '#<br\s*/?>#i', ', ', $order->get_formatted_shipping_address() ) ) .'</a>' ); ?></td>
-				<td><?php $sum = WCV_Queries::sum_for_orders( array( $order->id ), array('vendor_id'=>get_current_user_id()) ); $total = $sum[0]->line_total; $totals += $total; echo woocommerce_price( $total ); ?></td>
-				<td><?php echo $order->order_date; ?></td>
+				<td><?php $sum = WCV_Queries::sum_for_orders( array( $order->get_id() ), array('vendor_id'=>get_current_user_id()) ); $total = $sum[0]->line_total; $totals += $total; echo woocommerce_price( $total ); ?></td>
+				<td><?php echo $order->get_date_created(); ?></td>
 				<td>
                 <?php
 				$order_actions = array(
@@ -94,7 +94,7 @@ jQuery(function () {
 					$order_actions['shipped'] = array(
 						'class' 	=> 'mark-shipped',
 						'content'	=> __('Mark shipped', 'wcvendors'),
-						'url'		=> '?wc_pv_mark_shipped=' . $order->id
+						'url'		=> '?wc_pv_mark_shipped=' . $order->get_id()
 					);
 				} 
 				if ( $shipped ) {    
@@ -120,7 +120,7 @@ jQuery(function () {
 						$output[] = sprintf(
 							'<a href="%s" id="%s" class="%s">%s</a>',
 							(isset($data['url'])) ? $data['url'] : '#',
-							(isset($data['id'])) ? $data['id'] : $key . '-' . $order->id,
+							(isset($data['id'])) ? $data['id'] : $key . '-' . $order->get_id(),
 							(isset($data['class'])) ? $data['class'] : '',
 							$data['content']
 						);
@@ -131,7 +131,7 @@ jQuery(function () {
 				</td>
 			</tr>
 
-			<tr id="view-items-<?php echo $order->id; ?>" style="display:none;">
+			<tr id="view-items-<?php echo $order->get_id(); ?>" style="display:none;">
 				<td colspan="5">
 					<?php 
 					$product_id = '';
@@ -153,12 +153,12 @@ jQuery(function () {
 			<?php if ( class_exists( 'WC_Shipment_Tracking' ) ) : ?>
 			
 				<?php if ( is_array( $providers ) ) : ?>
-				<tr id="view-tracking-<?php echo $order->id; ?>" style="display:none;"> 
+				<tr id="view-tracking-<?php echo $order->get_id(); ?>" style="display:none;"> 
 					<td colspan="5">
 						<div class="order-tracking">
 							<?php
 							wc_get_template( 'shipping-form.php', array(
-																				'order_id'       => $order->id,
+																				'order_id'       => $order->get_id(),
 																				'product_id'     => $product_id,
 																				'providers'      => $providers,
 																		   ), 'wc-vendors/orders/shipping/', wcv_plugin_dir . 'templates/orders/shipping/' );

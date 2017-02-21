@@ -363,7 +363,7 @@ class WCV_Vendor_Dashboard
 
 				$commission_rate = WCV_Commission::get_commission_rate( $order_item->product_id );
 				$_product        = get_product( $order_item->product_id );
-				$id              = !empty($_product->parent->id) ? $_product->parent->id : $order_item->product_id;
+				$id              = !empty( $_product->get_parent_id() ) ? $_product->get_parent_id() : $order_item->product_id;
 
 				$data[ 'products' ][$id] = array(
 					'id'              => $id,

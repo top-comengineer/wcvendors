@@ -33,7 +33,7 @@ if ( $datepicker !== 'false' ) {
 				<tr>
 
 					<td class="product"><strong><a
-								href="<?php echo esc_url( get_permalink( $_product->id ) ) ?>"><?php echo $product[ 'title' ] ?></a></strong>
+								href="<?php echo esc_url( get_permalink( $_product->get_id() ) ) ?>"><?php echo $product[ 'title' ] ?></a></strong>
 						<?php if ( !empty( $_product->variation_id ) ) {
 							echo woocommerce_get_formatted_variation( $_product->variation_data );
 						} ?>

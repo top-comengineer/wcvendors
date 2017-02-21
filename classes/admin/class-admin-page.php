@@ -36,11 +36,13 @@ class WCV_Admin_Setup
 	{
 		global $woocommerce;
 
+		$order_id = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->id : $order->get_id();  	
+
 		$authors = WCV_Vendors::get_vendors_from_order( $order );
 		$authors = $authors ? array_keys( $authors ) : array();
 		if ( empty( $authors ) ) return false;
 
-		$shipped = (array) get_post_meta( $order->id, 'wc_pv_shipped', true );
+		$shipped = (array) get_post_meta( $order_id, 'wc_pv_shipped', true );
 		$string = '</br></br>';
 
 		foreach ($authors as $author ) {

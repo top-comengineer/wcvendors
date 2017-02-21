@@ -63,7 +63,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 			$this->object = new WC_Order( $order_id ); 
 
 			$this->find[ ]    = '{order_date}';
-			$this->replace[ ] = date_i18n( woocommerce_date_format(), strtotime( $this->object->order_date ) );
+			$this->replace[ ] = date_i18n( woocommerce_date_format(), strtotime( $this->object->get_date_created() ) );
 
 			$this->find[ ]    = '{order_number}';
 			$this->replace[ ] = $this->object->get_order_number();
@@ -175,6 +175,8 @@ class WC_Email_Notify_Vendor extends WC_Email
 
 		$settings = get_option( 'woocommerce_vendor_new_order_settings' ); 
 
+		if ( empty( $settings ) ) $settings = $this->form_fields; 
+
 		foreach ( $items as $key => $product ) {
 
 			//  If this is a line item 
@@ -188,7 +190,8 @@ class WC_Email_Notify_Vendor extends WC_Email
 				} else {
 
 					// If display commission is ticked show this otherwise show the full price. 
-					if ( 'yes' == $settings['commission_display'] ){ 
+					if ( 'yes' == $settings[ 'commission_display' ] ){ 
+
 						$commission_due = WCV_Commission::calculate_commission( $product[ 'line_subtotal' ], $product[ 'product_id' ], $order, $product[ 'qty' ] );
 
 						$items[ $key ][ 'line_subtotal' ] = $commission_due;
@@ -299,7 +302,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 	 */
 	function check_order_formatted_line_subtotal( $subtotal, $item, $order ){ 
 
-		$subtotal = wc_price( $order->get_line_subtotal( $item ), array( 'currency' => $order->get_order_currency() ) );
+		$subtotal = wc_price( $order->get_line_subtotal( $item ), array( 'currency' => $order->get_currency() ) );
 
 		return $subtotal; 
 
@@ -311,15 +314,15 @@ class WC_Email_Notify_Vendor extends WC_Email
 		$new_subtotal = 0; 
 
 		foreach ( $order->get_items() as $key => $product ) {
-
-				$new_subtotal += $product[ 'line_subtotal' ];
-
+			$new_subtotal += $product[ 'line_subtotal' ];
 		}
 
-		return woocommerce_price( $new_subtotal ); 
+		return wc_price( $new_subtotal ); 
 
 
 	} // check_order_subtotal_to_display() 
 
+
+	
 
 }

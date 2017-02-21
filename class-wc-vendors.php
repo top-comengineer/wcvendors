@@ -125,7 +125,7 @@ if ( wcv_is_woocommerce_activated() ) {
 		 */
 		public function invalid_wc_version()
 		{
-			echo '<div class="error"><p>' . __( '<b>WC Vendors is disabled</b>. WC Vendors requires a minimum of WooCommerce v2.5.0.', 'wcvendors' ) . '</p></div>';
+			echo '<div class="error"><p>' . __( '<b>WC Vendors is inactive</b>. WC Vendors requires a minimum of WooCommerce v2.6.0.', 'wcvendors' ) . '</p></div>';
 		}
 
 		/**
@@ -159,8 +159,8 @@ if ( wcv_is_woocommerce_activated() ) {
 		{
 			global $woocommerce;
 
-			// WC 2.5.0+ is required
-			if ( version_compare( $woocommerce->version, '2.5', '<' ) ) {
+			// WC 2.7.0+ is required
+			if ( version_compare( WC_VERSION, '2.6', '<' ) ) { 	
 				add_action( 'admin_notices', array( $this, 'invalid_wc_version' ) );
 				deactivate_plugins( plugin_basename( __FILE__ ) );
 				return false;

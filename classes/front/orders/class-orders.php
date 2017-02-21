@@ -284,14 +284,14 @@ class WCV_Orders
 			$body[ $i ] = array(
 				'order_number' => $order->get_order_number(),
 				'product'      => $product,
-				'name'         => $order->shipping_first_name . ' ' . $order->shipping_last_name,
-				'address'      => $order->shipping_address_1,
-				'city'         => $order->shipping_city,
-				'state'        => $order->shipping_state,
-				'zip'          => $order->shipping_postcode,
-				'email'        => $order->billing_email,
-				'date'         => $order->order_date,
-				'comments'     => wptexturize( $order->customer_note ),
+				'name'         => $order->get_shipping_first_name() . ' ' . $order->get_shipping_last_name(),
+				'address'      => $order->get_shipping_address_1(),
+				'city'         => $order->get_shipping_city(),
+				'state'        => $order->get_shipping_state(),
+				'zip'          => $order->get_shipping_postcode(),
+				'email'        => $order->get_billing_email(),
+				'date'         => $order->get_date_created(),
+				'comments'     => wptexturize( $order->get_customer_note() ),
 			);
 
 			if ( !$this->can_view_emails ) {

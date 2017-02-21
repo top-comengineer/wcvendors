@@ -311,7 +311,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 				$response[ $i ]->email     = $values[ 'vendor_id' ] == 1 ? $this->main_paypal : WCV_Vendors::get_vendor_paypal( $values[ 'vendor_id' ] );
 				$response[ $i ]->amount    = round( $values[ 'total' ], 2);
 				$response[ $i ]->primary   = false;
-				$response[ $i ]->invoiceId = $order->id;
+				$response[ $i ]->invoiceId = $order->get_id();
 				$i++;
 			}
 
@@ -321,7 +321,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 			$single_receiver->email     = $this->main_paypal;
 			$single_receiver->amount    = $order->get_total();
 			$single_receiver->primary   = false;
-			$single_receiver->invoiceId = $order->id;
+			$single_receiver->invoiceId = $order->get_id();
 			// Set a single reciever for the transaction
 			$response[] = $single_receiver;
 		}
@@ -355,7 +355,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 		$actionType   = 'CREATE';
 		$cancelUrl    = $order->get_cancel_order_url_raw();
 		$currencyCode = get_woocommerce_currency();
-		$returnUrl    = esc_url_raw( add_query_arg( 'key', $order->order_key, add_query_arg( 'order-received', $order->id, $order->get_checkout_order_received_url() ) ) );
+		$returnUrl    = esc_url_raw( add_query_arg( 'key', $order->order_key, add_query_arg( 'order-received', $order->get_id(), $order->get_checkout_order_received_url() ) ) );
 
 		$payRequest = new PayRequest( new RequestEnvelope( "en_US" ), $actionType, $cancelUrl, $currencyCode, $receiverList, $returnUrl );
 
@@ -374,7 +374,7 @@ class WC_PaypalAP extends WC_Payment_Gateway
 		);
 
 		$payRequest->ipnNotificationUrl                = add_query_arg( $args, home_url( '/' ) );
-		$payRequest->memo                              = !empty( $order->customer_note ) ? $order->customer_note : '';
+		$payRequest->memo                              = !empty( $order->get_customer_note() ) ? $order->get_customer_note() : '';
 		$payRequest->reverseAllParallelPaymentsOnError = true;
 
 		$service = new AdaptivePaymentsService();

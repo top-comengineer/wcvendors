@@ -427,7 +427,8 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 
 		$products = array();
 
-		foreach ($vendor_products as $_product) {
+		foreach ( $vendor_products as $_product ) {
+
 			$products[] = $_product->ID;
 		}
 
@@ -435,12 +436,14 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 		
 		$model_id = 0; 
 
-		if (!empty( $_orders ) ) { 
+		if ( !empty( $_orders ) ) { 
+
 			foreach ( $_orders as $order ) {
 
-				$order = new WC_Order( $order->order_id );
-				$valid_items = WCV_Queries::get_products_for_order( $order->id );
-				$valid = array();
+				$order 			= new WC_Order( $order->order_id );
+				$order_id 		= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->id : $order->get_id();  	
+				$valid_items 	= WCV_Queries::get_products_for_order( $order_id );
+				$valid 			= array();
 
 				$items = $order->get_items();
 
@@ -454,12 +457,21 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 
 				foreach ( $valid as $order_item_id => $item ) {
 					
-					$wc_product = new WC_Product( $item['product_id'] );
+					$wc_product 		= new WC_Product( $item['product_id'] );
 
-					$products .= '<strong>'. $item['qty'] . ' x ' . $item['name'] . '</strong><br />'; 
+					$products 			.= '<strong>'. $item['qty'] . ' x ' . $item['name'] . '</strong><br />'; 
+					
+					if ( version_compare( WC_VERSION, '2.7', '<' ) ) { 
+						$metadata = $order->has_meta( $order_item_id ); 
+					} else { 
+						$_item            	= $order->get_item( $order_item_id );
+						$meta_data       	= $_item->get_meta_data();
+					}
 
-					if ( $metadata = $order->has_meta( $order_item_id ) ) {
+					if ( !empty( $metadata ) ) {
+
 						$products .= '<table cellspacing="0" class="wcv_display_meta">';
+						
 						foreach ( $metadata as $meta ) {
 
 							// Skip hidden core fields
@@ -500,63 +512,21 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 													
 				}
 
-				$shippers = (array) get_post_meta( $order->id, 'wc_pv_shipped', true );
+				$shippers = (array) get_post_meta( $order->get_id(), 'wc_pv_shipped', true );
 				$shipped = in_array($user_id, $shippers) ? __( 'Yes', 'wcvendors' ) : __( 'No', 'wcvendors' ) ; 
 
-				$sum = WCV_Queries::sum_for_orders( array( $order->id ), array('vendor_id' =>get_current_user_id() ), false ); 
+				$sum = WCV_Queries::sum_for_orders( array( $order->get_id() ), array('vendor_id' =>get_current_user_id() ), false ); 
 				$sum = reset( $sum ); 
 				$total = $sum->line_total; 
 
 				$comment_output = '';
 
-				//  Need to fix how form is submitted for adding comments if at all possible. 
-
-				// if ( $this->can_view_comments) { 
-					
-				// 	$order_notes = $order->get_customer_order_notes();			
-
-				// 	$comment_output .= '<a href="#TB_inline?width=600&height=550&inlineId=order-comment-window-'.$model_id.'" class="thickbox">'; 
-				// 	$comment_output .= sprintf( __( 'Comments (%s)', 'wcvendors' ), count( $order_notes ) );
-				// 	$comment_output .= '</a>';	
-				// 	$comment_output .= '<div id="order-comment-window-'.$model_id.'" style="display:none;">'; 
-				// 	$comment_output .= '<h3>'.__('Comments to Customer', 'wcvendors' ). '</h3>';
-
-				// 	if ( !empty( $order_notes ) ) { 
-
-				// 		foreach ($order_notes as $order_note) {
-				// 			$last_added = human_time_diff( strtotime( $order_note->comment_date_gmt ), current_time( 'timestamp', 1 ) );
-				// 			$comment_output .= '<p>'; 
-				// 			$comment_output .= $order_note->comment_content; 
-				// 			$comment_output .= '<br />'; 
-				// 		    $comment_output .= sprintf(__( 'added %s ago', 'wcvendors' ), $last_added ); 
-				// 			$comment_output .= '<br />'; 
-				// 			$comment_output .= '</p>';
-				// 		}
-
-				// 	} else { 
-				// 		$comment_output .= '<p>'.__('No comments currently to customer.', 'wcvendors' ). '</p>';
-				// 	}
-
-				// 	if ( $this->can_add_comments ) { 
-				// 		$comment_output .=  wp_nonce_field( 'add-comment' ); 
-				// 		$comment_output .= '
-				// 			<textarea name="comment_text" style="width:97%"></textarea>
-				// 			<input type="hidden" name="order_id" value="'. $order->id .'">
-				// 			<input type="hidden" name="action" value="add_comment">
-				// 			<input class="btn btn-large btn-block" type="submit" name="submit_comment" value="'.__( 'Add comment', 'wcvendors' ).'">';
-				// 	} 
-
-				// 	$comment_output .= '</div>'; 
-
-				// }
-
 				$order_items = array(); 
-				$order_items[ 'order_id' ] 	= $order->id;
+				$order_items[ 'order_id' ] 	= $order->get_id();
 				$order_items[ 'customer' ] 	= $order->get_formatted_shipping_address();
 				$order_items[ 'products' ] 	= $products; 
 				$order_items[ 'total' ] 	= woocommerce_price( $total );
-				$order_items[ 'date' ] 		= date_i18n( wc_date_format(), strtotime( $order->order_date ) ); 
-				// $order_items[ 'comments' ]  = $comment_output; 
+				$order_items[ 'date' ] 		= date_i18n( wc_date_format(), strtotime( $order->get_date_created() ) ); 
 				$order_items[ 'status' ] 	= $shipped;
 
 				$orders[] = (object) $order_items; 

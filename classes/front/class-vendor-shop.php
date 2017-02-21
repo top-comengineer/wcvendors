@@ -37,7 +37,13 @@ class WCV_Vendor_Shop
 		add_filter ( 'woocommerce_show_page_title', array( 'WCV_Vendor_Shop', 'remove_vendor_title' ) ); 
 
 		// Show vendor on all sales related invoices 
-		add_action( 'woocommerce_add_order_item_meta', array('WCV_Vendor_Shop', 'add_vendor_to_order_item_meta'), 10, 2 );
+		if ( version_compare( WC_VERSION, '2.7', '<' ) ) { 	
+
+			add_action( 'woocommerce_add_order_item_meta', array( $this, 'add_vendor_to_order_item_meta_legacy' ), 50, 2 ); 
+
+		} else { 	
+
+			add_action( 'woocommerce_checkout_create_order_line_item', array( $this, 'add_vendor_to_order_item_meta' ), 50, 3 ); } 
 
 		// Add a vendor header 
 		if (WC_Vendors::$pv_options->get_option( 'shop_headers_enabled' ) ) { 
@@ -289,17 +295,42 @@ class WCV_Vendor_Shop
 	}
 
 	/* 
-	*	Add Vendor to Order item Meta 
-	* 	Thanks to Asbjoern Andersen for the code 
+	* Add Vendor to Order item Meta legacy
+	* Thanks to Asbjoern Andersen for the code 
 	*
+	* @depreciated 
 	*/ 
-	public static function add_vendor_to_order_item_meta( $item_id, $cart_item) {		
+	public static function add_vendor_to_order_item_meta_legacy( $item_id, $cart_item) {	
+
 		$vendor_id 		= $cart_item[ 'data' ]->post->post_author; 
 		$sold_by_label 	= WC_Vendors::$pv_options->get_option( 'sold_by_label' ); 
       	$sold_by 		= WCV_Vendors::is_vendor( $vendor_id ) ? sprintf( WCV_Vendors::get_vendor_sold_by( $vendor_id ) ): get_bloginfo( 'name' );
 
         wc_add_order_item_meta( $item_id, apply_filters( 'wcvendors_sold_by_in_email', $sold_by_label ), $sold_by ); 
 	}
+
+
+	/**
+	 * Add vendor to order item meta WC2.7 and above 
+	 * 
+	 * @since 1.9.9
+	 * @access public 
+	 */
+	public function add_vendor_to_order_item_meta( $item, $cart_item_key, $values ) {
+
+		$cart      		= WC()->cart->get_cart();
+		$cart_item 		= $cart[ $cart_item_key ]; 
+		$product_id 	= $cart_item['data']->get_id();
+		$post 			= get_post( $product_id ); 
+		$vendor_id 		= $post->post_author;  
+		$sold_by_label 	= WC_Vendors::$pv_options->get_option( 'sold_by_label' ); 
+		$sold_by 		= WCV_Vendors::is_vendor( $vendor_id ) ? sprintf( WCV_Vendors::get_vendor_sold_by( $vendor_id ) ): get_bloginfo( 'name' );
+
+		$item->add_meta_data( apply_filters( 'wcvendors_sold_by_in_email', $sold_by_label ), $sold_by );
+
+
+	} // add_vendor_to_order_item_meta() 
+
 
 	/**
 	 * Add the Vendor shop name to the <title> tag on archive and single product page
