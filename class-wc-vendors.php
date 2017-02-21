@@ -125,7 +125,7 @@ if ( wcv_is_woocommerce_activated() ) {
 		 */
 		public function invalid_wc_version()
 		{
-			echo '<div class="error"><p>' . __( '<b>WC Vendors is inactive</b>. WC Vendors requires a minimum of WooCommerce v2.6.0.', 'wcvendors' ) . '</p></div>';
+			echo '<div class="error"><p>' . __( '<b>WC Vendors is inactive</b>. WC Vendors requires a minimum of WooCommerce v2.7.0.', 'wcvendors' ) . '</p></div>';
 		}
 
 		/**
