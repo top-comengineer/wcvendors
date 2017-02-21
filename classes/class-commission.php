@@ -503,4 +503,34 @@ class WCV_Commission
 	} // commissions_now() 
 
 
+	/**
+	 * Get the commission for a specific order, product and vendor 
+	 * 
+	 * @since 1.9.9
+	 * @access public
+	 * @param int $order_id the order id to search for 
+	 * @param int $product_id the product id to search for 
+	 * @param int $vendor_id the vendor id to search for 
+	 */
+	public static function get_commission_due( $order_id, $product_id, $vendor_id ){ 
+
+		global $wpdb;
+
+		$table_name = $wpdb->prefix . "pv_commission";
+
+		$sql = "SELECT total_due"; 
+
+		$sql .= " 
+				FROM `{$table_name}`
+				WHERE vendor_id = {$vendor_id} 
+				AND product_id = '{$product_id}' 
+				AND order_id = '{$order_id}' 
+			"; 
+
+		$commission_due = $wpdb->get_var( $sql ); 
+
+		return $commission_due; 
+
+	} // get_commission_due() 
+
 }

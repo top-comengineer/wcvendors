@@ -175,13 +175,13 @@ class WC_Email_Notify_Vendor extends WC_Email
 
 		$settings = get_option( 'woocommerce_vendor_new_order_settings' ); 
 
-		if ( empty( $settings ) ) $settings = $this->form_fields; 
+		if ( empty( $settings ) ) $settings = $this->get_default_settings(); 
 
 		foreach ( $items as $key => $product ) {
 
 			//  If this is a line item 
-			if ($product['type'] == 'line_item') { 
-
+			if ( $product['type'] == 'line_item' ) { 
+// 
 				$author = WCV_Vendors::get_vendor_from_product( $product[ 'product_id' ] );
 
 				if ( $this->current_vendor != $author) {
@@ -192,7 +192,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 					// If display commission is ticked show this otherwise show the full price. 
 					if ( 'yes' == $settings[ 'commission_display' ] ){ 
 
-						$commission_due = WCV_Commission::calculate_commission( $product[ 'line_subtotal' ], $product[ 'product_id' ], $order, $product[ 'qty' ] );
+						$commission_due = WCV_Commission::get_commission_due( $order->get_id(), $product[ 'product_id' ], $author );
 
 						$items[ $key ][ 'line_subtotal' ] = $commission_due;
 						$items[ $key ][ 'line_total' ]    = $commission_due;
@@ -206,8 +206,10 @@ class WC_Email_Notify_Vendor extends WC_Email
 			}
 
 		}
+
 		return $items;
-	}
+
+	} // check_items() 
 
 
 	/**
@@ -322,7 +324,23 @@ class WC_Email_Notify_Vendor extends WC_Email
 
 	} // check_order_subtotal_to_display() 
 
+	/**
+	 * Get the default settings for this email if not already set. 
+	 * 
+	 * @since 1.9.9 
+	 * 
+	 */
+	public function get_default_settings(){ 
 
+		$settings = array(); 
+
+		foreach ( $this->form_fields as $key => $field ) {
+			$settings[ $key ] = $field[ 'default' ]; 
+		}
+
+		return $settings; 
+
+	} // get_default_settings()
 	
 
 }
