@@ -39,7 +39,7 @@ if ( $datepicker !== 'false' ) {
 						} ?>
 					</td>
 					<td class="qty"><?php echo $product[ 'qty' ]; ?></td>
-					<td class="commission"><?php echo woocommerce_price( $product[ 'cost' ] ); ?></td>
+					<td class="commission"><?php echo wc_price( $product[ 'cost' ] ); ?></td>
 					<td class="rate"><?php echo sprintf( '%.2f%%', $product[ 'commission_rate' ] ); ?></td>
 
 					<?php if ( $can_view_orders ) : ?>
@@ -55,7 +55,7 @@ if ( $datepicker !== 'false' ) {
 			<tr>
 				<td><strong><?php _e( 'Totals', 'wcvendors' ); ?></strong></td>
 				<td><?php echo $vendor_summary[ 'total_qty' ]; ?></td>
-				<td><?php echo woocommerce_price( $vendor_summary[ 'total_cost' ] ); ?></td>
+				<td><?php echo wc_price( $vendor_summary[ 'total_cost' ] ); ?></td>
 				<td></td>
 
 				<?php if ( $can_view_orders ) : ?>

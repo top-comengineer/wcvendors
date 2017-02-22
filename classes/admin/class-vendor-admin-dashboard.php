@@ -525,7 +525,7 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 				$order_items[ 'order_id' ] 	= $order->get_id();
 				$order_items[ 'customer' ] 	= $order->get_formatted_shipping_address();
 				$order_items[ 'products' ] 	= $products; 
-				$order_items[ 'total' ] 	= woocommerce_price( $total );
+				$order_items[ 'total' ] 	= wc_price( $total );
 				$order_items[ 'date' ] 		= date_i18n( wc_date_format(), strtotime( $order->get_date_created() ) ); 
 				$order_items[ 'status' ] 	= $shipped;
 

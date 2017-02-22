@@ -80,7 +80,7 @@ jQuery(function () {
 			<tr id="order-<?php echo $order->get_id(); ?>" data-order-id="<?php echo $order->get_id(); ?>">
 				<td><?php echo $order->get_order_number(); ?></td>
 				<td><?php echo apply_filters( 'wcvendors_dashboard_google_maps_link', '<a target="_blank" href="' . esc_url( 'http://maps.google.com/maps?&q=' . urlencode( esc_html( preg_replace( '#<br\s*/?>#i', ', ', $order->get_formatted_shipping_address() ) ) ) . '&z=16' ) . '">'. esc_html( preg_replace( '#<br\s*/?>#i', ', ', $order->get_formatted_shipping_address() ) ) .'</a>' ); ?></td>
-				<td><?php $sum = WCV_Queries::sum_for_orders( array( $order->get_id() ), array('vendor_id'=>get_current_user_id()) ); $total = $sum[0]->line_total; $totals += $total; echo woocommerce_price( $total ); ?></td>
+				<td><?php $sum = WCV_Queries::sum_for_orders( array( $order->get_id() ), array('vendor_id'=>get_current_user_id()) ); $total = $sum[0]->line_total; $totals += $total; echo wc_price( $total ); ?></td>
 				<td><?php echo $order->get_date_created(); ?></td>
 				<td>
                 <?php
@@ -175,7 +175,7 @@ jQuery(function () {
 
 			<tr>
 				<td><b>Total:</b></td>
-				<td colspan="4"><?php echo woocommerce_price( $totals ); ?></td>
+				<td colspan="4"><?php echo wc_price( $totals ); ?></td>
 			</tr>
 
 	<?php else : ?>

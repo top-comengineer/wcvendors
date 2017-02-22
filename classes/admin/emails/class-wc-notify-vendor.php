@@ -117,7 +117,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 			if ( $this->current_vendor == $due['vendor_id'] ) {
 				if (!empty($return[ 'shipping' ]))	$return[ 'shipping' ]          = $total_rows[ 'shipping' ];
 				$return[ 'shipping' ]['label']   = __( 'Shipping Subtotal:', 'wcvendors' );
-				$return[ 'shipping' ][ 'value' ] = woocommerce_price( $due['shipping'] );
+				$return[ 'shipping' ][ 'value' ] = wc_price( $due['shipping'] );
 				if ( WC_Vendors::$pv_options->get_option( 'give_tax' ) ) {
 					$return[ 'tax_subtotal']['value'] += $due['tax']; 
 				}
@@ -126,7 +126,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 		}
 		// Format tax price 
 		if ( WC_Vendors::$pv_options->get_option( 'give_tax' ) ) { 
-			$return[ 'tax_subtotal']['value'] = woocommerce_price( $return[ 'tax_subtotal'] ['value'] ); 
+			$return[ 'tax_subtotal']['value'] = wc_price( $return[ 'tax_subtotal'] ['value'] ); 
 		} 
 
 		return $return;

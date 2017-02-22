@@ -134,21 +134,21 @@ class WCV_Admin_Reports
 					<h3><span><?php _e( 'Total paid in range', 'wcvendors' ); ?></span></h3>
 
 					<div class="inside">
-						<p class="stat"><?php if ( $paid > 0 ) echo woocommerce_price( $paid ); else _e( 'n/a', 'wcvendors' ); ?></p>
+						<p class="stat"><?php if ( $paid > 0 ) echo wc_price( $paid ); else _e( 'n/a', 'wcvendors' ); ?></p>
 					</div>
 				</div>
 				<div class="postbox">
 					<h3><span><?php _e( 'Total due in range', 'wcvendors' ); ?></span></h3>
 
 					<div class="inside">
-						<p class="stat"><?php if ( $commission_due > 0 ) echo woocommerce_price( $commission_due ); else _e( 'n/a', 'wcvendors' ); ?></p>
+						<p class="stat"><?php if ( $commission_due > 0 ) echo wc_price( $commission_due ); else _e( 'n/a', 'wcvendors' ); ?></p>
 					</div>
 				</div>
 				<div class="postbox">
 					<h3><span><?php _e( 'Total reversed in range', 'wcvendors' ); ?></span></h3>
 
 					<div class="inside">
-						<p class="stat"><?php if ( $reversed > 0 ) echo woocommerce_price( $reversed ); else _e( 'n/a', 'wcvendors' ); ?></p>
+						<p class="stat"><?php if ( $reversed > 0 ) echo wc_price( $reversed ); else _e( 'n/a', 'wcvendors' ); ?></p>
 					</div>
 				</div>
 			</div>
@@ -190,7 +190,7 @@ class WCV_Admin_Reports
 											</td>
 											<td><?php echo get_the_title( $row->product_id ); ?></td>
 											<td><?php echo WCV_Vendors::get_vendor_shop_name( $row->vendor_id ); ?></td>
-											<td><?php echo woocommerce_price( $row->total_due + $row->total_shipping + $row->tax ) ?></td>
+											<td><?php echo wc_price( $row->total_due + $row->total_shipping + $row->tax ) ?></td>
 											<td><?php echo date_i18n( __( 'D j M Y \a\t h:ia', 'wcvendors' ), strtotime( $row->time ) ) ?></td>
 											<td><?php echo $commission_status_labels[ $row->status ]; ?></td>
 										</tr>
@@ -377,7 +377,7 @@ class WCV_Admin_Reports
 						echo '<td>' . __( 'Total', 'wcvendors' ) . '</td>';
 
 						foreach ( $total as $value ) {
-							echo '<td class="total_row">' . woocommerce_price( $value ) . '</td>';
+							echo '<td class="total_row">' . wc_price( $value ) . '</td>';
 						}
 						?>
 					</tr>
@@ -390,7 +390,7 @@ class WCV_Admin_Reports
 						echo '<tr class="' . $alt . '"><td>' . $month . '</td>';
 
 						foreach ( $commission as $value ) {
-							echo '<td class="total_row">' . woocommerce_price( $value ) . '</td>';
+							echo '<td class="total_row">' . wc_price( $value ) . '</td>';
 						}
 
 						echo '</tr>';
@@ -474,10 +474,10 @@ class WCV_Admin_Reports
 
 							echo '<tr>'; 
 							echo '<td>' . $totals[ 'user_login' ]. '</td>'; 
-							echo '<td>' . woocommerce_price( $totals[ 'tax' ] ). '</td>'; 
-							echo '<td>' . woocommerce_price( $totals[ 'total_shipping' ] ). '</td>'; 
+							echo '<td>' . wc_price( $totals[ 'tax' ] ). '</td>'; 
+							echo '<td>' . wc_price( $totals[ 'total_shipping' ] ). '</td>'; 
 							echo '<td>' . $totals[ 'status' ] . '</td>'; 
-							echo '<td>' . woocommerce_price( $totals[ 'total_due' ] ). '</td>'; 
+							echo '<td>' . wc_price( $totals[ 'total_due' ] ). '</td>'; 
 							echo '</tr>'; 						
 						
 						}
