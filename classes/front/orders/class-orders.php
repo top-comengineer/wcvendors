@@ -63,7 +63,7 @@ class WCV_Orders
 			
 			$products = array( $this->product_id );
 
-			$_product = get_product( $this->product_id );
+			$_product = wc_get_product( $this->product_id );
 
 			if  ( is_object( $_product ) ) { 
 
@@ -104,7 +104,7 @@ class WCV_Orders
 			
 			$products = array( $this->product_id );
 
-			$_product = get_product( $this->product_id );
+			$_product = wc_get_product( $this->product_id );
 
 			if  ( is_object( $_product ) ) { 
 
@@ -170,7 +170,7 @@ class WCV_Orders
 			
 			$products = array( $this->product_id );
 
-			$_product = get_product( $this->product_id );
+			$_product = wc_get_product( $this->product_id );
 
 			if  ( is_object( $_product ) ) { 
 
@@ -276,7 +276,7 @@ class WCV_Orders
 	public function format_order_details( $orders, $product_id )
 	{
 		$body    = $items = array();
-		$product = get_product( $product_id )->get_title();
+		$product = wc_get_product( $product_id )->get_title();
 
 		foreach ( $orders as $i => $order ) {
 			$i          = $order->order_id;

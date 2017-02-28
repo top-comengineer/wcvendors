@@ -291,7 +291,7 @@ class WCV_Admin_Reports
 		if ( !empty( $selected_vendor ) || !empty( $products ) ) {
 
 			foreach ($products as $key => $product_id) {
-				$_product = get_product($product_id);
+				$_product = wc_get_product($product_id);
 				$childs = $_product->get_children();
 				$products = array_merge($childs, $products);
 			}

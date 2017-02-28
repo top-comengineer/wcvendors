@@ -362,7 +362,7 @@ class WCV_Vendor_Dashboard
 				if ( $order_item->qty < 1 ) continue;
 
 				$commission_rate = WCV_Commission::get_commission_rate( $order_item->product_id );
-				$_product        = get_product( $order_item->product_id );
+				$_product        = wc_get_product( $order_item->product_id );
 				$id              = !empty( $_product->get_parent_id() ) ? $_product->get_parent_id() : $order_item->product_id;
 
 				$data[ 'products' ][$id] = array(

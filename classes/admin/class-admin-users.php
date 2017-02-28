@@ -78,30 +78,6 @@ class WCV_Admin_Users
 		}
 	}
 
-	// public function get_terms_filter( $terms, $tax, $args )
-	// {
-	// 	if ( $tax[0] != 'product_type' || ( $tax[0] == 'product_type' && ! empty( $args['include'] ) ) ) {
-	// 		return $terms;
-	// 	}
-
-	// 	$products = WCV_Vendors::get_vendor_products( get_current_user_id() );
-	// 	$ids = array();
-	// 	foreach ( $products as $product ) {
-	// 		$ids[ ] = ( $product->ID );
-	// 		$product = get_product( $product )->product_type;
-	// 		var_dump($product);exit;
-	// 	}
-
-	// 	$args['include'] = $ids;
-
-	// 	var_dump($terms);exit;
-
-	// 	$terms = get_terms( $tax[0], $args);
-
-
-	// 	return $terms;
-	// }
-
 	public function csv_import_suite_compatibility( $capability )
 	{
 		return 'manage_product';

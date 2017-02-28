@@ -45,7 +45,7 @@ class WCV_Shipping
 		$shipping_costs = array( 'amount' => 0, 'tax' => 0);
 		$shipping_due = 0; 
 		$method = '';
-		$_product     = get_product( $product[ 'product_id' ] );
+		$_product     = wc_get_product( $product[ 'product_id' ] );
 		$order = wc_get_order( $order_id ); 
 
 		if ( $_product && $_product->needs_shipping() && !$_product->is_downloadable() ) {

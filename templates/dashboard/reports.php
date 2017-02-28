@@ -28,7 +28,7 @@ if ( $datepicker !== 'false' ) {
 		<?php if ( !empty( $vendor_summary[ 'products' ] ) ) : ?>
 
 			<?php foreach ( $vendor_summary[ 'products' ] as $product ) :
-				$_product = get_product( $product[ 'id' ] ); ?>
+				$_product = wc_get_product( $product[ 'id' ] ); ?>
 
 				<tr>
 

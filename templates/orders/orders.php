@@ -4,7 +4,7 @@ global $woocommerce; ?>
 
 <?php if ( function_exists( 'wc_print_notices' ) ) { wc_print_notices(); } ?>
 
-<h2><?php printf( 'Orders for %s', get_product( $product_id )->get_title() ); ?></h2>
+<h2><?php printf( 'Orders for %s', wc_get_product( $product_id )->get_title() ); ?></h2>
 
 <table class="table table-striped table-bordered">
 	<thead>

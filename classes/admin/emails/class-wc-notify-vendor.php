@@ -63,7 +63,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 			$this->object = new WC_Order( $order_id ); 
 
 			$this->find[ ]    = '{order_date}';
-			$this->replace[ ] = date_i18n( woocommerce_date_format(), strtotime( $this->object->get_date_created() ) );
+			$this->replace[ ] = date_i18n( wc_date_format(), strtotime( $this->object->get_date_created() ) );
 
 			$this->find[ ]    = '{order_number}';
 			$this->replace[ ] = $this->object->get_order_number();
