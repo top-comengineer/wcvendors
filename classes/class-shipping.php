@@ -113,9 +113,9 @@ class WCV_Shipping
 		$taxable = $settings['tax_status']; 
 
 		$order = new WC_Order( $order_id );
-		$package[ 'destination' ][ 'country' ]  = $order->shipping_country;
-		$package[ 'destination' ][ 'state' ]    = $order->shipping_state;
-		$package[ 'destination' ][ 'postcode' ] = $order->shipping_postcode;
+		$package[ 'destination' ][ 'country' ]  = $order->get_shipping_country();
+		$package[ 'destination' ][ 'state' ]    = $order->get_shipping_state();
+		$package[ 'destination' ][ 'postcode' ] = $order->get_shipping_postcode();
 		$product_id = !empty( $product['variation_id'] ) ? $product['variation_id'] : $product['product_id'];
 
 		if ( !empty( $product['variation_id'] ) ) {
@@ -163,17 +163,17 @@ class WCV_Shipping
 
         } elseif ( 'billing' === $tax_based_on ) {
 
-            $country  = $order->billing_country;
-            $state    = $order->billing_state;
-            $postcode = $order->billing_postcode;
-            $city     = $order->billing_city;
+            $country  = $order->get_billing_country();
+            $state    = $order->get_billing_state();
+            $postcode = $order->get_billing_postcode();
+            $city     = $order->get_billing_city();
 
         } else {
 
-            $country  = $order->shipping_country;
-            $state    = $order->shipping_state;
-            $postcode = $order->shipping_postcode;
-            $city     = $order->shipping_city;
+            $country  = $order->get_shipping_country();
+            $state    = $order->get_shipping_state();
+            $postcode = $order->get_shipping_postcode();
+            $city     = $order->get_shipping_city();
 
         }
 

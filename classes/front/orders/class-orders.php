@@ -42,7 +42,7 @@ class WCV_Orders
 		$orders_page = $orders_page_id; 
 		// Only if the orders page is set should we check access 
 		if ( $orders_page && is_page( $orders_page ) && !is_user_logged_in() ) {
-			wp_redirect( get_permalink( woocommerce_get_page_id( 'myaccount' ) ), 303 );
+			wp_redirect( get_permalink( wc_get_page_id( 'myaccount' ) ), 303 );
 			exit;
 		}
 		

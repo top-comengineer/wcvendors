@@ -65,11 +65,11 @@ class WCV_Vendor_Dashboard
 			$order_id   = (int) $_POST[ 'order_id' ];
 			$product_id = (int) $_POST[ 'product_id' ];
 
-			$tracking_provider        = woocommerce_clean( $_POST[ 'tracking_provider' ] );
-			$custom_tracking_provider = woocommerce_clean( $_POST[ 'custom_tracking_provider_name' ] );
-			$custom_tracking_link     = woocommerce_clean( $_POST[ 'custom_tracking_url' ] );
-			$tracking_number          = woocommerce_clean( $_POST[ 'tracking_number' ] );
-			$date_shipped             = woocommerce_clean( strtotime( $_POST[ 'date_shipped' ] ) );
+			$tracking_provider        = wc_clean( $_POST[ 'tracking_provider' ] );
+			$custom_tracking_provider = wc_clean( $_POST[ 'custom_tracking_provider_name' ] );
+			$custom_tracking_link     = wc_clean( $_POST[ 'custom_tracking_url' ] );
+			$tracking_number          = wc_clean( $_POST[ 'tracking_number' ] );
+			$date_shipped             = wc_clean( strtotime( $_POST[ 'date_shipped' ] ) );
 
 			$order    = new WC_Order( $order_id );
 			$products = $order->get_items();
@@ -80,8 +80,8 @@ class WCV_Vendor_Dashboard
 				}
 			}
 			if ( $order_item_id ) {
-				woocommerce_delete_order_item_meta( $order_item_id, __( 'Tracking number', 'wcvendors' ) );
-				woocommerce_add_order_item_meta( $order_item_id, __( 'Tracking number', 'wcvendors' ), $tracking_number );
+				wc_delete_order_item_meta( $order_item_id, __( 'Tracking number', 'wcvendors' ) );
+				wc_add_order_item_meta( $order_item_id, __( 'Tracking number', 'wcvendors' ), $tracking_number );
 
 				$message = __( 'Success. Your tracking number has been updated.', 'wcvendors' );
 				wc_add_notice( $message, 'success' );
@@ -152,7 +152,7 @@ class WCV_Vendor_Dashboard
 
 		if ( $vendor_dashboard_page && is_page( $vendor_dashboard_page ) || $shop_settings_page && is_page( $shop_settings_page ) ) {
 			if ( !is_user_logged_in() ) {
-				wp_redirect( get_permalink( woocommerce_get_page_id( 'myaccount' ) ), 303 );
+				wp_redirect( get_permalink( wc_get_page_id( 'myaccount' ) ), 303 );
 				exit;
 			}
 		}

@@ -57,7 +57,7 @@ class PPConfigManager
 				'http.Retry'             => '5',
 				'log.FileName'           => 'PayPal.log',
 				'log.LogLevel'           => 'INFO',
-				'log.LogEnabled'         => $settings[ 'logging_enabled' ] == 'yes' ? 'true' : 'false',
+				'log.LogEnabled'         => false, //$settings[ 'logging_enabled' ] == 'yes' ? 'true' : 'false',
 			);
 		} else {
 			$this->config = @parse_ini_file( $fileName );
