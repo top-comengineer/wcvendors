@@ -160,7 +160,7 @@ if ( wcv_is_woocommerce_activated() ) {
 			global $woocommerce;
 
 			// WC 2.7.0+ is required
-			if ( version_compare( WC_VERSION, '2.6', '<' ) ) { 	
+			if ( version_compare( WC_VERSION, '2.7', '<' ) ) { 	
 				add_action( 'admin_notices', array( $this, 'invalid_wc_version' ) );
 				deactivate_plugins( plugin_basename( __FILE__ ) );
 				return false;
