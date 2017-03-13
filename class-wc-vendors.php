@@ -159,8 +159,7 @@ if ( wcv_is_woocommerce_activated() ) {
 		{
 			global $woocommerce;
 
-			// WC 2.7.0+ is required
-			if ( version_compare( WC_VERSION, '2.7', '<' ) ) { 	
+			if ( version_compare( WC_VERSION, '2.6', '<' ) ) { 	
 				add_action( 'admin_notices', array( $this, 'invalid_wc_version' ) );
 				deactivate_plugins( plugin_basename( __FILE__ ) );
 				return false;
@@ -386,11 +385,31 @@ if ( wcv_is_woocommerce_activated() ) {
 			if ( isset($_GET['wcv_pl_ignore_notice']) && '0' == $_GET['wcv_pl_ignore_notice'] ) {
 			 	add_user_meta( $current_user_id, 'wcv_pl_ignore_notice', 'true' , true);
 			}
+			
 		}
 
+		/**
+		 * Class logger so that we can keep our debug and logging information cleaner 
+		 *
+		 * @since 1.4.0 
+		 * @access public
+		 * 
+		 * @param mixed - $data the data to go to the error log could be string, array or object
+		 */
+		public static function log( $data = '' ){ 
+
+			$trace 	= debug_backtrace( false, 2 ); 
+			$caller = ( isset( $trace[ 1 ] ) ) ? $trace[ 1 ][ 'class' ] : ''; 
+
+			if ( is_array( $data ) || is_object( $data ) ) { 
+				error_log( $caller . ' : ' . print_r( $data, true ) ); 
+			} else { 
+				error_log( $caller  . ' : ' . $data );
+			}
+
+		} // log() 
 
 	}
-
 
 	$wc_vendors = new WC_Vendors;
 

@@ -62,8 +62,10 @@ class WC_Email_Notify_Vendor extends WC_Email
 		if ( $order_id ) {
 			$this->object = new WC_Order( $order_id ); 
 
+			$order_date = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $this->object->order_date : $this->object->get_date_created(); 
+
 			$this->find[ ]    = '{order_date}';
-			$this->replace[ ] = date_i18n( wc_date_format(), strtotime( $this->object->get_date_created() ) );
+			$this->replace[ ] = date_i18n( wc_date_format(), strtotime( $order_date ) );
 
 			$this->find[ ]    = '{order_number}';
 			$this->replace[ ] = $this->object->get_order_number();
@@ -181,7 +183,7 @@ class WC_Email_Notify_Vendor extends WC_Email
 
 			//  If this is a line item 
 			if ( $product['type'] == 'line_item' ) { 
-// 
+				
 				$author = WCV_Vendors::get_vendor_from_product( $product[ 'product_id' ] );
 
 				if ( $this->current_vendor != $author) {
@@ -192,7 +194,9 @@ class WC_Email_Notify_Vendor extends WC_Email
 					// If display commission is ticked show this otherwise show the full price. 
 					if ( 'yes' == $settings[ 'commission_display' ] ){ 
 
-						$commission_due = WCV_Commission::get_commission_due( $order->get_id(), $product[ 'product_id' ], $author );
+						$order_id 		= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->id : $order->get_id(); 
+
+						$commission_due = WCV_Commission::get_commission_due( $order_id, $product[ 'product_id' ], $author );
 
 						$items[ $key ][ 'line_subtotal' ] = $commission_due;
 						$items[ $key ][ 'line_total' ]    = $commission_due;
@@ -304,7 +308,9 @@ class WC_Email_Notify_Vendor extends WC_Email
 	 */
 	function check_order_formatted_line_subtotal( $subtotal, $item, $order ){ 
 
-		$subtotal = wc_price( $order->get_line_subtotal( $item ), array( 'currency' => $order->get_currency() ) );
+		$order_currency = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->get_order_currency() : $order->get_currency(); 
+
+		$subtotal = wc_price( $order->get_line_subtotal( $item ), array( 'currency' => $order_currency ) );
 
 		return $subtotal; 
 

@@ -124,7 +124,12 @@ class WC_Gateway_WCV_Gateway_Test extends WC_Payment_Gateway {
 		$order->update_status( 'processing', __( 'Test gateway transation complete.  Order processing.', 'woocommerce' ) );
 
 		// Reduce stock levels
-		wc_reduce_stock_levels( $order_id );
+		if ( version_compare( WC_VERSION, '2.7', '<' ) ){ 
+			$order->reduce_order_stock();
+		} else { 
+			wc_reduce_stock_levels( $order_id );
+		}
+		
 
 		// Remove cart
 		WC()->cart->empty_cart();

@@ -512,21 +512,24 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 													
 				}
 
-				$shippers = (array) get_post_meta( $order->get_id(), 'wc_pv_shipped', true );
-				$shipped = in_array($user_id, $shippers) ? __( 'Yes', 'wcvendors' ) : __( 'No', 'wcvendors' ) ; 
+				$order_id 	= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->id : $order->get_id();  	
+				$shippers 	= (array) get_post_meta( $order_id, 'wc_pv_shipped', true );
+				$shipped 	= in_array($user_id, $shippers) ? __( 'Yes', 'wcvendors' ) : __( 'No', 'wcvendors' ) ; 
 
-				$sum = WCV_Queries::sum_for_orders( array( $order->get_id() ), array('vendor_id' =>get_current_user_id() ), false ); 
+				$sum = WCV_Queries::sum_for_orders( array( $order_id  ), array('vendor_id' =>get_current_user_id() ), false ); 
 				$sum = reset( $sum ); 
 				$total = $sum->line_total; 
 
 				$comment_output = '';
 
+				$order_date = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->order_date : $order->get_date_created(); 
+
 				$order_items = array(); 
-				$order_items[ 'order_id' ] 	= $order->get_id();
+				$order_items[ 'order_id' ] 	= $order_id;
 				$order_items[ 'customer' ] 	= $order->get_formatted_shipping_address();
 				$order_items[ 'products' ] 	= $products; 
 				$order_items[ 'total' ] 	= wc_price( $total );
-				$order_items[ 'date' ] 		= date_i18n( wc_date_format(), strtotime( $order->get_date_created() ) ); 
+				$order_items[ 'date' ] 		= date_i18n( wc_date_format(), strtotime( $order_date ) ); 
 				$order_items[ 'status' ] 	= $shipped;
 
 				$orders[] = (object) $order_items; 

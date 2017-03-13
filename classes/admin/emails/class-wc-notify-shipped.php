@@ -52,9 +52,10 @@ class WC_Email_Notify_Shipped extends WC_Email
 	{
 		$this->object = new WC_Order( $order_id );
 		$this->current_vendor = $vendor_id;
+		$order_date = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $this->object->order_date : $this->object->get_date_created(); 
 
 		$this->find[ ]    = '{order_date}';
-		$this->replace[ ] = date_i18n( wc_date_format(), strtotime( $this->object->get_date_created() ) );
+		$this->replace[ ] = date_i18n( wc_date_format(), strtotime( $order_date ) );
 
 		$this->find[ ]    = '{order_number}';
 		$this->replace[ ] = $this->object->get_order_number();

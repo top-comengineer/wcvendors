@@ -573,8 +573,10 @@ class WCV_Vendors
 			$vendor_order = wc_get_order( $vendor_order_id );
 			$order        = wc_get_order( $args['order_id'] );
 
+			$order_currency = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->get_order_currency() : $order->get_currency(); 
+
 			// Order currency is the same used for the parent order
-			update_post_meta( $vendor_order_id, '_order_currency', $order->get_currency() );
+			update_post_meta( $vendor_order_id, '_order_currency', $order_currency );
 
 			if ( sizeof( $args['line_items'] ) > 0 ) {
 				$order_items = $order->get_items( array( 'line_item', 'fee', 'shipping' ) );

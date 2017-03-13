@@ -34,8 +34,7 @@ class WCV_Vendor_Cart
 	 *
 	 * @return unknown
 	 */
-	public static function sold_by( $values, $cart_item )
-	{
+	public static function sold_by( $values, $cart_item ){
 
 		$product_id 	= $cart_item['data']->get_id();
 		$post 			= get_post( $product_id ); 

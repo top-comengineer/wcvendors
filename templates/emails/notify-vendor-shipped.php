@@ -6,7 +6,11 @@
  * @package WooCommerce/Templates/Emails/HTML
  * @version 2.0.0
  */
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly ?>
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly 
+
+$order_date = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->order_date : $order->get_date_created(); 
+
+?>
 
 <?php do_action( 'woocommerce_email_header', $email_heading ); ?>
 
@@ -14,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly ?>
 
 <?php do_action( 'woocommerce_email_before_order_table', $order, true ); ?>
 
-<h2><?php printf( __( 'Order: %s', 'wcvendors'), $order->get_order_number() ); ?> (<?php printf( '<time datetime="%s">%s</time>', date_i18n( 'c', strtotime( $order->get_date_created() ) ), date_i18n( wc_date_format(), strtotime( $order->get_date_created() ) ) ); ?>)</h2>
+<h2><?php printf( __( 'Order: %s', 'wcvendors'), $order->get_order_number() ); ?> (<?php printf( '<time datetime="%s">%s</time>', date_i18n( 'c', strtotime( $order_date ) ), date_i18n( wc_date_format(), strtotime( $order_date ) ) ); ?>)</h2>
 
 <table cellspacing="0" cellpadding="6" style="width: 100%; border: 1px solid #eee;" border="1" bordercolor="#eee">
 	<thead>

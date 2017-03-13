@@ -130,7 +130,8 @@ class WCV_Commission
 			foreach ( $details as $key => $detail ) {
 
 				$product_id = $detail['product_id'];
-
+				$order_date = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->order_date : $order->get_date_created();  
+				
 				$insert_due[ $product_id ] = array(
 					'order_id'       => $order_id,
 					'vendor_id'      => $vendor_id,
@@ -139,7 +140,7 @@ class WCV_Commission
 					'total_shipping' => !empty( $insert_due[ $product_id ][ 'total_shipping' ] ) ? ( $detail[ 'shipping' ] + $insert_due[ $product_id ][ 'total_shipping' ] ) : $detail[ 'shipping' ],
 					'tax'            => !empty( $insert_due[ $product_id ][ 'tax' ] ) ? ( $detail[ 'tax' ] + $insert_due[ $product_id ][ 'tax' ] ) : $detail[ 'tax' ],
 					'qty'            => !empty( $insert_due[ $product_id ][ 'qty' ] ) ? ( $detail[ 'qty' ] + $insert_due[ $product_id ][ 'qty' ] ) : $detail[ 'qty' ],
-					'time'           => date( 'Y-m-d H:i:s', $order->get_date_created() ),
+					'time'           => date( 'Y-m-d H:i:s', strtotime( $order_date ) ),
 				);
 			}
 
