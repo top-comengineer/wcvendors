@@ -1,5 +1,22 @@
 Changelog for WC Vendors
 
+Version 1.9.9 
+
+* Added: Filters to vendor admin dashboard class for custom columns #339
+* Added: Vendor shop name to the <title> tag on products archive page
+* Updated Woocommerce 2.7 compatibility
+* Updated: i18n text domain loading for proper translations #341
+* Fixed: Commissions Subtotal showing Full Product Price in vendor email #330
+* Fixed: Capabilities Fix for Resetting Roles #329
+* Fixed: HTML title attribute doesn't change for store pages #328
+* Fixed: Login form not displayed if get variable set
+* Fixed: Depreciated action in product edit screen
+
+Templates Updated: 
+	templates/emails/vendor-new-order.php
+	templates/emails/notify-vendor-shipped.php 
+	templates/order/orders.php
+	
 Version 1.9.8 
 
 * Fixed: Paypal adaptive payments url changes 

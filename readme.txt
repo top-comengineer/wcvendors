@@ -6,7 +6,7 @@ Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.4.0
 Tested up to: 4.7.1
-Stable tag: 1.9.8
+Stable tag: 1.9.9
 License: GPLv2 or later
 
 The free marketplace plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
@@ -122,7 +122,22 @@ No Upgrade required at this time.
 
 == Changelog ==
 
+= Version 1.9.9 - 14th March 2017 = 
+
+* Added: Filters to vendor admin dashboard class for custom columns #339
+* Added: Vendor shop name to the <title> tag on products archive page
+* Updated Woocommerce 2.7 compatibility
+* Updated: i18n text domain loading for proper translations #341
+* Fixed: Commissions Subtotal showing Full Product Price in vendor email #330
 * Fixed: Capabilities Fix for Resetting Roles #329
+* Fixed: HTML title attribute doesn't change for store pages #328
+* Fixed: Login form not displayed if get variable set
+* Fixed: Depreciated action in product edit screen
+
+Templates Updated: 
+	templates/emails/vendor-new-order.php
+	templates/emails/notify-vendor-shipped.php 
+	templates/order/orders.php
 
 = Version 1.9.8 - 18th January 2017 =
 

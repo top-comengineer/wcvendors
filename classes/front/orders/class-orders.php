@@ -293,7 +293,6 @@ class WCV_Orders
 			$billing_email 		 = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->billing_email 		: $order->get_billing_email(); 
 			$customer_note 		 = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->customer_note 		: $order->get_customer_note(); 
 
-
 			$body[ $i ] = array(
 				'order_number' => $order->get_order_number(),
 				'product'      => $product,
