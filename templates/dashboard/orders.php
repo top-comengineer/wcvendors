@@ -80,7 +80,7 @@ jQuery(function () {
 			
 			?>
 
-			<tr id="order-<?php echo $order_id; ?>" data-order-id="<?php echo $order_id); ?>">
+			<tr id="order-<?php echo $order_id; ?>" data-order-id="<?php echo $order_id; ?>">
 				<td><?php echo $order->get_order_number(); ?></td>
 				<td><?php echo apply_filters( 'wcvendors_dashboard_google_maps_link', '<a target="_blank" href="' . esc_url( 'http://maps.google.com/maps?&q=' . urlencode( esc_html( preg_replace( '#<br\s*/?>#i', ', ', $order->get_formatted_shipping_address() ) ) ) . '&z=16' ) . '">'. esc_html( preg_replace( '#<br\s*/?>#i', ', ', $order->get_formatted_shipping_address() ) ) .'</a>' ); ?></td>
 				<td><?php $sum = WCV_Queries::sum_for_orders( array( $order_id ), array('vendor_id'=>get_current_user_id()) ); $total = $sum[0]->line_total; $totals += $total; echo wc_price( $total ); ?></td>
