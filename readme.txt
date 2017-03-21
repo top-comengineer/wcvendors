@@ -128,6 +128,9 @@ No Upgrade required at this time.
 * Added: Vendor shop name to the <title> tag on products archive page
 * Updated Woocommerce 2.7 compatibility
 * Updated: i18n text domain loading for proper translations #341
+* Fixed: Class logger when called via includes files
+* Fixed: Bug in how admin notices are displayed when saving shop settings
+* Fixed: 2.7 compatibility bugs
 * Fixed: Commissions Subtotal showing Full Product Price in vendor email #330
 * Fixed: Capabilities Fix for Resetting Roles #329
 * Fixed: HTML title attribute doesn't change for store pages #328
