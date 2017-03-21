@@ -285,7 +285,7 @@ class WCV_Orders
 
 			$shipping_first_name = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->billing_first_name 	: $order->get_shipping_first_name(); 
 			$shipping_last_name  = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->billing_last_name 	: $order->get_shipping_last_name(); 
-			$shipping_address1 	 = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->shipping_address_1 	: $order->get_shipping_address1();
+			$shipping_address_1  = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->shipping_address_1 	: $order->get_shipping_address_1();
 			$shipping_city 		 = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->shipping_city 		: $order->get_shipping_city();
 			$shipping_country 	 = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->shipping_country 	: $order->get_shipping_country();
 			$shipping_state 	 = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->shipping_state 		: $order->get_shipping_state();
@@ -302,8 +302,8 @@ class WCV_Orders
 				'state'        => $shipping_state,
 				'zip'          => $shipping_postcode,
 				'email'        => $billing_email,
-				'date'         => $order_date,
-				'comments'     => wptexturize( $order->get_customer_note() ),
+				'date'         => date_i18n( wc_date_format(), strtotime( $order_date ) ),
+				'comments'     => wptexturize( $customer_note ),
 			);
 
 			if ( !$this->can_view_emails ) {

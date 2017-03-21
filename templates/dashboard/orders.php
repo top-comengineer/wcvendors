@@ -56,7 +56,7 @@ jQuery(function () {
 		<?php foreach ( $order_summary as $order ) :
 
 			$order 			= new WC_Order( $order->order_id );
-			$order_id 		= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->id : $order_id;  	
+			$order_id 		= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->id : $order->get_id();  	
 			$valid_items 	= WCV_Queries::get_products_for_order( $order_id );
 			$valid 			= array();
 			$needs_shipping = false; 
@@ -84,7 +84,7 @@ jQuery(function () {
 				<td><?php echo $order->get_order_number(); ?></td>
 				<td><?php echo apply_filters( 'wcvendors_dashboard_google_maps_link', '<a target="_blank" href="' . esc_url( 'http://maps.google.com/maps?&q=' . urlencode( esc_html( preg_replace( '#<br\s*/?>#i', ', ', $order->get_formatted_shipping_address() ) ) ) . '&z=16' ) . '">'. esc_html( preg_replace( '#<br\s*/?>#i', ', ', $order->get_formatted_shipping_address() ) ) .'</a>' ); ?></td>
 				<td><?php $sum = WCV_Queries::sum_for_orders( array( $order_id ), array('vendor_id'=>get_current_user_id()) ); $total = $sum[0]->line_total; $totals += $total; echo wc_price( $total ); ?></td>
-				<td><?php echo $order_date; ?></td>
+				<td><?php echo date_i18n( wc_date_format(), strtotime( $order_date ) ); ?></td>
 				<td>
                 <?php
 				$order_actions = array(
