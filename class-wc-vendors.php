@@ -398,8 +398,11 @@ if ( wcv_is_woocommerce_activated() ) {
 		 */
 		public static function log( $data = '' ){ 
 
-			$trace 	= debug_backtrace( false, 2 ); 
-			$caller = ( isset( $trace[ 1 ] ) ) ? $trace[ 1 ][ 'class' ] : ''; 
+			$trace 		= debug_backtrace( false, 2 ); 
+			$path_info  = pathinfo( $trace[ 0 ][ 'file' ] );  
+
+			// Only display the class file if there is actually a class file 
+			$caller = ( isset( $trace[ 1 ] ) ) ? array_key_exists( 'class', $trace[ 1 ] ) ? $trace[ 1 ][ 'class' ] : $path_info[ 'basename' ] : ''; 
 
 			if ( is_array( $data ) || is_object( $data ) ) { 
 				error_log( $caller . ' : ' . print_r( $data, true ) ); 
