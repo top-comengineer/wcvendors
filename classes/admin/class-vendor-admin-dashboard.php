@@ -8,11 +8,13 @@
 
 Class WCV_Vendor_Admin_Dashboard { 
 
+	public $dashboard_error_msg; 
+
 	function __construct(){ 
 		// Add Shop Settings page 
 		add_action( 'admin_menu', array( $this, 'vendor_dashboard_pages') ); 
 		// Hook into init for form processing 
-		add_action( 'init', array( $this, 'save_shop_settings' ) );
+		add_action( 'admin_init', array( $this, 'save_shop_settings' ) );
 		add_action( 'admin_head', array( $this, 'admin_enqueue_order_style') ); 
 	}
 
@@ -90,16 +92,41 @@ Class WCV_Vendor_Admin_Dashboard {
 			do_action( 'wcvendors_shop_settings_admin_saved', $user_id );
 
 			if ( ! $error ) {
-				echo '<div class="updated"><p>';
-				echo __( 'Settings saved.', 'wcvendors' );
-				echo '</p></div>';
+				add_action( 'admin_notices', array( $this, 'add_admin_notice_success' ) ); 
 			} else { 
-				echo '<div class="error"><p>';
-				echo $error_msg;
-				echo '</p></div>';
+				$this->dashboard_error_msg = $error_msg; 
+				add_action( 'admin_notices', array( $this, 'add_admin_notice_error' ) );  	
 			}
 		}
 	}
+
+	/**
+	 * Output a sucessful message after saving the shop settings
+	 * 
+	 * @since 1.9.9 
+	 * @access public 
+	 */
+	public function add_admin_notice_success( ){ 
+
+		echo '<div class="updated"><p>';
+		echo __( 'Settings saved.', 'wcvendors' );
+		echo '</p></div>';
+
+	} // add_admin_notice_success() 
+
+	/**
+	 * Output an error message 
+	 * 
+	 * @since 1.9.9 
+	 * @access public 
+	 */
+	public function add_admin_notice_error( ){ 
+
+		echo '<div class="error"><p>';
+		echo $this->dashboard_error_msg; 		
+		echo '</p></div>';
+
+	} // add_admin_notice_error()
 
 	/**
 	 *
@@ -518,6 +545,9 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 
 				$sum = WCV_Queries::sum_for_orders( array( $order_id  ), array('vendor_id' =>get_current_user_id() ), false ); 
 				$sum = reset( $sum ); 
+
+				WC_Vendors::log( $sum ); 
+
 				$total = $sum->line_total; 
 
 				$comment_output = '';
