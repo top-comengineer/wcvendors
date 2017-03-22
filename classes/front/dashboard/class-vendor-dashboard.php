@@ -52,7 +52,7 @@ class WCV_Vendor_Dashboard
 				do_action('wcvendors_vendor_ship', $order_id, $user_id);
 				wc_add_notice( __( 'Order marked shipped.', 'wcvendors' ), 'success' );
 				$shop_name = WCV_Vendors::get_vendor_shop_name( $user_id );
-				$order->add_order_note( apply_filters( 'wcvendors_vendor_shipped_note', sprintf( __(  '%s has marked as shipped. ', 'wcvendors'), $shop_name ) ), $user_id, $shop_name ); 
+				$order->add_order_note( apply_filters( 'wcvendors_vendor_shipped_note', sprintf( __(  '%s has marked as shipped. ', 'wcvendors'), $shop_name ) , $user_id, $shop_name ) ); 
 			} elseif ( false != ( $key = array_search( $user_id, $shippers) ) ) {
 				unset( $shippers[$key] ); // Remove user from the shippers array
  			}
