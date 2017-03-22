@@ -60,11 +60,13 @@ class WC_Email_Notify_Shipped extends WC_Email
 		$this->find[ ]    = '{order_number}';
 		$this->replace[ ] = $this->object->get_order_number();
 
+		$billing_email 	  = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $this->object->billing_email : $this->object->get_billing_email(); 
+
 		if ( !$this->is_enabled() ) return;
 
 		add_filter( 'woocommerce_order_get_items', array( $this, 'check_items' ), 10, 2 );
 		add_filter( 'woocommerce_get_order_item_totals', array( $this, 'check_order_totals' ), 10, 2 );
-		$this->send( $this->object->billing_email, $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );
+		$this->send( $billing_email, $this->get_subject(), $this->get_content(), $this->get_headers(), $this->get_attachments() );
 		remove_filter( 'woocommerce_get_order_item_totals', array( $this, 'check_order_totals' ), 10, 2 );
 		remove_filter( 'woocommerce_order_get_items', array( $this, 'check_items' ), 10, 2 );
 	}
