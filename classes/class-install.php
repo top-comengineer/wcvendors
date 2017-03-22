@@ -58,7 +58,7 @@ class WCV_Install
 											   'delete_posts'			  => true, 
 											   'read'                     => true,
 											   'upload_files'             => true,
-											   'view_woocommerce_reports' => true,
+											   'view_woocommerce_reports' => false,
 										  ) );
 
 			WC_Vendors::$pv_options->update_option( 'db_version', '1.9.1' );	
@@ -112,7 +112,7 @@ class WCV_Install
 										   'delete_posts'			  => true, 
 										   'read'                     => true,
 										   'upload_files'             => true,
-										   'view_woocommerce_reports' => true,
+										   'view_woocommerce_reports' => false,
 									  ) );
 	}
 
