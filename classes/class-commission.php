@@ -201,7 +201,7 @@ class WCV_Commission
 		$where      = $wpdb->prepare( 'WHERE status = %s', 'due' );
 		$where 		= apply_filters( 'wcvendors_commission_all_due_where', $where ); 
 		$query      = "SELECT id, vendor_id, total_due FROM `{$table_name}` $where";  
-		$query 		= apply_filters( 'wcvendors_commission_all_due_sql', $wpdb->prepare( $query ) ); 
+		$query 		= apply_filters( 'wcvendors_commission_all_due_sql', $query ); 
 		$results    = $wpdb->get_results(  $query );
 
 		return $results;
