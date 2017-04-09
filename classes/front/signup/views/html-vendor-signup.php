@@ -40,16 +40,27 @@
 
 
 	<script type="text/javascript">
-			jQuery(function () {
-				if (jQuery('#apply_for_vendor').is(':checked')) {
-					jQuery('.agree-to-terms-container').show();
-				}
 
-				jQuery( '#wp-submit' ).on( 'click', function( e ) {
-					alert('something here..'); 
+		var error_message = "<?php _e( 'Please agree to the terms and conditions', 'wcvendors'); ?>";  
+
+		jQuery( function( $ ){	
+
+			$( "#apply_for_vendor" ).change( function() {
+			    if ( this.checked ) {
+			        $('.agree-to-terms-container').show();
+			    } else { 
+			    	$('.agree-to-terms-container').hide();
+			    }
+			});
+
+			$( 'form.register').on( 'submit', function ( e ){ 
+				if (  $('#agree_to_terms').is(':visible') && ! $('#agree_to_terms').is(':checked') ) {
+					alert( error_message ); 
 					e.preventDefault(); 
-				})
-			})
+				} 
+			} ); 
+
+		});
 	</script>
 
 <?php endif; ?>
