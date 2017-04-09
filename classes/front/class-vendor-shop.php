@@ -51,7 +51,7 @@ class WCV_Vendor_Shop
 			add_action( 'woocommerce_before_single_product', array('WCV_Vendor_Shop', 'vendor_mini_header')); 
 		}
 
-		add_filter( 'pre_get_document_title', array( $this, 'vendor_page_title' ), 999, 1 );  
+		add_filter( 'document_title_parts', array( $this, 'vendor_page_title' ) );  
 
 	}
 
@@ -334,18 +334,14 @@ class WCV_Vendor_Shop
 
 	/**
 	 * Add the Vendor shop name to the <title> tag on archive and single product page
-	 * 
+	 * 	
 	 * @since 1.9.9 
 	 */
 	public function vendor_page_title( $title ){ 
 
-		if ( is_product() ){ 
-			global $post; 
-			return sprintf( '%s - %s', __( 'Products', 'wcvendors' ), WCV_Vendors::get_vendor_shop_name( $post->post_author ) ); 
-		}
-
 		if ( WCV_Vendors::is_vendor_page() ) { 
-			return sprintf( '%s - %s', __( 'Products', 'wcvendors' ), self::page_title() ); 
+
+			$title[ 'title' ] = self::page_title(); 
 		} 
 			
 		return $title; 
