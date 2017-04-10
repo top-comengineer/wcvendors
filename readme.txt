@@ -6,7 +6,7 @@ Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.4.0
 Tested up to: 4.7.1
-Stable tag: 1.9.9
+Stable tag: 1.9.10
 License: GPLv2 or later
 
 The free marketplace plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
@@ -121,6 +121,16 @@ Also be sure to visit our KnowledgeBase at https://www.wcvendors.com/kb/
 No Upgrade required at this time.
 
 == Changelog ==
+
+= Version 1.9.10 - 10th April 2017 = 
+
+* Fixed: Terms & Conditions Checkbox is not functioning normally #348
+* Fixed: Apply to Become a Vendor Checkbox is Missing with WC 3.0 + WC Vendors 1.9.9 #349
+* Fixed: New product title formatting is showing product #350
+* Fixed: Incorrect use of wpdb->prepare
+* Fixed: Mark shipped filter not providing parameters correctly
+* Fixed: Incorrect reference to billing email in notification email
+* Updated: Removed Sales reports from backend
 
 = Version 1.9.9 - 14th March 2017 = 
 
