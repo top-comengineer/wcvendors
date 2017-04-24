@@ -36,7 +36,7 @@ class WCV_Vendor_Cart
 	 */
 	public static function sold_by( $values, $cart_item ){
 
-		$product_id 	= $cart_item['data']->get_id();
+		$product_id 	= $cart_item[ 'product_id'];
 		$post 			= get_post( $product_id ); 
 		$vendor_id 		= $post->post_author; 
 		$sold_by_label 	= WC_Vendors::$pv_options->get_option( 'sold_by_label' ); 

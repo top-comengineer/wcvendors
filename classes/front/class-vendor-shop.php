@@ -320,7 +320,7 @@ class WCV_Vendor_Shop
 
 		$cart      		= WC()->cart->get_cart();
 		$cart_item 		= $cart[ $cart_item_key ]; 
-		$product_id 	= $cart_item['data']->get_id();
+		$product_id 	= $cart_item[ 'product_id'];
 		$post 			= get_post( $product_id ); 
 		$vendor_id 		= $post->post_author;  
 		$sold_by_label 	= WC_Vendors::$pv_options->get_option( 'sold_by_label' ); 
