@@ -109,7 +109,7 @@ class WCV_Vendors
 			if ( get_option('woocommerce_calc_shipping') === 'no' ) { 
 				$shipping = 0; $shipping_tax = 0; 
 			} else {
-				$shipping_costs = WCV_Shipping::get_shipping_due( $order_id, $product, $author );
+				$shipping_costs = WCV_Shipping::get_shipping_due( $order_id, $product, $author, $product_id );
 				$shipping = $shipping_costs['amount']; 
 				$shipping_tax = $shipping_costs['tax']; 
 			}

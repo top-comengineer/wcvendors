@@ -37,7 +37,7 @@ class WCV_Shipping
 	 *
 	 * @return unknown
 	 */
-	public static function get_shipping_due( $order_id, $product, $author )
+	public static function get_shipping_due( $order_id, $product, $author, $product_id = 0 )
 	{
 		global $woocommerce;
 
@@ -87,7 +87,7 @@ class WCV_Shipping
 			}
 		}
 
-		$shipping_costs = apply_filters( 'wcvendors_shipping_due', $shipping_costs, $order_id, $product, $author );
+		$shipping_costs = apply_filters( 'wcvendors_shipping_due', $shipping_costs, $order_id, $product, $author, $product_id );
 
 		return $shipping_costs;
 	}
