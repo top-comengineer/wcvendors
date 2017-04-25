@@ -105,7 +105,10 @@ class WC_Gateway_WCV_Gateway_Test extends WC_Payment_Gateway {
      * @param bool $plain_text
      */
 	public function email_instructions( $order, $sent_to_admin, $plain_text = false ) {
-        if ( $this->instructions && ! $sent_to_admin && 'wcvendors_test_gateway' === $order->payment_method && $order->has_status( 'processing' ) ) {
+
+		$payment_method = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->payment_method : $order->get_payment_method(); 
+
+        if ( $this->instructions && ! $sent_to_admin && 'wcvendors_test_gateway' === $payment_method && $order->has_status( 'processing' ) ) {
 			echo wpautop( wptexturize( $this->instructions ) ) . PHP_EOL;
 		}
 	}
