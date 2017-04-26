@@ -1,5 +1,11 @@
 Changelog for WC Vendors
 
+Version 1.9.11 
+
+* Fixed: Correct product id being parsed to shipping function
+* Fixed: Payment method notice due to direct access to object property
+* Fixed: Sold by incorrectly showing in cart for variations
+
 Version 1.9.10 
 
 * Fixed: Terms & Conditions Checkbox is not functioning normally #348

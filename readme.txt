@@ -6,7 +6,7 @@ Author URI: http://www.wcvendors.com/
 Plugin URI: http://www.wcvendors.com/
 Requires at least: 4.4.0
 Tested up to: 4.7.1
-Stable tag: 1.9.10
+Stable tag: 1.9.11
 License: GPLv2 or later
 
 The free marketplace plugin for WooCommerce.  Now you can allow anyone to open a store on your site!
@@ -121,6 +121,12 @@ Also be sure to visit our KnowledgeBase at https://www.wcvendors.com/kb/
 No Upgrade required at this time.
 
 == Changelog ==
+
+= Version 1.9.11 - 25th Aprl 2017 = 
+
+* Fixed: Correct product id being parsed to shipping function
+* Fixed: Payment method notice due to direct access to object property
+* Fixed: Sold by incorrectly showing in cart for variations
 
 = Version 1.9.10 - 10th April 2017 = 
 
