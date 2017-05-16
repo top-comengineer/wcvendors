@@ -485,6 +485,7 @@ class WCV_Vendors
 	 * @return void
 	 */
 	public static function create_child_orders ( $order_id ) {
+
 		$order = wc_get_order( $order_id );
 		$items = $order->get_items();
 		$vendor_items = array();
