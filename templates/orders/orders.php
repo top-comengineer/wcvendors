@@ -2,6 +2,8 @@
 
 <h2><?php printf( 'Orders for %s', wc_get_product( $product_id )->get_title() ); ?></h2>
 
+<?php do_action('wc_vendors_before_order_detail', $body);?>
+
 <table class="table table-striped table-bordered">
 	<thead>
 	<tr>
@@ -139,3 +141,4 @@
 
 	</tbody>
 </table>
+<?php do_action('wc_vendors_after_order_detail', $body);?>
