@@ -196,6 +196,9 @@ class WC_Email_Notify_Vendor extends WC_Email
 
 						$order_id 		= ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->id : $order->get_id(); 
 
+						// Get correct product_id depending on which product type
+						$product_id = !empty( $product['variation_id'] ) ? $product['variation_id'] : $product['product_id'];
+
 						$commission_due = WCV_Commission::get_commission_due( $order_id, $product[ 'product_id' ], $author );
 
 						$items[ $key ][ 'line_subtotal' ] = $commission_due;
