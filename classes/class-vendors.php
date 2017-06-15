@@ -188,7 +188,7 @@ class WCV_Vendors
 		// Add remainders on end to admin
 		$discount = $order->get_total_discount();
 		$shipping 	= round( ( $order->get_total_shipping() - $shipping_given ), 2 );
-		$tax 		= round(( $order->get_total_tax() + $order->get_shipping_tax() ) - $tax_given, 2); 
+		$tax 		= round( $order->get_total_tax() - $tax_given, 2); 
 		$total    	= ( $tax + $shipping ) - $discount;
 
 		if ( $group ) {
