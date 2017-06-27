@@ -1,5 +1,15 @@
 Changelog for WC Vendors
 
+Version 1.9.12 
+
+* Added: For hook for vendor order content
+* Updated: Portuguese translations thanks Elsa
+* Updated: Show SKU in emails as per pre WC3.0 updates
+* Fixed: Static reference calls in commision class
+* Fixed: Shipping tax bug in vendor calculations
+* Fixed: Variations showing $0 price in emails thanks damanmehta
+* Fixed: Prevent PHP notice for getting non-existing vendor name from JeroenSormani/master
+
 Version 1.9.11 
 
 * Fixed: Correct product id being parsed to shipping function
