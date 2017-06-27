@@ -81,7 +81,7 @@ class WCV_Commission
 	 *
 	 * @return unknown
 	 */
-	public function reverse_due_commission( $order_id )
+	public static function reverse_due_commission( $order_id )
 	{
 		global $wpdb;
 
@@ -90,7 +90,7 @@ class WCV_Commission
 		if ( !$count ) return false;
 
 		// Deduct this amount from the vendor's total due
-		$results = WCV_Commission::sum_total_due_for_order( $order_id );
+		$results 	= WCV_Commission::sum_total_due_for_order( $order_id );
 		$ids        = implode( ',', $results[ 'ids' ] );
 		$table_name = $wpdb->prefix . "pv_commission";
 
@@ -159,7 +159,7 @@ class WCV_Commission
 	 *
 	 * @return array
 	 */
-	public function sum_total_due_for_order( $order_id, $status = 'due' )
+	public static function sum_total_due_for_order( $order_id, $status = 'due' )
 	{
 		global $wpdb;
 
