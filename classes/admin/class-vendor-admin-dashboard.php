@@ -554,9 +554,15 @@ class WCV_Vendor_Order_Page extends WP_List_Table
 
 				$order_date = ( version_compare( WC_VERSION, '2.7', '<' ) ) ? $order->order_date : $order->get_date_created(); 
 
+				// Make sure the correct address is shown based on the WooCommerce options 
+				$customer = $order->get_formatted_billing_address();
+				if ( ( get_option( 'woocommerce_ship_to_billing_address_only' ) === 'no' ) && ( $order->get_formatted_shipping_address() ) ) {
+			        $customer = $order->get_formatted_shipping_address();
+				} 
+
 				$order_items = array(); 
 				$order_items[ 'order_id' ] 	= $order_id;
-				$order_items[ 'customer' ] 	= $order->get_formatted_shipping_address();
+				$order_items[ 'customer' ]	= $customer;
 				$order_items[ 'products' ] 	= $products; 
 				$order_items[ 'total' ] 	= wc_price( $total );
 				$order_items[ 'date' ] 		= date_i18n( wc_date_format(), strtotime( $order_date ) ); 
