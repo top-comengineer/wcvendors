@@ -129,7 +129,7 @@ if ( !class_exists( 'OAuthSignatureMethod_HMAC_SHA1' ) ) {
 		public function build_signature( $request, $consumer, $token )
 		{
 			$base_string          = $request->get_signature_base_string();
-			$base_string          = preg_replace( "/(%[A-Za-z0-9]{2})/e", "strtolower('\\0')", $base_string ); //convert base string to lowercase
+			$base_string          = preg_replace_callback( "/(%[A-Za-z0-9]{2})/e", function($matches){return strtolower($matches[0]);}, $base_string ); //convert base string to lowercase
 			$request->base_string = $base_string;
 
 			$key_parts = array(
@@ -139,7 +139,7 @@ if ( !class_exists( 'OAuthSignatureMethod_HMAC_SHA1' ) ) {
 
 			$key_parts = OAuthUtil::urlencode_rfc3986( $key_parts );
 			$key       = implode( '&', $key_parts );
-			$key       = preg_replace( "/(%[A-Za-z0-9]{2})/e", "strtolower('\\0')", $key ); //convert to lowercase
+			$key       = preg_replace_callback( "/(%[A-Za-z0-9]{2})/e", function($matches){return strtolower($matches[0]);}, $key ); //convert to lowercase
 			return base64_encode( hash_hmac( 'sha1', $base_string, $key, true ) );
 		}
 	}

@@ -189,7 +189,7 @@ class XmlToArray
 	 * @return none
 	 */
 
-	function XmlToArray( $xml )
+	function __construct( $xml )
 	{
 		$this->xml = $xml;
 	}
