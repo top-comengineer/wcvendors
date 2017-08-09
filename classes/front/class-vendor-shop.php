@@ -68,7 +68,13 @@ class WCV_Vendor_Shop
 		$vendor_shop = urldecode( get_query_var( 'vendor_shop' ) );
 		$vendor_id   = WCV_Vendors::get_vendor_id( $vendor_shop );
 
-		if ( !$vendor_id ) return;
+		if ( !$vendor_id ) {
+		        $q->set_404();
+		        status_header( 404 );
+
+		        return;
+                }
+
 		add_filter( 'woocommerce_page_title', array( 'WCV_Vendor_Shop', 'page_title' ) );
 
 		$q->set( 'author', $vendor_id );
