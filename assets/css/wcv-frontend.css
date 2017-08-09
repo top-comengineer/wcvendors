@@ -543,3 +543,5 @@ table [class*=span], .row-fluid table [class*=span] {
     background-color: #c4e3f3;
 }
 .hidden {  display: none; }
+
+.vendor_list .button { width: 100%; }

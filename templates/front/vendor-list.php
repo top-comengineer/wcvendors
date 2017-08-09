@@ -8,7 +8,7 @@
 */
 ?>
 
-<div style="display:inline-block; margin-right:10%;">
+<div class="vendor_list" style="display:inline-block; margin-right:10%;">
         <center>
         <a href="<?php echo $shop_link; ?>"><?php echo get_avatar($vendor_id, 200); ?></a><br />
         <a href="<?php echo $shop_link; ?>" class="button"><?php echo $shop_name; ?></a>
