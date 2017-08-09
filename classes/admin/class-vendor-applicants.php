@@ -48,7 +48,7 @@ class WCV_Vendor_Applicants
 					break;
 
 				case 'deny_vendor':
-					$role = 'subscriber';
+					$role = apply_filters( 'wcvendors_denied_vendor_role', 'subscriber' );
 					add_action( 'admin_notices', array( $this, 'denied' ) );
 					do_action( 'wcvendors_deny_vendor', $wp_user_object ); 
 					break;
