@@ -63,17 +63,27 @@ class WCV_Vendor_Shop
 		return !$vendor_id ? $link : WCV_Vendors::get_vendor_shop_page( $vendor_id );
 	}
 
+	/**
+	 * Filter WooCommerce main query to include vendor shop pages.
+	 *
+	 * @param object $q    Existing query object.
+	 * @param object $that Instance of WC_Query.
+	 * @return void
+	 */
 	public static function vendor_shop_query( $q, $that )
 	{
 		$vendor_shop = urldecode( get_query_var( 'vendor_shop' ) );
+		if ( empty( $vendor_shop ) ) {
+			return;
+		}
+
 		$vendor_id   = WCV_Vendors::get_vendor_id( $vendor_shop );
-
 		if ( !$vendor_id ) {
-		        $q->set_404();
-		        status_header( 404 );
+			$q->set_404();
+			status_header( 404 );
 
-		        return;
-                }
+			return;
+		}
 
 		add_filter( 'woocommerce_page_title', array( 'WCV_Vendor_Shop', 'page_title' ) );
 
