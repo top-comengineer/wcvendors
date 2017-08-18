@@ -22,7 +22,8 @@ class WCV_Vendor_Applicants
 	 */
 	function user_row_actions( $actions, $user_object )
 	{
-		if ( !empty( $_GET[ 'role' ] ) && $_GET[ 'role' ] == 'pending_vendor' ) {
+
+		if ( in_array( 'pending_vendor', $user_object->roles ) ){ 
 			$actions[ 'approve_vendor' ] = "<a href='?role=pending_vendor&action=approve_vendor&user_id=" . $user_object->ID . "'>" . __( 'Approve', 'cgc_ub' ) . "</a>";
 			$actions[ 'deny_vendor' ]    = "<a href='?role=pending_vendor&action=deny_vendor&user_id=" . $user_object->ID . "'>" . __( 'Deny', 'cgc_ub' ) . "</a>";
 		}
