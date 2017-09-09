@@ -458,8 +458,8 @@ class WCV_Commission
 	    global $wpdb;
 
 		$table_name = $wpdb->prefix . "pv_commission";
-		$query = "UPDATE `{$table_name}` SET `status` = 'reversed' WHERE `order_id` = $order_id"; 
-		$results = $wpdb->query( $wpdb->prepare( $query) );
+		$query = "UPDATE `{$table_name}` SET `status` = 'reversed' WHERE `order_id` = %d"; 
+		$results = $wpdb->query( $wpdb->prepare( $query, $order_id ) );
 
 	} // commissions_table_sync() 
 

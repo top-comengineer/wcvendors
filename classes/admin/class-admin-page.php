@@ -368,7 +368,11 @@ class WCV_Admin_Page extends WP_List_Table
 				$parent = get_post_ancestors( $item->product_id );
 				$product_id = $parent ? $parent[ 0 ] : $item->product_id;
 				$wcv_total_sales = get_post_meta( $product_id, 'total_sales', true );
-                return '<a href="' . admin_url( 'post.php?post=' . $product_id . '&action=edit' ) . '">' . get_the_title( $item->product_id ) . '</a> (<span title="' . get_the_title( $item->product_id ) .' has sold ' . $wcv_total_sales . ' times total.">' . $wcv_total_sales  . '</span>)';
+				if ( ! get_post_status( $product_id ) ) { 
+					error_log('deleted product id: ' . $product_id );
+					$product_id = WCV_Vendors::find_parent_id_from_order( $item->order_id, $product_id ); 
+				}
+                return '<a href="' . admin_url( 'post.php?post=' . $product_id . '&action=edit' ) . '">' . get_the_title( $product_id ) . '</a> (<span title="' . get_the_title( $product_id ) .' has sold ' . $wcv_total_sales . ' times total.">' . $wcv_total_sales  . '</span>)';
 			case 'order_id' :
 				if ( get_post_status( $item->order_id) ){ 
 					$order 	= new WC_Order( $item->order_id ); 
