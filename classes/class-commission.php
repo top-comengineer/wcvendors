@@ -229,8 +229,6 @@ class WCV_Commission
 				     AND status <> %s";
 		$count = $wpdb->get_var( $wpdb->prepare( $query, 'reversed' ) );
 
-		error_log( $count ); 
-
 		return $count;
 	}
 

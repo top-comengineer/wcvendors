@@ -673,6 +673,12 @@ class WCV_Vendors
 
 	} // get_vendor_orders()
 
+	/**
+	 * Find the parent product id if the variation has been deleted 
+	 * 
+	 * @since 1.9.13
+	 * @access public 
+	 */
 	public static function find_parent_id_from_order( $order_id, $product_id ){ 
 
 		global $wpdb; 
@@ -682,16 +688,11 @@ class WCV_Vendors
 		$order_item_ids = $wpdb->get_results( $order_item_id_sql ); 
 
 		foreach ( $order_item_ids as $key => $order_item ) {
-			error_log( $order_item->order_item_id ); 
 
 			$item_product_id 	= get_metadata( 'order_item', $order_item->order_item_id, '_product_id', true );
 			$item_variation_id 	= get_metadata( 'order_item', $order_item->order_item_id, '_variation_id', true );			
 
-			error_log( 'item pid ' . $item_product_id ); 
-			error_log( 'item vid ' . $item_variation_id ); 
-
 			if ( $item_variation_id  == $product_id ){
-				error_log( 'returning ' . $item_product_id ); 
 				return $item_product_id; 
 			}
 		}
