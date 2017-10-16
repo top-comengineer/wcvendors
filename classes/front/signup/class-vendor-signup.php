@@ -38,7 +38,7 @@ class WCV_Vendor_Signup
 	 */
 	public function vendor_option()
 	{
-		include_once('views/html-vendor-signup.php'); 
+		apply_filters( 'wcvendors_vendor_signup_path', include_once('views/html-vendor-signup.php') ); 
 	}
 
 
