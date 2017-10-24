@@ -31,7 +31,7 @@ Global, Per Vendor, or Per product Commission Rates
 * Shipping Management through Per Product Shipping and Multiple Packages (and more coming soon!)
 * Tax Management to give or not give vendors tax for each order
 * Test Checkout Gateway included for testing your store before it goes live
-* Free technical support around the clock @ https://www.wcvendors.com/help/
+* Free technical support @ https://wordpress.org/support/plugin/wc-vendors/
 * Knowledgebase full of great articles on all the hooks, actions, filters, shortcodes, neat tricks, etc, @ http://docs.wcvendors.com
 * ....and much more!
 * We are NOT compatible with WordPress MultiSite. We have no intentions of supporting this feature any time soon.
