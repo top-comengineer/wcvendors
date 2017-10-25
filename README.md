@@ -14,7 +14,7 @@ Support multiple vendors on your store through a Vendor Role.
 * Vendors can view live sales and reports for their products
 * Vendors can comment on their orders (eg, to inform customers of a tracking number)
 * Vendors can export their orders to a CSV file
-* PayPal Adaptive Payments gateway included for FREE ( Parallel & MassPay ) NOTE (Octbober 2017): PayPal Adaptive Payments has been deprecated by PayPal; we are working to implement a replacement.
+* PayPal Adaptive Payments gateway included for FREE ( Parallel & MassPay ) NOTE (October 2017): PayPal Adaptive Payments has been deprecated by PayPal; we are working to implement a replacement.
 * WPML Compatible
 * Vendors can sell all product types
 * Vendors manage their own media gallery/library
@@ -39,7 +39,7 @@ Global, Per Vendor, or Per product Commission Rates
 ## Future Development
 
 Features to be added include:
-NOTE (October 2017): PayPal Adaptive Payments has been deprecated by PayPal; we are working to implement a replacement.
+-(October 2017): PayPal Adaptive Payments has been deprecated by PayPal; we are working to implement a replacement.
 - We add stuff so fast its hard to keep this updated
 
 ## Contact us
