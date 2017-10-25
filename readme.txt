@@ -24,7 +24,7 @@ This plugin has been around since 2011 and remains still the #1 multi vendor plu
 * Vendors can view live sales and reports for their products
 * Vendors can comment on their orders (eg, to inform customers of a tracking number)
 * Vendors can export their orders to a CSV file
-* PayPal Adaptive Payments gateway included for FREE ( Parallel & MassPay )
+* PayPal Adaptive Payments gateway included for FREE ( Parallel & MassPay ) NOTE (Octbober 2017): PayPal Adaptive Payments has been deprecated by PayPal; we are working to implement a replacement.
 * WPML Compatible
 * Vendors can sell all product types
 * Vendors manage their own media gallery/library
@@ -113,7 +113,7 @@ Also be sure to visit our KnowledgeBase at https://www.wcvendors.com/kb/ and Doc
 3. Capabilities options - restrict what your vendors can see and do. 
 4. Pages options - configure what pages will load the relevant vendor templates. These can be customised. 
 5. User paypment info - define how your vendors get paid and when. 
-6. WC Vendors Paypal Adaptive payments setup.
+6. WC Vendors Paypal Adaptive payments setup. NOTE (Octbober 2017): PayPal Adaptive Payments has been deprecated by PayPal; we are working to implement a replacement.
 7. Email template options for the relevant WC Vendor emails. 
 
 == Upgrade Notice ==
