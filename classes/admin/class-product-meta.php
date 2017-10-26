@@ -235,7 +235,8 @@ class WCV_Product_Meta
 		if ( $product->is_type('simple') || $product->is_type('external') ) {
 		    if ( isset( $_REQUEST['_vendor'] ) ) {
 		        $vendor = wc_clean($_REQUEST['_vendor']);
-		        $product->post->post_author = $vendor; 
+				$post 	= get_post( $product->get_id() ); 
+		        $post->post_author = $vendor; 
 		    }
 		}
 		return $product; 
