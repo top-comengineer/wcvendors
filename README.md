@@ -8,13 +8,13 @@ Create your own marketplace and allow vendors to sell just like etsy, Envato, eB
 
 Support multiple vendors on your store through a Vendor Role. 
 * ALL FEATURES LISTED HERE ARE INCLUDED IN THE FREE PLUGIN!
-* Instantly pay vendors their commission as soon as an order is placed using PayPal Adaptive Payments or Stripe.
-* Or, pay commission on a schedule. Daily, weekly, biweekly, monthly, or manually using any payment provider you choose.
+* Instantly pay vendors their commission as soon as an order is placed using PayPal Adaptive Payments or Stripe.  NOTE (October 2017): PayPal Adaptive Payments has been deprecated by PayPal; we are working to implement a replacement.
+* Or, pay commission on a schedule. Daily, weekly, biweekly, monthly, or manually using any payment provider you choose. NOTE (October 2017): PayPal Adaptive Payments has been deprecated by PayPal; we are working to implement a replacement.
 * Vendors can submit products for admin review, or send new products live to the site immediately.
 * Vendors can view live sales and reports for their products
 * Vendors can comment on their orders (eg, to inform customers of a tracking number)
 * Vendors can export their orders to a CSV file
-* PayPal Adaptive Payments gateway included for FREE ( Parallel & MassPay )
+* PayPal Adaptive Payments gateway included for FREE ( Parallel & MassPay ) NOTE (October 2017): PayPal Adaptive Payments has been deprecated by PayPal; we are working to implement a replacement.
 * WPML Compatible
 * Vendors can sell all product types
 * Vendors manage their own media gallery/library
@@ -31,7 +31,7 @@ Global, Per Vendor, or Per product Commission Rates
 * Shipping Management through Per Product Shipping and Multiple Packages (and more coming soon!)
 * Tax Management to give or not give vendors tax for each order
 * Test Checkout Gateway included for testing your store before it goes live
-* Free technical support around the clock @ https://www.wcvendors.com/help/
+* Free technical support @ https://wordpress.org/support/plugin/wc-vendors/
 * Knowledgebase full of great articles on all the hooks, actions, filters, shortcodes, neat tricks, etc, @ http://docs.wcvendors.com
 * ....and much more!
 * We are NOT compatible with WordPress MultiSite. We have no intentions of supporting this feature any time soon.
@@ -39,7 +39,7 @@ Global, Per Vendor, or Per product Commission Rates
 ## Future Development
 
 Features to be added include:
-
+-(October 2017): PayPal Adaptive Payments has been deprecated by PayPal; we are working to implement a replacement.
 - We add stuff so fast its hard to keep this updated
 
 ## Contact us

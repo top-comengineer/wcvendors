@@ -14,17 +14,17 @@ The free marketplace plugin for WooCommerce.  Now you can allow anyone to open a
 == Description ==
 Create your own marketplace and allow vendors to sell just like etsy, Envato, eBay, or Amazon type sites! This allows other sellers/vendors to sell tangible products, virtual products, or downloads on your site. With this plugin, your vendors receive commissions you set on products they sell from your store.
 
-This plugin has been around since 2011 and remains still the #1 multi vendor plugin on the market.  It is the most feature packed free plugin available for operating a multi vendor store.  Many have tried to imitate, only to put all the useful features in their paid versions.  Don't fall for that trick!  Our support is top notch, check out our <a href="https://www.wcvendors.com/help/">free Help Forums</a> and notice that when you ask a question, it doesnt take a week to reply, we offer our support incredibly fast.  We are an American (Ben) and Australian (Jamie) based team of developers, and this plugin is all we do.  Give it a try!  After all, the price is right and we're here when you need us.
+This plugin has been around since 2011 and remains still the #1 multi vendor plugin on the market.  It is the most feature packed free plugin available for operating a WooCommerce based multi vendor store.  Many have tried to imitate, only to put all the useful features in their paid versions.  Don't fall for that trick!  We are an American (Ben & Anna) and Australian (Jamie) based team of developers, and this plugin is all we do.  Give it a try!  After all, the price is right and we're here when you need us.
 
 = Features =
 * ALL FEATURES LISTED HERE ARE INCLUDED IN THE FREE PLUGIN!
-* Instantly pay vendors their commission as soon as an order is placed using PayPal Adaptive Payments or <a href="https://www.wcvendors.com/product/stripe-commissions-gateway/">Stripe</a>.
+* Instantly pay vendors their commission as soon as an order is placed using PayPal Adaptive Payments or <a href="https://www.wcvendors.com/product/stripe-commissions-gateway/">Stripe</a>. NOTE (October 2017): PayPal Adaptive Payments has been deprecated by PayPal; we are working to implement a replacement. 
 * Or, pay commission on a schedule. Daily, weekly, biweekly, monthly, or manually using any payment provider you choose.
 * Vendors can submit products for admin review, or send new products live to the site immediately.
 * Vendors can view live sales and reports for their products
 * Vendors can comment on their orders (eg, to inform customers of a tracking number)
 * Vendors can export their orders to a CSV file
-* PayPal Adaptive Payments gateway included for FREE ( Parallel & MassPay )
+* PayPal Adaptive Payments gateway included for FREE ( Parallel & MassPay ) NOTE (October 2017): PayPal Adaptive Payments has been deprecated by PayPal; we are working to implement a replacement.
 * WPML Compatible
 * Vendors can sell all product types
 * Vendors manage their own media gallery/library
@@ -41,8 +41,7 @@ This plugin has been around since 2011 and remains still the #1 multi vendor plu
 * Shipping Management through Per Product Shipping and Multiple Packages (and more coming soon!)
 * Tax Management to give or not give vendors tax for each order
 * Test Checkout Gateway included for testing your store before it goes live
-* Free technical support around the clock @ <a href="https://www.wcvendors.com/help/">www.wcvendors.com/help/</A>
-* Knowledgebase full of great articles on all the hooks, actions, filters, shortcodes, neat tricks, etc, @ <a href="https://www.wcvendors.com/knowledgebase/">www.wcvendors.com/knowledgebase/</A>
+* Documentation with great articles on all the hooks, actions, filters, shortcodes, neat tricks, etc, @ <a href="https://www.wcvendors.com/knowledgebase/">www.wcvendors.com/knowledgebase/</a> and <a href="http://docs.wcvendors.com/">http://docs.wcvendors.com/</a> 
 * ....and much more!
 * We are NOT compatible with WordPress MultiSite. We have no intentions of supporting this feature any time soon. 
 
@@ -61,8 +60,8 @@ This plugin has been around since 2011 and remains still the #1 multi vendor plu
 * Vacation Mode - So your vendors can go away for a while and not worry about losing sales
 * Extended <strong>Order Notes</strong>
 * <strong>Insanely customizable template system</strong> to configure, tweak and style your store and dashboard any way you see fit.
-* MUCH MORE TO COME including <strong>WooThemes Bookings</strong> support, integration with even more Woo plugins, and good features that you, the customer, ask us to code! <strong>Pro will always be continually updated with new features</strong>, just as you have grown to expect from WC Vendors Free
-* <strong>INSANELY FAST SUPPORT</strong> on our <a href="https://www.wcvendors.com/help/forum/wc-vendors-pro-support/">Pro Help Forum</a>
+* <strong>Support Tickets for assistance and one-on-one support for our paid plugins.</strong>
+* MUCH MORE TO COME including <strong>WooCommerce Subscriptions</strong> support, integration with even more Woo plugins, and good features that you, the customer, ask us to code! <strong>Pro will always be continually updated with new features</strong>, just as you have grown to expect from WC Vendors Free
 * There's more features to Pro than listed here!
 
 
@@ -89,7 +88,7 @@ We currently ship WC Vendors free with the following language translations. If y
 2. Configure as you see fit, under WooCommerce / WC Vendors.
 3. Configure email notifications under WooCommerce / Settings
 4. View Commissions under WooCommerce / Commissions and WooCommerce / Reports / WC Vendors
-5. For more help, visit WCVendors.com and say hello on the community forums.
+
 
 == Frequently Asked Questions ==
 
@@ -103,9 +102,9 @@ PHP 5.4 and above is required.  Tested all the way to the latest PHP 7!
 
 = Where do I get help ? =
 
-You can post a support question on the support tab, however you'll get more help over at our community forums - https://www.wcvendors.com/help/
+You can post a support question on the support tab - https://wordpress.org/support/plugin/wc-vendors
 
-Also be sure to visit our KnowledgeBase at https://www.wcvendors.com/kb/
+Also be sure to visit our KnowledgeBase at https://www.wcvendors.com/kb/ and Docs http://docs.wcvendors.com/
 
 == Screenshots ==
 
@@ -114,15 +113,24 @@ Also be sure to visit our KnowledgeBase at https://www.wcvendors.com/kb/
 3. Capabilities options - restrict what your vendors can see and do. 
 4. Pages options - configure what pages will load the relevant vendor templates. These can be customised. 
 5. User paypment info - define how your vendors get paid and when. 
-6. WC Vendors Paypal Adaptive payments setup.
+6. WC Vendors Paypal Adaptive payments setup. NOTE (October 2017): PayPal Adaptive Payments has been deprecated by PayPal; we are working to implement a replacement.
 7. Email template options for the relevant WC Vendor emails. 
 
 == Upgrade Notice ==
 No Upgrade required at this time.
 
 == Changelog ==
+= Version 1.9.12 - June 26 2017
 
-= Version 1.9.11 - 25th Aprl 2017 = 
+* Added: For hook for vendor order content
+* Updated: Portuguese translations thanks Elsa
+* Updated: Show SKU in emails as per pre WC3.0 updates
+* Fixed: Static reference calls in commision class
+* Fixed: Shipping tax bug in vendor calculations
+* Fixed: Variations showing $0 price in emails thanks damanmehta
+* Fixed: Prevent PHP notice for getting non-existing vendor name from JeroenSormani/master
+
+= Version 1.9.11 - 25th April 2017 = 
 
 * Fixed: Correct product id being parsed to shipping function
 * Fixed: Payment method notice due to direct access to object property
