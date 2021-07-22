@@ -1,6 +1,10 @@
 Changelog for WC Vendors Marketplace
 
-Verison 2.3.0 - 19th July 2021
+Version 2.3.1 - 22nd July 2021
+
+* Fixed: Duplicate seller info in single product page. #780 (#781)
+
+Version 2.3.0 - 19th July 2021
 
 * Added: New filter to allow custom order visibilities (#754)
 * Added: Ability to delete commission rows (#765)

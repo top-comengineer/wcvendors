@@ -8,8 +8,8 @@ Requires at least: 5.3.0
 Requires PHP: 7.2
 Tested up to: 5.8
 WC requires at least: 4.0.0
-WC tested up to: 5.5.1
-Stable tag: 2.3.0
+WC tested up to: 5.6.4
+Stable tag: 2.3.1
 License: GPLv2 or later
 
 The original multi-vendor marketplace plugin for WordPress and WooCommerce. Best support available. 
@@ -264,7 +264,11 @@ WC Vendors Marketplace does not work with multisite WordPress. There are no plan
 
 == Changelog ==
 
-= Verison 2.3.0 - 19th July 2021 = 
+= Version 2.3.1 - 22nd July 2021 =
+
+* Fixed: Duplicate seller info in single product page. #780 (#781)
+
+= Version 2.3.0 - 19th July 2021 = 
 
 * Added: New filter to allow custom order visibilities (#754)
 * Added: Ability to delete commission rows (#765)

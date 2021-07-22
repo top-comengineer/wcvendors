@@ -2096,6 +2096,7 @@ msgid "%s Email"
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-display.php:102, classes/admin/settings/class-wcv-settings-display.php:66, classes/admin/settings/class-wcv-settings-payments.php:135, classes/admin/settings/class-wcv-settings-payments.php:75, classes/admin/settings/class-wcv-settings-payments.php:82
+msgid ""
 msgstr ""
 
 #: classes/admin/settings/class-wcv-settings-display.php:104
