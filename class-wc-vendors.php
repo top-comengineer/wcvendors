@@ -340,7 +340,7 @@ if ( wcv_is_woocommerce_activated() ) {
 							),
 						),
 						'2.3.0',
-						'wcvendors_admin_commissions_params',
+						'wcvendors_admin_commissions_params'
 					);
 					$param_args = apply_filters( 'wcvendors_admin_commissions_params', $param_args );
 					wp_localize_script( 'wcv_admin_commissions', 'wcv_admin_commissions_params', $param_args );
