@@ -5,11 +5,11 @@ Donate link: https://www.wcvendors.com/
 Author URI: https://www.wcvendors.com/
 Plugin URI: https://www.wcvendors.com/
 Requires at least: 5.3.0
-Requires PHP: 7.2
+Requires PHP: 7.4
 Tested up to: 5.8
 WC requires at least: 4.0.0
-WC tested up to: 5.6.4
-Stable tag: 2.3.1
+WC tested up to: 5.6.0
+Stable tag: 2.3.2
 License: GPLv2 or later
 
 The original multi-vendor marketplace plugin for WordPress and WooCommerce. Best support available. 
@@ -263,6 +263,10 @@ WC Vendors Marketplace does not work with multisite WordPress. There are no plan
 12. Email notifications for admins, customers and vendors
 
 == Changelog ==
+
+= Version 2.3.2 - 2nd August 2021 = 
+
+* Fixed: Fatal error on activation with PHP7.3 and below #785
 
 = Version 2.3.1 - 22nd July 2021 =
 
