@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				       id="apply_for_vendor" <?php checked( isset( $_POST['apply_for_vendor'] ), true ); ?>
 				       type="checkbox" name="apply_for_vendor" value="1"/>
 				<label for="apply_for_vendor"
-				       class="checkbox"><?php echo apply_filters( 'wcvendors_vendor_registration_checkbox', sprintf( __( 'Apply to become a %s? ', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ) ); ?></label>
+				       class="checkbox <?php echo esc_attr( $apply_label_css_classes ); ?>"><?php echo apply_filters( 'wcvendors_vendor_registration_checkbox', sprintf( __( 'Apply to become a %s? ', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ) ); ?></label>
 			</p>
 
 			<div class="clear"></div>
@@ -54,7 +54,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					       id="agree_to_terms" <?php checked( isset( $_POST['agree_to_terms'] ), true ); ?>
 					       type="checkbox" name="agree_to_terms" value="1"/>
 					<label for="agree_to_terms"
-					       class="checkbox"><?php printf( __( 'I have read and accepted the <a href="%s">terms and conditions</a>', 'wc-vendors' ), get_permalink( $terms_page ) ); ?></label>
+					       class="checkbox <?php echo esc_attr( $term_label_css_classes ); ?>"><?php printf( __( 'I have read and accepted the <a href="%s">terms and conditions</a>', 'wc-vendors' ), get_permalink( $terms_page ) ); ?></label>
 				</p>
 
 				<script type="text/javascript">

@@ -111,6 +111,9 @@ class WCV_Account_Links extends WCV_Vendor_Signup {
 				self::apply_form_dashboard();
 			}
 
+			$apply_label_css_classes = apply_filters( 'wcvendors_vendor_registration_apply_label_css_classes', 'apply_for_vendor_label ' );
+			$term_label_css_classes  = apply_filters( 'wcvendors_vendor_registration_term_label_css_classes', 'agree_to_terms_label ' );
+
 			require_once wcv_plugin_dir . 'templates/dashboard/denied.php';
 		}
 	}

@@ -17,7 +17,7 @@
 <?php do_action( 'wcvendors_login_apply_for_vendor_before' ); ?>
 
 <p>
-	<label for="apply_for_vendor">
+	<label for="apply_for_vendor" class="<?php echo esc_attr( $apply_label_css_classes ); ?>">
 		<input class="input-checkbox"
 		       id="apply_for_vendor" <?php checked( isset( $_POST['apply_for_vendor'] ), true ); ?> type="checkbox"
 		       name="apply_for_vendor" value="1"/>
@@ -41,7 +41,7 @@
 	?>
 	<input type="hidden" id="terms_and_conditions_visibility" value="<?php echo $terms_and_conditions_visibility; ?>"/>
 	<p class="agree-to-terms-container" style="display: <?php echo $display; ?>">
-		<label for="agree_to_terms">
+		<label for="agree_to_terms" class="<?php echo esc_attr( $term_label_css_classes ); ?>">
 			<input class="input-checkbox"
 			       id="agree_to_terms" <?php checked( isset( $_POST['agree_to_terms'] ), true ); ?> type="checkbox"
 			       name="agree_to_terms" value="1"/>
