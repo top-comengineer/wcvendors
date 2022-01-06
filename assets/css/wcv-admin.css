@@ -4,6 +4,10 @@
 
 .bulk-edit-product .post_author { display: none; }
 
+.widefat .column-wc_actions a.wcvendors_mark_shipped::after { content: "\f15f"; }
+
+.wcv-mark-shipped span { line-height: 2em; margin-right: 10px; }
+
 .wcv_addons_wrap { max-width: 1200px; margin: auto; /*Carousel*/ }
 
 .wcv_addons_wrap h1.search-form-title { clear: left; padding: 0; }

@@ -11,6 +11,17 @@
 	}
 }
 
+.widefat .column-wc_actions a.wcvendors_mark_shipped::after { 
+	content: "\f15f";
+}
+
+.wcv-mark-shipped {
+	span {
+		line-height: 2em;
+		margin-right: 10px;
+	}
+}
+
 // Extensions and Updates 
 .wcv_addons_wrap {
 	max-width: 1200px;

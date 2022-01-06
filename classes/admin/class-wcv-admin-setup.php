@@ -17,10 +17,8 @@ class WCV_Admin_Setup {
 
 	public function __construct() {
 
-		// add_action( 'admin_menu', 											array( 'WCV_Admin_Setup', 'menu' ), 10 );
-		add_action( 'woocommerce_admin_order_data_after_shipping_address', array( $this, 'add_vendor_details'), 10, 2 );
-		add_action( 'woocommerce_admin_order_actions_end'                , array( $this, 'append_actions' )   , 10, 1 );
-		add_filter( 'woocommerce_debug_tools'                            , array( $this, 'wcvendors_tools' )          );
+		// Add wcvendors tools to the WooCommerce Debug tools screen.
+		add_filter( 'woocommerce_debug_tools'                            , array( $this, 'wcvendors_tools' ) );
 
 		add_filter( 'admin_footer_text'                    , array( $this, 'admin_footer_text' ), 1   );
 		add_action( 'admin_init'                           , array( $this, 'export_commissions' )     );
@@ -31,56 +29,6 @@ class WCV_Admin_Setup {
 
 		add_filter( 'woocommerce_inventory_settings', 		array ( $this, 'add_vendor_stock_notification' ) );
 	}
-
-	public function add_vendor_details( $order ) {
-
-		$actions = $this->append_actions( $order, true );
-
-		if ( empty( $actions['wc_pv_shipped']['name'] ) ) {
-			return;
-		}
-
-		echo '<h4>' . __( 'Vendors shipped', 'wc-vendors' ) . '</h4><br/>';
-		echo $actions['wc_pv_shipped']['name'];
-	}
-
-	public function append_actions( $order, $order_page = false ) {
-
-		global $woocommerce;
-
-		$order_id = $order->get_id();
-
-		$authors = WCV_Vendors::get_vendors_from_order( $order );
-		$authors = $authors ? array_keys( $authors ) : array();
-		if ( empty( $authors ) ) {
-			return false;
-		}
-
-		$shipped = (array) get_post_meta( $order_id, 'wc_pv_shipped', true );
-		$string  = '</br></br>';
-
-		foreach ( $authors as $author ) {
-			$string .= in_array( $author, $shipped ) ? '&#10004; ' : '&#10005; ';
-			$string .= WCV_Vendors::get_vendor_shop_name( $author );
-			$string .= '</br>';
-		}
-
-		$response = array(
-			'url'       => '#',
-			'name'      => __( 'Vendors Shipped', 'wc-vendors' ) . $string,
-			'action'    => 'wc_pv_shipped',
-			'image_url' => wcv_assets_url . '/images/icons/truck.png',
-		);
-
-		if ( ! $order_page ) {
-			printf( '<a class="button tips %s" href="%s" data-tip="%s"><img style="width:16px;height:16px;" src="%s"></a>', $response['action'], $response['url'], $response['name'], $response['image_url'] );
-		} else {
-			echo $response['name'];
-		}
-
-		return $response;
-	}
-
 
 	/**
 	 * Add tools to the woocommerce status tools page
