@@ -20,7 +20,7 @@ class WCV_Admin_Reports {
 	 *
 	 * @param bool $debug (optional) (default: false)
 	 */
-	function __construct( $debug = false ) {
+	public function __construct( $debug = false ) {
 
 		add_filter( 'woocommerce_admin_reports', array( $this, 'reports_tab' ) );
 	}
@@ -34,7 +34,7 @@ class WCV_Admin_Reports {
 	 *
 	 * @return void
 	 */
-	function reports_tab( $reports ) {
+	public function reports_tab( $reports ) {
 
 		$reports['vendors'] = array(
 			'title'  => __( 'WC Vendors', 'wc-vendors' ),
@@ -73,7 +73,7 @@ class WCV_Admin_Reports {
 	/**
 	 *
 	 */
-	function sales() {
+	public function sales() {
 
 		global $start_date, $end_date, $woocommerce, $wpdb;
 
@@ -122,12 +122,12 @@ class WCV_Admin_Reports {
 		<form method="post" action="">
 			<p><label for="from"><?php _e( 'From:', 'wc-vendors' ); ?></label>
 				<input type="text" size="9" placeholder="yyyy-mm-dd"
-				       value="<?php echo esc_attr( gmdate( 'Y-m-d', $start_date ) ); ?>" name="start_date"
-				       class="range_datepicker from" id="from"/>
+					   value="<?php echo esc_attr( gmdate( 'Y-m-d', $start_date ) ); ?>" name="start_date"
+					   class="range_datepicker from" id="from"/>
 				<label for="to"><?php _e( 'To:', 'wc-vendors' ); ?></label>
 				<input type="text" size="9" placeholder="yyyy-mm-dd"
-				       value="<?php echo esc_attr( gmdate( 'Y-m-d', $end_date ) ); ?>" name="end_date"
-				       class="range_datepicker to" id="to"/>
+					   value="<?php echo esc_attr( gmdate( 'Y-m-d', $end_date ) ); ?>" name="end_date"
+					   class="range_datepicker to" id="to"/>
 				<input type="submit" class="button" value="<?php _e( 'Show', 'wc-vendors' ); ?>"/></p>
 		</form>
 
@@ -138,13 +138,13 @@ class WCV_Admin_Reports {
 
 					<div class="inside">
 						<p class="stat">
-							<?php
-							if ( $paid > 0 ) {
-								echo wc_price( $paid );
-							} else {
-								_e( 'n/a', 'wc-vendors' );
-							}
-							?>
+						<?php
+						if ( $paid > 0 ) {
+							echo wc_price( $paid );
+						} else {
+							_e( 'n/a', 'wc-vendors' );
+						}
+						?>
 						</p>
 					</div>
 				</div>
@@ -185,19 +185,19 @@ class WCV_Admin_Reports {
 					<h3><span><?php _e( 'Recent Commission', 'wc-vendors' ); ?></span></h3>
 
 					<div>
-						<?php
-						$commission = $wpdb->get_results(
-							"
+							<?php
+							$commission = $wpdb->get_results(
+								"
 								SELECT * FROM {$wpdb->prefix}pv_commission
 								WHERE     time >= '" . $after . "'
 								AND     time <= '" . $before . "'
 								ORDER BY time DESC
 							"
-						);
+							);
 
-						if ( sizeof( $commission ) > 0 ) {
+							if ( sizeof( $commission ) > 0 ) {
 
-							?>
+								?>
 							<div class="woocommerce_order_items_wrapper">
 								<table id="commission-table" class="woocommerce_order_items" cellspacing="0">
 									<thead>
@@ -211,25 +211,25 @@ class WCV_Admin_Reports {
 									</tr>
 									</thead>
 									<tbody>
-									<?php
-									$i = 1;
-									foreach ( $commission as $row ) :
-										$i ++
-										?>
+								<?php
+								$i = 1;
+								foreach ( $commission as $row ) :
+									$i ++
+									?>
 										<tr
-											<?php
-											if ( $i % 2 == 1 ) {
-												echo ' class="alternate"';
-											}
-											?>
+										<?php
+										if ( $i % 2 == 1 ) {
+											echo ' class="alternate"';
+										}
+										?>
 										>
 											<td>
-												<?php
-												if ( $row->order_id ) :
-													?>
+											<?php
+											if ( $row->order_id ) :
+												?>
 													<a
 															href="<?php echo admin_url( 'post.php?post=' . $row->order_id . '&action=edit' ); ?>"><?php echo $row->order_id; ?></a>
-												<?php
+													<?php
 												else :
 													_e( 'N/A', 'wc-vendors' );
 												endif;
@@ -245,97 +245,69 @@ class WCV_Admin_Reports {
 									</tbody>
 								</table>
 							</div>
-							<?php
-						} else {
-							?>
+									<?php
+							} else {
+								?>
 							<p><?php _e( 'No commission yet', 'wc-vendors' ); ?></p>
-							<?php
-						}
-						?>
+								<?php
+							}
+							?>
 					</div>
 				</div>
 			</div>
 		</div>
-		<?php
+			<?php
 
 	}
 
 
 	/**
-	 *
+	 * Output the report.
 	 */
-	function commission() {
+	public function commission() {
+		global $start_date, $end_date;
 
-		global $start_date, $end_date, $woocommerce, $wpdb;
-
-		$latest_woo = version_compare( $woocommerce->version, '2.3', '>' );
-
-		$first_year   = $wpdb->get_var( "SELECT time FROM {$wpdb->prefix}pv_commission ORDER BY time ASC LIMIT 1;" );
-		$first_year   = $first_year ? gmdate( 'Y', strtotime( $first_year ) ) : gmdate( 'Y' );
-		$current_year = isset( $_POST['show_year'] ) ? $_POST['show_year'] : gmdate( 'Y', current_time( 'timestamp' ) );
-		$start_date   = strtotime( $current_year . '0101' );
+		$show_start_date = isset( $_POST['show_start_date'] ) ? sanitize_text_field( wp_unslash( $_POST['show_start_date'] ) ) : $start_date;
+		$show_end_date   = isset( $_POST['show_end_date'] ) ? sanitize_text_field( wp_unslash( $_POST['show_end_date'] ) ) : $end_date;
 
 		$vendors         = get_users( array( 'role' => 'vendor' ) );
 		$vendors         = apply_filters( 'pv_commission_vendors_list', $vendors );
-		$selected_vendor = ! empty( $_POST['show_vendor'] ) ? (int) $_POST['show_vendor'] : false;
-		$products        = ! empty( $_POST['product_ids'] ) ? (array) $_POST['product_ids'] : array();
+		$selected_vendor = ! empty( $_POST['show_vendor'] ) ? (int) sanitize_text_field( wp_unslash( $_POST['show_vendor'] ) ) : false;
+		$products        = ! empty( $_POST['product_ids'] ) ? $_POST['product_ids'] : array();
+		$report_type     = isset( $_GET['report'] ) ? sanitize_text_field( wp_unslash( $_GET['report'] ) ) : 1;
 
+		$products = array_map( 'esc_attr', $products );
 		?>
 
 		<form method="post" action="" class="report_filters">
-			<label for="show_year"><?php _e( 'Show:', 'wc-vendors' ); ?></label>
-			<select name="show_year" id="show_year">
-				<?php
-				for ( $i = $first_year; $i <= gmdate( 'Y' ); $i ++ ) {
-					printf( '<option value="%s" %s>%s</option>', $i, selected( $current_year, $i, false ), $i );
+
+			<label for="show_start_date"><?php esc_html_e( 'From:', 'wc-vendors' ); ?></label>
+			<input type="text" name="show_start_date" id="show_start_date" value="<?php echo esc_attr( $show_start_date ); ?>" class="range_datepicker from hasDatePicker" placeholder="<?php esc_attr_e( 'yyy-mm-dd', 'wc-vendors' ); ?>" />
+			<label for="show_end_date"><?php esc_html_e( 'To:', 'wc-vendors' ); ?></label>
+			<input type="text" name="show_end_date" id="show_end_date" value="<?php echo esc_attr( $show_end_date ); ?>" class="range_datepicker to hasDatePicker" placeholder="<?php esc_attr_e( 'yyyy-mm-dd', 'wc-vendors' ); ?>" />
+		<?php
+		if ( 2 === absint( $report_type ) ) {
+			?>
+			<select id="product_ids" name="product_ids[]" class="wc-product-search ajax_chosen_select_products"
+					multiple="multiple"
+					data-placeholder="<?php esc_attr_e( 'Type in a product name to start searching...', 'wc-vendors' ); ?>"
+					style="width: 400px;">
+				<?php foreach ( $products as $product_id ) { ?>
+					<?php
+					$product = wc_get_product( $product_id );
+					if ( is_object( $product ) ) :
+						?>
+						<option value="<?php echo esc_attr( $product_id ); ?>" selected="selected"><?php echo esc_html( $product->get_formatted_name() ); ?></option>
+						<?php
+					endif;
 				}
 				?>
 			</select>
 			<?php
-			if ( $_GET['report'] == 2 ) {
-			if ( $latest_woo ) {
-				?>
-				<select id="product_ids" name="product_ids[]" class="wc-product-search ajax_chosen_select_products"
-				        multiple="multiple"
-				        data-placeholder="<?php _e( 'Type in a product name to start searching...', 'wc-vendors' ); ?>"
-				        style="width: 400px;"></select>
-			<?php } else { ?>
-				<select id="product_ids" name="product_ids[]" class="ajax_chosen_select_products" multiple="multiple"
-				        data-placeholder="<?php _e( 'Type in a product name to start searching...', 'wc-vendors' ); ?>"
-				        style="width: 400px;"></select>
-				<script type="text/javascript">
-					jQuery(function () {
-
-						// Ajax Chosen Product Selectors
-						jQuery("select.ajax_chosen_select_products").ajaxChosen({
-							method: 'GET',
-							url: '<?php echo admin_url( 'admin-ajax.php' ); ?>',
-							dataType: 'json',
-							afterTypeDelay: 100,
-							data: {
-								action: 'woocommerce_json_search_products',
-								security: '<?php echo wp_create_nonce( 'search-products' ); ?>'
-							}
-						}, function (data) {
-
-							var terms = {};
-
-							jQuery.each(data, function (i, val) {
-								terms[i] = val;
-							});
-
-							return terms;
-						});
-
-					});
-				</script>
-
-			<?php
-			}
-			} else {
+		} else {
 			?>
 				<select class="chosen_select" id="show_vendor" name="show_vendor" style="width: 300px;"
-				        data-placeholder="<?php echo sprintf( __( 'Select a %s&hellip;', 'wc-vendors' ), wcv_get_vendor_name() ); ?>">
+						data-placeholder="<?php echo sprintf( esc_attr( 'Select a %s&hellip;', 'wc-vendors' ), wcv_get_vendor_name() ); ?>">
 					<option></option>
 					<?php
 					foreach ( $vendors as $key => $vendor ) {
@@ -344,129 +316,15 @@ class WCV_Admin_Reports {
 					?>
 				</select>
 			<?php } ?>
-			<input type="submit" class="button" value="<?php _e( 'Show', 'wc-vendors' ); ?>"/>
+			<input type="submit" class="button" value="<?php esc_attr_e( 'Show', 'wc-vendors' ); ?>"/>
 		</form>
 
-		<?php
-
-		if ( ! empty( $selected_vendor ) || ! empty( $products ) ) {
-
-			foreach ( $products as $key => $product_id ) {
-				$_product = wc_get_product( $product_id );
-				$childs   = $_product->get_children();
-				$products = array_merge( $childs, $products );
+			<?php
+			if ( 1 === absint( $report_type ) ) {
+				$this->show_commission_by_vendor( $selected_vendor, $show_start_date, $show_end_date );
+			} else {
+				$this->show_commission_by_products( $products, $show_start_date, $show_end_date );
 			}
-
-			$commissions = array();
-			$filter      = ! empty( $selected_vendor ) ? ( ' WHERE vendor_id = ' . $selected_vendor ) : ( ' WHERE product_id IN ( ' . implode( ', ', $products ) . ' )' );
-
-			$sql
-				= "SELECT
-				SUM(total_due + total_shipping + tax) as total,
-				SUM(total_due) as commission,
-				SUM(total_shipping) as shipping,
-				SUM(tax) as tax
-				FROM {$wpdb->prefix}pv_commission
-			";
-
-			$paid_sql     = "SELECT SUM(total_due + total_shipping + tax) FROM {$wpdb->prefix}pv_commission " . $filter . " AND status = 'paid'";
-			$reversed_sql = "SELECT SUM(total_due + total_shipping + tax) FROM {$wpdb->prefix}pv_commission" . $filter . " AND status = 'reversed'";
-			$date_sql     = " AND date_format(`time`,'%%Y%%m') = %d";
-
-			for ( $count = 0; $count < 12; $count ++ ) {
-				$time = strtotime( gmdate( 'Ym', strtotime( '+ ' . $count . ' MONTH', $start_date ) ) . '01' );
-				if ( $time > current_time( 'timestamp' ) ) {
-					continue;
-				}
-
-				$month = gmdate( 'Ym', strtotime( gmdate( 'Ym', strtotime( '+ ' . $count . ' MONTH', $start_date ) ) . '01' ) );
-
-				$fetch_results = $wpdb->prepare( $sql . $filter . $date_sql, $month );
-
-				$results = $wpdb->get_results( $fetch_results );
-				if ( ! empty( $results[0] ) ) {
-					extract( get_object_vars( $results[0] ) );
-				}
-
-				$paid     = $wpdb->get_var( $wpdb->prepare( $paid_sql . $date_sql, $month ) );
-				$reversed = $wpdb->get_var( $wpdb->prepare( $reversed_sql . $date_sql, $month ) );
-
-				$commissions[ gmdate( 'M', strtotime( $month . '01' ) ) ] = array(
-					'commission' => $commission,
-					'tax'        => $tax,
-					'shipping'   => $shipping,
-					'reversed'   => $reversed,
-					'paid'       => $paid,
-					'total'      => $total - $reversed - $paid,
-				);
-
-			}
-
-			?>
-
-			<div class="woocommerce-reports-main">
-				<table class="widefat">
-					<thead>
-					<tr>
-						<th><?php _e( 'Month', 'wc-vendors' ); ?></th>
-						<th class="total_row"><?php _e( 'Commission Totals', 'wc-vendors' ); ?></th>
-						<th class="total_row"><?php _e( 'Tax', 'wc-vendors' ); ?></th>
-						<th class="total_row"><?php _e( 'Shipping', 'wc-vendors' ); ?></th>
-						<th class="total_row"><?php _e( 'Reversed', 'wc-vendors' ); ?></th>
-						<th class="total_row"><?php _e( 'Paid', 'wc-vendors' ); ?></th>
-						<th class="total_row"><?php _e( 'Due', 'wc-vendors' ); ?></th>
-					</tr>
-					</thead>
-					<tfoot>
-					<tr>
-						<?php
-						$total = array(
-							'commission' => 0,
-							'tax'        => 0,
-							'shipping'   => 0,
-							'reversed'   => 0,
-							'paid'       => 0,
-							'total'      => 0,
-						);
-
-						foreach ( $commissions as $month => $commission ) {
-							$total['commission'] += $commission['commission'];
-							$total['tax']        += $commission['tax'];
-							$total['shipping']   += $commission['shipping'];
-							$total['reversed']   += $commission['reversed'];
-							$total['paid']       += $commission['paid'];
-							$total['total']      += $commission['total'];
-						}
-
-						echo '<td>' . __( 'Total', 'wc-vendors' ) . '</td>';
-
-						foreach ( $total as $value ) {
-							echo '<td class="total_row">' . wc_price( $value ) . '</td>';
-						}
-						?>
-					</tr>
-					</tfoot>
-					<tbody>
-					<?php
-					foreach ( $commissions as $month => $commission ) {
-						$alt = ( isset( $alt ) && $alt == 'alt' ) ? '' : 'alt';
-
-						echo '<tr class="' . $alt . '"><td>' . $month . '</td>';
-
-						foreach ( $commission as $value ) {
-							echo '<td class="total_row">' . wc_price( $value ) . '</td>';
-						}
-
-						echo '</tr>';
-					}
-					?>
-					</tbody>
-				</table>
-			</div>
-
-		<?php } ?>
-		<?php
-
 	}
 
 
@@ -475,7 +333,7 @@ class WCV_Admin_Reports {
 	 *
 	 * @since    1.8.4
 	 */
-	function commission_totals() {
+	public function commission_totals() {
 
 		global $total_start_date, $total_end_date, $wpdb;
 
@@ -504,12 +362,12 @@ class WCV_Admin_Reports {
 		<form method="post" action="">
 			<p><label for="from"><?php _e( 'From:', 'wc-vendors' ); ?></label>
 				<input type="text" size="9" placeholder="yyyy-mm-dd"
-				       value="<?php echo esc_attr( wp_date( 'Y-m-d', $total_start_date ) ); ?>" name="total_start_date"
-				       class="range_datepicker from" id="from"/>
+					   value="<?php echo esc_attr( wp_date( 'Y-m-d', $total_start_date ) ); ?>" name="total_start_date"
+					   class="range_datepicker from" id="from"/>
 				<label for="to"><?php _e( 'To:', 'wc-vendors' ); ?></label>
 				<input type="text" size="9" placeholder="yyyy-mm-dd"
-				       value="<?php echo esc_attr( wp_date( 'Y-m-d', $total_end_date ) ); ?>" name="total_end_date"
-				       class="range_datepicker to" id="to"/>
+					   value="<?php echo esc_attr( wp_date( 'Y-m-d', $total_end_date ) ); ?>" name="total_end_date"
+					   class="range_datepicker to" id="to"/>
 
 				<select name="commission_status">
 					<option value="due"><?php _e( 'Due', 'wc-vendors' ); ?></option>
@@ -519,7 +377,7 @@ class WCV_Admin_Reports {
 
 				<input type="submit" class="button" value="<?php _e( 'Show', 'wc-vendors' ); ?>"/>
 
-				<?php do_action( 'wcvendors_after_commission_reports', $commissions ); ?>
+			<?php do_action( 'wcvendors_after_commission_reports', $commissions ); ?>
 			</p>
 		</form>
 
@@ -535,28 +393,28 @@ class WCV_Admin_Reports {
 			</tr>
 			</thead>
 			<tbody>
-			<?php
+		<?php
 
-			if ( ! empty( $commissions ) ) {
+		if ( ! empty( $commissions ) ) {
 
-				foreach ( $totals as $totals ) {
+			foreach ( $totals as $totals ) {
 
-					echo '<tr>';
-					echo '<td>' . $totals['user_login'] . '</td>';
-					echo '<td>' . wc_price( $totals['tax'] ) . '</td>';
-					echo '<td>' . wc_price( $totals['total_shipping'] ) . '</td>';
-					echo '<td>' . $totals['status'] . '</td>';
-					echo '<td>' . wc_price( $totals['total_due'] ) . '</td>';
-					echo '</tr>';
-
-				}
-			} else {
 				echo '<tr>';
-				echo '<td colspan="5">' . __( 'No commissions found.', 'wc-vendors' ) . '</td>';
+				echo '<td>' . $totals['user_login'] . '</td>';
+				echo '<td>' . wc_price( $totals['tax'] ) . '</td>';
+				echo '<td>' . wc_price( $totals['total_shipping'] ) . '</td>';
+				echo '<td>' . $totals['status'] . '</td>';
+				echo '<td>' . wc_price( $totals['total_due'] ) . '</td>';
 				echo '</tr>';
 
 			}
-			?>
+		} else {
+			echo '<tr>';
+			echo '<td colspan="5">' . __( 'No commissions found.', 'wc-vendors' ) . '</td>';
+			echo '</tr>';
+
+		}
+		?>
 			</tbody>
 		</table>
 
@@ -571,7 +429,7 @@ class WCV_Admin_Reports {
 	 *
 	 * @return   array $totals    calculated totals
 	 */
-	function calculate_totals( $commissions ) {
+	public function calculate_totals( $commissions ) {
 
 		$totals = array();
 
@@ -610,14 +468,351 @@ class WCV_Admin_Reports {
 		}
 
 		usort(
-			$totals, function ( $a, $b ) {
+			$totals,
+			function ( $a, $b ) {
 
-			return strcmp( strtolower( $a['user_login'] ), strtolower( $b['user_login'] ) );
-		}
+				return strcmp( strtolower( $a['user_login'] ), strtolower( $b['user_login'] ) );
+			}
 		);
 
 		return $totals;
 
 	} // calculate_totals()
 
+	/**
+	 * Show report for a specific vendor
+	 *
+	 * @param int    $vendor_id Vendor ID.
+	 * @param string $show_start_date Start date.
+	 * @param string $show_end_date End date.
+	 * @since 2.3.4
+	 */
+	public function show_commission_by_vendor( $vendor_id, $show_start_date, $show_end_date ) {
+
+		global $wpdb;
+
+		$table_name = $wpdb->prefix . 'pv_commission';
+
+		$sql_query = "SELECT total_shipping, tax, total_due, DATE( time ) as date, status  FROM {$table_name} WHERE vendor_id = {$vendor_id}";
+
+		if ( empty( $vendor_id ) ) {
+			return;
+		}
+
+		if ( ! empty( $show_start_date ) && ! empty( $show_end_date ) ) {
+			$sql_query .= $wpdb->prepare( ' AND ( DATE_FORMAT(time, "%%Y-%%m-%%d") BETWEEN %s AND %s )', $show_start_date, $show_end_date );
+		} elseif ( ! empty( $show_start_date ) ) {
+			$sql_query .= $wpdb->prepare( ' AND DATE_FORMAT(time, "%%Y-%%m-%%d")  = %s', $show_start_date );
+		}
+
+		$sql_query .= ' ORDER BY date DESC';
+
+		$commissions          = $wpdb->get_results( $sql_query, ARRAY_A ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+		$formatted_commission = $this->get_commission_by_month( $commissions );
+
+		if ( ! empty( $formatted_commission ) ) {
+			?>
+			<div class="woocommerce-reports-main">
+				<table class="widefat">
+					<thead>
+					<tr>
+						<th class="total_row"><?php esc_html_e( 'Month / Date', 'wc-vendors' ); ?></th>
+						<th class="total_row"><?php esc_html_e( 'Commission Total', 'wc-vendors' ); ?></th>
+						<th class="total_row"><?php esc_html_e( 'Tax Total', 'wc-vendors' ); ?></th>
+						<th class="total_row"><?php esc_html_e( 'Shipping Total', 'wc-vendors' ); ?></th>
+						<th class="total_row"><?php esc_html_e( 'Total Reversed', 'wc-vendors' ); ?></th>
+						<th class="total_row"><?php esc_html_e( 'Total Paid', 'wc-vendors' ); ?></th>
+						<th class="total_row"><?php esc_html_e( 'Total Due', 'wc-vendors' ); ?></th>
+					</tr>
+					</thead>
+					<tbody>
+					<?php
+					$all_total_commission = 0;
+					$all_total_due        = 0;
+					$all_tax              = 0;
+					$all_shipping         = 0;
+					$all_paid             = 0;
+					$all_reversed         = 0;
+					// @codingStandardsIgnoreStart
+					foreach ( $formatted_commission as $month => $date ) {
+						$month_total_commission = array_sum( wp_list_pluck( $date, 'commission' ) );
+						$month_total_due        = array_sum( wp_list_pluck( $date, 'due' ) );
+						$month_total_paid       = array_sum( wp_list_pluck( $date, 'paid' ) );
+						$month_total_rev        = array_sum( wp_list_pluck( $date, 'reversed' ) );
+						$month_total_shipping   = array_sum( wp_list_pluck( $date, 'shipping' ) );
+						$month_total_tax        = array_sum( wp_list_pluck( $date, 'tax' ) );
+
+						echo '<tr>';
+						echo '<td><strong>' . date( 'M', strtotime( $month . '-01' ) ) . '</strong></td>';
+						echo '</tr>';
+						foreach ( $date as $d => $commission ) {
+
+							echo '<tr>';
+							echo '<td>' . $d . '</td>';
+							echo '<td>' . wc_price( $commission['commission'] ) . '</td>';
+							echo '<td>' . wc_price( $commission['tax'] ) . '</td>';
+							echo '<td>' . wc_price( $commission['shipping'] ) . '</td>';
+							echo '<td>' . wc_price( $commission['reversed'] ) . '</td>';
+							echo '<td>' . wc_price( $commission['paid'] ) . '</td>';
+							echo '<td>' . wc_price( $commission['due'] ) . '</td>';
+							echo '</tr>';
+						}
+						echo '<tr class="total_row">';
+						echo '<td> - </td>';
+						echo '<td><strong>' . wc_price( $month_total_commission ) . '</strong></td>';
+						echo '<td><strong>' . wc_price( $month_total_tax ) . '</strong></td>';
+						echo '<td><strong>' . wc_price( $month_total_shipping ) . '</strong></td>';
+						echo '<td><strong>' . wc_price( $month_total_rev ) . '</strong></td>';
+						echo '<td><strong>' . wc_price( $month_total_paid ) . '</strong></td>';
+						echo '<td><strong>' . wc_price( $month_total_due ) . '</strong></td>';
+
+						echo '</tr>';
+
+						$all_total_commission += $month_total_commission;
+						$all_paid             += $month_total_paid;
+						$all_reversed         += $month_total_rev;
+						$all_total_due        += $month_total_due;
+						$all_tax              += $month_total_tax;
+						$all_shipping         += $month_total_shipping;
+
+					}
+					echo '<tfoot>';
+					echo '<tr>';
+					echo '<td>' . esc_html__( 'Total', 'wc-vendors' ) . '</td>';
+					echo '<td>' . wc_price( $all_total_commission ) . '</td>';
+					echo '<td>' . wc_price( $all_tax ) . '</td>';
+					echo '<td>' . wc_price( $all_shipping ) . '</td>';
+					echo '<td>' . wc_price( $all_reversed ) . '</td>';
+					echo '<td>' . wc_price( $all_paid ) . '</td>';
+					echo '<td>' . wc_price( $all_total_due ) . '</td>';
+					echo '</tr>';
+					echo '</tfoot>';
+					// @codingStandardsIgnoreEnd
+					?>
+					</tbody>
+				</table>
+			</div>
+			<?php
+		} else {
+			echo '<p>' . esc_html__( 'No commissions found', 'wc-vendors' ) . '</p>';
+		}
+
+	}
+
+	/**
+	 * Show report for products
+	 *
+	 * @since 2.3.4
+	 */
+	public function show_commission_by_products( $product_ids, $show_start_date, $show_end_date ) {
+
+		global $wpdb;
+
+		if ( empty( $product_ids ) ) {
+			return;
+		}
+		$joined_product_ids = implode( ',', $product_ids );
+		$table_name         = $wpdb->prefix . 'pv_commission';
+
+		$sql_query = "SELECT total_shipping, tax, total_due, product_id, DATE(time) as date, status FROM {$table_name} WHERE product_id IN (  {$joined_product_ids} )";
+
+		if ( ! empty( $show_start_date ) && ! empty( $show_end_date ) ) {
+			$sql_query .= $wpdb->prepare( ' AND ( time BETWEEN %s AND %s )', $show_start_date, $show_end_date );
+
+		} elseif ( ! empty( $show_start_date ) ) {
+			$sql_query .= $wpdb->prepare( ' AND DATE( time ) = DATE(  %s )', $show_start_date );
+		}
+
+		$sql_query .= ' ORDER BY date DESC ';
+
+		$commissions = $wpdb->get_results( $sql_query, ARRAY_A ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+
+		$formatted_commission = $this->get_commission_by_product( $commissions );
+
+		if ( ! empty( $formatted_commission ) ) {
+			?>
+			<div class="woocommerce-reports-main">
+				<table class="widefat">
+					<thead>
+					<tr>
+						<th><?php esc_html_e( 'Date', 'wc-vendors' ); ?></th>
+						<th><?php esc_html_e( 'Product', 'wc-vendors' ); ?></th>
+						<th><?php esc_html_e( 'Total Commission', 'wc-vendors' ); ?></th>
+						<th><?php esc_html_e( 'Total Tax', 'wc-vendors' ); ?></th>
+						<th><?php esc_html_e( 'Total Shipping', 'wc-vendors' ); ?></th>
+						<th><?php esc_html_e( 'Total Reversed', 'wc-vendors' ); ?></th>
+						<th><?php esc_html_e( 'Total Paid', 'wc-vendors' ); ?></th>
+						<th><?php esc_html_e( 'Total Due', 'wc-vendors' ); ?></th>
+					</tr>
+					</thead>
+					<tbody>
+					<?php
+					$all_total_commission = 0;
+					$all_paid             = 0;
+					$all_reversed         = 0;
+					$all_total_due        = 0;
+					$all_tax              = 0;
+					$all_shipping         = 0;
+					// @codingStandardsIgnoreStart
+					foreach ( $formatted_commission as $product_id => $product_commission ) {
+
+						$product_name             = get_the_title( $product_id );
+						$product_total_commission = 0;
+						$product_total_paid       = 0;
+						$product_total_rev        = 0;
+						$product_total_due        = 0;
+						$product_total_tax        = 0;
+						$product_total_shipping   = 0;
+
+						echo '<tr>';
+						echo '<td><strong>' . $product_name . '</strong></td>';
+						echo  '</tr>';
+						foreach ( $product_commission as $date => $commission ) {
+							$product_total_commission += $commission['commission'];
+							$product_total_paid       += $commission['paid'];
+							$product_total_rev        += $commission['reversed'];
+							$product_total_due        += $commission['due'];
+							$product_total_tax        += $commission['tax'];
+							$product_total_shipping   += $commission['shipping'];
+
+							echo '<tr>';
+							echo '<td>' . esc_html( $date ) . '</td>';
+							echo '<td>' . esc_html( $product_name ) . '</td>';
+							echo '<td>' . wc_price( $commission['commission'] ) . '</td>';
+							echo '<td>' . wc_price( $commission['tax'] ) . '</td>';
+							echo '<td>' . wc_price( $commission['shipping'] ) . '</td>';
+							echo '<td>' . wc_price( $commission['reversed'] ) . '</td>';
+							echo '<td>' . wc_price( $commission['paid'] ) . '</td>';
+							echo '<td>' . wc_price( $commission['due'] ) . '</td>';
+							echo '</tr>';
+
+						}
+						$all_total_commission += $product_total_commission;
+						$all_paid             += $product_total_paid;
+						$all_reversed         += $product_total_rev;
+						$all_total_due        += $product_total_due;
+						$all_tax              += $product_total_tax;
+						$all_shipping         += $product_total_shipping;
+						echo '<tr>';
+						echo '<td><strong>-</strong></td>';
+						echo '<td></td>';
+						echo '<td><strong>' . wc_price( $product_total_commission ) . '</strong></td>';
+						echo '<td><strong>' . wc_price( $product_total_tax ) . '</strong></td>';
+						echo '<td><strong>' . wc_price( $product_total_shipping ) . '</strong></td>';
+						echo '<td><strong>' . wc_price( $product_total_rev ) . '</strong></td>';
+						echo '<td><strong>' . wc_price( $product_total_paid ) . '</strong></td>';
+						echo '<td><strong>' . wc_price( $product_total_due ) . '</strong></td>';
+						echo '</tr>';
+
+					}
+					echo '<tfoot>';
+					echo '<tr class="total_row">';
+					echo '<td>' . esc_html__( 'Total', 'wc-vendors' ) . '</td>';
+					echo '<td></td>';
+					echo '<td>' . wc_price( $all_total_commission ) . '</td>';
+					echo '<td>' . wc_price( $all_tax ) . '</td>';
+					echo '<td>' . wc_price( $all_shipping ) . '</td>';
+					echo '<td>' . wc_price( $all_reversed ) . '</td>';
+					echo '<td>' . wc_price( $all_paid ) . '</td>';
+					echo '<td>' . wc_price( $all_total_due ) . '</td>';
+					echo '</tr>';
+					echo '</tfoot>';
+					// @codingStandardsIgnoreEnd
+					?>
+					</tbody>
+				</table>
+			</div>
+			<?php
+
+		} else {
+			echo '<p>' . esc_html__( 'No commission data found', 'wc-vendors' ) . '</p>';
+		}
+
+	}
+
+
+	/**
+	 * Get commission by month
+	 *
+	 * @param  array $commissions Array of commissions.
+	 * @return array
+	 */
+	private function get_commission_by_month( $commissions ) {
+		$month_array       = array();
+		$count_commissions = count( $commissions );
+		for ( $i = 0; $i < $count_commissions; $i++ ) {
+
+			$date  = $commissions[ $i ]['date'];
+			$month = gmdate( 'Y-m', strtotime( $date ) );
+
+			if ( ! isset( $month_array[ $month ] ) ) {
+				$month_array[ $month ] = array();
+			}
+			if ( ! isset( $month_array[ $month ][ $date ] ) ) {
+				$month_array[ $month ][ $date ] = array(
+					'tax'        => 0,
+					'shipping'   => 0,
+					'due'        => 0,
+					'paid'       => 0,
+					'reversed'   => 0,
+					'commission' => 0,
+				);
+			}
+			$month_array[ $month ][ $date ]['tax']      += $commissions[ $i ]['tax'];
+			$month_array[ $month ][ $date ]['shipping'] += $commissions[ $i ]['total_shipping'];
+
+			if ( $commissions[ $i ]['status'] === 'due' ) {
+				$month_array[ $month ][ $date ]['due'] += $commissions[ $i ]['total_due'];
+			} elseif ( $commissions[ $i ]['status'] === 'paid' ) {
+				$month_array[ $month ][ $date ]['paid'] += $commissions[ $i ]['total_due'];
+			} elseif ( $commissions[ $i ]['status'] === 'reversed' ) {
+				$month_array[ $month ][ $date ]['reversed'] += $commissions[ $i ]['total_due'];
+			}
+			$month_array[ $month ][ $date ]['commission'] += $commissions[ $i ]['total_due'] + $commissions[ $i ]['total_shipping'] + $commissions[ $i ]['tax'];
+		}
+		return $month_array;
+	}
+
+	/**
+	 * Get commission by product
+	 *
+	 * @param  array $commissions Array of commissions.
+	 * @return array
+	 */
+	private function get_commission_by_product( $commissions ) {
+		$product_array     = array();
+		$count_commissions = count( $commissions );
+		for ( $i = 0; $i < $count_commissions; $i++ ) {
+			$product_id = $commissions[ $i ]['product_id'];
+			$date       = $commissions[ $i ]['date'];
+			if ( ! isset( $product_array[ $product_id ] ) ) {
+				$product_array[ $product_id ] = array();
+			}
+			if ( ! isset( $product_array[ $product_id ][ $date ] ) ) {
+				$product_array[ $product_id ][ $date ] = array(
+					'tax'        => 0,
+					'shipping'   => 0,
+					'due'        => 0,
+					'paid'       => 0,
+					'reversed'   => 0,
+					'commission' => 0,
+				);
+			}
+			$product_array[ $product_id ][ $date ]['tax']      += $commissions[ $i ]['tax'];
+			$product_array[ $product_id ][ $date ]['shipping'] += $commissions[ $i ]['total_shipping'];
+
+			if ( $commissions[ $i ]['status'] === 'due' ) {
+				$product_array[ $product_id ][ $date ]['due'] += $commissions[ $i ]['total_due'];
+			} elseif ( $commissions[ $i ]['status'] === 'paid' ) {
+				$product_array[ $product_id ][ $date ]['paid'] += $commissions[ $i ]['total_due'];
+			} elseif ( $commissions[ $i ]['status'] === 'reversed' ) {
+				$product_array[ $product_id ][ $date ]['reversed'] += $commissions[ $i ]['total_due'];
+			}
+
+			$product_array[ $product_id ][ $date ]['commission'] += $commissions[ $i ]['total_due'] + $commissions[ $i ]['total_shipping'] + $commissions[ $i ]['tax'];
+
+		}
+		return $product_array;
+	}
 }
+
