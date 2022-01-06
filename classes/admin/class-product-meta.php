@@ -388,12 +388,11 @@ class WCV_Product_Meta {
 				$post              = get_post( $product->get_id() );
 				$post->post_author = $vendor;
 			}
-
-			if ( isset( $_REQUEST['product_media_author_override'] ) ) {
-				$this->save_product_media( $product );
-			}
 		}
 
+		if ( isset( $_REQUEST['product_media_author_override'] ) ) {
+			$this->save_product_media( $product );
+		}
 		return $product;
 	}
 
@@ -414,6 +413,12 @@ class WCV_Product_Meta {
 		<label class="inline-edit-author-new">
 			<span class="title"><?php printf( __( '%s', 'wc-vendors' ), wcv_get_vendor_name() ); ?></span>
 			<?php echo $output; ?>
+		</label>
+		<br class="clear"/>
+		<label class="inline-edit-author-new">
+			<input name="product_media_author_override" type="checkbox"/>
+			<span class="title">Media</span>
+			<?php printf( __( 'Assign media to %s', 'wc-vendors' ), wcv_get_vendor_name() ); ?>
 		</label>
 		<?php
 	}
@@ -439,6 +444,11 @@ class WCV_Product_Meta {
 			);
 			wp_update_post( $update_vendor );
 		}
+
+		if ( isset( $_REQUEST['product_media_author_override'] ) ) {
+			$this->save_product_media( $product );
+		}
+
 	}
 
 	/**
@@ -452,14 +462,23 @@ class WCV_Product_Meta {
 	 */
 	public function save_product_media( $product ) {
 
-		global $post;
 		if ( ! is_a( $product, 'WC_Product' ) ) {
 			return;
 		}
-		$vendor = $post->post_author;
+		$product_id = $product->get_id();
+		$post       = get_post( $product_id );
+		$vendor     = $post->post_author;
 
 		$attachment_ids   = $product->get_gallery_image_ids( 'edit' );
-		$attachment_ids[] = $product->get_image_id( 'edit' );
+		$attachment_ids[] = intval( $product->get_image_id( 'edit' ) );
+		if ( $product->is_downloadable() ) {
+			$download_files = $product->get_downloads();
+			foreach ( $download_files as $download_id => $file ) {
+				$file_url         = $product->get_file_download_path( $download_id );
+				$media_id         = attachment_url_to_postid( $file_url );
+				$attachment_ids[] = $media_id;
+			}
+		}
 
 		foreach ( $attachment_ids as $id ) {
 			$edit_attachment = array(
