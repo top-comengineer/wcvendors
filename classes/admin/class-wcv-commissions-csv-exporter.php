@@ -88,8 +88,6 @@ class WCV_Commissions_CSV_Export extends WC_CSV_Exporter {
 		 */
 		$sql = "SELECT COUNT(id) FROM {$wpdb->prefix}pv_commission";
 
-		WC_Vendors::log( $_REQUEST );
-
 		if ( ! empty( $_GET['from_date'] ) && ! empty( $_REQUEST['to_date'] ) ) {
 			$from_date = sanitize_text_field( wp_unslash( $_REQUEST['from_date'] ) );
 			$to_date   = sanitize_text_field( wp_unslash( $_REQUEST['to_date'] ) );

@@ -439,7 +439,6 @@ class WCV_Vendors {
 	 */
 	public static function get_vendor_shop_name( $vendor_id ) {
 
-		$vendor_id = self::get_vendor_id( $vendor_id );
 		$name      = $vendor_id ? get_user_meta( $vendor_id, 'pv_shop_name', true ) : false;
 		$shop_name = ( ! $name && $vendor = get_userdata( $vendor_id ) ) ? $vendor->user_login : $name;
 
