@@ -6,9 +6,9 @@ Author URI: https://www.wcvendors.com/
 Plugin URI: https://www.wcvendors.com/
 Requires at least: 5.3.0
 Requires PHP: 7.4
-Tested up to: 5.8
-WC requires at least: 4.0.0
-WC tested up to: 5.6.0
+Tested up to: 5.9
+WC requires at least: 5.0.0
+WC tested up to: 6.1.0
 Stable tag: 2.3.2
 License: GPLv2 or later
 
@@ -263,6 +263,14 @@ WC Vendors Marketplace does not work with multisite WordPress. There are no plan
 12. Email notifications for admins, customers and vendors
 
 == Changelog ==
+
+= Version 2.4.0 - 10th January 2022 = 
+
+* Added: Marketplace admin can mark orders shipped (#808)
+* Added: Log marketplace commissions to commissions table (#806)
+* Added: Filter hook to add CSS classes to apply for vendor label (#797)
+* Updated: Daily filter for commission by vendor report (#803)
+* Fixed: Files not assigned to vendor when assigning product (#791)
 
 = Version 2.3.2 - 2nd August 2021 = 
 
