@@ -9,7 +9,7 @@ Requires PHP: 7.4
 Tested up to: 5.9
 WC requires at least: 5.0.0
 WC tested up to: 6.1.0
-Stable tag: 2.3.2
+Stable tag: 2.4.0
 License: GPLv2 or later
 
 The original multi-vendor marketplace plugin for WordPress and WooCommerce. Best support available. 

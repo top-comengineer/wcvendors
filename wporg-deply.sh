@@ -93,7 +93,7 @@ svn cp "trunk" "tags/$VERSION"
 svn status
 
 echo "➤ Committing files..."
-svn commit -m "Update to version $VERSION from GitHub" --no-auth-cache --non-interactive  --username "$SVN_USERNAME"
+svn commit -m "Update to version $VERSION from GitHub" --no-auth-cache --username "$SVN_USERNAME"
 
 echo "➤ Announcing to slack..."
 curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"✓ WC Vendors Marketplace $VERSION deployed to wordpress.org\"}" $SLACKURL
