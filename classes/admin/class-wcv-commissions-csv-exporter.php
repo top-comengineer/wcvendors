@@ -183,8 +183,12 @@ class WCV_Commissions_CSV_Export extends WC_CSV_Exporter {
 						break;
 					case 'shipped': 
 						$order = wc_get_order( $commission->order_id );
-						$shipped = get_post_meta( $order->get_id(), 'wc_pv_shipped', true ); 
-						$value = ! empty( $shipped ) && in_array( $commission->vendor_id, $shipped ) ? __( 'Yes', 'wc-vendors' ) : __( 'No', 'wc-vendors'); 
+						if ( $order ){ 
+							$shipped = get_post_meta( $order->get_id(), 'wc_pv_shipped', true ); 
+							$value = ! empty( $shipped ) && in_array( $commission->vendor_id, $shipped ) ? __( 'Yes', 'wc-vendors' ) : __( 'No', 'wc-vendors'); 
+						} else{ 
+							$value = '-';
+						}
 						break; 
 					default:
 						$value = $commission->$column_id;
