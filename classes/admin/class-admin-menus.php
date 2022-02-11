@@ -55,7 +55,7 @@ class WCVendors_Admin_Menus {
 			'wc-vendors',
 			array( $this, 'extensions_page' ),
 			'dashicons-cart',
-			'50'
+			50
 		);
 	}
 
