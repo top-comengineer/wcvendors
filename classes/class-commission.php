@@ -145,10 +145,9 @@ class WCV_Commission {
 		foreach ( $dues as $vendor_id => $details ) {
 
 			// Only process vendor commission
-			// @todo change this to check the settings for 'log all commissions' 
-			// if ( ! WCV_Vendors::is_vendor( $vendor_id ) ) {
-			// 	continue;
-			// }
+			if ( ! WCV_Vendors::is_vendor( $vendor_id ) ) {
+				continue;
+			}
 
 			// See if they currently have an amount due
 			$due = WCV_Vendors::count_due_by_vendor( $vendor_id, $order_id );
