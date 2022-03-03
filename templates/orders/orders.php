@@ -38,7 +38,8 @@ if ( function_exists( 'wc_print_notices' ) ) {
 	foreach ( $body as $order_id => $order ) :
 
 		$order_items = ! empty( $items[ $order_id ]['items'] ) ? $items[ $order_id ]['items'] : array();
-		$count = count( $order_items );
+		$count       = count( $order_items );
+		$refund      = isset( $items[ $order_id ]['refund'] ) ? $items[ $order_id ]['refund'] : array();
 		?>
 
 		<tr>
@@ -76,6 +77,7 @@ if ( function_exists( 'wc_print_notices' ) ) {
 					'item'     => $item,
 					'count'    => $count,
 					'order_id' => $order_id,
+					'refund'   => $refund,
 				), 'wc-vendors/orders/', wcv_plugin_dir . 'templates/orders/'
 				);
 

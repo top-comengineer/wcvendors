@@ -13,17 +13,20 @@ class WCV_Queries {
 	public static function get_commission_products( $user_id ) {
 		global $wpdb;
 
-		$dates           = self::orders_within_range();
-		$vendor_products = array();
-		$sql             = '';
-
-		$sql .= "SELECT product_id FROM {$wpdb->prefix}pv_commission WHERE vendor_id = {$user_id} ";
+		$dates                = self::orders_within_range();
+		$vendor_products      = array();
+		$sql                  = '';
+		$show_reversed_orders = wcv_is_show_reversed_order();
+		$sql                 .= "SELECT product_id FROM {$wpdb->prefix}pv_commission WHERE vendor_id = {$user_id} ";
 
 		if ( ! empty( $dates ) ) {
 			$sql .= "AND time >= '" . $dates['after'] . "' AND time <= '" . $dates['before'] . "'";
 		}
 
-		$sql .= " AND status != 'reversed' GROUP BY product_id";
+		if ( ! $show_reversed_orders ) {
+			$sql .= " AND status != 'reversed' ";
+		}
+		$sql .= ' GROUP BY product_id';
 
 		$results = $wpdb->get_results( $sql );
 
@@ -58,19 +61,18 @@ class WCV_Queries {
 	public static function get_products_for_order( $order_id ) {
 		global $wpdb;
 
-		$vendor_products = array();
+		$vendor_products      = array();
+		$vendor_id            = get_current_user_id();
+		$show_reversed_orders = wcv_is_show_reversed_order();
+		$sql                  = "SELECT product_id FROM {$wpdb->prefix}pv_commission WHERE order_id = {$order_id} ";
 
-		$results = $wpdb->get_results(
-			"
-			SELECT product_id
-			FROM {$wpdb->prefix}pv_commission
-			WHERE order_id = {$order_id}
-			AND     status != 'reversed'
-			AND     vendor_id = " . get_current_user_id() . '
-			GROUP BY product_id'
-		);
+		if ( ! $show_reversed_orders ) {
+			$sql .= " AND status != 'reversed'";
+		}
 
-		$results = apply_filters( 'wcvendors_get_vendor_products', $results );
+		$sql    .= " AND vendor_id = {$vendor_id} GROUP BY product_id ";
+		$result  = $wpdb->get_results( $sql ); // WPCS: unprepared SQL ok.
+		$results = apply_filters( 'wcvendors_get_vendor_products', $result );
 
 		if ( empty( $results ) ) {
 			return array();
@@ -97,8 +99,8 @@ class WCV_Queries {
 		if ( empty( $product_ids ) ) {
 			return false;
 		}
-
-		$dates = self::orders_within_range();
+		$show_reversed_orders = wcv_is_show_reversed_order();
+		$dates                = self::orders_within_range();
 
 		$defaults = array(
 			'status' => apply_filters( 'wcvendors_completed_statuses', array( 'completed', 'processing' ) ),
@@ -109,27 +111,18 @@ class WCV_Queries {
 		);
 
 		$args = wp_parse_args( $args, $defaults );
+		$sql  = "SELECT order_id FROM {$wpdb->prefix}pv_commission as order_items WHERE product_id IN ('" . implode( "','", $product_ids ) . "')";
+		$sql .= "AND time >= '" . $args['dates']['after'] . "'AND time <= '" . $args['dates']['before'] . "'";
 
-		$sql = "
-			SELECT order_id
-			FROM {$wpdb->prefix}pv_commission as order_items
-			WHERE   product_id IN ('" . implode( "','", $product_ids ) . "')
-			AND 	time >= '" . $args['dates']['after'] . "'
-			AND 	time <= '" . $args['dates']['before'] . "'
-			AND     status != 'reversed'
-		";
-
-		if ( ! empty( $args['vendor_id'] ) ) {
-			$sql .= "
-				AND vendor_id = {$args['vendor_id']}
-			";
+		if ( ! $show_reversed_orders ) {
+			$sql .= " AND status != 'reversed'";
 		}
 
-		$sql .= '
-			GROUP BY order_id
-			ORDER BY time DESC
-		';
+		if ( ! empty( $args['vendor_id'] ) ) {
+			$sql .= " AND vendor_id = {$args['vendor_id']}";
+		}
 
+		$sql   .= ' GROUP BY order_id ORDER BY time DESC';
 		$orders = $wpdb->get_results( $sql );
 
 		return $orders;

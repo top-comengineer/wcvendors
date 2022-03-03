@@ -140,3 +140,18 @@ if ( ! function_exists( 'wcv_set_primary_vendor_role' ) ){
 		}
 	}
 }
+
+if ( ! function_exists( 'wcv_is_show_reversed_order' ) ) {
+
+	/**
+	 * Check show reversed order
+	 *
+	 * @since 2.4.0
+	 * @return bool
+	 */
+	function wcv_is_show_reversed_order() {
+
+		return wc_string_to_bool( get_option( 'wcvendors_dashboard_orders_show_reversed_orders', 'no' ) );
+
+	}
+}

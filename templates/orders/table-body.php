@@ -34,6 +34,12 @@ if ( $count > 1 ) : ?>
 		<?php endif; ?>
 
 		<?php printf( __( 'Quantity: %d', 'wc-vendors' ), $item['qty'] ); ?>
+
+		<?php if ( $refund && !empty( $refund ) ) : ?>
+			<br />
+			<?php printf( __( 'Refunded total: %s', 'wc-vendors' ), wc_price( $refund['total'] ) ); ?>
+		<?php endif; ?>
+
 	</td>
 
 	<?php if ( $count > 1 ) : ?>

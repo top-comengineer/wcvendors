@@ -14,12 +14,12 @@ class WCV_Orders {
 	/**
 	 * __construct()
 	 */
-	function __construct() {
+	public function __construct() {
 
 		$this->can_view_orders        = wc_string_to_bool( get_option( 'wcvendors_capability_orders_enabled', 'no' ) );
 		$this->can_export_csv         = wc_string_to_bool( get_option( 'wcvendors_capability_orders_export', 'no' ) );
 		$this->can_view_emails        = wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_email', 'no' ) );
-		$this->can_view_name     	  = wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_name', 'no' ) );
+		$this->can_view_name          = wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_name', 'no' ) );
 		$this->can_view_shipping_name = wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_shipping_name', 'no' ) );
 		$this->can_view_address       = wc_string_to_bool( get_option( 'wcvendors_capability_order_customer_shipping' ) );
 
@@ -99,8 +99,8 @@ class WCV_Orders {
 			return false;
 		}
 
-		extract( WCV_Orders::format_order_details( $this->orders, $this->product_id ) );
-		$headers = WCV_Orders::get_headers();
+		extract( self::format_order_details( $this->orders, $this->product_id ) );
+		$headers = self::get_headers();
 
 		// Export the CSV
 		require_once wcv_plugin_dir . 'classes/front/orders/class-export-csv.php';
@@ -161,8 +161,8 @@ class WCV_Orders {
 			exit;
 		}
 
-		$headers = WCV_Orders::get_headers();
-		$all     = WCV_Orders::format_order_details( $this->orders, $this->product_id );
+		$headers = self::get_headers();
+		$all     = self::format_order_details( $this->orders, $this->product_id );
 
 		wp_enqueue_script( 'pv_frontend_script', wcv_assets_url . 'js/front-orders.js' );
 
@@ -187,14 +187,17 @@ class WCV_Orders {
 		}
 
 		wc_get_template(
-			'orders.php', array(
-			'headers'        => $headers,
-			'body'           => $all['body'],
-			'items'          => $all['items'],
-			'product_id'     => $all['product_id'],
-			'providers'      => $providers,
-			'provider_array' => $provider_array,
-		), 'wc-vendors/orders/', wcv_plugin_dir . 'templates/orders/'
+			'orders.php',
+			array(
+				'headers'        => $headers,
+				'body'           => $all['body'],
+				'items'          => $all['items'],
+				'product_id'     => $all['product_id'],
+				'providers'      => $providers,
+				'provider_array' => $provider_array,
+			),
+			'wc-vendors/orders/',
+			wcv_plugin_dir . 'templates/orders/'
 		);
 
 	} // display_product_orders()
@@ -252,8 +255,13 @@ class WCV_Orders {
 		$product = wc_get_product( $product_id )->get_title();
 
 		foreach ( $orders as $i => $order ) {
-			$i          = $order->order_id;
-			$order      = wc_get_order( $i );
+			$i     = $order->order_id;
+			$order = wc_get_order( $i );
+
+			if ( is_bool( $order ) ) {
+				continue;
+			}
+
 			$order_date = $order->get_date_created();
 
 			$shipping_first_name = $order->get_shipping_first_name();
@@ -295,13 +303,26 @@ class WCV_Orders {
 			}
 
 			$items[ $i ]['total_qty'] = 0;
+			$is_full_refunded         = $order->get_total_refunded() == $order->get_total();
 			foreach ( $order->get_items() as $line_id => $item ) {
 
 				if ( $item['product_id'] != $product_id && $item['variation_id'] != $product_id ) {
 					continue;
 				}
 
-				$items[ $i ]['items'][]   = $item;
+				$refund_total = $order->get_total_refunded_for_item( $item->get_id() );
+
+				if ( $is_full_refunded ) {
+					$refund_total = $item['line_total'];
+				}
+				if ( ( $refund_total > 0 ) && $item->get_product_id() == $product_id || $item->get_variation_id() == $product_id ) {
+					$items[ $i ]['refund'] = array(
+						'total' => $refund_total,
+					);
+
+				}
+
+				$items[ $i ]['items'][]    = $item;
 				$items[ $i ]['total_qty'] += $item['qty'];
 			}
 		}
