@@ -6,10 +6,10 @@ Author URI: https://www.wcvendors.com/
 Plugin URI: https://www.wcvendors.com/
 Requires at least: 5.3.0
 Requires PHP: 7.4
-Tested up to: 5.9
+Tested up to: 6.0
 WC requires at least: 5.0.0
-WC tested up to: 6.1.0
-Stable tag: 2.4.0
+WC tested up to: 6.2.0
+Stable tag: 2.4.1
 License: GPLv2 or later
 
 The original multi-vendor marketplace plugin for WordPress and WooCommerce. Best support available. 

@@ -1,5 +1,13 @@
 Changelog for WC Vendors Marketplace
 
+Version 2.4.1 - 3rd March 2022
+
+* Updated: Sales report with refund details (#822)
+* Updated: Menu page parameter type in WordPress 6.0 (#826)
+* Reverted: "Added: Log marketplace commissions to commissions table (#806)" (#832)
+* Fixed: Undefined variable ids (#816)
+* Fixed: Order export fails if the order has been deleted #813 (#814)
+
 Version 2.4.0 - 10th January 2022
 
 * Added: Marketplace admin can mark orders shipped (#808)
