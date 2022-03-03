@@ -8,7 +8,7 @@ Requires at least: 5.3.0
 Requires PHP: 7.4
 Tested up to: 6.0
 WC requires at least: 5.0.0
-WC tested up to: 6.2.0
+WC tested up to: 6.2.1
 Stable tag: 2.4.1
 License: GPLv2 or later
 
@@ -263,6 +263,14 @@ WC Vendors Marketplace does not work with multisite WordPress. There are no plan
 12. Email notifications for admins, customers and vendors
 
 == Changelog ==
+
+ = Version 2.4.1 - 3rd March 2022 =
+
+* Updated: Sales report with refund details (#822)
+* Updated: Menu page parameter type in WordPress 6.0 (#826)
+* Reverted: "Added: Log marketplace commissions to commissions table (#806)" (#832)
+* Fixed: Undefined variable ids (#816)
+* Fixed: Order export fails if the order has been deleted #813 (#814)
 
 = Version 2.4.0 - 10th January 2022 = 
 
