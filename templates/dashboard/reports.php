@@ -90,7 +90,7 @@ if ( $datepicker !== 'false' ) {
 		<?php else : ?>
 
 			<tr>
-				<td colspan="4"
+				<td colspan="5"
 				    style="text-align:center;"><?php _e( 'You have no sales during this period.', 'wc-vendors' ); ?></td>
 			</tr>
 
@@ -100,7 +100,7 @@ if ( $datepicker !== 'false' ) {
 	<?php else : ?>
 
 		<tr>
-			<td colspan="4"
+			<td colspan="5"
 			    style="text-align:center;"><?php _e( 'You haven\'t made any sales yet.', 'wc-vendors' ); ?></td>
 		</tr>
 
