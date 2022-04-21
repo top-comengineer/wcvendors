@@ -19,7 +19,14 @@ class WCV_Vendor_Admin_Dashboard {
 		add_action( 'admin_head', array( $this, 'admin_enqueue_order_style' ) );
 	}
 
-	function vendor_dashboard_pages() {
+	/**
+	 * Add the vendor dashboard pages menu exclude admin.
+	 */
+	public function vendor_dashboard_pages() {
+
+		if ( current_user_can( 'administrator' ) ) {
+			return;
+		}
 
 		add_menu_page(
 			__( 'Shop Settings', 'wc-vendors' ),
