@@ -46,6 +46,8 @@ class WCV_Vendor_Dashboard {
 		) {
 			wp_enqueue_style( 'wcv_frontend_style', wcv_assets_url . 'css/wcv-frontend.css' );			
 		}
+
+		wp_enqueue_style( 'wcv_vendor_store_style', wcv_assets_url . 'css/wcv-store.css' );
 	}
 
 	public function save_vendor_settings() {

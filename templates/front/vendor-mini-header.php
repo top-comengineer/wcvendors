@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<h1><?php echo $shop_name; ?></h1>
+<div class="wcv-shop-header-name"><?php echo $shop_name; ?></div>
 <div class="wcv_shop_description">
 	<?php echo $shop_description; ?>
 </div>
