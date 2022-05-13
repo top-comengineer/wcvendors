@@ -43,5 +43,8 @@ gulp.task('build-i18n-pot', function () {
         .pipe( gulp.dest('languages/wc-vendors.pot') );
 });
 
-
-gulp.task( 'default', gulp.parallel( 'styles', 'build-i18n-pot' ) );
+gulp.task( 'watch', function() {
+    gulp.watch( 'assets/css/*.scss', gulp.parallel( 'styles' ) );
+});
+gulp.task( 'build', gulp.parallel( 'styles', 'build-i18n-pot' ) );
+gulp.task( 'default', gulp.task( 'watch') );

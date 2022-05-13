@@ -1,0 +1,6 @@
+{
+  "extends": [
+    "@wordpress/stylelint-config",
+    "stylelint-config-prettier-scss"
+  ]
+}
