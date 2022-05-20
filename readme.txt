@@ -8,8 +8,8 @@ Requires at least: 5.3.0
 Requires PHP: 7.4
 Tested up to: 6.0
 WC requires at least: 5.0.0
-WC tested up to: 6.2.1
-Stable tag: 2.4.1
+WC tested up to: 6.5
+Stable tag: 2.4.2
 License: GPLv2 or later
 
 The original multi-vendor marketplace plugin for WordPress and WooCommerce. Best support available. 
@@ -263,6 +263,13 @@ WC Vendors Marketplace does not work with multisite WordPress. There are no plan
 12. Email notifications for admins, customers and vendors
 
 == Changelog ==
+
+== Version 2.4.2 - 19th May 2022 ==
+
+* Updated: Dev tools (#842)
+* Fixed: Vendor menu shows on Admin dashboard (#844)
+* Fixed: Duplicate H1 tag on products (#840)
+* Fixed: The colspan does not match in vendor dashboard (#838)
 
  = Version 2.4.1 - 3rd March 2022 =
 

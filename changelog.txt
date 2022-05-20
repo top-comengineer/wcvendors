@@ -1,5 +1,12 @@
 Changelog for WC Vendors Marketplace
 
+Version 2.4.2 - 19th May 2022
+
+* Updated: Dev tools (#842)
+* Fixed: Vendor menu shows on Admin dashboard (#844)
+* Fixed: Duplicate H1 tag on products (#840)
+* Fixed: The colspan does not match in vendor dashboard (#838)
+
 Version 2.4.1 - 3rd March 2022
 
 * Updated: Sales report with refund details (#822)
