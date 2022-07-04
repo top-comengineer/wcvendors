@@ -70,6 +70,7 @@ function wcv_get_settings_mapping() {
 			'can_submit_live_products'    => 'wcvendors_capability_products_live',
 			'can_show_orders'             => 'wcvendors_capability_orders_enabled',
 			'can_export_csv'              => 'wcvendors_capability_orders_export',
+			'can_export_commission_csv'    => 'wcvendors_capability_commission_export',  
 			'can_view_order_emails'       => 'wcvendors_capability_order_customer_email',
 			'can_view_order_comments'     => 'wcvendors_capability_order_read_notes',
 			'can_submit_order_comments'   => 'wcvendors_capability_order_update_notes',

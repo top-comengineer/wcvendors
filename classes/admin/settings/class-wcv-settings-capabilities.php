@@ -45,6 +45,7 @@ if ( ! class_exists( 'WCVendors_Settings_Capabilities', false ) ) :
 				''        => __( 'General', 'wc-vendors' ),
 				'product' => __( 'Products', 'wc-vendors' ),
 				'order'   => __( 'Orders', 'wc-vendors' ),
+				
 			);
 
 			return apply_filters( 'wcvendors_get_sections_' . $this->id, $sections );
@@ -308,6 +309,14 @@ if ( ! class_exists( 'WCVendors_Settings_Capabilities', false ) ) :
 							'title'   => __( 'Export Orders', 'wc-vendors' ),
 							'desc'    => sprintf( __( 'Allow %s to export their orders to a CSV file', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ),
 							'id'      => 'wcvendors_capability_orders_export',
+							'default' => 'yes',
+							'type'    => 'checkbox',
+						),
+
+						array(
+							'title'   => __( 'Export Commission', 'wc-vendors' ),
+							'desc'    => sprintf( __( 'Allow %s to export their commission to a CSV file', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ),
+							'id'      => 'wcvendors_capability_commission_export',
 							'default' => 'yes',
 							'type'    => 'checkbox',
 						),
