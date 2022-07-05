@@ -15,7 +15,7 @@
     });
 
     function initSelect2() {
-        var $selectBox = $('.wcv-vendor-select:visible');
+        var $selectBox = $('.wcv-vendor-select:visible').length ? $('.wcv-vendor-select:visible') :  $('#post_author_override');
 
         $selectBox.select2({
             minimumInputLength: wcv_vendor_select.minimum_input_length,

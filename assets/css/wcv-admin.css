@@ -240,3 +240,5 @@
   .wcv_addons_wrap .addons-button { width: 100%; }
   .wcv_addons_wrap .addons-small-dark-item { width: 100%; }
   .wcv_addons_wrap .addons-column-block-item-icon { background: none; border: none; height: 75px; margin: 0 10px 10px 0; width: 75px; } }
+
+.edit-post-post-author { display: none; }
