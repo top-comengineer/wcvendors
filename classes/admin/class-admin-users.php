@@ -461,6 +461,7 @@ class WCV_Admin_Users {
 	 *
 	 * @since 2.1.10
 	 * @version 2.1.10
+	 * @version 2.4.3 - added vendor id and product columns 
 	 */
 	public function add_vendor_shop_column( $columns ){
 
@@ -470,6 +471,12 @@ class WCV_Admin_Users {
 			foreach ( $columns as $key => $label ) {
 				if ( $key === 'email' ){
 					$new_columns['vendor'] = sprintf( __( '%s Store', 'wc-vendors' ), wcv_get_vendor_name() );
+					$new_columns['user_id'] = sprintf( __( '%s ID', 'wc-vendors' ), wcv_get_vendor_name() );
+					$new_columns['products'] = __( 'Products', 'wc-vendors' );
+					
+				}
+				if ( $key === 'posts' ) {
+					continue; 
 				}
 				$new_columns[ $key ] = $label;
 			}
@@ -484,6 +491,7 @@ class WCV_Admin_Users {
 	 *
 	 * @since 2.1.10
 	 * @version 2.1.12
+	 * @version 2.4.3 - Added vendor id and product count data
 	 */
 	public function add_vendor_shop_column_data( $custom_column, $column, $user_id ){
 
@@ -504,6 +512,13 @@ class WCV_Admin_Users {
 						$class,
 						$target,
 						$display_name );
+					break;
+				case 'user_id': 
+					return $user_id;
+					break; 
+				case 'products': 
+					$num_products = count_user_posts( $user_id, 'product' );
+					return $num_products;
 					break;
 				default:
 					return $custom_column;
