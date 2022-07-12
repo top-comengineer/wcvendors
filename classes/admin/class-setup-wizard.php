@@ -303,9 +303,7 @@ class WCVendors_Admin_Setup_Wizard {
 		$export_orders     = get_option( 'wcvendors_capability_orders_export', 'yes' );
 		$export_commission = get_option( 'wcvendors_capability_commission_export', 'yes' );
 		$view_order_notes  = get_option( 'wcvendors_capability_order_read_notes', 'yes' );
-		$add_order_notes   = get_option( 'wcvendors_capability_order_update_notes', 'yes' );
-
-		print_r($export_commission);exit();
+		$add_order_notes   = get_option( 'wcvendors_capability_order_update_notes', 'yes' );		
 
 		include WCV_ABSPATH_ADMIN . 'views/setup/capabilities.php';
 	}
@@ -323,7 +321,7 @@ class WCVendors_Admin_Setup_Wizard {
 		$orders_enabled    = isset( $_POST['wcv_capability_orders_enabled'] ) ? sanitize_text_field( $_POST['wcv_capability_orders_enabled'] ) : '';
 		$export_orders     = isset( $_POST['wcv_capability_orders_export'] ) ? sanitize_text_field( $_POST['wcv_capability_orders_export'] ) : '';
 		$export_commission     = isset( $_POST['wcv_capability_commission_export'] ) ? sanitize_text_field( $_POST['wcv_capability_commission_export'] ) : '';
-		
+
 		$view_order_notes  = isset( $_POST['wcv_capability_order_read_notes'] ) ? sanitize_text_field( $_POST['wcv_capability_order_read_notes'] ) : '';
 		$add_order_notes   = isset( $_POST['wcv_capability_order_update_notes'] ) ? sanitize_text_field( $_POST['wcv_capability_order_update_notes'] ) : '';
 
@@ -408,7 +406,7 @@ class WCVendors_Admin_Setup_Wizard {
 		WCVendors_Install::update_db_version();
 		flush_rewrite_rules();
 
-		update_option( 'wcvendors_wizard_complete', current_time( 'mysql' ) ); 
+		update_option( 'wcvendors_wizard_complete', current_time( 'mysql' ) );
 
 		$user_email = $this->get_current_user_email();
 		$first_name = $this->get_current_user_firstname();
