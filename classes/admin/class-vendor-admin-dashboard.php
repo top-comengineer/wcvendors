@@ -131,6 +131,20 @@ class WCV_Vendor_Admin_Dashboard {
 				update_user_meta( $user_id, 'pv_seller_info', $_POST['pv_seller_info'] );
 			}
 
+			// PayPal Masspay wallet
+			if ( isset( $_POST['wcv_paypal_masspay_wallet'] ) ) {
+				update_user_meta( $user_id, 'wcv_paypal_masspay_wallet', sanitize_text_field( $_POST['wcv_paypal_masspay_wallet'] ) );
+			} else {
+				delete_user_meta( $user_id, 'wcv_paypal_masspay_wallet' );
+			}
+
+			// PayPal Masspay venmo
+			if ( isset( $_POST['wcv_paypal_masspay_venmo_id'] ) ) {
+				update_user_meta( $user_id, 'wcv_paypal_masspay_venmo_id', sanitize_text_field( $_POST['wcv_paypal_masspay_venmo_id'] ) );
+			} else {
+				delete_user_meta( $user_id, 'wcv_paypal_masspay_venmo_id' );
+			}
+
 			// Bank details
 			if ( isset( $_POST['wcv_bank_account_name'] ) ) {
 				update_user_meta( $user_id, 'wcv_bank_account_name', $_POST['wcv_bank_account_name'] );

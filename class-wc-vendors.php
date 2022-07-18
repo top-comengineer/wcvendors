@@ -233,6 +233,7 @@ if ( wcv_is_woocommerce_activated() ) {
 			include_once wcv_plugin_dir . 'classes/includes/wcv-template-functions.php';
 			include_once wcv_plugin_dir . 'classes/includes/wcv-vendor-functions.php';
 			include_once wcv_plugin_dir . 'classes/includes/wcv-update-functions.php';
+			include_once wcv_plugin_dir . 'classes/includes/wcv-helper-functions.php';
 			include_once wcv_plugin_dir . 'classes/admin/emails/class-emails.php';
 
 			if ( is_admin() ) {

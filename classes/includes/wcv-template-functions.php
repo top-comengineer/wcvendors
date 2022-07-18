@@ -244,6 +244,22 @@ if ( ! function_exists( 'wcv_get_vendor_sold_by') ){
 	}
 }
 
+/**
+ * Generate a dropdown of the PayPal Masspay wallet options. 
+ * 
+ * @version 2.4.3 - added
+ */
+if ( !function_exists( 'wcv_paypal_masspay_walet_select' ) ){
+	function wcv_paypal_masspay_walet_select( $option ){ 
+		$select = '<select name="wcv_paypal_masspay_wallet" id="wcv_paypal_masspay_wallet" class="" style="width: 25em;">';
+		foreach ( wcv_paypal_wallet() as $option_key => $option_value ) : 
+			$select .= '<option value="'. esc_attr( $option_key ).'"'. selected( $option, $option_key, false ) .'>'. esc_attr( $option_value ). '</option>';
+		endforeach;
+		$select .= '</select>';
+
+		return $select; 
+	}
+}
 if ( ! function_exists( 'wcv_before_vendor_list' ) ) {
 	/**
 	 * Before vendor list

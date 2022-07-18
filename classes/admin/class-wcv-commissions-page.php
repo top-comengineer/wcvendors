@@ -320,6 +320,7 @@ class WCVendors_Commissions_Page extends WP_List_Table {
 
 			echo '<a class="button export_commissions" style="width: 110px; float: left;" href="' . esc_url_raw( wp_nonce_url( admin_url( 'admin.php?page=wcv-commissions&action=export_commissions' . $args_url ), 'export_commissions', 'nonce' ) ) . '">' . esc_attr__( 'Export to CSV', 'wc-vendors' ) . '</a>';
 			echo '<a class="button export_commission_totals" style="width: 150px; float: left;" href="' . esc_url_raw( wp_nonce_url( admin_url( 'admin.php?page=wcv-commissions&action=export_commission_totals' . $args_url ), 'export_commission_totals', 'nonce' ) ) . '">' . esc_attr__( 'Export Totals to CSV', 'wc-vendors' ) . '</a>';
+			echo '<a class="button export_paypal_masspay" style="width: 150px; float: left;" href="' . esc_url_raw( wp_nonce_url( admin_url( 'admin.php?page=wcv-commissions&action=export_paypal_masspay' . $args_url ), 'export_paypal_masspay', 'nonce' ) ) . '">' . esc_attr__( 'PayPal Masspay CSV', 'wc-vendors' ) . '</a>';
 			echo '<a class="button mark_all_commissions_paid" id="mark_all_paid" style="width: 100px; float: left;" href="' . esc_url_raw( wp_nonce_url( admin_url( 'admin.php?page=wcv-commissions&action=mark_all_paid' . $args_url ), 'mark_all_paid', 'nonce' ) ) . '">' . esc_attr__( 'Mark all paid', 'wc-vendors' ) . '</a>';
 			echo '</div>';
 		}

@@ -303,7 +303,7 @@ class WCVendors_Admin_Setup_Wizard {
 		$export_orders     = get_option( 'wcvendors_capability_orders_export', 'yes' );
 		$export_commission = get_option( 'wcvendors_capability_commission_export', 'yes' );
 		$view_order_notes  = get_option( 'wcvendors_capability_order_read_notes', 'yes' );
-		$add_order_notes   = get_option( 'wcvendors_capability_order_update_notes', 'yes' );		
+		$add_order_notes   = get_option( 'wcvendors_capability_order_update_notes', 'yes' );
 
 		include WCV_ABSPATH_ADMIN . 'views/setup/capabilities.php';
 	}

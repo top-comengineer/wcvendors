@@ -387,6 +387,10 @@ class WCV_Admin_Users {
 			update_user_meta( $vendor_id, 'pv_custom_commission_rate', $_POST['pv_custom_commission_rate'] );
 		}
 
+		//PayPal Masspay Web
+		update_user_meta( $vendor_id, 'wcv_paypal_masspay_wallet', sanitize_title($_POST['wcv_paypal_masspay_wallet'] ));
+		update_user_meta( $vendor_id, 'wcv_paypal_masspay_venmo_id', sanitize_title($_POST['wcv_paypal_masspay_venmo_id'] ));
+
 		update_user_meta( $vendor_id, 'pv_shop_description', $_POST['pv_shop_description'] );
 		update_user_meta( $vendor_id, 'pv_seller_info', $_POST['pv_seller_info'] );
 		update_user_meta( $vendor_id, 'wcv_give_vendor_tax', isset( $_POST['wcv_give_vendor_tax'] ) );

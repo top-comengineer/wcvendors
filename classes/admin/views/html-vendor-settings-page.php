@@ -27,7 +27,44 @@
 			<?php endif; ?>
 
 			<?php do_action( 'wcvendors_settings_after_paypal' ); ?>
+			
+			<?php if ( apply_filters( 'wcvendors_admin_user_meta_paypal_masspay_enable', true ) ) : ?>
+				
+			<tr>
+				<th>
+					<label for="wcv_paypal_masspay_wallet"><?php _e( 'PayPal MassPay Wallet', 'wc-vendors' ); ?> 
+					<span class="description"></span></label>
+				</th>
+				<td>
+				<select name="wcv_paypal_masspay_wallet" id="wcv_paypal_masspay_wallet" class="" style="width: 25em;">
+				<?php $wcv_paypal_masspay_wallet = get_user_meta( $user_id, 'wcv_paypal_masspay_wallet', true ); ?>
+				<?php foreach ( wcv_paypal_wallet() as $option_key => $option_value ) : ?>
+					<option value="<?php echo esc_attr( $option_key ); ?>" <?php selected( $wcv_paypal_masspay_wallet, $option_key, true ); ?>><?php echo esc_attr( $option_value ); ?></option>
+				<?php endforeach; ?>
+				</select>
+					<p class="description">
+						<?php _e( 'Choose how your commission is paid.', 'wc-vendors' ); ?>
+						<br>
+					</p>
+				</td>
+			</tr>
+			<tr>
+					<th>
+						<label for="wcv_paypal_masspay_venmo_id">
+							<?php _e( 'Venmo ID', 'wc-vendors' ); ?>
+						</label>
+					</th>
+					<td>
+					<input type="text" name="wcv_paypal_masspay_venmo_id" id="wcv_paypal_masspay_venmo_id" value="<?php echo get_user_meta( $user_id, 'wcv_paypal_masspay_venmo_id', true ); ?>" class="regular-text"> 
+						<p class="description">
+							<?php _e( 'Your PayPal address can be used to send you your commission.', 'wc-vendors' ); ?>
+							<br>
+						</p>
+					</td>
+				</tr>
 
+			<?php endif; ?>
+				
 			<?php if ( apply_filters( 'wcvendors_admin_user_meta_bank_details_enable', true ) ) : ?>
 
 				<?php do_action( 'wcvendors_settings_before_bank_details', $user_id ); ?>

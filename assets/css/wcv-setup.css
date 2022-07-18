@@ -2,7 +2,7 @@
 /** WooCommerce CSS Variables */
 body { margin: 65px auto 24px; -webkit-box-shadow: none; box-shadow: none; background: #f1f1f1; padding: 0; }
 
-#wcv-logo { border: 0; margin: 0 0 24px; padding: 0; text-align: center; }
+#wcv-logo { border: 0; margin: 30px 20px; padding: 0; text-align: center; }
 
 #wcv-logo img { max-width: 30%; }
 
@@ -86,7 +86,7 @@ body { margin: 65px auto 24px; -webkit-box-shadow: none; box-shadow: none; backg
 
 .wcv-return-to-dashboard { font-size: 0.85em; color: #b5b5b5; margin: 1.18em 0; display: block; text-align: center; }
 
-.wcv-wizard-storefront .wcv-wizard-storefront-intro { padding: 40px 40px 0; background: #F5F5F5; text-align: center; }
+.wcv-wizard-storefront .wcv-wizard-storefront-intro { padding: 40px 40px 0; background: #f5f5f5; text-align: center; }
 
 .wcv-wizard-storefront .wcv-wizard-storefront-intro img { margin: 40px 0 0 0; width: 100%; display: block; }
 
@@ -164,7 +164,7 @@ body { margin: 65px auto 24px; -webkit-box-shadow: none; box-shadow: none; backg
 
 .wcv-wizard-next-steps h3.next-step-description { margin: 0; font-size: 16px; font-weight: 600; }
 
-p.next-steps-help-text { color: #9f9f9f; padding: 0 2em; text-align: center; font-size: .9em; }
+p.next-steps-help-text { color: #9f9f9f; padding: 0 2em; text-align: center; font-size: 0.9em; }
 
 .wcv-setup-table { width: 100%; }
 

@@ -43,6 +43,7 @@ if ( ! class_exists( 'WCVendors_Settings_Commission', false ) ) :
 
 			$sections = array(
 				'' => __( 'General', 'wc-vendors' ),
+				'paypal' => __( 'PayPal Payouts Web', 'wc-vendors' ),
 			);
 
 			return apply_filters( 'wcvendors_get_sections_' . $this->id, $sections );
@@ -57,7 +58,42 @@ if ( ! class_exists( 'WCVendors_Settings_Commission', false ) ) :
 
 			$settings = array();
 
-			if ( '' === $current_section ) {
+			if ( 'paypal' === $current_section ){ 
+				$settings = apply_filters(
+					'wcvendors_settings_comission_paypal', array(
+						// General Options
+						array(
+							'type' => 'title',
+							'desc' => sprintf( __( 'These are the settings for the PayPal Payouts Web. You can manually pay up to 5000 %s by uploading a formatted file to your PayPal business account.', 'wc-vendors' ), wcv_get_vendor_name( false, false ) ),
+							'id'   => 'paypal_web_options',
+						),
+						array(
+							/* translators: %s: vendor name */
+							'title'   => __( 'Payout Currency', 'wc-vendors' ),
+							'desc'    => sprintf( __( 'Choose which currency to pay your %s in. ', 'wcvendors-pro' ), lcfirst( wcv_get_vendor_name( false ) ) ),
+							'id'      => 'wcvendors_paypal_web_currency',
+							'type'    => 'select',
+							'class'   => 'wc-enhanced-select-nostd',
+							'css'     => 'min-width:300px;',
+							'options' => wcv_paypal_currencies(),
+							'default' => get_woocommerce_currency(),
+						),
+						array(
+							'title'    => __( 'Payout Note', 'wc-vendors' ),
+							'desc'     => sprintf( __( 'Note to %s in payout.', 'wc-vendors' ), wcv_get_vendor_name() ),
+							'id'       => 'wcvendors_paypal_payout_note',
+							'css'      => 'width: 500px;min-height:100px',
+							'default'  => '',
+							'type'     => 'textarea',
+							'default'  => sprintf( __( 'Commission payout for %s', 'wc-vendors' ), get_bloginfo( 'name' ) ),
+						),
+						array(
+							'type' => 'sectionend',
+							'id'   => 'paypal_web_options',
+						),
+					)
+				);
+			} else {
 				$settings = apply_filters(
 					'wcvendors_settings_comission', array(
 
