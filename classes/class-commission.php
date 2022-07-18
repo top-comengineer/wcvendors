@@ -22,8 +22,48 @@ class WCV_Commission {
 		// Reverse the commission if the order is deleted
 		add_action( 'deleted_post' , array( $this, 'commissions_table_sync' ), 10 );
 		add_action( 'wp_trash_post', array( $this, 'commissions_table_sync' ), 10 );
+		add_action( 'woocommerce_order_partially_refunded', array( $this, 'partial_reversed_commission' ), 10, 2 );
 	}
 
+
+	/**
+	 * Reverse the commission if the order item was refuned.
+	 *
+	 * @param  int $order_id The Order ID.
+	 * @param  int $refund_id The Refund ID.
+	 *
+	 * @version 1.8.2
+	 */
+	public function partial_reversed_commission( $order_id, $refund_id ) {
+		global $wpdb;
+		$product_ids  = array();
+		$refund       = new WC_Order_Refund( $refund_id );
+		$refund_items = $refund->get_items();
+
+		foreach ( $refund_items as $refund_item ) {
+			$item              = new WC_Order_Item_Product( $refund_item );
+			$refund_product_id = 0 !== $item->get_variation_id() ? $item->get_variation_id() : $item->get_product_id();
+			$product_ids[]     = $refund_product_id;
+		}
+
+		foreach ( $product_ids as $product_id ) {
+			$vendor_id  = get_post_field( 'post_author', $product_id );
+			$sql        = $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}pv_commission WHERE order_id = %d AND product_id = %d AND ( vendor_id = %d OR vendor_id = 1 )", $order_id, $product_id, $vendor_id );
+			$commission = $wpdb->get_results( $sql ); // phpcs:ignore
+
+			foreach ( $commission as $commission_obj ) {
+				$wpdb->update( // phpcs:ignore
+					$wpdb->prefix . 'pv_commission',
+					array(
+						'status' => 'reversed',
+					),
+					array(
+						'id' => $commission_obj->id,
+					)
+				);
+			}
+		}
+	}
 
 	/**
 	 * Run actions when an order is reversed
