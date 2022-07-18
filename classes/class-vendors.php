@@ -113,8 +113,6 @@ class WCV_Vendors {
 
 		global $woocommerce;
 
-		$give_tax       = 'yes' == get_option( 'wcvendors_vendor_give_taxes', 'no' ) ? true : false;
-		$give_shipping  = 'yes' == get_option( 'wcvendors_vendor_give_shipping', 'no' ) ? true : false;
 		$receiver       = array();
 		$shipping_given = 0;
 		$tax_given      = 0;
@@ -125,6 +123,8 @@ class WCV_Vendors {
 
 			$product_id             = ! empty( $order_item['variation_id'] ) ? $order_item['variation_id'] : $order_item['product_id'];
 			$author                 = WCV_Vendors::get_vendor_from_product( $product_id );
+			$give_tax               = 'yes' == get_option( 'wcvendors_vendor_give_taxes', 'no' ) ? true : false;
+			$give_shipping          = 'yes' == get_option( 'wcvendors_vendor_give_shipping', 'no' ) ? true : false;
 			$give_tax_override      = get_user_meta( $author, 'wcv_give_vendor_tax', true );
 			$give_shipping_override = get_user_meta( $author, 'wcv_give_vendor_shipping', true );
 			$is_vendor              = WCV_Vendors::is_vendor( $author );
