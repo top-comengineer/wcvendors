@@ -60,7 +60,8 @@ if ( ! class_exists( 'WCVendors_Settings_Display', false ) ) :
 			if ( 'advanced' === $current_section ) {
 
 				$settings = apply_filters(
-					'wcvendors_settings_display_advanced', array(
+					'wcvendors_settings_display_advanced',
+					array(
 						// Shop Display Options
 						array(
 							'title' => __( '', 'wc-vendors' ),
@@ -95,7 +96,8 @@ if ( ! class_exists( 'WCVendors_Settings_Display', false ) ) :
 			} elseif ( 'labels' === $current_section ) {
 
 				$settings = apply_filters(
-					'wcvendors_settings_display_labels', array(
+					'wcvendors_settings_display_labels',
+					array(
 
 						// Shop Display Options
 						array(
@@ -155,7 +157,7 @@ if ( ! class_exists( 'WCVendors_Settings_Display', false ) ) :
 						),
 
 						array(
-							'title'   => sprintf( __( 'Become A %s Label', 'wc-vendors' ), wcv_get_vendor_name() ),
+							'title'    => sprintf( __( 'Become A %s Label', 'wc-vendors' ), wcv_get_vendor_name() ),
 							'desc_tip' => sprintf( __( 'The become a %s label', 'wc-vendors' ), wcv_get_vendor_name() ),
 							'id'       => 'wcvendors_label_become_a_vendor',
 							'type'     => 'text',
@@ -187,9 +189,21 @@ if ( ! class_exists( 'WCVendors_Settings_Display', false ) ) :
 				);
 
 			} else {
+				$avatar_defaults = array(
+					'mystery'          => __( 'Mystery Person', 'wc-vendors' ),
+					'blank'            => __( 'Blank', 'wc-vendors' ),
+					'gravatar_default' => __( 'Gravatar Logo', 'wc-vendors' ),
+					'identicon'        => __( 'Identicon (Generated)', 'wc-vendors' ),
+					'wavatar'          => __( 'Wavatar (Generated)', 'wc-vendors' ),
+					'monsterid'        => __( 'MonsterID (Generated)', 'wc-vendors' ),
+					'retro'            => __( 'Retro (Generated)', 'wc-vendors' ),
+				);
+
+				$avatar_source = apply_filters( 'wcvendors_avatar_source', $avatar_defaults );
 
 				$settings = apply_filters(
-					'wcvendors_settings_display_general', array(
+					'wcvendors_settings_display_general',
+					array(
 
 						// General Options
 						array(
@@ -315,12 +329,41 @@ if ( ! class_exists( 'WCVendors_Settings_Display', false ) ) :
 								'user_email'   => sprintf( __( '%s Email', 'wc-vendors' ), wcv_get_vendor_name() ),
 							),
 						),
-
 						array(
 							'type' => 'sectionend',
 							'id'   => 'shop_options',
 						),
-
+						array(
+							'title' => __( 'Vendors List Settings', 'wc-vendors' ),
+							'type'  => 'title',
+							'desc'  => __( 'These settings are for the vendors list page.', 'wc-vendors' ),
+							'id'    => 'vendors_list_options',
+						),
+						array(
+							'title'   => __( 'List Display', 'wc-vendors' ),
+							'desc'    => sprintf( __( 'Select default display for %s list', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
+							'id'      => 'wcvendors_display_vendors_list_type',
+							'default' => 'grid',
+							'type'    => 'select',
+							'class'   => 'wc-enhanced-select',
+							'options' => array(
+								'grid' => __( 'Grid', 'wc-vendors' ),
+								'list' => __( 'List', 'wc-vendors' ),
+							),
+						),
+						array(
+							'title'   => __( 'Default Avatar', 'wc-vendors' ),
+							'desc'    => sprintf( __( 'Select avatar for %s', 'wc-vendors' ), wcv_get_vendor_name( true, false ) ),
+							'id'      => 'wcvendors_display_vendors_avatar_source',
+							'default' => 'gravatar',
+							'type'    => 'select',
+							'class'   => 'wc-enhanced-select',
+							'options' => $avatar_source,
+						),
+						array(
+							'type' => 'sectionend',
+							'id'   => 'vendors_list_options',
+						),
 					)
 				);
 

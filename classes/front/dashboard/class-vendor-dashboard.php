@@ -43,8 +43,10 @@ class WCV_Vendor_Dashboard {
 			has_shortcode( $post->post_content, 'wcv_vendor_dashboard' )
 			|| has_shortcode( $post->post_content, 'wcv_orders' )
 			|| has_shortcode( $post->post_content, 'wcv_vendor_dashboard_nav' )
+			|| has_shortcode( $post->post_content, 'wcv_vendorslist' )
 		) {
-			wp_enqueue_style( 'wcv_frontend_style', wcv_assets_url . 'css/wcv-frontend.css' );			
+			wp_enqueue_style( 'dashicons' );
+			wp_enqueue_style( 'wcv_frontend_style', wcv_assets_url . 'css/wcv-frontend.css' );
 		}
 
 		wp_enqueue_style( 'wcv_vendor_store_style', wcv_assets_url . 'css/wcv-store.css' );

@@ -36,6 +36,12 @@ class WCV_Shortcodes {
 		// Show the sold by label based on the product page
 		add_shortcode( 'wcv_sold_by', array( $this, 'wcv_sold_by' ) );
 
+		// Vendor list actions
+		add_action( 'wcvendors_before_vendor_list', 'wcv_before_vendor_list', 10, 1 );
+		add_action( 'wcvendors_after_vendor_list', 'wcv_after_vendor_list' );
+		add_action( 'wcvendors_vendor_list_filter', 'wcv_vendor_list_filter', 10, 3 );
+		add_action( 'wcvendors_vendor_list_loop', 'wcv_vendor_list_loop', 10, 1 );
+
 	}
 
 	public static function get_vendor( $slug ) {
@@ -68,7 +74,8 @@ class WCV_Shortcodes {
 					'columns'  => '4',
 					'orderby'  => 'date',
 					'order'    => 'desc',
-				), $atts
+				),
+				$atts
 			)
 		);
 
@@ -87,7 +94,7 @@ class WCV_Shortcodes {
 
 		ob_start();
 
-		$args = apply_filters_deprecated( 'wcv_shortcode_products_query', array( $args, $atts ), '2.3.0', 'wcvendors_shortcode_products_query' );
+		$args     = apply_filters_deprecated( 'wcv_shortcode_products_query', array( $args, $atts ), '2.3.0', 'wcvendors_shortcode_products_query' );
 		$products = new WP_Query( apply_filters( 'wcvendors_shortcode_products_query', $args, $atts ) );
 
 		$woocommerce_loop['columns'] = $columns;
@@ -107,7 +114,7 @@ class WCV_Shortcodes {
 
 			<?php woocommerce_product_loop_end(); ?>
 
-		<?php
+			<?php
 		endif;
 
 		wp_reset_postdata();
@@ -139,7 +146,8 @@ class WCV_Shortcodes {
 					'columns' => '4',
 					'orderby' => 'title',
 					'order'   => 'asc',
-				), $atts
+				),
+				$atts
 			)
 		);
 
@@ -174,7 +182,7 @@ class WCV_Shortcodes {
 
 		ob_start();
 
-		$args = apply_filters_deprecated( 'wcv_shortcode_products_query', array( $args, $atts ), '2.3.0', 'wcvendors_shortcode_products_query' );
+		$args     = apply_filters_deprecated( 'wcv_shortcode_products_query', array( $args, $atts ), '2.3.0', 'wcvendors_shortcode_products_query' );
 		$products = new WP_Query( apply_filters( 'wcvendors_shortcode_products_query', $args, $atts ) );
 
 		$woocommerce_loop['columns'] = $columns;
@@ -191,13 +199,13 @@ class WCV_Shortcodes {
 
 				<?php wc_get_template_part( 'content', 'product' ); ?>
 
-			<?php
+				<?php
 			endwhile; // end of the loop.
 			?>
 
 			<?php woocommerce_product_loop_end(); ?>
 
-		<?php
+			<?php
 		endif;
 
 		wp_reset_postdata();
@@ -227,7 +235,8 @@ class WCV_Shortcodes {
 					'columns'  => '4',
 					'orderby'  => 'date',
 					'order'    => 'desc',
-				), $atts
+				),
+				$atts
 			)
 		);
 
@@ -254,7 +263,7 @@ class WCV_Shortcodes {
 
 		ob_start();
 
-		$args = apply_filters_deprecated( 'wcv_shortcode_products_query', array( $args, $atts ), '2.3.0', 'wcvendors_shortcode_products_query' );
+		$args     = apply_filters_deprecated( 'wcv_shortcode_products_query', array( $args, $atts ), '2.3.0', 'wcvendors_shortcode_products_query' );
 		$products = new WP_Query( apply_filters( 'wcvendors_shortcode_products_query', $args, $atts ) );
 
 		$woocommerce_loop['columns'] = $columns;
@@ -271,7 +280,7 @@ class WCV_Shortcodes {
 
 				<?php wc_get_template_part( 'content', 'product' ); ?>
 
-			<?php
+				<?php
 			endwhile; // end of the loop.
 			?>
 
@@ -306,7 +315,8 @@ class WCV_Shortcodes {
 					'columns'  => '4',
 					'orderby'  => 'title',
 					'order'    => 'asc',
-				), $atts
+				),
+				$atts
 			)
 		);
 
@@ -332,7 +342,7 @@ class WCV_Shortcodes {
 
 		ob_start();
 
-		$args = apply_filters_deprecated( 'wcv_shortcode_products_query', array( $args, $atts ), '2.3.0', 'wcvendors_shortcode_products_query' );
+		$args     = apply_filters_deprecated( 'wcv_shortcode_products_query', array( $args, $atts ), '2.3.0', 'wcvendors_shortcode_products_query' );
 		$products = new WP_Query( apply_filters( 'wcvendors_shortcode_products_query', $args, $atts ) );
 
 		$woocommerce_loop['columns'] = $columns;
@@ -349,13 +359,13 @@ class WCV_Shortcodes {
 
 				<?php wc_get_template_part( 'content', 'product' ); ?>
 
-			<?php
+				<?php
 			endwhile; // end of the loop.
 			?>
 
 			<?php woocommerce_product_loop_end(); ?>
 
-		<?php
+			<?php
 		endif;
 
 		wp_reset_postdata();
@@ -384,7 +394,8 @@ class WCV_Shortcodes {
 					'columns'  => '4',
 					'orderby'  => 'title',
 					'order'    => 'asc',
-				), $atts
+				),
+				$atts
 			)
 		);
 
@@ -405,7 +416,7 @@ class WCV_Shortcodes {
 
 		add_filter( 'posts_clauses', array( 'WC_Shortcodes', 'order_by_rating_post_clauses' ) );
 
-		$args = apply_filters_deprecated( 'wcv_shortcode_products_query', array( $args, $atts ), '2.3.0', 'wcvendors_shortcode_products_query' );
+		$args     = apply_filters_deprecated( 'wcv_shortcode_products_query', array( $args, $atts ), '2.3.0', 'wcvendors_shortcode_products_query' );
 		$products = new WP_Query( apply_filters( 'wcvendors_shortcode_products_query', $args, $atts ) );
 
 		remove_filter( 'posts_clauses', array( 'WC_Shortcodes', 'order_by_rating_post_clauses' ) );
@@ -424,7 +435,7 @@ class WCV_Shortcodes {
 
 				<?php wc_get_template_part( 'content', 'product' ); ?>
 
-			<?php
+				<?php
 			endwhile; // end of the loop.
 			?>
 
@@ -456,7 +467,8 @@ class WCV_Shortcodes {
 					'vendor'   => '',
 					'per_page' => '12',
 					'columns'  => '4',
-				), $atts
+				),
+				$atts
 			)
 		);
 
@@ -479,7 +491,7 @@ class WCV_Shortcodes {
 
 		ob_start();
 
-		$args = apply_filters_deprecated( 'wcv_shortcode_products_query', array( $args, $atts ), '2.3.0', 'wcvendors_shortcode_products_query' );
+		$args     = apply_filters_deprecated( 'wcv_shortcode_products_query', array( $args, $atts ), '2.3.0', 'wcvendors_shortcode_products_query' );
 		$products = new WP_Query( apply_filters( 'wcvendors_shortcode_products_query', $args, $atts ) );
 
 		$woocommerce_loop['columns'] = $columns;
@@ -496,13 +508,13 @@ class WCV_Shortcodes {
 
 				<?php wc_get_template_part( 'content', 'product' ); ?>
 
-			<?php
+				<?php
 			endwhile; // end of the loop.
 			?>
 
 			<?php woocommerce_product_loop_end(); ?>
 
-		<?php
+			<?php
 		endif;
 
 		wp_reset_postdata();
@@ -533,7 +545,8 @@ class WCV_Shortcodes {
 					'order'    => 'desc',
 					'category' => '',  // Slugs
 					'operator' => 'IN', // Possible values are 'IN', 'NOT IN', 'AND'.
-				), $atts
+				),
+				$atts
 			)
 		);
 
@@ -574,7 +587,7 @@ class WCV_Shortcodes {
 
 		ob_start();
 
-		$args = apply_filters_deprecated( 'wcv_shortcode_products_query', array( $args, $atts ), '2.3.0', 'wcvendors_shortcode_products_query' );
+		$args     = apply_filters_deprecated( 'wcv_shortcode_products_query', array( $args, $atts ), '2.3.0', 'wcvendors_shortcode_products_query' );
 		$products = new WP_Query( apply_filters( 'wcvendors_shortcode_products_query', $args, $atts ) );
 
 		$woocommerce_loop['columns'] = $columns;
@@ -591,13 +604,13 @@ class WCV_Shortcodes {
 
 				<?php wc_get_template_part( 'content', 'product' ); ?>
 
-			<?php
+				<?php
 			endwhile; // end of the loop.
 			?>
 
 			<?php woocommerce_product_loop_end(); ?>
 
-		<?php
+			<?php
 		endif;
 
 		woocommerce_reset_loop();
@@ -639,8 +652,10 @@ class WCV_Shortcodes {
 	 */
 	public function wcv_vendorslist( $atts ) {
 
-		$html = '';
-
+		$html                     = '';
+		$list_display_type_option = get_option( 'wcvendors_display_vendors_list_type', 'grid' );
+		$list_display_type        = isset( $_GET['display_mode'] ) ? sanitize_text_field( $_GET['display_mode'] ) : $list_display_type_option;
+		$search_term              = isset( $_GET['search'] ) ? sanitize_text_field( $_GET['search'] ) : '';
 		if ( isset( $atts['show_products'] ) ) {
 			wc_deprecated_argument(
 				'wcv_vendorslist',
@@ -654,31 +669,47 @@ class WCV_Shortcodes {
 		extract(
 			shortcode_atts(
 				array(
-					'orderby'       => 'registered',
-					'order'         => 'ASC',
-					'per_page'      => '12',
-					'columns'       => '4',
+					'orderby'      => 'registered',
+					'order'        => 'ASC',
+					'per_page'     => '12',
+					'columns'      => '4',
 					'has_products' => 'no',
-				), $atts
+				),
+				$atts
 			)
 		);
+		$meta_query = array(
+			'relation' => 'AND',
+			array(
+				'key'     => 'pv_shop_slug',
+				'value'   => '',
+				'compare' => '>',
+			),
+		);
+		if ( $search_term ) {
+			$meta_query[] = array(
+				array(
+					'key'     => 'pv_shop_name',
+					'value'   => $search_term,
+					'compare' => 'LIKE',
+				),
+			);
+		}
 
 		$paged  = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 		$offset = ( $paged - 1 ) * $per_page;
 
-		// Hook into the user query to modify the query to return users that have at least one product
-		if ( $has_products == 'yes' ) {
+		// Hook into the user query to modify the query to return users that have at least one product.
+		if ( 'yes' === $has_products ) {
 			add_action( 'pre_user_query', array( $this, 'vendors_with_products' ) );
 		}
 
-		// Get all vendors
+		// Get all vendors.
 		$vendor_total_args = array(
-			'role'         => 'vendor',
-			'meta_key'     => 'pv_shop_slug',
-			'meta_value'   => '',
-			'meta_compare' => '>',
-			'orderby'      => $orderby,
-			'order'        => $order,
+			'role'       => 'vendor',
+			'meta_query' => $meta_query,
+			'orderby'    => $orderby,
+			'order'      => $order,
 		);
 
 		if ( $has_products == 'yes' ) {
@@ -688,50 +719,49 @@ class WCV_Shortcodes {
 		$vendor_query = new WP_User_Query( $vendor_total_args );
 		$all_vendors  = $vendor_query->get_results();
 
-		// Get the paged vendors
+		// Get the paged vendors.
 		$vendor_paged_args = array(
-			'role'         => 'vendor',
-			'meta_key'     => 'pv_shop_slug',
-			'meta_value'   => '',
-			'meta_compare' => '>',
-			'orderby'      => $orderby,
-			'order'        => $order,
-			'offset'       => $offset,
-			'number'       => $per_page,
+			'role'       => 'vendor',
+			'meta_query' => $meta_query,
+			'orderby'    => $orderby,
+			'order'      => $order,
+			'offset'     => $offset,
+			'number'     => $per_page,
+			'fields'     => 'all_with_meta',
 		);
 
-		if ( $has_products == 'yes' ) {
+		if ( 'yes' === $has_products ) {
 			$vendor_paged_args['query_id'] = 'vendors_with_products';
 		}
 
 		$vendor_paged_query = new WP_User_Query( $vendor_paged_args );
 		$paged_vendors      = $vendor_paged_query->get_results();
 
-		// Pagination calcs
+		// Pagination calcs.
 		$total_vendors       = count( $all_vendors );
 		$total_vendors_paged = count( $paged_vendors );
 		$total_pages         = ceil( $total_vendors / $per_page );
 
 		ob_start();
+		wc_get_template(
+			'vendor-list.php',
+			array(
+				'display_mode'  => $list_display_type,
+				'search_term'   => $search_term,
+				'vendors_count' => $total_vendors_paged,
+				'vendors_list'  => $paged_vendors,
 
-		// Loop through all vendors and output a simple link to their vendor pages
-		foreach ( $paged_vendors as $vendor ) {
-			wc_get_template(
-				'vendor-list.php', array(
-				'shop_link'        => WCV_Vendors::get_vendor_shop_page( $vendor->ID ),
-				'shop_name'        => $vendor->pv_shop_name,
-				'vendor_id'        => $vendor->ID,
-				'shop_description' => $vendor->pv_shop_description,
-			), 'wc-vendors/front/', wcv_plugin_dir . 'templates/front/'
-			);
-		} // End foreach
+			),
+			'wc-vendors/front/',
+			wcv_plugin_dir . 'templates/front/'
+		);
 
-		$html .= '<ul class="wcv_vendorslist">' . ob_get_clean() . '</ul>';
+		$html .= ob_get_clean();
 
 		if ( $total_vendors > $total_vendors_paged ) {
-			$html         .= '<div class="wcv_pagination">';
+			$html        .= '<div class="wcv_pagination">';
 			$current_page = max( 1, get_query_var( 'paged' ) );
-			$html         .= paginate_links(
+			$html        .= paginate_links(
 				array(
 					'base'      => get_pagenum_link() . '%_%',
 					'format'    => 'page/%#%/',
@@ -741,7 +771,7 @@ class WCV_Shortcodes {
 					'type'      => 'list',
 				)
 			);
-			$html         .= '</div>';
+			$html        .= '</div>';
 		}
 
 		return $html;
@@ -751,9 +781,11 @@ class WCV_Shortcodes {
 	/**
 	 * Output a sold by link
 	 */
-	public function wcv_sold_by( $atts ){
+	public function wcv_sold_by( $atts ) {
 
-		if ( ! is_product() ) return;
+		if ( ! is_product() ) {
+			return;
+		}
 
 		$atts = shortcode_atts(
 			array(

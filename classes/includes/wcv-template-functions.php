@@ -243,3 +243,87 @@ if ( ! function_exists( 'wcv_get_vendor_sold_by') ){
 		return $vendor_sold_by;
 	}
 }
+
+if ( ! function_exists( 'wcv_before_vendor_list' ) ) {
+	/**
+	 * Before vendor list
+	 *
+	 * @param string $display_mode - display mode.
+	 */
+	function wcv_before_vendor_list( $display_mode ) {
+		$css_class = array( $display_mode );
+		$css_class = apply_filters( 'wcvendors_vendor_list_open_class', $css_class );
+		$css_class = array_map( 'strtolower', $css_class );
+		$css_class = implode( ' ', $css_class );
+		echo sprintf( apply_filters( 'wcvendors_vendor_list_open', '<ul class="wcv_vendorslist %s">' ), esc_attr( $css_class ) );
+	}
+}
+
+if ( ! function_exists( 'wcv_after_vendor_list' ) ) {
+	/**
+	 * Before vendor list
+	 */
+	function wcv_after_vendor_list() {
+		echo apply_filters( 'wcvendors_vendor_list_close', '</ul>' );
+	}
+}
+
+if ( ! function_exists( 'wcv_vendor_list_loop' ) ) {
+	/**
+	 * Vendor list loop
+	 *
+	 * @param array $vendors array of vendors.
+	 */
+	function wcv_vendor_list_loop( $vendors ) {
+		ob_start();
+		foreach ( $vendors as $vendor ) {
+
+			$vendor_avatar = wcv_get_vendor_avatar( $vendor->ID );
+			$store_phone   = get_user_meta( $vendor->ID, '_wcv_store_phone', true );
+			$store_address = get_user_meta( $vendor->ID, '_wcv_store_address1', true );
+			wc_get_template(
+				'vendor-list-loop.php',
+				array(
+					'shop_link'        => WCV_Vendors::get_vendor_shop_page( $vendor->ID ),
+					'shop_name'        => $vendor->pv_shop_name,
+					'vendor_id'        => $vendor->ID,
+					'shop_description' => $vendor->pv_shop_description,
+					'avatar'           => $vendor_avatar,
+					'phone'            => $store_phone ? $store_phone : __( 'Not available', 'wc-vendors' ),
+					'address'          => $store_address ? $store_address : __( 'Not available', 'wc-vendors' ),
+				),
+				'wc-vendors/front/',
+				wcv_plugin_dir . 'templates/front/'
+			);
+		}
+		$output = ob_get_clean();
+		echo $output;
+	}
+}
+
+if ( ! function_exists( 'wcv_vendor_list_filter' ) ) {
+	/**
+	 * Vendor list filter
+	 *
+	 * @param  string $display_mode List display mode.
+	 * @param  string $search_term search term.
+	 * @param  string $vendor_count vendor count.
+	 */
+	function wcv_vendor_list_filter( $display_mode, $search_term, $vendor_count ) {
+
+		ob_start();
+		wc_get_template(
+			'vendor-list-filter.php',
+			array(
+				'display_mode'  => $display_mode,
+				'search_term'   => $search_term,
+				'vendors_count' => $vendor_count,
+			),
+			'wc-vendors/front/',
+			wcv_plugin_dir . 'templates/front/'
+		);
+		$output = ob_get_clean();
+
+		echo $output;
+	}
+}

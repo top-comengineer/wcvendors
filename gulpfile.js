@@ -1,16 +1,10 @@
 // Load the dependencies
 var gulp = require('gulp'),
-    sass = require('gulp-sass'),
+    sass = require('gulp-sass')(require('node-sass')),
     autoprefixer = require('gulp-autoprefixer'),
     minifycss = require('gulp-clean-css'),
     jshint = require('gulp-jshint'),
-    uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
-    concat = require('gulp-concat'),
-    notify = require('gulp-notify'),
-    cache = require('gulp-cache'),
-    livereload = require('gulp-livereload'),
-    del = require('del'),
     wpPot = require('gulp-wp-pot'),
     sort = require('gulp-sort'),
     pump = require('pump');

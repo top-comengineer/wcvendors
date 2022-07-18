@@ -148,3 +148,20 @@ if ( ! function_exists( 'wcv_vendor_shipped' ) ) {
 function wcv_marked_shipped_order_status() {
 	return apply_filters( 'wcvendors_order_mark_shipped_statuses', array( 'completed', 'processing' ) );
 }
+
+if ( ! function_exists( 'wcv_get_vendor_avatar' ) ) {
+	/**
+	 * Get vendors avatar
+	 *
+	 * @param  int $vendor_id The vendor id.
+	 */
+	function wcv_get_vendor_avatar( $vendor_id ) {
+
+		$avatar_source = get_option( 'wcvendors_display_vendors_avatar_source', 'mystery' );
+		$avatar_size   = apply_filters( 'wcvendors_vendor_avatar_size', 200 );
+
+		$vendor_avatar = get_avatar( $vendor_id, $avatar_size, $avatar_source, '', array( 'class' => 'wcv-avatar' ) );
+		return apply_filters( 'wcvendors_vendor_avatar', $vendor_avatar, $vendor_id, $avatar_size, $avatar_source );
+
+	}
+}
