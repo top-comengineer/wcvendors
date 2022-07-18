@@ -43,20 +43,24 @@ if ( ! function_exists( 'wcv_get_vendor_order_items' ) ) {
 		$template = $args['plain_text'] ? 'emails/plain/vendor-order-items.php' : 'emails/vendor-order-items.php';
 
 		wc_get_template(
-			$template, apply_filters(
-			'wcvendors_vendor_order_items_args', array(
-				'order'          => $order,
-				'items'          => $args['vendor_items'],
-				'show_sku'       => $args['show_sku'],
-				'show_image'     => $args['show_image'],
-				'image_size'     => $args['image_size'],
-				'plain_text'     => $args['plain_text'],
-				'sent_to_admin'  => $args['sent_to_admin'],
-				'sent_to_vendor' => $args['sent_to_vendor'],
-				'totals_display' => $args['totals_display'],
-				'vendor_id'      => $args['vendor_id'],
-			)
-		), 'woocommerce', WCV_TEMPLATE_BASE
+			$template,
+			apply_filters(
+				'wcvendors_vendor_order_items_args',
+				array(
+					'order'          => $order,
+					'items'          => $args['vendor_items'],
+					'show_sku'       => $args['show_sku'],
+					'show_image'     => $args['show_image'],
+					'image_size'     => $args['image_size'],
+					'plain_text'     => $args['plain_text'],
+					'sent_to_admin'  => $args['sent_to_admin'],
+					'sent_to_vendor' => $args['sent_to_vendor'],
+					'totals_display' => $args['totals_display'],
+					'vendor_id'      => $args['vendor_id'],
+				)
+			),
+			'woocommerce',
+			WCV_TEMPLATE_BASE
 		);
 
 		return apply_filters( 'wcvendors_vendor_order_items_table', ob_get_clean(), $order );
@@ -84,17 +88,16 @@ if ( ! function_exists( 'wcv_get_vendor_item_totals' ) ) {
 		$shipping            = 0;
 		$total               = 0;
 		$total_rows          = array();
-		$discount 			 = 0;
-		$coupons 			 = $order->get_items( 'coupon' );
-		
+		$discount            = 0;
+		$coupons             = $order->get_items( 'coupon' );
+
 		if ( ! empty( $coupons ) ) {
 			foreach ( $coupons as $coupon ) {
-				$coupon_obj    = new WC_Coupon( $coupon['name'] );
-				$coupon_id     = $coupon_obj->get_id();
-				$object        = get_post( $coupon_id );
-				$author        = $object ? $object->post_author : 1;
-				if ( $author == $vendor_id ) {
-					$discount = $order->get_total_discount();
+				$coupon_obj = new WC_Coupon( $coupon->get_code() );
+				$coupon_id  = $coupon_obj->get_id();
+				$author     = get_post_field( 'post_author', $coupon_id );
+				if ( absint( $author ) === absint( $vendor_id ) ) {
+					$discount = $order->get_discount_total();
 				}
 			}
 		}
@@ -104,11 +107,11 @@ if ( ! function_exists( 'wcv_get_vendor_item_totals' ) ) {
 		// Get vendor commission information
 		foreach ( $vendor_commissions as $commission ) {
 
-			if ( $vendor_id == $commission['vendor_id'] ) {
+			if ( absint( $vendor_id ) === absint( $commission['vendor_id'] ) ) {
 
 				$commission_subtotal += $commission['commission'];
-				$shipping            = $commission['shipping'];
-				$tax                 = $commission['tax'];
+				$shipping             = $commission['shipping'];
+				$tax                  = $commission['tax'];
 				$commission_total    += $commission['total'];
 			}
 		}
@@ -119,6 +122,13 @@ if ( ! function_exists( 'wcv_get_vendor_item_totals' ) ) {
 			$total_rows['commission_subtotal'] = array(
 				'label' => __( 'Commission subtotal:', 'wc-vendors' ),
 				'value' => wc_price( $commission_subtotal, array( 'currency' => $order->get_currency() ) ),
+			);
+		}
+
+		if ( 0 < $discount ) {
+			$total_rows['discount'] = array(
+				'label' => __( 'Discount:', 'wc-vendors' ),
+				'value' => wc_price( -1 * $discount, array( 'currency' => $order->get_currency() ) ),
 			);
 		}
 
@@ -173,7 +183,7 @@ if ( ! function_exists( 'wcv_get_vendor_item_totals' ) ) {
 			$product_total = $product_subtotal + $shipping + $tax - $discount;
 			if ( 0 > $product_total ) {
 				$product_total = 0;
-			} 
+			}
 			$total_rows['product_total'] = array(
 				'label' => __( 'Product total:', 'wc-vendors' ),
 				'value' => wc_price( $product_total, array( 'currency' => $order->get_currency() ) ),
@@ -206,16 +216,16 @@ if ( ! function_exists( 'is_wcv_pro_active' ) ) {
 }
 
 
-if ( ! function_exists( 'wcv_get_sold_by_link' )  ){
+if ( ! function_exists( 'wcv_get_sold_by_link' ) ) {
 	/**
 	 * Get the vendor sold by URL
 	 *
-	 * @param int $vendor_id - vendor's id
+	 * @param int    $vendor_id - vendor's id
 	 * @param string $css_class - optional css class
 	 */
-	function wcv_get_sold_by_link( $vendor_id, $css_class = '' ){
-		$class 		= isset( $css_class ) ? 'class="' . $css_class . '"' : '';
-		$sold_by 	= WCV_Vendors::is_vendor( $vendor_id )
+	function wcv_get_sold_by_link( $vendor_id, $css_class = '' ) {
+		$class   = isset( $css_class ) ? 'class="' . $css_class . '"' : '';
+		$sold_by = WCV_Vendors::is_vendor( $vendor_id )
 			? sprintf( '<a href="%s" %s>%s</a>', WCV_Vendors::get_vendor_shop_page( $vendor_id ), $class, WCV_Vendors::get_vendor_sold_by( $vendor_id ) )
 			: get_bloginfo( 'name' );
 
@@ -226,8 +236,8 @@ if ( ! function_exists( 'wcv_get_sold_by_link' )  ){
 }
 
 
-if ( ! function_exists( 'wcv_get_vendor_sold_by') ){
-	function wcv_get_vendor_sold_by( $vendor_id ){
+if ( ! function_exists( 'wcv_get_vendor_sold_by' ) ) {
+	function wcv_get_vendor_sold_by( $vendor_id ) {
 
 		$sold_by_label     = __( get_option( 'wcvendors_label_sold_by' ), 'wc-vendors' );
 		$sold_by_separator = __( get_option( 'wcvendors_label_sold_by_separator' ), 'wc-vendors' );
