@@ -6,10 +6,10 @@ Author URI: https://www.wcvendors.com/
 Plugin URI: https://www.wcvendors.com/
 Requires at least: 5.3.0
 Requires PHP: 7.4
-Tested up to: 6.0
+Tested up to: 6.1
 WC requires at least: 5.0.0
-WC tested up to: 6.5
-Stable tag: 2.4.2
+WC tested up to: 6.7
+Stable tag: 2.4.3
 License: GPLv2 or later
 
 The original multi-vendor marketplace plugin for WordPress and WooCommerce. Best support available. 
@@ -263,6 +263,17 @@ WC Vendors Marketplace does not work with multisite WordPress. There are no plan
 12. Email notifications for admins, customers and vendors
 
 == Changelog ==
+
+==Version 2.4.3 - 21 July 2022 == 
+
+* Added: Paypal Masspay Web CSV export (#860)
+* Added: Vendor ID and Product Count Columns on user screen (#858)
+* Updated: Vendors list page redesign (#846)
+* Updated: Dutch translations thanks Eric (#865)
+* Updated: Show the Vendor selectbox while using Gutenberg for products (#853)
+* Fixed: Order Notification for the vendor does not include the coupon discount (#849)
+* Fixed: Order status not getting updated with partial refund (#829)
+* Fixed: Shipping issue with WC Vendors Pro #1661 (#855)
 
 == Version 2.4.2 - 19th May 2022 ==
 
