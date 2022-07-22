@@ -759,7 +759,7 @@ class WCV_Shortcodes {
 		$html .= ob_get_clean();
 
 		if ( $total_vendors > $total_vendors_paged ) {
-			$html        .= '<div class="wcv_pagination">';
+			$html        .= '<div class="woocommerce-pagination">';
 			$current_page = max( 1, get_query_var( 'paged' ) );
 			$html        .= paginate_links(
 				array(
