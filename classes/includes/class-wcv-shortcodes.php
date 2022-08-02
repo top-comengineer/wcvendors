@@ -646,9 +646,11 @@ class WCV_Shortcodes {
 	}
 
 	/**
-	 *    list of vendors
+	 * List of vendors
 	 *
-	 * @param $atts shortcode attributs
+	 * @param array $atts shortcode attributs.
+	 * @version 2.5 Fix pagination conflit with display mode
+	 * @return string
 	 */
 	public function wcv_vendorslist( $atts ) {
 
@@ -761,9 +763,10 @@ class WCV_Shortcodes {
 		if ( $total_vendors > $total_vendors_paged ) {
 			$html        .= '<div class="woocommerce-pagination">';
 			$current_page = max( 1, get_query_var( 'paged' ) );
+			$big          = 999999999; // need an unlikely integer.
 			$html        .= paginate_links(
 				array(
-					'base'      => get_pagenum_link() . '%_%',
+					'base'      => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
 					'format'    => 'page/%#%/',
 					'current'   => $current_page,
 					'total'     => $total_pages,
