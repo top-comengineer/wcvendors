@@ -37,8 +37,8 @@ if ( ! class_exists( 'WCVendors_Admin_Notify_Product' ) ) :
 			);
 
 			// Triggers for this email
-			add_action( 'pending_product', array( $this, 'trigger' ), 10, 2 );
-			add_action( 'pending_product_variation', array( $this, 'trigger' ), 10, 2 );
+			add_action( 'draft_to_pending', array( $this, 'trigger' ), 10, 1 );
+			add_action( 'new_to_pending', array( $this, 'trigger' ), 10, 1 );
 
 			// Call parent constructor
 			parent::__construct();
@@ -75,14 +75,29 @@ if ( ! class_exists( 'WCVendors_Admin_Notify_Product' ) ) :
 		 * @param int      $order_id The order ID.
 		 * @param WC_Order $order    Order object.
 		 */
-		public function trigger( $post_id, $post ) {
+		public function trigger( $post ) {
 
 			$this->setup_locale();
+
+			$allow_postype = apply_filters( 'wcvendors_notify_allow_product_type', array( 'product', 'product_variation' ) );
+
+			if ( ! is_a( $post, 'WP_Post' ) ) {
+				return;
+			}
+
+			if ( $post->post_status !== 'pending' ) {
+				return;
+			}
+
+			if ( ! in_array( $post->post_type, $allow_postype ) ) {
+				return;
+			}
 
 			if ( ! WCV_Vendors::is_vendor( $post->post_author ) ) {
 				return;
 			}
 
+			$post_id           = $post->ID;
 			$this->post_id     = $post_id;
 			$this->vendor_id   = $post->post_author;
 			$this->product     = wc_get_product( $post_id );
