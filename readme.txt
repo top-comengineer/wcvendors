@@ -276,7 +276,7 @@ WC Vendors Marketplace does not work with multisite WordPress. There are no plan
 * Fixed: Shipping issue with WC Vendors Pro #1661 (#855)
 
 
-== Version 2.4.4 - 28 November 2022 ==
+== Version 2.4.4 - 24 November 2022 ==
 
 * Fixed: Admin notify product email firing twice
 * Fixed: New vendor list pagination doesn't work when using the display options grid or list. (#870)
