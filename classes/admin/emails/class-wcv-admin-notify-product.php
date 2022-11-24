@@ -72,14 +72,13 @@ if ( ! class_exists( 'WCVendors_Admin_Notify_Product' ) ) :
 		/**
 		 * Trigger the sending of this email.
 		 *
-		 * @param int      $order_id The order ID.
-		 * @param WC_Order $order    Order object.
+		 * @param WP_Post $post The post object.
 		 */
 		public function trigger( $post ) {
 
 			$this->setup_locale();
 
-			$allow_postype = apply_filters( 'wcvendors_notify_allow_product_type', array( 'product', 'product_variation' ) );
+			$allow_posttype = apply_filters( 'wcvendors_notify_allow_product_type', array( 'product', 'product_variation' ) );
 
 			if ( ! is_a( $post, 'WP_Post' ) ) {
 				return;
@@ -89,7 +88,7 @@ if ( ! class_exists( 'WCVendors_Admin_Notify_Product' ) ) :
 				return;
 			}
 
-			if ( ! in_array( $post->post_type, $allow_postype ) ) {
+			if ( ! in_array( $post->post_type, $allow_posttype ) ) {
 				return;
 			}
 
