@@ -85,7 +85,6 @@ class WCV_Commissions_PayPal_Masspay_CSV_Export extends WC_CSV_Exporter {
 				$wallet       = get_user_meta( $vendor_id, 'wcv_paypal_masspay_wallet', 'true' );
 				$recipient_id = ( 'paypal' === $wallet ) ? $paypal_email : $venmo_id; // Yoda Condition.
 
-				WC_Vendors::log( $wallet );
 
 				foreach ( $columns as $column_id => $column_name ) {
 
