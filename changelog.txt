@@ -1,11 +1,15 @@
 Changelog for WC Vendors Marketplace
 
-Version 2.4.4 - 24 November 2022
+Version 2.4.5 - 6th January 2023
+
+* Fixed: Escaped attributes to address security vulnerability report (#882)
+
+Version 2.4.4 - 24th November 2022
 
 * Fixed: Admin notify product email firing twice
 * Fixed: New vendor list pagination doesn't work when using the display options grid or list. (#870)
 
-Version 2.4.3 - 21 July 2022 
+Version 2.4.3 - 21st July 2022 
 
 * Added: Paypal Masspay Web CSV export (#860)
 * Added: Vendor ID and Product Count Columns on user screen (#858)
