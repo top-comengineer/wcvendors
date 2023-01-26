@@ -18,7 +18,7 @@ jQuery(function(){
         var wcv_inline_data = jQuery('#vendor_' + post_id),
             wc_inline_data = jQuery('#woocommerce_inline_' + post_id );
 
-        var vendor = wcv_inline_data.find("#_vendor").text();
+        var vendor = wcv_inline_data.find("#post_author").text();
 
         jQuery('select[name="post_author"] option[value="' + vendor + '"]', '.inline-edit-row').attr('selected', 'selected');
 
