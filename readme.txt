@@ -247,6 +247,10 @@ Also be sure to visit our documentation [http://docs.wcvendors.com/](http://docs
 
 WC Vendors Marketplace does not work with multisite WordPress. There are no plans to support this.
 
+= Where do I report security bugs found in this plugin? =
+
+You can report any security bugs found in the source code of the WC Vendors Marketplace plugin through the [Patchstack Vulnerability Disclosure Program](https://patchstack.com/database/vdp/wc-vendors). The Patchstack team will assist you with verification, CVE assignment, and notify the developers of this plugin.
+
 == Screenshots ==
 
 1. General Options - Configure your general marketplace settings here
